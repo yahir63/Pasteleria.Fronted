@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #99B0F0 0%, #2153DE 50%, #15358E 100%);
+    background: linear-gradient(135deg, #BBE6FC 0%, #63C6F8 50%, #27B0F5 100%);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@ body {
     display: flex;
     width: 850px;
     height: 520px;
-    background: #99B0F0;
+    background: #BBE6FC;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 40px;
@@ -98,7 +98,7 @@ h1 {
     padding: 15px;
     border-radius: 50px;
     border: none;
-    background: #030816;
+    background: #076A9C;
     color: white;
     font-size: 1.1rem;
     font-weight: 600;
@@ -108,7 +108,8 @@ h1 {
 }
 
 .signup-btn:hover {
-    background: #15358E;
+    background: #032F44;
+    color:#fff;
     transform: scale(1.02);
 }
 
