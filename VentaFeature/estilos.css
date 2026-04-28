@@ -113,9 +113,13 @@ body {
   color: #333;
 }
 
-.header p {
+.header {
   color: #777;
   margin-bottom: 20px;
+}
+
+h3 {
+  color: black;
 }
 
 .Table-container {
@@ -156,6 +160,15 @@ table tbody tr:hover {
 .status-pagado {
   background: #d4f8d4;
   color: #1b5e20;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-pendiente {
+  background: #d9ff00;
+  color: black;
   padding: 4px 8px;
   border-radius: 20px;
   font-size: 12px;
