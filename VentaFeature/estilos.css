@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #eff9ff;
+}
+
+.container {
+  display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background: #bbe6fc;
+  padding: 20px;
+  border-right: 1px solid #eee;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.03);
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  color: #032f44;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar li img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.sidebar li:hover {
+  background: #63c6f8;
+  color: #f8fbfc;
+}
+
+.sidebar .active {
+  background: #63c6f8;
+  color: #f8fbfc;
+}
+
+.sidebar li:nth-child(9) {
+  margin-top: 45px;
+}
+
+.sidebar li:nth-child(10):hover {
+  background: #e74c3c;
+  color: white;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* USUARIO */
+.top-user {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.user-card img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info h3 {
+  font-size: 16px;
+  color: #333;
+}
+
+.user-info p {
+  font-size: 13px;
+  color: #888;
+}
+
+/* HEADER */
+.header h1 {
+  color: #333;
+}
+
+.header {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: black;
+}
+
+.Table-container {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table th {
+  background-color: #f1f9fe;
+  color: #032f44;
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 2px solid #bbe6fc;
+}
+
+table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  color: #444;
+  font-size: 14px;
+}
+
+table tbody tr:hover {
+  background-color: #f9fdff;
+}
+
+/* Estilo para el estado (Pill) */
+.status-pagado {
+  background: #d4f8d4;
+  color: #1b5e20;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-pendiente {
+  background: #d9ff00;
+  color: black;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.btn-ver {
+  background-color: #032f44;
+  border-radius: 8px;
+  border: none;
+  align-items: center;
+  color: #eee;
+  padding: 5px 10px;
+}
+
+.btn-edit {
+  background-color: limegreen;
+  border-radius: 8px;
+  border: none;
+  align-items: center;
+  color: #eee;
+  padding: 5px 10px;
+}
