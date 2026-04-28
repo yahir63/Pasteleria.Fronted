@@ -118,22 +118,76 @@ body {
   margin-bottom: 20px;
 }
 
-h3 {
+h4 {
   color: black;
 }
 
 .Table-container {
   background: white;
-  padding: 15px;
+  padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   margin-top: 20px;
 }
 
+.table-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.bulk-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-select {
+  padding: 8px 12px;
+  border: 1px solid #e1f0f7;
+  border-radius: 8px;
+  background: #f1f9fe;
+  color: #032f44;
+  outline: none;
+  font-size: 13px;
+}
+
+.btn-apply {
+  padding: 8px 15px;
+  border: 1px solid #032f44;
+  background: white;
+  color: #032f44;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-apply:hover {
+  background: #032f44;
+  color: white;
+}
+
+.Add-Sale-Integrated {
+  background-color: #63c6f8;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Add-Sale-Integrated-Integrated:hover {
+  transform: scale(1.05);
+  filter: saturate(1.2);
+}
+
+/* Estilo de la Tabla */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
 }
 
 table th {
@@ -141,22 +195,81 @@ table th {
   color: #032f44;
   padding: 12px;
   text-align: left;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   border-bottom: 2px solid #bbe6fc;
 }
 
 table td {
-  padding: 12px;
+  padding: 15px 12px;
   border-bottom: 1px solid #eee;
   color: #444;
   font-size: 14px;
 }
 
-table tbody tr:hover {
-  background-color: #f9fdff;
+.client-info {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Estilo para el estado (Pill) */
+.client-info strong {
+  color: #333;
+}
+
+.client-info span {
+  font-size: 11px;
+  color: #888;
+}
+
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.page-btn {
+  padding: 8px 14px;
+  border: 1px solid #eee;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.3s;
+  color: #555;
+}
+
+.page-btn:hover:not(.active-page) {
+  background: #f1f9fe;
+  border-color: #bbe6fc;
+}
+
+.active-page {
+  background: #032f44 !important;
+  color: white !important;
+  border-color: #032f44;
+}
+
+.showing-text {
+  font-size: 13px;
+  color: #777;
+}
+
+.action-cells {
+  display: flex;
+  gap: 8px;
+}
+
 .status-pagado {
   background: #d4f8d4;
   color: #1b5e20;
@@ -182,6 +295,8 @@ table tbody tr:hover {
   align-items: center;
   color: #eee;
   padding: 5px 10px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
 }
 
 .btn-edit {
@@ -191,4 +306,86 @@ table tbody tr:hover {
   align-items: center;
   color: #eee;
   padding: 5px 10px;
+  transition: transform 0.2s ease;
+}
+
+.btn-edit:hover {
+  transform: scale(1.05);
+  filter: saturate(1.5);
+}
+
+.btn-edit:active {
+  transform: scale(0.95);
+}
+
+.searchbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 12px;
+  padding: 6px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  flex: 1;
+
+  border: 1px solid #e1f0f7;
+}
+.Actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 14px;
+  background: transparent;
+  color: #333;
+}
+
+.search-btn {
+  background-color: #bbe9fc;
+  color: #032f44;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+  transform: scale(1.05);
+  filter: saturate(1.5);
+}
+.search-btn:active {
+  transform: scale(0.95);
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.Add-Sale-Integrated:hover {
+  transform: scale(1.05);
+  filter: saturate(1.5);
+}
+.Add-Sale-Integrated:active {
+  transform: scale(0.95);
+}
+
+.btn-ver:hover {
+  transform: scale(1.05);
+  filter: saturate(1.5);
+}
+
+.btn-ver:active {
+  transform: scale(0.95);
 }
