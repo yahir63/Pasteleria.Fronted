@@ -37,10 +37,9 @@ El sistema se divide en módulos críticos para el funcionamiento de la empresa:
 ## 📂 Estructura del Proyecto
 
 ```bash
-├── Backend/              # Solución de .NET (API, Domain, Infrastructure)
-├── Frontend/             # Interfaz de usuario (Vanilla JS)
-│   ├── assets/           # Imágenes y recursos visuales
-│   ├── css/              # Estilos modulares (estilos.css)
+
+├── Frontend/             # Interfaz de usuario (Vanilla HTML CSS)
+│   ├── img/              # Imágenes y recursos visuales          
 │   ├── js/               # Lógica de consumo de API y manipulación de DOM
 │   └── views/            # Vistas del sistema (Ventas, Inventario, etc.)
 └── Docs/                 # Documentación técnica y diagramas de DB
