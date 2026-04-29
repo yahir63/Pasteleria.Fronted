@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #eff9ff;
+}
+
+.container {
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    background: #bbe6fc;
+    padding: 20px;
+    
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    color: #032f44;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar li img {
+    width: 20px;
+}
+
+.sidebar li:hover,
+.sidebar .active {
+    background: #63c6f8;
+    color: white;
+}
+
+.sidebar li:nth-child(8) {
+    margin-top: 45px;
+}
+
+.sidebar li:nth-child(12):hover {
+    background: #e74c3c;
+    color: white;
+}
+
+/* MAIN */
+.main {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* USUARIO */
+.top-user {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.user-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+.top-user h3 {
+  font-size: 16px;
+  color: #333;
+}
+
+.top-user p {
+  font-size: 13px;
+  color: #888;
+}
+
+/* HEADER */
+.header h1 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.header p {
+    color: #777;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* TOP BAR */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.top-bar input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.btn-new {
+    background: #0992C8;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* TABLA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: 0 12px;
+}
+
+thead {
+    background: #f0f4f8;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+tbody tr {
+    border-top: 1px solid #eee;
+}
+
+/* BOTONES */
+button img {
+    width: 12px;
+    height: 14px;
+}
+
+.edit {
+    background: #0992C8;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+.delete {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+td button {
+    margin-right: 15px;
+}
+
+/* opcional: quitar margen del último botón */
+td button:last-child {
+    margin-right: 0;
+}
+
+/* FOOTER */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+
+.pagination button {
+    margin: 2px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.pagination .active {
+    background: #055270;
+    color: white;
+}
