@@ -176,7 +176,8 @@ th {
 }
 
 tbody tr:hover {
-  background: #f9fbfd;
+  background-color: #f9fbfd;
+  transition: background-color 0.2 ease;
 }
 
 th,
