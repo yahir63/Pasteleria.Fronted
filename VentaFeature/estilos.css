@@ -340,7 +340,8 @@ button img {
   background: white;
   padding: 20px;
   border-radius: 16px;
-  width: 400px;
+  height: auto;
+  width: 500px;
   max-width: 90%;
 }
 

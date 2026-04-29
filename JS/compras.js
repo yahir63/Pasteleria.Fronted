@@ -1,4 +1,4 @@
-let modalActivo = false;
+let modalActivo = true;
 
 const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modal-body");
