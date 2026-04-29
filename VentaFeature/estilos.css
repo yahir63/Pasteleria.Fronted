@@ -183,6 +183,7 @@ th,
 td {
   padding: 12px;
   text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 tbody tr {
@@ -242,6 +243,15 @@ button img {
   display: flex;
   align-items: center;
   gap: 5px;
+  transition: all 0.3s ease;
+}
+
+.delete:hover {
+  transform: scale(1.05);
+}
+.delete:active {
+  transform: scale(0.95);
+  filter: saturate(1.5);
 }
 
 /* ESTADOS */
