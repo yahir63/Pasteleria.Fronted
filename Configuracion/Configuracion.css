@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #eff9ff;
+}
+
+body.configuracion {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    background: #bbe6fc;
+    padding: 20px;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    color: #032f44;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.sidebar li img {
+    width: 20px;
+}
+
+.sidebar li:hover,
+.sidebar .active {
+    background: #63c6f8;
+    color: white;
+    transform: scale(1.05) translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.sidebar li:nth-child(8) {
+    margin-top: 45px;
+}
+
+.sidebar li:nth-child(12):hover {
+    background: #e74c3c;
+    color: white;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+    min-height: 100vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background: #eff9ff;
+}
+
+/* USUARIO */
+.top-user {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.user-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 12px 18px;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.user-card img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+}
+
+.top-user h3 {
+    font-size: 16px;
+    color: #333;
+}
+
+.top-user p {
+    font-size: 13px;
+    color: #888;
+}
+
+/* GRID */
+.grid-secundario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+/* TITULOS */
+.card span:first-child {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* ICONOS */
+.icon-card {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    object-fit: contain;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* ITEMS */
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.item span {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.item input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+}
+
+/* BOTONES */
+.btn-save {
+    background: #07729C;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn-save:hover {
+    background: #2d8cff;
+}
+
+/* ========================= */
+/* MODO OSCURO - TU PALETA */
+/* ========================= */
+
+body.configuracion.dark-mode {
+    background: #032f44;
+}
+
+/* contenido principal */
+body.configuracion.dark-mode .main-content {
+    background: #01161f;
+}
+
+/* sidebar */
+body.configuracion.dark-mode .sidebar {
+    background: #022838;
+}
+
+/* tarjetas */
+body.configuracion.dark-mode .card {
+    background: #062e3f;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* tarjeta usuario */
+body.configuracion.dark-mode .user-card {
+    background: #021a24;
+}
+
+/* textos */
+body.configuracion.dark-mode .card span,
+body.configuracion.dark-mode .top-user h3,
+body.configuracion.dark-mode .top-user p,
+body.configuracion.dark-mode .item span,
+body.configuracion.dark-mode .sidebar h2 {
+    color: #ffffff;
+}
+
+/* inputs */
+body.configuracion.dark-mode .item input {
+    background: #06384d;
+    color: white;
+    border: 1px solid #63c6f8;
+}
+
+/* botones */
+body.configuracion.dark-mode .btn-save {
+    background: #63c6f8;
+    color: #032f44;
+    font-weight: 600;
+}
+
+body.configuracion.dark-mode .btn-save:hover {
+    background: #bbe6fc;
+}
+
+/* hover sidebar */
+body.configuracion.dark-mode .sidebar li:hover,
+body.configuracion.dark-mode .sidebar .active {
+    background: #0d445f;
+    color: #1a90c7;
+}
