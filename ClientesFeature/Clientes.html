@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="Clientes.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>Pastelería Soto</h2>
+        <ul>
+            <li><img src="img/crecimiento.png">Dashboard</li>
+            <li><img src="img/caja.png">Productos</li>
+            <li><img src="img/personalizacion.png">Personalización</li>
+            <li><img src="img/categoria.png">Categoría</li>
+            <li class="active"><img src="img/avatar.png">Clientes</li>
+            <li><img src="img/mollete.png">Opciones</li>
+            <li><img src="img/nueva-cuenta.png">Usuarios</li>
+            <li><img src="img/pastel.png">Pedidos</li>
+            <li><img src="img/bolsa-de-la-compra.png">Compras</li>
+            <li><img src="img/carro.png">Ventas</li>
+            <li><img src="img/engranaje.png">Configuración</li>
+            <li><img src="img/cerrar-sesion.png">Cerrar Sesión</li>
+        </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+     <section class="top-user">
+                <div class="user-card">
+                    <img src="https://img.freepik.com/fotos-premium/concepto-personas-mujeres-retratos-cara-mujer-joven-sonriente-feliz_380164-119771.jpg?semt=ais_hybrid&w=740&q=80" alt="Usuario">
+                    <div class="user-info">
+                        <h3>Admin Soto</h3>
+                        <p>Administrador</p>
+                    </div>
+                </div>
+            </section>
+
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Gestión de Clientes</h1>
+            <p>Consulta y administra la información de tus clientes.</p>
+        </div>
+
+        <!-- CONTENIDO -->
+        <div class="card">
+
+            <!-- BARRA SUPERIOR -->
+            <div class="top-bar">
+                <input type="text" placeholder="Buscar cliente...">
+
+                <div class="actions">
+                    <select>
+                        <option>Todos los clientes</option>
+                    </select>
+
+                    <button class="btn-new">
+                      <span class="icon">+</span>
+                              Nuevo Cliente
+                       </button>
+                </div>
+            </div>
+
+            <!-- TABLA -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Teléfono</th>
+                        <th>Cédula</th>
+                        <th>Dirección</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td >Juan</td>
+                        <td>Pérez</td>
+                        <td>8888-8888</td>
+                        <td>001-123456-0000A</td>
+                        <td>Jinotepe</td>
+                        <td>
+                            <button class="edit">
+                           <img src="img/editar.png">
+                                       Editar
+                            </button>
+                            <button class="delete">
+                                <img src="img/eliminar.png">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td >María</td>
+                        <td>López</td>
+                        <td>8899-9999</td>
+                        <td>002-234567-0001B</td>
+                        <td>Diriamba</td>
+                        <td>
+                            <button class="edit">
+                           <img src="img/editar.png">
+                                       Editar
+                            </button>
+                            <button class="delete">
+                                <img src="img/eliminar.png">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td >Carlos</td>
+                        <td>Martínez</td>
+                        <td>8877-7777</td>
+                        <td>003-345678-0002C</td>
+                        <td>Masaya</td>
+                        <td>
+                           <button class="edit">
+                           <img src="img/editar.png">
+                                       Editar
+                            </button>
+                            <button class="delete">
+                                <img src="img/eliminar.png">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- FOOTER -->
+            <div class="table-footer">
+                <span>Mostrando 1 a 3 de 25 clientes</span>
+
+                <div class="pagination">
+                    <button>&lt;</button>
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>&gt;</button>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
