@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Compras</title>
-    <link rel="stylesheet" href="estilos.css" />
+    <link rel="stylesheet" href="Ventas.css" />
   </head>
   <body>
     <div class="container">
@@ -24,11 +24,13 @@
           <li><img src="/Login/Dashboard/img/nueva-cuenta.png" />Usuarios</li>
           <li><img src="/Login/Dashboard/img/pastel.png" />Pedidos</li>
 
-          <li class="active">
+          <li class>
             <img src="/Login/Dashboard/img/bolsa-de-la-compra.png" />Compras
           </li>
 
-          <li><img src="/Login/Dashboard/img/carro.png" />Ventas</li>
+          <li class="active">
+            <img src="/Login/Dashboard/img/carro.png" />Ventas
+          </li>
           <li><img src="/Login/Dashboard/img/engranaje.png" />Configuración</li>
           <li>
             <img src="/Login/Dashboard/img/cerrar-sesion.png" />Cerrar Sesión
@@ -53,24 +55,24 @@
 
         <!-- HEADER -->
         <div class="header">
-          <h1>Gestión de Compras</h1>
-          <p>Consulta y administra las compras realizadas.</p>
+          <h1>Gestión de Ventas</h1>
+          <p>Consulta y administra las Ventas realizadas.</p>
         </div>
 
         <!-- CONTENIDO -->
         <div class="card">
           <!-- BARRA SUPERIOR -->
           <div class="top-bar">
-            <input type="text" placeholder="Buscar compra..." />
+            <input type="text" placeholder="Buscar venta..." />
 
             <div class="actions">
               <select>
-                <option>Todas las compras</option>
+                <option>Todas las Ventas</option>
                 <option>Pagadas</option>
                 <option>Pendientes</option>
               </select>
 
-              <button class="btn-new">+ Nueva Compra</button>
+              <button class="btn-new">+ Nueva Venta</button>
             </div>
           </div>
 
@@ -78,7 +80,7 @@
           <table>
             <thead>
               <tr>
-                <th>Proveedor</th>
+                <th>Cliente</th>
                 <th>Fecha</th>
                 <th>Total</th>
                 <th>Estado</th>
@@ -88,7 +90,7 @@
 
             <tbody>
               <tr>
-                <td>Distribuidora El Sol</td>
+                <td>Maria Lopez</td>
                 <td>27 Abr 2026</td>
                 <td>$120.00</td>
                 <td><span class="status-pagado">Pagado</span></td>
@@ -107,7 +109,7 @@
               </tr>
 
               <tr>
-                <td>Panadería Central</td>
+                <td>Jose Sanchez</td>
                 <td>26 Abr 2026</td>
                 <td>$85.50</td>
                 <td><span class="status-pendiente">Pendiente</span></td>
@@ -126,7 +128,7 @@
               </tr>
 
               <tr>
-                <td>Insumos La Favorita</td>
+                <td>Juan Gonzales</td>
                 <td>25 Abr 2026</td>
                 <td>$200.00</td>
                 <td><span class="status-pagado">Pagado</span></td>
@@ -144,7 +146,7 @@
                 </td>
               </tr>
               <tr>
-                <td>Panadería Central</td>
+                <td>Luis Vargas</td>
                 <td>26 Abr 2026</td>
                 <td>$85.50</td>
                 <td><span class="status-pendiente">Pendiente</span></td>
@@ -163,7 +165,7 @@
               </tr>
 
               <tr>
-                <td>Insumos La Favorita</td>
+                <td>Ines Aburto</td>
                 <td>25 Abr 2026</td>
                 <td>$200.00</td>
                 <td><span class="status-pagado">Pagado</span></td>
@@ -182,7 +184,7 @@
               </tr>
 
               <tr>
-                <td>Harinas del Norte</td>
+                <td>Carolina Rodriguez</td>
                 <td>24 Abr 2026</td>
                 <td>$310.75</td>
                 <td><span class="status-pendiente">Pendiente</span></td>
@@ -204,7 +206,7 @@
 
           <!-- FOOTER -->
           <div class="table-footer">
-            <span>Mostrando 1 a 6 de 20 compras</span>
+            <span>Mostrando 1 a 6 de 20 Ventas</span>
 
             <div class="pagination">
               <button>&lt;</button>
@@ -217,12 +219,5 @@
         </div>
       </main>
     </div>
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span id="close-modal">&times;</span>
-        <div id="modal-body"></div>
-      </div>
-    </div>
-    <script src="/JS/compras.js"></script>
   </body>
 </html>
