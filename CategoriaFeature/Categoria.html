@@ -56,16 +56,15 @@
 
 
                    <!-- BARRA SUPERIOR -->
-            <div class="top-bar">
-                
-                <div class="actions">
+         <div class="top-bar">
+             <div class="actions">
+               <a href="#modalAdd" class="btn-new">
+            <span class="icon">+</span>
+            Nueva categoria
+              </a>
+              </div>
+         </div>
 
-                    <button class="btn-new">
-                      <span class="icon">+</span>
-                              Nueva categoria
-                       </button>
-                </div>
-            </div>
         </div>
 
         <!-- CONTENEDOR DE CARDS -->
@@ -73,14 +72,15 @@
 
             <!-- CARD -->
             <div class="card">
-                <div class="actions">
-                    <button class="edit">
-                        <img src="img/editar.png">
-                    </button>
-                    <button class="delete">
-                        <img src="img/eliminar.png">
-                    </button>
-                </div>
+                 <div class="actions">
+                <a href="#modalEdit" class="edit">
+                    <img src="img/editar.png">
+                  </a>
+                   <a href="#modalDelete" class="delete">
+                   <img src="img/eliminar.png">
+                 </a>
+             </div>
+
 
                 <div class="card-icon">
                     <img src="img/postre.png">
@@ -95,13 +95,14 @@
             <!-- CARD -->
             <div class="card">
                 <div class="actions">
-                    <button class="edit">
-                        <img src="img/editar.png">
-                    </button>
-                    <button class="delete">
-                        <img src="img/eliminar.png">
-                    </button>
-                </div>
+                <a href="#modalEdit" class="edit">
+                    <img src="img/editar.png">
+                  </a>
+                   <a href="#modalDelete" class="delete">
+                   <img src="img/eliminar.png">
+                 </a>
+             </div>
+
 
                 <div class="card-icon">
                     <img src="img/pastel.png">
@@ -115,14 +116,15 @@
 
              <!-- CARD -->
             <div class="card">
-                <div class="actions">
-                    <button class="edit">
-                        <img src="img/editar.png">
-                    </button>
-                    <button class="delete">
-                        <img src="img/eliminar.png">
-                    </button>
-                </div>
+               <div class="actions">
+                <a href="#modalEdit" class="edit">
+                    <img src="img/editar.png">
+                  </a>
+                   <a href="#modalDelete" class="delete">
+                   <img src="img/eliminar.png">
+                 </a>
+             </div>
+
 
                 <div class="card-icon">
                     <img src="img/galleta.png   ">
@@ -136,14 +138,14 @@
 
              <!-- CARD -->
             <div class="card">
-                <div class="actions">
-                    <button class="edit">
-                        <img src="img/editar.png">
-                    </button>
-                    <button class="delete">
-                        <img src="img/eliminar.png">
-                    </button>
-                </div>
+                   <div class="actions">
+                <a href="#modalEdit" class="edit">
+                    <img src="img/editar.png">
+                  </a>
+                   <a href="#modalDelete" class="delete">
+                   <img src="img/eliminar.png">
+                 </a>
+             </div>
 
                 <div class="card-icon">
                     <img src="img/cupcake.png">
@@ -157,14 +159,14 @@
 
                 <!-- CARD -->
             <div class="card">
-                <div class="actions">
-                    <button class="edit">
-                        <img src="img/editar.png">
-                    </button>
-                    <button class="delete">
-                        <img src="img/eliminar.png">
-                    </button>
-                </div>
+              <div class="actions">
+                <a href="#modalEdit" class="edit">
+                  <img src="img/editar.png">
+                </a>
+                <a href="#modalDelete" class="delete">
+                 <img src="img/eliminar.png">
+                </a>
+               </div>
 
                 <div class="card-icon">
                     <img src="img/bebida.png">
@@ -178,14 +180,14 @@
 
                 <!-- CARD -->
             <div class="card">
-                <div class="actions">
-                    <button class="edit">
-                        <img src="img/editar.png">
-                    </button>
-                    <button class="delete">
-                        <img src="img/eliminar.png">
-                    </button>
-                </div>
+              <div class="actions">
+                <a href="#modalEdit" class="edit">
+                     <img src="img/editar.png">
+                      </a>
+                   <a href="#modalDelete" class="delete">
+                      <img src="img/eliminar.png">
+                   </a>
+</div>
 
                 <div class="card-icon">
                     <img src="img/bocadillo.png">
@@ -203,6 +205,49 @@
 
     </main>
 
+</div>
+
+<!-- MODAL AGREGAR -->
+<div id="modalAdd" class="modal">
+  <div class="modal-content">
+    <h2>Nueva Categoría</h2>
+
+    <input type="text" placeholder="Nombre de categoría">
+    <textarea placeholder="Descripción"></textarea>
+
+    <div class="modal-actions">
+      <a href="#" class="btn cancel">Cancelar</a>
+      <button class="btn save">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL EDITAR -->
+<div id="modalEdit" class="modal">
+  <div class="modal-content">
+    <h2>Editar Categoría</h2>
+
+    <input type="text" value="Pasteles">
+    <textarea>Pasteles de diferentes sabores y tamaños</textarea>
+
+    <div class="modal-actions">
+      <a href="#" class="btn cancel">Cancelar</a>
+      <button class="btn save">Actualizar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL ELIMINAR -->
+<div id="modalDelete" class="modal">
+  <div class="modal-content delete-box">
+    <h2>¿Eliminar categoría?</h2>
+    <p>Esta acción no se puede deshacer</p>
+
+    <div class="modal-actions">
+      <a href="#" class="btn cancel">Cancelar</a>
+      <button class="btn delete">Eliminar</button>
+    </div>
+  </div>
 </div>
 
 </body>
