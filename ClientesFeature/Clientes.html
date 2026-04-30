@@ -59,10 +59,10 @@
                         <option>Todos los clientes</option>
                     </select>
 
-                    <button class="btn-new">
+                    <a href="#modalAdd" class="btn-new">
                       <span class="icon">+</span>
                               Nuevo Cliente
-                       </button>
+                       </a>
                 </div>
             </div>
 
@@ -87,14 +87,12 @@
                         <td>001-123456-0000A</td>
                         <td>Jinotepe</td>
                         <td>
-                            <button class="edit">
-                           <img src="img/editar.png">
-                                       Editar
-                            </button>
-                            <button class="delete">
-                                <img src="img/eliminar.png">
-                                Eliminar
-                            </button>
+                            <a href="#modalEdit" class="edit">
+                           <img src="img/editar.png"> Editar
+                            </a>
+                            <a href="#modalDelete" class="delete">
+                                <img src="img/eliminar.png"> Eliminar
+                            </a>
                         </td>
                     </tr>
 
@@ -105,14 +103,12 @@
                         <td>002-234567-0001B</td>
                         <td>Diriamba</td>
                         <td>
-                            <button class="edit">
-                           <img src="img/editar.png">
-                                       Editar
-                            </button>
-                            <button class="delete">
-                                <img src="img/eliminar.png">
-                                Eliminar
-                            </button>
+                            <a href="#modalEdit" class="edit">
+                           <img src="img/editar.png"> Editar
+                            </a>
+                            <a href="#modalDelete" class="delete">
+                                <img src="img/eliminar.png"> Eliminar
+                            </a>
                         </td>
                     </tr>
 
@@ -123,14 +119,12 @@
                         <td>003-345678-0002C</td>
                         <td>Masaya</td>
                         <td>
-                           <button class="edit">
-                           <img src="img/editar.png">
-                                       Editar
-                            </button>
-                            <button class="delete">
-                                <img src="img/eliminar.png">
-                                Eliminar
-                            </button>
+                           <a href="#modalEdit" class="edit">
+                           <img src="img/editar.png"> Editar
+                            </a>
+                            <a href="#modalDelete" class="delete">
+                                <img src="img/eliminar.png"> Eliminar
+                            </a>
                         </td>
                     </tr>
                 </tbody>
@@ -153,6 +147,55 @@
 
     </main>
 
+</div>
+
+<!-- MODAL AGREGAR CLIENTE -->
+<div id="modalAdd" class="modal">
+  <div class="modal-content">
+    <h2>Nuevo Cliente</h2>
+
+    <input type="text" placeholder="Nombre">
+    <input type="text" placeholder="Apellido">
+    <input type="text" placeholder="Teléfono">
+    <input type="text" placeholder="Cédula">
+    <input type="text" placeholder="Dirección">
+
+    <div class="modal-actions">
+      <a href="#" class="btn cancel">Cancelar</a>
+      <button class="btn save">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL EDITAR CLIENTE -->
+<div id="modalEdit" class="modal">
+  <div class="modal-content">
+    <h2>Editar Cliente</h2>
+
+    <input type="text" value="Juan">
+    <input type="text" value="Pérez">
+    <input type="text" value="8888-8888">
+    <input type="text" value="001-123456-0000A">
+    <input type="text" value="Jinotepe">
+
+    <div class="modal-actions">
+      <a href="#" class="btn cancel">Cancelar</a>
+      <button class="btn save">Actualizar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL ELIMINAR CLIENTE -->
+<div id="modalDelete" class="modal">
+  <div class="modal-content delete-box">
+    <h2>¿Eliminar cliente?</h2>
+    <p>Esta acción no se puede deshacer</p>
+
+    <div class="modal-actions">
+      <a href="#" class="btn cancel">Cancelar</a>
+      <button class="btn delete">Eliminar</button>
+    </div>
+  </div>
 </div>
 
 </body>
