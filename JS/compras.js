@@ -1,17 +1,21 @@
-let modalActivo = true;
-
 const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modal-body");
 const closeModal = document.getElementById("close-modal");
+const modalContent = document.getElementById("modal-content");
 
-closeModal.addEventListener("click", () => {
+function cerrarModal() {
   modal.classList.remove("show");
-});
+}
+
+function abrirModal(html) {
+  modalBody.innerHTML = html;
+  modal.classList.add("show");
+}
+
+closeModal.addEventListener("click", cerrarModal);
 
 window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.classList.remove("show");
-  }
+  if (e.target === modal) cerrarModal();
 });
 
 const DetallesCompra = {
@@ -29,18 +33,18 @@ const DetallesCompra = {
   ],
 };
 
-document.querySelectorAll(".view").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    if (!modalActivo) {
-      return;
-    }
-    const fila = btn.closest("tr");
-    const proveedor = fila.children[0].innerText;
+document.addEventListener("click", (e) => {
+  const btnView = e.target.closest(".view");
+  const btnDelete = e.target.closest(".delete");
+  const btnNewPurchase = e.target.closest(".btn-new");
+
+  if (btnView) {
+    const fila = btnView.closest("tr");
+    const proveedor = fila.children[0].innerText.trim();
     const detalles = DetallesCompra[proveedor];
 
     if (!detalles) {
-      modalBody.innerHTML = "<p>No hay detalles disponibles</p>";
-      modal.classList.add("show");
+      abrirModal("<p>No hay detalles disponibles</p>");
       return;
     }
 
@@ -73,8 +77,179 @@ document.querySelectorAll(".view").forEach((btn) => {
 
     html += `</tbody></table>`;
 
-    modalBody.innerHTML = html;
+    abrirModal(html);
+  }
 
-    modal.classList.add("show");
-  });
+  if (btnDelete && btnDelete.id !== "confirm-delete") {
+    modalContent.classList.remove("modal-large");
+    modalContent.classList.add("modal-small");
+    const fila = btnDelete.closest("tr");
+
+    abrirModal(`
+      <h3>Eliminar compra</h3>
+      <p>¿Estás seguro de eliminar esta compra?</p>
+
+      <div style="margin-top:15px; display:flex; gap:10px; justify-content:flex-end;">
+        <button id="confirm-delete" class="delete">Eliminar</button>
+        <button id="cancel-delete" class = "view">Cancelar</button>
+      </div>
+    `);
+
+    document.getElementById("confirm-delete").onclick = () => {
+      console.log("eliminado");
+
+      let html_ = `
+  <div style="text-align:center; padding:10px;">
+    
+    <div style="
+      width:60px;
+      height:60px;
+      margin:0 auto 10px;
+      background:#d4f8d4;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:30px;
+      color:#1b5e20;
+    ">
+      ✓
+    </div>
+
+    <h3 style="margin-bottom:8px;">Compra eliminada</h3>
+    <p style="color:#666; font-size:14px;">
+      La compra se eliminó correctamente.
+    </p>
+
+    <button id="close" style="
+      margin-top:15px;
+      padding:8px 16px;
+      border:none;
+      border-radius:8px;
+      background:#32a8e7;
+      color:white;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.2s;
+    ">
+      Aceptar
+    </button>
+
+  </div>
+`;
+      modalBody.innerHTML = html_;
+
+      document.getElementById("close").onclick = () => {
+        cerrarModal();
+      };
+    };
+
+    document.getElementById("cancel-delete").onclick = cerrarModal;
+  }
+
+  if (btnNewPurchase) {
+    modalContent.classList.remove("modal-small");
+    modalContent.classList.add("modal-large");
+    let html = `<div class="modal-header">
+  <h2>Nueva Compra</h2>
+  
+</div>
+
+<div class="modal-body">
+
+  <!-- GRID FORM -->
+  <div class="form-grid">
+
+    <div class="form-group">
+      <label>Fecha</label>
+      <input type="date">
+    </div>
+
+    <div class="form-group">
+      <label>Proveedor</label>
+      <select>
+        <option>Distribuidora El Sol</option>
+        <option>Panadería Central</option>
+        <option>Insumos La Favorita</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Producto</label>
+      <select>
+        <option>Vainilla</option>
+        <option>Chocolate</option>
+        <option>Frutos Rojos</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Cantidad</label>
+      <input type="number" placeholder="0">
+    </div>
+
+    <div class="form-group">
+      <label>Precio Unitario</label>
+      <input type="number" placeholder="$0.00">
+    </div>
+
+    <div class="form-group add-btn">
+      <button class="btn-add">+ Agregar</button>
+    </div>
+
+  </div>
+
+  <!-- TABLA -->
+  <div class="details-box">
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cant.</th>
+          <th>P. Unitario</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="details-body"></tbody>
+    </table>
+  </div>
+
+  
+
+</div>
+
+<div class="total-box">
+    <span>Total:</span>
+    <input type="text" value="$0.00" readonly>
+  </div>
+
+<div class="modal-footer">
+  <button id="btn-cancel" class="btn-cancel">Cancelar</button>
+  <button class="btn-save">Guardar Compra</button>
+</div>`;
+
+    abrirModal(html);
+
+    const cancelBtn = document.getElementById("btn-cancel");
+    cancelBtn.addEventListener("click", () => {
+      modalContent.classList.remove("modal-large");
+      modalContent.classList.add("modal-small");
+      let html_ = `  <div style="text-align:center; padding:10px;">
+                      <h2> Estas Seguro de cancelar?</h2>
+                      <div style="margin-top:15px; display:flex; gap:10px; justify-content:center;">
+                        <button id="confirm-delete" class="delete">Cancelar Compra</button>
+                        <button id="cancel-delete" class = "view">Seguir</button>
+                      </div>
+                    </div>`;
+      abrirModal(html_);
+      document.getElementById("confirm-delete").onclick = () => {
+        cerrarModal();
+      };
+      document.getElementById("cancel-delete").onclick = () => {
+        cerrarModal();
+        abrirModal(html);
+      };
+    });
+  }
 });

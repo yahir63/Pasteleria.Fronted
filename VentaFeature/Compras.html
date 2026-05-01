@@ -6,12 +6,19 @@
     <link rel="stylesheet" href="estilos.css" />
   </head>
   <body>
+    <!-- BODY NORMAL-->
     <div class="container">
       <!-- SIDEBAR -->
       <aside class="sidebar">
         <h2>Pastelería Soto</h2>
         <ul>
-          <li><img src="/Login/Dashboard/img/crecimiento.png" />Dashboard</li>
+          <li>
+            <img src="/Login/Dashboard/img/crecimiento.png" /><a
+              href="/Login/Dashboard/dashboar.html"
+              style="text-decoration: none"
+              >Dashboard</a
+            >
+          </li>
           <li><img src="/Login/Dashboard/img/caja.png" />Productos</li>
           <li>
             <img
@@ -218,7 +225,7 @@
       </main>
     </div>
     <div id="modal" class="modal">
-      <div class="modal-content">
+      <div id="modal-content" class="modal-content">
         <span id="close-modal">&times;</span>
         <div id="modal-body"></div>
       </div>
