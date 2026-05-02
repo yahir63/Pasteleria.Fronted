@@ -462,12 +462,14 @@ button img {
 .details-box td {
   padding: 10px;
   border-top: 1px solid #eee;
+  text-align: left;
+  padding: 12px;
 }
 
 /* TOTAL */
 .total-box {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   gap: 10px;
   font-weight: bold;
@@ -504,4 +506,23 @@ button img {
   padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.delete-detail-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #32a8e7;
+  color: black;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-detail-btn:hover {
+  background: #0aadff;
+  transform: scale(1.05);
+}
+.delete-detail-btn:active {
+  transform: scale(0.95);
 }
