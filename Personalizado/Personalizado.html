@@ -5,234 +5,340 @@
     <title>Personalizados</title>
     <link rel="stylesheet" href="Personalizado.css">
 </head>
+
 <body>
 
-<div class="container">
+    <!-- MODAL -->
+ 
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-        <h2>Pastelería Soto</h2>
+    <div class="modal" id="productModal">
 
-        <ul>
-            <li class="active">
-                <img src="img/crecimiento.png" alt="Dashboard">
-                Dashboard
-            </li>
+        <div class="modal-content large-modal">
 
-            <li>
-                <img src="img/caja.png" alt="Productos">
-                Productos
-            </li>
-
-            <li>
-                <img src="img/personalizacion.png" alt="Personalización">
-                Personalizacion
-            </li>
-
-            <li>
-                <img src="img/categoria.png" alt="Categoría">
-                Categoria
-            </li>
-
-            <li>
-                <img src="img/avatar.png" alt="Clientes">
-                Clientes
-            </li>
-
-            <li>
-                <img src="img/mollete.png" alt="Opciones">
-                Opciones
-            </li>
-
-            <li>
-                <img src="img/nueva-cuenta.png" alt="Usuarios">
-                Usuarios
-            </li>
-
-            <li>
-                <img src="img/pastel.png" alt="Pedidos">
-                Pedidos
-            </li>
-
-            <li>
-                <img src="img/bolsa-de-la-compra.png" alt="Compras">
-                Compras
-            </li>
-
-            <li>
-                <img src="img/carro.png" alt="Ventas">
-                Ventas
-            </li>
-
-            <li>
-                <img src="img/engranaje.png" alt="Configuración">
-                Configuración
-            </li>
-
-            <li>
-                <img src="img/cerrar-sesion.png" alt="Cerrar Sesión">
-                Cerrar Sesión
-            </li>
-        </ul>
-    </aside>
-
-    <!-- MAIN -->
-    <main class="main">
-
-        <!-- USUARIO -->
-        <div class="top-user">
-            <div class="user-card">
-                <img src="https://img.freepik.com/fotos-premium/concepto-personas-mujeres-retratos-cara-mujer-joven-sonriente-feliz_380164-119771.jpg?semt=ais_hybrid&w=740&q=80" alt="Usuario">
-                <div>
-                    <h3>Admin Soto</h3>
-                    <p>Administrador</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- HEADER -->
-        <header class="header">
-            <h1>Gestión de Productos Personalizados</h1>
-            <p>Aquí puedes administrar los productos personalizados de tu pastelería.</p>
-        </header>
-
-        <!-- CARD -->
-        <div class="card">
-
-            <!-- TOP BAR -->
-            <div class="top-bar">
-                <input type="text" placeholder="Buscar producto...">
-
-                <div class="actions">
-                    <select>
-                        <option>Todos los productos</option>
-                    </select>
-
-                    <button class="btn-new">+ Nuevo Personalizado</button>
-                </div>
+            <!-- HEADER -->
+            <div class="modal-header">
+                <h2>Nuevo Producto Personalizado</h2>
+                <span class="close" id="closeModal">&times;</span>
             </div>
 
-            <!-- TABLA -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Categoria</th>
-                        <th>Cantidad</th>
-                        <th>Volumen</th>
-                         <th>Opciones</th>
-                          <th>Descripcion</th>
-                          <th>Precio</th>
-                         <th>Acciones</th>
-                    </tr>
-                </thead>
+            <!-- FORM -->
+            <form class="modal-form">
 
-                <tbody>
-                    <tr>
-                        <td>Pastel de SuperMan</td>
-                        <td>Pastel</td>
-                        <td>01</td>
-                        <td>2</td>
-                        <td>Relleno de Chocolate</th>
-                          <td>Sin Fondant</th>
-                          <td>C$1600</th>
-                        <td>
-                            <button class="edit">
-                                <img src="img/lapiz.png">
-                                Editar
-                            </button>
+                <!-- FILA 1 -->
+                <div class="form-row">
 
-                            <button class="delete">
-                                <img src="img/bote-de-basura.png">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Brownies</td>
-                        <td>Postres</td>
-                        <td>20</td>
-                        <td>0</td>
-                        <td>Chispitas</th>
-                          <td>Color Rojo</th>
-                          <td>C$45</th>
-                        <td>
-                            <button class="edit">
-                                <img src="img/lapiz.png">
-                                Editar
-                            </button>
+                    <div class="form-group">
+                        <label>Nombre del Producto</label>
+                        <input type="text" placeholder="Ej: Pastel de cumpleaños">
+                    </div>
 
-                            <button class="delete">
-                                <img src="img/bote-de-basura.png">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Cacao Skimo</td>
-                        <td>Bebidas</td>
-                        <td>50</td>
-                        <td>-</td>
-                        <td>-</th>
-                          <td>-</th>
-                          <td>C$30</th>
-                      
-                        <td>
-                            <button class="edit">
-                                <img src="img/lapiz.png">
-                                Editar
-                            </button>
+                    <div class="form-group">
+                        <label>Categoría</label>
+                        <select>
+                            <option>Seleccionar categoría</option>
+                            <option>Pastel</option>
+                            <option>Postres</option>
+                            <option>Bebidas</option>
+                            <option>Bocadillos</option>
+                        </select>
+                    </div>
 
-                            <button class="delete">
-                                <img src="img/bote-de-basura.png">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Selva Negra</td>
-                        <td>Pastel</td>
-                        <td>03</td>
-                        <td>2.5</td>
-                        <td>Relleno de Fresa</th>
-                          <td>Color Azul</th>
-                          <td>C$700</th>
-                       
-                        <td>
-                            <button class="edit">
-                                <img src="img/lapiz.png">
-                                Editar
-                            </button>
-
-                            <button class="delete">
-                                <img src="img/bote-de-basura.png">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                
-                </tbody>
-            </table>
-
-            <!-- FOOTER -->
-            <div class="table-footer">
-                <span>Mostrando 1 a 3 de 25 clientes</span>
-
-                <div class="pagination">
-                    <button>&lt;</button>
-                    <button class="active">1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>&gt;</button>
                 </div>
+
+            <!-- FILA 2 -->
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Cantidad</label>
+                    <input type="number" placeholder="Ej: 2">
+                </div>
+
+                <div class="form-group">
+                    <label>Volumen</label>
+                    <input type="text" placeholder="Ej: 2 libras">
+                </div>
+
             </div>
 
-        </div>
+            <!-- FILA 3 -->
+            <div class="form-row">
 
-    </main>
+                  <div class="form-group">
+                        <label>Opciones</label>
+                        <select>
+                            <option>Agregar opciones</option>
+                            <option>Relleno de piña</option>
+                            <option>Chispitas de colores</option>
+                            <option>Relleno Dulce de leche</option>
+                            <option>Figuras comestibles</option>
+                        </select>
+                    </div>
+
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <input type="text" placeholder="Ej: Sin fondant">
+                </div>
+
+            </div>
+
+            <!-- FILA 4 -->
+            <div class="form-row">
+
+                <div class="form-group full-width">
+                    <label>Precio</label>
+                    <input type="text" placeholder="Ej: C$1500">
+                </div>
+
+            </div>
+
+            <!-- BOTONES -->
+            <div class="modal-buttons">
+
+                <button type="button" class="btn-cancel" id="cancelModal">
+                    Cancelar
+                </button>
+
+                <button type="submit" class="btn-save">
+                    Guardar Producto
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
 
 </div>
+
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <h2>Pastelería Soto</h2>
+
+            <ul>
+                <li class="active">
+                    <img src="img/crecimiento.png" alt="Dashboard">
+                    Dashboard
+                </li>
+
+                <li>
+                    <img src="img/caja.png" alt="Productos">
+                    Productos
+                </li>
+
+                <li>
+                    <img src="img/personalizacion.png" alt="Personalización">
+                    Personalización
+                </li>
+
+                <li>
+                    <img src="img/categoria.png" alt="Categoría">
+                    Categoría
+                </li>
+
+                <li>
+                    <img src="img/avatar.png" alt="Clientes">
+                    Clientes
+                </li>
+
+                <li>
+                    <img src="img/mollete.png" alt="Opciones">
+                    Opciones
+                </li>
+
+                <li>
+                    <img src="img/nueva-cuenta.png" alt="Usuarios">
+                    Usuarios
+                </li>
+
+                <li>
+                    <img src="img/pastel.png" alt="Pedidos">
+                    Pedidos
+                </li>
+
+                <li>
+                    <img src="img/bolsa-de-la-compra.png" alt="Compras">
+                    Compras
+                </li>
+
+                <li>
+                    <img src="img/carro.png" alt="Ventas">
+                    Ventas
+                </li>
+
+                <li>
+                    <img src="img/engranaje.png" alt="Configuración">
+                    Configuración
+                </li>
+
+                <li>
+                    <img src="img/cerrar-sesion.png" alt="Cerrar Sesión">
+                    Cerrar Sesión
+                </li>
+            </ul>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main">
+
+            <!-- USUARIO -->
+            <div class="top-user">
+                <div class="user-card">
+                    <img src="https://img.freepik.com/fotos-premium/concepto-personas-mujeres-retratos-cara-mujer-joven-sonriente-feliz_380164-119771.jpg?semt=ais_hybrid&w=740&q=80" alt="Usuario">
+                    <div>
+                        <h3>Admin Soto</h3>
+                        <p>Administrador</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HEADER -->
+            <header class="header">
+                <h1>Gestión de Productos Personalizados</h1>
+                <p>Aquí puedes administrar los productos personalizados de tu pastelería.</p>
+            </header>
+
+            <!-- CARD -->
+            <div class="card">
+
+                <!-- TOP BAR -->
+                <div class="top-bar">
+                    <input type="text" placeholder="Buscar producto...">
+
+                    <div class="actions">
+                        <select>
+                            <option>Todos los productos</option>
+                        </select>
+
+                        <button class="btn-new" id="openModal">
+                            + Nuevo Producto Personalizado
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TABLA -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Cantidad</th>
+                            <th>Volumen</th>
+                            <th>Opciones</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Pastel de SuperMan</td>
+                            <td>Pastel</td>
+                            <td>01</td>
+                            <td>2</td>
+                            <td>Relleno de Chocolate</td>
+                            <td>Sin Fondant</td>
+                            <td>C$1600</td>
+                            <td>
+                                <button class="edit">
+                                    <img src="img/lapiz.png" alt="">
+                                    Editar
+                                </button>
+
+                                <button class="delete">
+                                    <img src="img/bote-de-basura.png" alt="">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Brownies</td>
+                            <td>Postres</td>
+                            <td>20</td>
+                            <td>0</td>
+                            <td>Chispitas</td>
+                            <td>Color Rojo</td>
+                            <td>C$45</td>
+                            <td>
+                                <button class="edit">
+                                    <img src="img/lapiz.png" alt="">
+                                    Editar
+                                </button>
+
+                                <button class="delete">
+                                    <img src="img/bote-de-basura.png" alt="">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Cacao Skimo</td>
+                            <td>Bebidas</td>
+                            <td>50</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>C$30</td>
+                            <td>
+                                <button class="edit">
+                                    <img src="img/lapiz.png" alt="">
+                                    Editar
+                                </button>
+
+                                <button class="delete">
+                                    <img src="img/bote-de-basura.png" alt="">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Selva Negra</td>
+                            <td>Pastel</td>
+                            <td>03</td>
+                            <td>2.5</td>
+                            <td>Relleno de Fresa</td>
+                            <td>Color Azul</td>
+                            <td>C$700</td>
+                            <td>
+                                <button class="edit">
+                                    <img src="img/lapiz.png" alt="">
+                                    Editar
+                                </button>
+
+                                <button class="delete">
+                                    <img src="img/bote-de-basura.png" alt="">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- FOOTER -->
+                <div class="table-footer">
+                    <span>Mostrando 1 a 4 de 25 productos</span>
+
+                    <div class="pagination">
+                        <button>&lt;</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>&gt;</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="Personalizado.js"></script>
 
 </body>
 </html>
