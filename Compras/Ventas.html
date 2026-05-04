@@ -6,12 +6,19 @@
     <link rel="stylesheet" href="Ventas.css" />
   </head>
   <body>
+    <!-- BODY NORMAL-->
     <div class="container">
       <!-- SIDEBAR -->
       <aside class="sidebar">
         <h2>Pastelería Soto</h2>
         <ul>
-          <li><img src="/Login/Dashboard/img/crecimiento.png" />Dashboard</li>
+          <li>
+            <img src="/Login/Dashboard/img/crecimiento.png" /><a
+              href="/Login/Dashboard/dashboar.html"
+              style="text-decoration: none"
+              >Dashboard</a
+            >
+          </li>
           <li><img src="/Login/Dashboard/img/caja.png" />Productos</li>
           <li>
             <img
@@ -24,13 +31,11 @@
           <li><img src="/Login/Dashboard/img/nueva-cuenta.png" />Usuarios</li>
           <li><img src="/Login/Dashboard/img/pastel.png" />Pedidos</li>
 
-          <li class>
+          <li class="active">
             <img src="/Login/Dashboard/img/bolsa-de-la-compra.png" />Compras
           </li>
 
-          <li class="active">
-            <img src="/Login/Dashboard/img/carro.png" />Ventas
-          </li>
+          <li><img src="/Login/Dashboard/img/carro.png" />Ventas</li>
           <li><img src="/Login/Dashboard/img/engranaje.png" />Configuración</li>
           <li>
             <img src="/Login/Dashboard/img/cerrar-sesion.png" />Cerrar Sesión
@@ -56,7 +61,7 @@
         <!-- HEADER -->
         <div class="header">
           <h1>Gestión de Ventas</h1>
-          <p>Consulta y administra las Ventas realizadas.</p>
+          <p>Consulta y administra las ventas realizadas.</p>
         </div>
 
         <!-- CONTENIDO -->
@@ -109,7 +114,7 @@
               </tr>
 
               <tr>
-                <td>Jose Sanchez</td>
+                <td>Lucero Lopez</td>
                 <td>26 Abr 2026</td>
                 <td>$85.50</td>
                 <td><span class="status-pendiente">Pendiente</span></td>
@@ -128,7 +133,7 @@
               </tr>
 
               <tr>
-                <td>Juan Gonzales</td>
+                <td>Joel Arias</td>
                 <td>25 Abr 2026</td>
                 <td>$200.00</td>
                 <td><span class="status-pagado">Pagado</span></td>
@@ -146,7 +151,7 @@
                 </td>
               </tr>
               <tr>
-                <td>Luis Vargas</td>
+                <td>Jairo Hernandez</td>
                 <td>26 Abr 2026</td>
                 <td>$85.50</td>
                 <td><span class="status-pendiente">Pendiente</span></td>
@@ -165,7 +170,7 @@
               </tr>
 
               <tr>
-                <td>Ines Aburto</td>
+                <td>Maria Chavez</td>
                 <td>25 Abr 2026</td>
                 <td>$200.00</td>
                 <td><span class="status-pagado">Pagado</span></td>
@@ -184,7 +189,7 @@
               </tr>
 
               <tr>
-                <td>Carolina Rodriguez</td>
+                <td>Carol Rodriguez</td>
                 <td>24 Abr 2026</td>
                 <td>$310.75</td>
                 <td><span class="status-pendiente">Pendiente</span></td>
@@ -206,7 +211,7 @@
 
           <!-- FOOTER -->
           <div class="table-footer">
-            <span>Mostrando 1 a 6 de 20 Ventas</span>
+            <span>Mostrando 1 a 6 de 20 ventas</span>
 
             <div class="pagination">
               <button>&lt;</button>
@@ -219,9 +224,8 @@
         </div>
       </main>
     </div>
-
     <div id="modal" class="modal">
-      <div class="modal-content">
+      <div id="modal-content" class="modal-content">
         <span id="close-modal">&times;</span>
         <div id="modal-body"></div>
       </div>

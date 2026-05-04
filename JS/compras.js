@@ -85,6 +85,52 @@ document.addEventListener("click", (e) => {
     abrirModal(html);
   }
 
+  // ================= GUARDAR COMPRA =================
+  if (e.target.id === "btn-savePurchase") {
+    modalContent.classList.remove("modal-large");
+    modalContent.classList.add("modal-small");
+
+    abrirModal(`
+    <div style="text-align:center; padding:10px;">
+      <div style="
+        width:60px;
+        height:60px;
+        margin:0 auto 10px;
+        background:#d4f8d4;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:30px;
+        color:#1b5e20;
+      ">✓</div>
+
+      <h3 style="margin-bottom:8px;">Compra guardada</h3>
+      <p style="color:#666; font-size:14px;">
+        La compra se guardó correctamente.
+      </p>
+
+      <button id="close" style="
+        margin-top:15px;
+        padding:8px 16px;
+        border:none;
+        border-radius:8px;
+        background:#32a8e7;
+        color:white;
+        cursor:pointer;
+        font-weight:600;
+      ">
+        Aceptar
+      </button>
+    </div>
+  `);
+  }
+
+  // ================= CERRAR DESDE SUCCESS =================
+  if (e.target.id === "close") {
+    cerrarModal();
+  }
+
   // ================= ELIMINAR =================
   if (btnDelete && !btnDelete.matches("#confirm-delete")) {
     modalContent.classList.remove("modal-large");
@@ -209,7 +255,7 @@ document.addEventListener("click", (e) => {
     <input type="text" value="$0.00" readonly>
   </div>
   <button id="btn-cancel" class="btn-cancel">Cancelar</button>
-  <button id="btn-save" class="btn-save">Guardar Compra</button>
+  <button id="btn-savePurchase" class="btn-save">Guardar Compra</button>
 </div>`;
     htmlNuevaCompra = html;
     abrirModal(htmlNuevaCompra);
@@ -231,19 +277,19 @@ document.addEventListener("click", (e) => {
         <h2> Estas Seguro de cancelar?</h2>
         <div style="margin-top:15px; display:flex; gap:10px; justify-content:center;">
           <button id="confirm-delete" class="delete">Cancelar Compra</button>
-          <button id="cancel-delete" class = "view">Seguir</button>
+          <button id="btn-continue" class = "view">Seguir</button>
         </div>
       </div>`);
+    // ================= SEGUIR COMPRA =================
+    document.getElementById("btn-continue").onclick = (ev) => {
+      ev.stopPropagation();
+      modalContent.classList.remove("modal-small");
+      modalContent.classList.add("modal-large");
+      abrirModal(htmlNuevaCompra);
+    };
   }
 
   if (e.target.id === "confirm-delete") {
     cerrarModal();
   }
-
-  const btnKeep = document.getElementById("cancel-delete");
-  btnKeep.onclick = () => {
-    modalContent.classList.remove("modal-small");
-    modalContent.classList.add("modal-large");
-    abrirModal(htmlNuevaCompra);
-  };
 });
