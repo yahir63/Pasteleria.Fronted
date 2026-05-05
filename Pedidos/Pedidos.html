@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pasteleria Soto</title>
+    <link rel="stylesheet" href="Pedidos.css">
+</head>
+<body>
+
+    <input type="checkbox" id="Pedido-modal" class="modalPedido-toggle">
+    <div class="modalPedido-overlay">
+        <div class="modalPedido-content">
+
+            <div class="modalPedido-header">
+                <h2>Nuevo Pedido</h2>
+                <label for="Pedido-modal" class="close">×</label>
+            </div>
+
+            <div class="modalPedido-body">
+                <div class="form-group">
+                 <p>Cliente</p>
+                 <input type="text" placeholder>
+                </div>
+
+                <div class="form-group">
+                 <p>Fecha de pedido</p>
+                 <input type="datetime-local" placeholder>
+                </div>
+
+                <div class="form-group">
+                 <p>Fecha de entrega</p>
+                 <input type="datetime-local" placeholder>
+                </div>
+
+                <div class="form-group">
+                 <p>Total</p>
+                 <input type="text" value="$0.00" readonly>
+                </div>
+
+                <div class="form-group">
+                 <p>Adelanto</p>
+                 <input type="text" placeholder>
+                </div>
+
+                <div class="form-group">
+                 <p>Estado</p>
+                   <select>
+                     <option>Activo</option>
+                     <option>Inactivo</option>
+                   </select>
+                </div>
+
+            </div>
+
+             
+            <div class="modal-footer">
+                <label for="user-modal" class="btn-cancel">Cancelar</label>
+                <button class="btn-save">Guardar</button>
+            </div>
+
+        </div>
+    </div>
+    
+    <input type="checkbox" id="Detalle-modal" class="modalDetalle-toggle">
+    <div class="modalDetalle-overlay">
+        <div class="modalDetalle-content">
+           <label for="Detalle-modal" class="btn-Cerrar"><img src="/Login/Dashboard/img/devolver.png"> Cerrar</label>
+
+            <div class="modalDetalle-header">
+                <h2>DETALLE DE PEDIDO</h2>
+            </div>
+            
+            <div class="modalDetalle-body">
+                
+                   <Table>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Fecha</th>
+                                <th> Estado</th>
+                                <th> Total </th> 
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td >Rosa Aguirre</td>
+                            <td>29/04/26 04:30 p.m.</td>
+                            <td><button class="Pendiente">Pendiente</button></td>
+                            <td>C$ 4600</td>
+                            
+                            </tr>
+                        </tbody>
+                   </Table>
+
+                   <div class="DetalleInferior">
+                     <div class="tabla-Productos">
+                        <p>PRODUCTOS</p>
+                         <Table>
+                            <thead>
+                                <tr>
+                                    <th>Producto </th>
+                                    <th>Descripcion</th>
+                                    <th> Cantidad </th>
+                                    <th> Precio Unitario </th> 
+                                    <th> Subtotal </th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="producto">
+                                        <img src="/Login/Dashboard/img/Pastel de chocolate.jpg">
+                                        Pastel de Chocolate</td>
+                                    <td>Pastel de chocolate con relleno de crema</td>
+                                    <td >1</td>
+                                    <td>C$ 900</td>
+                                    <td>C$ 900</td>
+                                
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td class="producto" >
+                                        <img src="/Login/Dashboard/img/Cupcakes.jpg">
+                                        Cupcakes de vainilla</td>
+                                    <td>Caja de 6 unidades decoradas</td>
+                                    <td >2</td>
+                                    <td>C$ 500</td>
+                                    <td>C$ 1000</td>
+                                
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td  class="producto">
+                                        <img src="/Login/Dashboard/img/Galletas decoradas.jpg">
+                                        Galletas Decoradas</td>
+                                    <td>Paquetes de 10</td>
+                                    <td >3</td>
+                                    <td>C$ 300</td>
+                                    <td>C$ 900</td>
+                                
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td  class="producto">
+                                        <img src="/Login/Dashboard/img/Pastel de bodas.webp">
+                                        Pastel de bodas</td>
+                                    <td>Pastel de bodas relleno de leche condensada</td>
+                                    <td >1</td>
+                                    <td>C$ 1800</td>
+                                    <td>C$ 1800</td>
+                                
+                                </tr>
+                            </tbody>
+                         </Table>
+                     </div>
+                     
+                     <div class="tabla-info">
+                        <p>INFORMACION ADICIONAL</p>
+                         <Table class="tabla-info">
+                                <tbody>
+                                    <tr>
+                                        <td>📱 TELEFONO: 86245867</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td>💵 ADELANTO: C$ 500</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td>📅 FECHA ENTREGA: 01/05/06  2:00 PM</td>
+                                    </tr>
+                                </tbody>
+                               
+                         </Table>
+                     </div>
+
+                    </div>
+
+                 
+            </div>
+
+             
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <h2>Pastelería Soto</h2>
+            <ul>
+                <li><img src="/Login/Dashboard/img/crecimiento.png">Dashboard</li>
+                <li><img src="/Login/Dashboard/img/caja.png">Productos</li>
+                <li><img src="/Login/Dashboard/img/personalizacion.png">Personalización</li>
+                <li><img src="/Login/Dashboard/img/categoria.png">Categoría</li>
+                <li><img src="/Login/Dashboard/img/avatar.png">Clientes</li>
+                <li><img src="/Login/Dashboard/img/mollete.png">Opciones</li>
+                <li><img src="/Login/Dashboard/img/nueva-cuenta.png">Usuarios</li>
+                <li class="active"><img src="/Login/Dashboard/img/pastel.png">Pedidos</li>
+                <li><img src="/Login/Dashboard/img/bolsa-de-la-compra.png">Compras</li>
+                <li><img src="/Login/Dashboard/img/carro.png">Ventas</li>
+                <li><img src="/Login/Dashboard/img/engranaje.png">Configuración</li>
+                <li><img src="/Login/Dashboard/img/cerrar-sesion.png">Cerrar Sesión</li>
+            </ul>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main">
+
+           <section class="top-user">
+                    <div class="user-card">
+                        <img src="https://img.freepik.com/fotos-premium/concepto-personas-mujeres-retratos-cara-mujer-joven-sonriente-feliz_380164-119771.jpg?semt=ais_hybrid&w=740&q=80" alt="Usuario">
+                        <div class="user-info">
+                            <h3>Admin Soto</h3>
+                            <p>Administrador</p>
+                        </div>
+                    </div>
+            </section>
+
+            <!-- HEADER -->
+            <div class="header">
+                <h1>Gestión de Pedidos</h1>
+                <p>Consulta y Administra los pedidos realizados</p>
+            </div>
+
+            <!-- CONTENIDO -->
+            <div class="card">
+
+                <!-- BARRA SUPERIOR -->
+                <div class="top-bar">
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar Pedido...">
+                        <img src="/Login/Dashboard/img/lupa.png" class="search-icon">
+                    </div>
+                    
+                    <div class="actions">
+                        <select>
+                            <option>Todos los Estados</option>
+                        </select>
+
+                        <select>
+                            <option>Todos los Pedidos</option>
+                        </select>
+                        <label for="Pedido-modal" class="btn-new">+ Nuevo Pedido</label>
+
+
+                    </div>
+                </div>
+
+                <!-- TABLA -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Fecha</th>
+                            <th> Total</th>
+                            <th> Estado </th>
+                            <th> Acciones </th> 
+ 
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                         <tr>
+                            <td >Rosa Aguirre</td>
+                            <td>29/04/26 04:30 p.m.</td>
+                            <td>C$ 4600</td>
+                            <td> 
+                            <button class="Pendiente">Pendiente</button>
+                            </td>
+                            <td>
+                                <div class="actions">
+                                    <label for="Detalle-modal" class="btn-Detalle">
+                                        👁️‍🗨️Ver Detalle
+                                   </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >Belen Garcia</td>
+                            <td>28/04/26 02:30 p.m.</td>
+                            <td>C$ 1200</td>
+                            <td> 
+                            <button class="Proceso">En Proceso</button>
+                            </td>
+                            <td>
+                                <div class="actions">
+                                   <label for="Detalle-modal" class="btn-Detalle">
+                                        👁️‍🗨️Ver Detalle
+                                   </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >Juan Lopez</td>
+                            <td>25/04/26 10:30 a.m.</td>
+                            <td>C$ 900</td>
+                            <td> 
+                            <button class="Entregado">Entregado</button>
+                            </td>
+                            <td>
+                                <div class="actions">
+                                    <label for="Detalle-modal" class="btn-Detalle">
+                                        👁️‍🗨️Ver Detalle
+                                   </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td >Maria Garcia</td>
+                            <td>27/04/26 11:30 a.m.</td>
+                            <td>C$ 1000</td>
+                            <td> 
+                            <button class="Entregado">Entregado</button>
+                            </td>
+                            <td>
+                                <div class="actions">
+                                    <label for="Detalle-modal" class="btn-Detalle">
+                                        👁️‍🗨️Ver Detalle
+                                   </label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td >Carlos Garay</td>
+                            <td>23/04/26 08:30 a.m.</td>
+                            <td>C$ 800</td>
+                            <td> 
+                            <button class="Entregado">Entregado</button>
+                            </td>
+                            <td>
+                                <div class="actions">
+                                   <label for="Detalle-modal" class="btn-Detalle">
+                                        👁️‍🗨️Ver Detalle
+                                   </label>
+                                       
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+                <!-- FOOTER -->
+                <div class="table-footer">
+                    <span>Mostrando Pedidos 1/9</span>
+
+                    <div class="pagination">
+                        <button>&lt;</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>...</button>
+                        <button>&gt;</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+ 
+</body>
+</html>
