@@ -353,3 +353,21 @@ button img {
   margin-top: 10px;
 }
 
+
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+  .sidebar {
+    width: 180px;
+    padding: 15px;
+  }
+}
+
+/* CELULAR */
+@media (max-width: 768px) {
+
+  .container {
+    flex-direction: column;
+  }
+}
