@@ -2,8 +2,7 @@ name: autoPullRequest
 
 on: 
   push:
-    branches: 
-      - '**'           
+            
     branches-ignore:
       - 'main'          
 
