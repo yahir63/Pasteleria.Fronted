@@ -226,3 +226,368 @@ td button:last-child {
     background: #055270;
     color: white;
 }
+/* ===================================== */
+/* MODAL PRODUCTO PERSONALIZADO */
+/* ===================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    justify-content: center;
+    align-items: center;
+}
+
+.large-modal {
+    width: 850px;
+    max-width: 95%;
+}
+
+.modal-content {
+    background: #e7f4ff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    font-size: 30px;
+    color: #1d1d1d;
+}
+
+.close {
+    font-size: 30px;
+    cursor: pointer;
+    color: #777;
+}
+
+.close:hover {
+    color: #e74c3c;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-group input,
+.form-group select {
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 14px;
+    outline: none;
+    background: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #0992C8;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-cancel {
+    background: #ce0707;
+     color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-cancel:hover{
+ background: #9c0808;
+}
+.btn-save {
+    background: #0992C8;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-save:hover {
+    background: #07668b;
+    
+}
+.btn-delete-confirm {
+    background: #0992C8;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-delete-confirm:hover {
+    background: #07668b;
+}
+
+/* ===================================== */
+/* RESPONSIVE TABLET */
+/* ===================================== */
+
+@media (max-width: 1024px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+        padding: 15px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .top-bar input {
+        width: 100%;
+    }
+
+    .actions {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .actions select,
+    .btn-new {
+        flex: 1;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 12px;
+    }
+
+    .edit,
+    .delete {
+        width: 100%;
+        margin-bottom: 5px;
+        justify-content: center;
+    }
+
+    .modal-content,
+    .large-modal {
+        width: 90%;
+    }
+
+    .form-row {
+        gap: 15px;
+    }
+
+}
+
+/* ===================================== */
+/* RESPONSIVE CELULAR */
+/* ===================================== */
+
+@media (max-width: 480px) {
+
+    body {
+        overflow-x: auto;
+    }
+
+    .container {
+        min-width: 900px;
+    }
+
+    .sidebar {
+        width: 180px;
+        padding: 15px;
+    }
+
+    .sidebar h2 {
+        font-size: 18px;
+    }
+
+    .sidebar li {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .sidebar li img {
+        width: 16px;
+    }
+
+    .main {
+        margin-left: 180px;
+        width: calc(100% - 180px);
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .header p {
+        font-size: 13px;
+    }
+
+    .top-user {
+        justify-content: flex-end;
+    }
+
+    .user-card {
+        padding: 8px 12px;
+    }
+
+    .user-card img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .top-bar input {
+        width: 100%;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .actions select,
+    .btn-new {
+        width: 100%;
+    }
+
+    table {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 10px 8px;
+        white-space: nowrap;
+    }
+
+    td:last-child {
+        min-width: 150px;
+    }
+
+    .edit,
+    .delete {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 6px;
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .edit img,
+    .delete img {
+        width: 13px;
+        height: 13px;
+    }
+
+    .modal-content,
+    .large-modal {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .modal-header h2 {
+        font-size: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-save,
+    .btn-cancel,
+    .btn-delete-confirm {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .table-footer {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .pagination {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}

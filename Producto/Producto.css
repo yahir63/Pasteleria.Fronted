@@ -227,3 +227,510 @@ td button:last-child {
     background: #055270;
     color: white;
 }
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: white;
+    width: 500px;
+    max-width: 90%;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close {
+    font-size: 30px;
+    cursor: pointer;
+    color: #888;
+}
+
+.close:hover {
+    color: #e74c3c;
+}
+
+/* ===================================== */
+/* MODAL NUEVO PRODUCTO */
+/* ===================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #dff0ff;
+    width: 500px;
+    max-width: 90%;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    color: #333;
+    font-size: 22px;
+}
+
+.close {
+    font-size: 30px;
+    cursor: pointer;
+    color: #888;
+}
+
+.close:hover {
+    color: #e74c3c;
+}
+
+.modal-form {
+   
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #0992C8;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-cancel {
+    background: #ce0707;
+     color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-cancel:hover{
+ background: #9c0808;
+}
+.btn-save {
+    background: #0992C8;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-save:hover {
+    background: #07668b;
+    
+}
+.btn-delete-confirm {
+    background: #0992C8;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-delete-confirm:hover {
+    background: #07668b;
+}
+/* ===================================== */
+/* RESPONSIVE PRODUCTOS */
+/* ===================================== */
+
+@media (max-width: 1024px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .main {
+        margin-left: 190px;
+        width: calc(100% - 190px);
+    }
+
+    .top-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .top-bar input {
+        width: 100%;
+    }
+
+    .actions {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .actions select,
+    .btn-new {
+        width: 100%;
+    }
+
+    table {
+        min-width: 700px;
+    }
+
+    .card {
+        overflow-x: auto;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .top-user {
+        justify-content: center;
+    }
+
+    .header {
+        text-align: center;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .actions select,
+    .btn-new {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+    .btn-cancel,
+    .btn-save,
+    .btn-delete-confirm {
+        width: 100%;
+    }
+
+    .table-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .sidebar h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .sidebar li {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .user-card {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .edit,
+    .delete {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+}
+/* ===================================== */
+/* TABLET */
+/* ===================================== */
+
+@media screen and (max-width: 1024px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .main {
+        margin-left: 190px;
+        width: calc(100% - 190px);
+        padding: 18px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .top-bar input {
+        width: 100%;
+    }
+
+    .actions {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+
+    .actions select {
+        flex: 1;
+    }
+
+    .btn-new {
+        flex: 1;
+    }
+
+    .card {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 700px;
+    }
+
+    .modal-content,
+    .large-modal {
+        width: 90%;
+    }
+
+}
+
+
+/* ===================================== */
+/* CELULAR */
+/* ===================================== */
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main {
+        width: 100%;
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .top-user {
+        justify-content: center;
+    }
+
+    .user-card {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header {
+        text-align: center;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .actions select,
+    .btn-new {
+        width: 100%;
+    }
+
+    .card {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 700px;
+    }
+
+    th,
+    td {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .edit,
+    .delete {
+        width: 100%;
+        margin-bottom: 6px;
+    }
+
+    .table-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .pagination {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .modal-content,
+    .large-modal {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+    .btn-save,
+    .btn-cancel,
+    .btn-delete-confirm {
+        width: 100%;
+    }
+
+}
+
+
+/* ===================================== */
+/* PANTALLAS GRANDES */
+/* ===================================== */
+
+@media screen and (min-width: 1400px) {
+
+    .main {
+        padding: 30px;
+    }
+
+    .card {
+        padding: 30px;
+    }
+
+    th,
+    td {
+        font-size: 16px;
+    }
+
+    .top-bar input {
+        width: 400px;
+    }
+
+}
