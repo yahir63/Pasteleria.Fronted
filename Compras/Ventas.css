@@ -527,155 +527,140 @@ button img {
   transform: scale(0.95);
 }
 
-@media (max-width: 480px) {
-  /* --- LAYOUT BASE --- */
-  .container {
-    flex-direction: column;
-  }
+.sidebar-toggle {
+  display: none;
+}
 
-  /* --- SIDEBAR COLAPSABLE --- */
-  /*
-    Por defecto en mobile el sidebar está "cerrado":
-    - position:fixed para que flote sobre el contenido
-    - height:auto y overflow:hidden para colapsar la ul
-    - Solo se ve el botón hamburguesa
-  */
+/* Overlay que aparece detrás del sidebar al abrirse */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.sidebar-overlay.active {
+  display: block;
+}
+
+/* ===================== */
+/* TABLET  769–1024px    */
+/* ===================== */
+@media (max-width: 1024px) and (min-width: 769px) {
   .sidebar {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+    width: 180px;
+    padding: 15px;
+  }
+
+  .main {
+    margin-left: 180px;
+    width: calc(100% - 180px);
+  }
+}
+
+/* ===================== */
+/* MOBILE  hasta 768px   */
+/* ===================== */
+@media (max-width: 768px) {
+  /* El sidebar se va fuera de pantalla a la izquierda */
+  .sidebar {
+    transform: translateX(-220px);
+    transition: transform 0.3s ease;
+    width: 220px;
+    padding: 20px;
     z-index: 1000;
-    height: auto;
-    padding: 10px;
-    overflow: hidden;
   }
 
-  /* La lista está oculta cuando el sidebar está cerrado */
-  .sidebar ul {
-    display: none; /* oculta sin animar por defecto */
-    flex-direction: column;
+  /* Al abrirse desliza hacia adentro */
+  .sidebar.sidebar-open {
+    transform: translateX(0);
   }
 
-  /* El h2 también se oculta cuando está cerrado */
-  .sidebar h2 {
-    display: none;
-  }
-
-  /*
-    Cuando se agrega .sidebar-open (via JS):
-    - Muestra la lista y el título
-    - El sidebar crece hacia abajo con transición suave
-  */
-  .sidebar.sidebar-open ul {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sidebar.sidebar-open h2 {
-    display: block;
-  }
-
-  /* Los li vuelven a ser normales (una columna) */
-  .sidebar li {
-    flex: unset;
+  /* El main ocupa todo el ancho */
+  .main {
+    margin-left: 0;
     width: 100%;
-    margin: 3px 0;
     padding: 10px;
-    min-width: unset;
+    padding-top: 55px; /* espacio para el botón hamburguesa */
   }
 
-  /* --- BOTÓN HAMBURGUESA --- */
-  /*
-    Visible solo en mobile, flota a la derecha del sidebar
-    Las 3 líneas son los <span> vacíos del HTML
-  */
+  /* Botón hamburguesa visible y fijo */
   .sidebar-toggle {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    background: none;
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 1100;
+    background: #bbe6fc;
     border: none;
+    padding: 10px 12px;
+    border-radius: 8px;
     cursor: pointer;
-    padding: 8px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 1001;
   }
 
   .sidebar-toggle span {
     display: block;
-    width: 24px;
+    width: 22px;
     height: 2px;
-    background: #032f44; /* mismo color del h2 del sidebar */
+    background: white;
     border-radius: 2px;
     transition: 0.3s;
   }
 
-  /*
-    Animación de hamburguesa → X cuando está abierto:
-    - span 1 rota +45°
-    - span 2 desaparece
-    - span 3 rota -45°
-  */
-  .sidebar.sidebar-open .sidebar-toggle span:nth-child(1) {
+  /* Animación hamburguesa → X cuando está abierto */
+  .sidebar.sidebar-open ~ .main .sidebar-toggle span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
   }
-  .sidebar.sidebar-open .sidebar-toggle span:nth-child(2) {
+
+  .sidebar.sidebar-open ~ .main .sidebar-toggle span:nth-child(2) {
     opacity: 0;
   }
-  .sidebar.sidebar-open .sidebar-toggle span:nth-child(3) {
+
+  .sidebar.sidebar-open ~ .main .sidebar-toggle span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* --- MAIN --- */
-  /*
-    margin-top compensa la altura del sidebar fijo (solo el botón = ~44px)
-    Cuando el sidebar está abierto el main queda tapado (intencional,
-    como un drawer que cubre el contenido)
-  */
-  .main {
-    margin-left: 0;
-    margin-top: 44px;
-    padding: 10px;
-    width: 100%;
-  }
-
-  /* --- USER CARD --- */
+  /* USER CARD */
   .top-user {
-    justify-content: center;
-  }
-
-  .user-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 10px;
-  }
-
-  .user-card img {
-    margin-right: 0;
+    top: 5px;
+    right: 12px;
     margin-bottom: 10px;
   }
 
-  /* --- HEADER --- */
+  .user-card {
+    padding: 6px 10px;
+  }
+
+  .user-card img {
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+  }
+
+  /* HEADER */
   .header h1 {
-    font-size: 24px;
+    font-size: 20px;
+    margin-top: 8px;
   }
 
   .header p {
-    font-size: 14px;
+    font-size: 13px;
+    margin-bottom: 12px;
   }
 
-  /* --- CARD Y TABLA --- */
+  /* CARD Y TABLA */
   .card {
     padding: 10px;
-    overflow-x: auto; /* el scroll se contiene aquí */
+    overflow-x: auto;
   }
 
   .top-bar {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+    margin-bottom: 10px;
   }
 
   .top-bar input {
@@ -683,8 +668,8 @@ button img {
   }
 
   .actions {
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .actions select {
@@ -693,43 +678,51 @@ button img {
 
   .btn-new {
     width: 100%;
+    justify-content: center;
   }
 
   table {
     display: block;
     white-space: nowrap;
-    /* overflow-x va en .card, no aquí */
+    overflow-x: auto;
   }
 
   th,
   td {
     padding: 8px;
-    font-size: 12px;
+    font-size: 11px;
   }
 
+  /* Botones Ver / Eliminar en fila, tamaño compacto */
   .action-cells {
-    flex-direction: column;
-    gap: 5px;
+    flex-direction: row;
+    gap: 4px;
+    justify-content: center;
   }
 
   .view,
   .delete {
-    padding: 5px 10px;
-    font-size: 12px;
+    padding: 5px 8px;
+    font-size: 11px;
+    white-space: nowrap;
+    width: auto;
   }
 
-  /* --- FOOTER Y PAGINACIÓN --- */
+  /* FOOTER */
   .table-footer {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     text-align: center;
+    margin-top: 10px;
   }
 
   .pagination {
+    display: flex;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
-  /* --- MODAL --- */
+  /* MODAL */
   .modal {
     margin-left: 0;
     left: 0;
@@ -740,6 +733,13 @@ button img {
     width: 95%;
     padding: 15px;
     max-height: 80vh;
+  }
+
+  .modal-small {
+    width: 90%;
+  }
+  .modal-large {
+    width: 95%;
   }
 
   .modal-header {
@@ -789,7 +789,7 @@ button img {
   }
 
   .details-box table {
-    overflow-x: auto;
     display: block;
+    overflow-x: auto;
   }
 }
