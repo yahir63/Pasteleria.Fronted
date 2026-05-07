@@ -2,6 +2,18 @@ const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modal-body");
 const closeModal = document.getElementById("close-modal");
 const modalContent = document.querySelector(".modal-content");
+const overlay = document.querySelector(".sidebar-overlay");
+const sidebar = document.querySelector(".sidebar");
+const toggleBtn = document.querySelector(".sidebar-toggle");
+
+// =====================
+// SIDEBAR
+// =====================
+toggleBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("sidebar-open");
+});
+
+// =
 
 function cerrarModal() {
   modal.classList.remove("show");
