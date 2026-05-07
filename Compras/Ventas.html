@@ -2,6 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ventas</title>
     <link rel="stylesheet" href="Ventas.css" />
   </head>
@@ -10,6 +11,12 @@
     <div class="container">
       <!-- SIDEBAR -->
       <aside class="sidebar">
+        <button
+          class="sidebar-toggle"
+          onclick="this.closest('.sidebar').classList.toggle('sidebar-open')"
+        >
+          <span></span><span></span><span></span>
+        </button>
         <h2>Pastelería Soto</h2>
         <ul>
           <li>
@@ -19,26 +26,66 @@
               >Dashboard</a
             >
           </li>
-          <li><img src="/Login/Dashboard/img/caja.png" />Productos</li>
           <li>
-            <img
-              src="/Login/Dashboard/img/personalizacion.png"
-            />Personalización
+            <img src="/Login/Dashboard/img/caja.png" /><a
+              href="/Producto/Producto.html"
+              style="text-decoration: none"
+              >Productos</a
+            >
           </li>
-          <li><img src="/Login/Dashboard/img/categoria.png" />Categoría</li>
-          <li><img src="/Login/Dashboard/img/avatar.png" />Clientes</li>
+          <li>
+            <img src="/Login/Dashboard/img/personalizacion.png" /><a
+              href="/Personalizado/Personalizado.html"
+              style="text-decoration: none"
+              >Personalización</a
+            >
+          </li>
+          <li>
+            <img src="/Login/Dashboard/img/categoria.png" /><a
+              href="/CategoriaFeature/Categoria.html"
+              style="text-decoration: none"
+              >Categoría</a
+            >
+          </li>
+          <li>
+            <img src="/Login/Dashboard/img/avatar.png" /><a
+              href="/ClientesFeature/Clientes.html"
+              style="text-decoration: none"
+              >Clientes</a
+            >
+          </li>
           <li><img src="/Login/Dashboard/img/mollete.png" />Opciones</li>
           <li><img src="/Login/Dashboard/img/nueva-cuenta.png" />Usuarios</li>
           <li><img src="/Login/Dashboard/img/pastel.png" />Pedidos</li>
 
-          <li class="active">
-            <img src="/Login/Dashboard/img/bolsa-de-la-compra.png" />Compras
+          <li>
+            <img src="/Login/Dashboard/img/bolsa-de-la-compra.png" /><a
+              href="/VentaFeature/Compras.html"
+              style="text-decoration: none"
+              >Compras</a
+            >
           </li>
 
-          <li><img src="/Login/Dashboard/img/carro.png" />Ventas</li>
-          <li><img src="/Login/Dashboard/img/engranaje.png" />Configuración</li>
+          <li class="active">
+            <img src="/Login/Dashboard/img/carro.png" /><a
+              href="/Compras/Ventas.html"
+              style="text-decoration: none"
+              >Ventas</a
+            >
+          </li>
           <li>
-            <img src="/Login/Dashboard/img/cerrar-sesion.png" />Cerrar Sesión
+            <img src="/Login/Dashboard/img/engranaje.png" /><a
+              href="/Configuracion/Configuracion.html"
+              style="text-decoration: none"
+              >Configuración</a
+            >
+          </li>
+          <li>
+            <img src="/Login/Dashboard/img/cerrar-sesion.png" /><a
+              href="/Login/login.html"
+              style="text-decoration: none"
+              >Cerrar Sesión</a
+            >
           </li>
         </ul>
       </aside>

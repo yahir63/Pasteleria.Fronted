@@ -25,8 +25,9 @@ body {
   background: #bbe6fc;
   padding: 20px;
 }
+
 .sidebar::-webkit-scrollbar {
-  display: none; /* Chrome, Edge, Safari */
+  display: none;
 }
 
 .sidebar h2 {
@@ -95,6 +96,7 @@ body {
   color: #777;
   margin-bottom: 20px;
 }
+
 .card {
   background: white;
   padding: 20px;
@@ -108,6 +110,7 @@ body {
   justify-content: space-between;
   margin-bottom: 15px;
 }
+
 .top-bar input,
 .actions select {
   padding: 10px 14px;
@@ -116,6 +119,7 @@ body {
   background: #f9fbfd;
   outline: none;
 }
+
 .top-bar input {
   width: 300px;
   padding: 10px;
@@ -158,7 +162,7 @@ body {
 /* TABLA */
 table {
   width: 100%;
-  border-collapse: separate; /* CLAVE */
+  border-collapse: separate;
   border-spacing: 0;
   border-radius: 12px;
   overflow: hidden;
@@ -218,7 +222,6 @@ td:last-child {
   transform: scale(0.95);
 }
 
-/* ACCIONES (IMPORTANTE) */
 .action-cells {
   display: flex;
   justify-content: center;
@@ -226,13 +229,11 @@ td:last-child {
   gap: 8px;
 }
 
-/* ICONOS EN BOTONES */
 button img {
   width: 12px;
   height: 14px;
 }
 
-/* BOTÓN ELIMINAR */
 .delete {
   background: #dc3545;
   color: white;
@@ -249,6 +250,7 @@ button img {
 .delete:hover {
   transform: scale(1.05);
 }
+
 .delete:active {
   transform: scale(0.95);
   filter: saturate(1.5);
@@ -307,6 +309,7 @@ button img {
   border-color: #0bb2f4;
 }
 
+/* MODAL */
 .modal {
   margin-left: 100px;
   position: fixed;
@@ -314,17 +317,13 @@ button img {
   left: 0;
   width: 100%;
   height: 100%;
-
   background: rgba(0, 0, 0, 0.3);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   opacity: 0;
   visibility: hidden;
   transform: scale(0.95);
-
   transition:
     opacity 0.25s ease,
     transform 0.25s ease,
@@ -342,8 +341,6 @@ button img {
   padding: 20px;
   border-radius: 16px;
   height: auto;
-
-  max-width: 90%;
   width: 700px;
   max-width: 95%;
   max-height: 90vh;
@@ -353,16 +350,17 @@ button img {
 .modal-small {
   width: 400px;
 }
+
 .modal-large {
   width: 800px;
 }
+
 #close-modal {
   float: right;
   cursor: pointer;
   font-size: 20px;
 }
 
-/* HEADER */
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -380,12 +378,10 @@ button img {
   font-size: 20px;
 }
 
-/* BODY */
 .modal-body {
   padding: 20px;
 }
 
-/* GRID */
 .form-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -412,7 +408,6 @@ button img {
   background: #f9fbfd;
 }
 
-/* BOTÓN AGREGAR */
 .add-btn {
   display: flex;
   align-items: flex-end;
@@ -439,7 +434,6 @@ button img {
   filter: saturate(1.5);
 }
 
-/* TABLA */
 .details-box {
   border: 1px solid #eee;
   border-radius: 10px;
@@ -460,13 +454,11 @@ button img {
 }
 
 .details-box td {
-  padding: 10px;
+  padding: 12px;
   border-top: 1px solid #eee;
   text-align: left;
-  padding: 12px;
 }
 
-/* TOTAL */
 .total-box {
   display: flex;
   justify-content: flex-start;
@@ -523,6 +515,278 @@ button img {
   background: #0aadff;
   transform: scale(1.05);
 }
+
 .delete-detail-btn:active {
   transform: scale(0.95);
+}
+
+/* ===================== */
+/* BOTÓN HAMBURGUESA     */
+/* oculto en desktop     */
+/* ===================== */
+.sidebar-toggle {
+  display: none;
+}
+
+/* Overlay que aparece detrás del sidebar al abrirse */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.sidebar-overlay.active {
+  display: block;
+}
+
+/* ===================== */
+/* TABLET  769–1024px    */
+/* ===================== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sidebar {
+    width: 180px;
+    padding: 15px;
+  }
+
+  .main {
+    margin-left: 180px;
+    width: calc(100% - 180px);
+  }
+}
+
+/* ===================== */
+/* MOBILE  hasta 768px   */
+/* ===================== */
+@media (max-width: 768px) {
+  /* El sidebar se va fuera de pantalla a la izquierda */
+  .sidebar {
+    transform: translateX(-220px);
+    transition: transform 0.3s ease;
+    width: 220px;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  /* Al abrirse desliza hacia adentro */
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+
+  /* El main ocupa todo el ancho */
+  .main {
+    margin-left: 0;
+    width: 100%;
+    padding: 10px;
+    padding-top: 55px; /* espacio para el botón hamburguesa */
+  }
+
+  /* Botón hamburguesa visible y fijo */
+  .sidebar-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 1100;
+    background: #bbe6fc;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .sidebar-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* Animación hamburguesa → X cuando está abierto */
+  .sidebar.sidebar-open ~ .main .sidebar-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .sidebar.sidebar-open ~ .main .sidebar-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .sidebar.sidebar-open ~ .main .sidebar-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* USER CARD */
+  .top-user {
+    top: 5px;
+    right: 12px;
+    margin-bottom: 10px;
+  }
+
+  .user-card {
+    padding: 6px 10px;
+  }
+
+  .user-card img {
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+  }
+
+  /* HEADER */
+  .header h1 {
+    font-size: 20px;
+    margin-top: 8px;
+  }
+
+  .header p {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  /* CARD Y TABLA */
+  .card {
+    padding: 10px;
+    overflow-x: auto;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .top-bar input {
+    width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .actions select {
+    width: 100%;
+  }
+
+  .btn-new {
+    width: 100%;
+    justify-content: center;
+  }
+
+  table {
+    display: block;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  /* Botones Ver / Eliminar en fila, tamaño compacto */
+  .action-cells {
+    flex-direction: row;
+    gap: 4px;
+    justify-content: center;
+  }
+
+  .view,
+  .delete {
+    padding: 5px 8px;
+    font-size: 11px;
+    white-space: nowrap;
+    width: auto;
+  }
+
+  /* FOOTER */
+  .table-footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* MODAL */
+  .modal {
+    margin-left: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 15px;
+    max-height: 80vh;
+  }
+
+  .modal-small {
+    width: 90%;
+  }
+  .modal-large {
+    width: 95%;
+  }
+
+  .modal-header {
+    padding: 10px;
+  }
+
+  .modal-header h2 {
+    font-size: 18px;
+  }
+
+  .modal-body {
+    padding: 10px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 8px;
+  }
+
+  .btn-add {
+    margin-top: 10px;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .btn-cancel,
+  .btn-save {
+    width: 100%;
+  }
+
+  .total-box {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .total-box input {
+    width: 100%;
+  }
+
+  .details-box table {
+    display: block;
+    overflow-x: auto;
+  }
 }
