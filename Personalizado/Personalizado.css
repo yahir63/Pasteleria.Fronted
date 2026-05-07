@@ -335,17 +335,259 @@ td button:last-child {
     border-radius: 10px;
     cursor: pointer;
 }
-
+.btn-cancel:hover{
+ background: #9c0808;
+}
 .btn-save {
-    background: #0e7cbd;
-    border: none;
-    padding: 14px 24px;
-    border-radius: 12px;
+    background: #0992C8;
     color: white;
-    font-weight: 600;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-save:hover {
+    background: #07668b;
+    
+}
+.btn-delete-confirm {
+    background: #0992C8;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
-.btn-save:hover {
-    opacity: 0.9;
+.btn-delete-confirm:hover {
+    background: #07668b;
+}
+
+/* ===================================== */
+/* RESPONSIVE TABLET */
+/* ===================================== */
+
+@media (max-width: 1024px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+        padding: 15px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .top-bar input {
+        width: 100%;
+    }
+
+    .actions {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .actions select,
+    .btn-new {
+        flex: 1;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 12px;
+    }
+
+    .edit,
+    .delete {
+        width: 100%;
+        margin-bottom: 5px;
+        justify-content: center;
+    }
+
+    .modal-content,
+    .large-modal {
+        width: 90%;
+    }
+
+    .form-row {
+        gap: 15px;
+    }
+
+}
+
+/* ===================================== */
+/* RESPONSIVE CELULAR */
+/* ===================================== */
+
+@media (max-width: 480px) {
+
+    body {
+        overflow-x: auto;
+    }
+
+    .container {
+        min-width: 900px;
+    }
+
+    .sidebar {
+        width: 180px;
+        padding: 15px;
+    }
+
+    .sidebar h2 {
+        font-size: 18px;
+    }
+
+    .sidebar li {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .sidebar li img {
+        width: 16px;
+    }
+
+    .main {
+        margin-left: 180px;
+        width: calc(100% - 180px);
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .header p {
+        font-size: 13px;
+    }
+
+    .top-user {
+        justify-content: flex-end;
+    }
+
+    .user-card {
+        padding: 8px 12px;
+    }
+
+    .user-card img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .top-bar input {
+        width: 100%;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .actions select,
+    .btn-new {
+        width: 100%;
+    }
+
+    table {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 10px 8px;
+        white-space: nowrap;
+    }
+
+    td:last-child {
+        min-width: 150px;
+    }
+
+    .edit,
+    .delete {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 6px;
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .edit img,
+    .delete img {
+        width: 13px;
+        height: 13px;
+    }
+
+    .modal-content,
+    .large-modal {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .modal-header h2 {
+        font-size: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-save,
+    .btn-cancel,
+    .btn-delete-confirm {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .table-footer {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .pagination {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
 }

@@ -8,23 +8,18 @@
 
 <body>
 
-    <!-- MODAL -->
- 
-
+    <!-- MODAL NUEVO PRODUCTO -->
     <div class="modal" id="productModal">
 
         <div class="modal-content large-modal">
 
-            <!-- HEADER -->
             <div class="modal-header">
                 <h2>Nuevo Producto Personalizado</h2>
                 <span class="close" id="closeModal">&times;</span>
             </div>
 
-            <!-- FORM -->
             <form class="modal-form">
 
-                <!-- FILA 1 -->
                 <div class="form-row">
 
                     <div class="form-group">
@@ -34,6 +29,7 @@
 
                     <div class="form-group">
                         <label>Categoría</label>
+
                         <select>
                             <option>Seleccionar categoría</option>
                             <option>Pastel</option>
@@ -41,30 +37,30 @@
                             <option>Bebidas</option>
                             <option>Bocadillos</option>
                         </select>
+
                     </div>
 
                 </div>
 
-            <!-- FILA 2 -->
-            <div class="form-row">
+                <div class="form-row">
 
-                <div class="form-group">
-                    <label>Cantidad</label>
-                    <input type="number" placeholder="Ej: 2">
+                    <div class="form-group">
+                        <label>Cantidad</label>
+                        <input type="number" placeholder="Ej: 2">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Volumen</label>
+                        <input type="text" placeholder="Ej: 2 libras">
+                    </div>
+
                 </div>
 
-                <div class="form-group">
-                    <label>Volumen</label>
-                    <input type="text" placeholder="Ej: 2 libras">
-                </div>
+                <div class="form-row">
 
-            </div>
-
-            <!-- FILA 3 -->
-            <div class="form-row">
-
-                  <div class="form-group">
+                    <div class="form-group">
                         <label>Opciones</label>
+
                         <select>
                             <option>Agregar opciones</option>
                             <option>Relleno de piña</option>
@@ -72,43 +68,225 @@
                             <option>Relleno Dulce de leche</option>
                             <option>Figuras comestibles</option>
                         </select>
+
                     </div>
 
-                <div class="form-group">
-                    <label>Descripción</label>
-                    <input type="text" placeholder="Ej: Sin fondant">
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <input type="text" placeholder="Ej: Sin fondant">
+                    </div>
+
                 </div>
 
-            </div>
+                <div class="form-row">
 
-            <!-- FILA 4 -->
-            <div class="form-row">
+                    <div class="form-group full-width">
+                        <label>Precio</label>
+                        <input type="text" placeholder="Ej: C$1500">
+                    </div>
 
-                <div class="form-group full-width">
-                    <label>Precio</label>
-                    <input type="text" placeholder="Ej: C$1500">
                 </div>
 
-            </div>
+                <div class="modal-buttons">
 
-            <!-- BOTONES -->
-            <div class="modal-buttons">
+                    <button type="button"
+                            class="btn-cancel"
+                            id="cancelModal">
 
-                <button type="button" class="btn-cancel" id="cancelModal">
-                    Cancelar
-                </button>
+                        Cancelar
 
-                <button type="submit" class="btn-save">
-                    Guardar Producto
-                </button>
+                    </button>
 
-            </div>
+                    <button type="submit"
+                            class="btn-save">
 
-        </form>
+                        Guardar Producto
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
 
     </div>
 
-</div>
+    <!-- MODAL EDITAR -->
+    <div class="modal" id="editPersonalizadoModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>Editar Producto Personalizado</h2>
+
+                <span class="close"
+                      id="closeEditPersonalizadoModal">
+
+                    &times;
+
+                </span>
+
+            </div>
+
+            <form class="modal-form">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>Nombre del producto</label>
+
+                        <input type="text"
+                               id="editPersonalizadoNombre">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Categoría</label>
+
+                        <select id="editPersonalizadoCategoria">
+
+                            <option>Postres</option>
+                            <option>Bebidas</option>
+                            <option>Pastel</option>
+                            <option>Bocadillos</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>Cantidad</label>
+
+                        <input type="number"
+                               id="editPersonalizadoCantidad">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Volumen</label>
+
+                        <input type="text"
+                               id="editPersonalizadoVolumen">
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>Opciones</label>
+
+                        <input type="text"
+                               id="editPersonalizadoOpciones">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Descripción</label>
+
+                        <input type="text"
+                               id="editPersonalizadoDescripcion">
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group full-width">
+
+                        <label>Precio</label>
+
+                        <input type="text"
+                               id="editPersonalizadoPrecio">
+
+                    </div>
+
+                </div>
+
+                <div class="modal-buttons">
+
+                    <button type="button"
+                            class="btn-cancel"
+                            id="cancelEditPersonalizadoModal">
+
+                        Cancelar
+
+                    </button>
+
+                    <button type="submit"
+                            class="btn-save">
+
+                        Guardar Cambios
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- MODAL ELIMINAR -->
+    <div class="modal" id="deleteModal">
+
+        <div class="modal-content delete-modal">
+
+            <div class="modal-header">
+
+                <h2>Eliminar Producto</h2>
+
+                <span class="close"
+                      id="closeDeleteModal">
+
+                    &times;
+
+                </span>
+
+            </div>
+
+            <p id="deleteText">
+                ¿Seguro que deseas eliminar este producto?
+            </p>
+
+            <div class="modal-buttons">
+
+                <button type="button"
+                        class="btn-cancel"
+                        id="cancelDeleteModal">
+
+                    Cancelar
+
+                </button>
+
+                <button type="button"
+                        class="btn-delete-confirm"
+                        id="confirmDelete">
+
+                    Eliminar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <div class="container">
 
@@ -182,10 +360,10 @@
         <!-- MAIN -->
         <main class="main">
 
-            <!-- USUARIO -->
             <div class="top-user">
                 <div class="user-card">
                     <img src="https://img.freepik.com/fotos-premium/concepto-personas-mujeres-retratos-cara-mujer-joven-sonriente-feliz_380164-119771.jpg?semt=ais_hybrid&w=740&q=80" alt="Usuario">
+
                     <div>
                         <h3>Admin Soto</h3>
                         <p>Administrador</p>
@@ -193,33 +371,41 @@
                 </div>
             </div>
 
-            <!-- HEADER -->
             <header class="header">
                 <h1>Gestión de Productos Personalizados</h1>
-                <p>Aquí puedes administrar los productos personalizados de tu pastelería.</p>
+                <p>
+                    Aquí puedes administrar los productos personalizados de tu pastelería.
+                </p>
             </header>
 
-            <!-- CARD -->
             <div class="card">
 
-                <!-- TOP BAR -->
                 <div class="top-bar">
-                    <input type="text" placeholder="Buscar producto...">
+
+                    <input type="text"
+                           placeholder="Buscar producto...">
 
                     <div class="actions">
+
                         <select>
                             <option>Todos los productos</option>
                         </select>
 
-                        <button class="btn-new" id="openModal">
+                        <button class="btn-new"
+                                id="openModal">
+
                             + Nuevo Producto Personalizado
+
                         </button>
+
                     </div>
+
                 </div>
 
-                <!-- TABLA -->
                 <table>
+
                     <thead>
+
                         <tr>
                             <th>Nombre</th>
                             <th>Categoría</th>
@@ -230,9 +416,11 @@
                             <th>Precio</th>
                             <th>Acciones</th>
                         </tr>
+
                     </thead>
 
                     <tbody>
+
                         <tr>
                             <td>Pastel de SuperMan</td>
                             <td>Pastel</td>
@@ -241,17 +429,27 @@
                             <td>Relleno de Chocolate</td>
                             <td>Sin Fondant</td>
                             <td>C$1600</td>
+
                             <td>
-                                <button class="edit">
+
+                                <button class="edit openEditPersonalizadoModal">
+
                                     <img src="img/lapiz.png" alt="">
+
                                     Editar
+
                                 </button>
 
-                                <button class="delete">
+                                <button class="delete openDeleteModal">
+
                                     <img src="img/bote-de-basura.png" alt="">
+
                                     Eliminar
+
                                 </button>
+
                             </td>
+
                         </tr>
 
                         <tr>
@@ -262,17 +460,27 @@
                             <td>Chispitas</td>
                             <td>Color Rojo</td>
                             <td>C$45</td>
+
                             <td>
-                                <button class="edit">
+
+                                <button class="edit openEditPersonalizadoModal">
+
                                     <img src="img/lapiz.png" alt="">
+
                                     Editar
+
                                 </button>
 
-                                <button class="delete">
+                                <button class="delete openDeleteModal">
+
                                     <img src="img/bote-de-basura.png" alt="">
+
                                     Eliminar
+
                                 </button>
+
                             </td>
+
                         </tr>
 
                         <tr>
@@ -283,17 +491,27 @@
                             <td>-</td>
                             <td>-</td>
                             <td>C$30</td>
+
                             <td>
-                                <button class="edit">
+
+                                <button class="edit openEditPersonalizadoModal">
+
                                     <img src="img/lapiz.png" alt="">
+
                                     Editar
+
                                 </button>
 
-                                <button class="delete">
+                                <button class="delete openDeleteModal">
+
                                     <img src="img/bote-de-basura.png" alt="">
+
                                     Eliminar
+
                                 </button>
+
                             </td>
+
                         </tr>
 
                         <tr>
@@ -304,40 +522,57 @@
                             <td>Relleno de Fresa</td>
                             <td>Color Azul</td>
                             <td>C$700</td>
+
                             <td>
-                                <button class="edit">
+
+                                <button class="edit openEditPersonalizadoModal">
+
                                     <img src="img/lapiz.png" alt="">
+
                                     Editar
+
                                 </button>
 
-                                <button class="delete">
+                                <button class="delete openDeleteModal">
+
                                     <img src="img/bote-de-basura.png" alt="">
+
                                     Eliminar
+
                                 </button>
+
                             </td>
+
                         </tr>
+
                     </tbody>
+
                 </table>
 
-                <!-- FOOTER -->
                 <div class="table-footer">
-                    <span>Mostrando 1 a 4 de 25 productos</span>
+
+                    <span>
+                        Mostrando 1 a 4 de 25 productos
+                    </span>
 
                     <div class="pagination">
+
                         <button>&lt;</button>
                         <button class="active">1</button>
                         <button>2</button>
                         <button>3</button>
                         <button>&gt;</button>
+
                     </div>
+
                 </div>
 
             </div>
 
         </main>
+
     </div>
 
-    <!-- JAVASCRIPT -->
     <script src="Personalizado.js"></script>
 
 </body>

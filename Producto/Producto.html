@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,25 +10,35 @@
 
 <body>
 
-    
+    <!-- ===================================== -->
+    <!-- MODAL AGREGAR PRODUCTO -->
+    <!-- ===================================== -->
+
     <div class="modal" id="productModal">
 
         <div class="modal-content">
 
             <div class="modal-header">
                 <h2>Agregar Nuevo Producto</h2>
-                <span class="close" id="closeModal">&times;</span>
+
+                <span class="close" id="closeModal">
+                    &times;
+                </span>
             </div>
 
             <form class="modal-form">
 
                 <div class="form-group">
                     <label>Nombre del producto</label>
-                    <input type="text" placeholder="Ej: Cheesecake">
+
+                    <input type="text"
+                           placeholder="Ej: Cheesecake">
                 </div>
 
                 <div class="form-group">
+
                     <label>Categoría</label>
+
                     <select>
                         <option>Seleccionar categoría</option>
                         <option>Postres</option>
@@ -35,27 +46,167 @@
                         <option>Pastel</option>
                         <option>Bocadillos</option>
                     </select>
+
                 </div>
 
                 <div class="form-group">
+
                     <label>Cantidad</label>
-                    <input type="number" placeholder="Ej: 10">
+
+                    <input type="number"
+                           placeholder="Ej: 10">
+
                 </div>
 
                 <div class="form-group">
+
                     <label>Precio</label>
-                    <input type="text" placeholder="Ej: C$120">
+
+                    <input type="text"
+                           placeholder="Ej: C$120">
+
                 </div>
 
-                <!-- BOTONES -->
                 <div class="modal-buttons">
-                    <button type="button" class="btn-cancel" id="cancelModal">
+
+                    <button type="button"
+                            class="btn-cancel"
+                            id="cancelModal">
+
                         Cancelar
+
                     </button>
 
-                    <button type="submit" class="btn-save">
+                    <button type="submit"
+                            class="btn-save">
+
                         Guardar Producto
+
                     </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+    <div class="modal" id="deleteModal">
+
+    <div class="modal-content delete-modal">
+
+        <h2>Eliminar Producto</h2>
+
+        <p id="deleteText">
+            ¿Seguro que deseas eliminar este producto?
+        </p>
+
+        <div class="modal-buttons">
+
+            <button type="button"
+                    class="btn-cancel"
+                    id="cancelDeleteModal">
+
+                Cancelar
+
+            </button>
+
+            <button type="button"
+                    class="btn-delete-confirm"
+                    id="confirmDelete">
+
+                Eliminar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- ===================================== -->
+    <!-- MODAL EDITAR PRODUCTO -->
+    <!-- ===================================== -->
+
+    <div class="modal" id="editModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>Editar Producto</h2>
+
+                <span class="close"
+                      id="closeEditModal">
+
+                    &times;
+
+                </span>
+
+            </div>
+
+            <form class="modal-form">
+
+                <div class="form-group">
+
+                    <label>Nombre del producto</label>
+
+                    <input type="text"
+                           id="editNombre">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Categoría</label>
+
+                    <select id="editCategoria">
+
+                        <option>Postres</option>
+                        <option>Bebidas</option>
+                        <option>Pastel</option>
+                        <option>Bocadillos</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Cantidad</label>
+
+                    <input type="number"
+                           id="editCantidad">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Precio</label>
+
+                    <input type="text"
+                           id="editPrecio">
+
+                </div>
+
+                <div class="modal-buttons">
+
+                    <button type="button"
+                            class="btn-cancel"
+                            id="cancelEditModal">
+
+                        Cancelar
+
+                    </button>
+
+                    <button type="submit"
+                            class="btn-save">
+
+                        Guardar Cambios
+
+                    </button>
+
                 </div>
 
             </form>
@@ -65,120 +216,145 @@
     </div>
 
 
+    <!-- ===================================== -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ===================================== -->
+
     <div class="container">
 
-      
+        <!-- SIDEBAR -->
+
         <aside class="sidebar">
 
             <h2>Pastelería Soto</h2>
 
             <ul>
+
                 <li class="active">
-                    <img src="img/crecimiento.png" alt="Dashboard">
+                    <img src="img/crecimiento.png">
                     Dashboard
                 </li>
 
                 <li>
-                    <img src="img/caja.png" alt="Productos">
+                    <img src="img/caja.png">
                     Productos
                 </li>
 
                 <li>
-                    <img src="img/personalizacion.png" alt="Personalización">
+                    <img src="img/personalizacion.png">
                     Personalización
                 </li>
 
                 <li>
-                    <img src="img/categoria.png" alt="Categoría">
+                    <img src="img/categoria.png">
                     Categoría
                 </li>
 
                 <li>
-                    <img src="img/avatar.png" alt="Clientes">
+                    <img src="img/avatar.png">
                     Clientes
                 </li>
 
                 <li>
-                    <img src="img/mollete.png" alt="Opciones">
+                    <img src="img/mollete.png">
                     Opciones
                 </li>
 
                 <li>
-                    <img src="img/nueva-cuenta.png" alt="Usuarios">
+                    <img src="img/nueva-cuenta.png">
                     Usuarios
                 </li>
 
                 <li>
-                    <img src="img/pastel.png" alt="Pedidos">
+                    <img src="img/pastel.png">
                     Pedidos
                 </li>
 
                 <li>
-                    <img src="img/bolsa-de-la-compra.png" alt="Compras">
+                    <img src="img/bolsa-de-la-compra.png">
                     Compras
                 </li>
 
                 <li>
-                    <img src="img/carro.png" alt="Ventas">
+                    <img src="img/carro.png">
                     Ventas
                 </li>
 
                 <li>
-                    <img src="img/engranaje.png" alt="Configuración">
+                    <img src="img/engranaje.png">
                     Configuración
                 </li>
 
                 <li>
-                    <img src="img/cerrar-sesion.png" alt="Cerrar Sesión">
+                    <img src="img/cerrar-sesion.png">
                     Cerrar Sesión
                 </li>
+
             </ul>
 
         </aside>
 
 
-     
+        <!-- MAIN -->
+
         <main class="main">
 
-           
+            <!-- USUARIO -->
+
             <div class="top-user">
 
                 <div class="user-card">
-                    <img src="https://img.freepik.com/fotos-premium/concepto-personas-mujeres-retratos-cara-mujer-joven-sonriente-feliz_380164-119771.jpg?semt=ais_hybrid&w=740&q=80" alt="Usuario">
+
+                    <img src="https://img.freepik.com/fotos-premium/concepto-personas-mujeres-retratos-cara-mujer-joven-sonriente-feliz_380164-119771.jpg?semt=ais_hybrid&w=740&q=80">
 
                     <div>
                         <h3>Admin Soto</h3>
                         <p>Administrador</p>
                     </div>
+
                 </div>
 
             </div>
 
 
-         
+            <!-- HEADER -->
+
             <header class="header">
+
                 <h1>Gestión de Productos</h1>
+
                 <p>
-                    Aquí puedes administrar los productos de tu pastelería.
+                    Aquí puedes administrar los productos
+                    de tu pastelería.
                 </p>
+
             </header>
 
 
+            <!-- CARD -->
+
             <div class="card">
 
-               
+                <!-- TOP BAR -->
+
                 <div class="top-bar">
 
-                    <input type="text" placeholder="Buscar producto...">
+                    <input type="text"
+                           placeholder="Buscar producto...">
 
                     <div class="actions">
 
                         <select>
-                            <option>Todos los productos</option>
+                            <option>
+                                Todos los productos
+                            </option>
                         </select>
 
-                        <button class="btn-new" id="openModal">
+                        <button class="btn-new"
+                                id="openModal">
+
                             + Nuevo Producto
+
                         </button>
 
                     </div>
@@ -186,109 +362,183 @@
                 </div>
 
 
-           
+                <!-- TABLA -->
+
                 <table>
 
                     <thead>
+
                         <tr>
+
                             <th>Nombre</th>
                             <th>Categoría</th>
                             <th>Cantidad</th>
                             <th>Precio</th>
                             <th>Acciones</th>
+
                         </tr>
+
                     </thead>
 
                     <tbody>
 
+                        <!-- PRODUCTO 1 -->
+
                         <tr>
+
                             <td>Cheesecake</td>
                             <td>Postres</td>
                             <td>20</td>
                             <td>C$120</td>
+
                             <td>
-                                <button class="edit">
-                                    <img src="img/lapiz.png" alt="">
+
+                                <button class="edit openEditModal">
+
+                                    <img src="img/lapiz.png">
+
                                     Editar
+
                                 </button>
 
-                                <button class="delete">
+                              <button class="delete openDeleteModal">
+
                                     <img src="img/bote-de-basura.png" alt="">
+
                                     Eliminar
+
                                 </button>
+
                             </td>
+
                         </tr>
 
+
+                        <!-- PRODUCTO 2 -->
+
                         <tr>
+
                             <td>Brownies</td>
                             <td>Postres</td>
                             <td>15</td>
                             <td>C$50</td>
+
                             <td>
-                                <button class="edit">
-                                    <img src="img/lapiz.png" alt="">
+
+                                <button class="edit openEditModal">
+
+                                    <img src="img/lapiz.png">
+
                                     Editar
+
                                 </button>
 
-                                <button class="delete">
+                               <button class="delete openDeleteModal">
+
                                     <img src="img/bote-de-basura.png" alt="">
+
                                     Eliminar
+
                                 </button>
+
                             </td>
+
                         </tr>
 
+
+                        <!-- PRODUCTO 3 -->
+
                         <tr>
+
                             <td>Cacao Skimo</td>
                             <td>Bebidas</td>
                             <td>10</td>
                             <td>C$30</td>
+
                             <td>
-                                <button class="edit">
-                                    <img src="img/lapiz.png" alt="">
+
+                                <button class="edit openEditModal">
+
+                                    <img src="img/lapiz.png">
+
                                     Editar
+
                                 </button>
 
-                                <button class="delete">
-                                    <img src="img/bote-de-basura.png" alt="">
-                                    Eliminar
-                                </button>
+                              <button class="delete openDeleteModal">
+
+                                <img src="img/bote-de-basura.png" alt="">
+
+                                Eliminar
+
+                            </button>
+
                             </td>
+
                         </tr>
 
+
+                        <!-- PRODUCTO 4 -->
+
                         <tr>
+
                             <td>Selva Negra</td>
                             <td>Pastel</td>
                             <td>5</td>
                             <td>C$1450</td>
+
                             <td>
-                                <button class="edit">
-                                    <img src="img/lapiz.png" alt="">
+
+                                <button class="edit openEditModal">
+
+                                    <img src="img/lapiz.png">
+
                                     Editar
+
                                 </button>
 
-                                <button class="delete">
+                               <button class="delete openDeleteModal">
+
                                     <img src="img/bote-de-basura.png" alt="">
+
                                     Eliminar
+
                                 </button>
+
                             </td>
+
                         </tr>
 
+
+                        <!-- PRODUCTO 5 -->
+
                         <tr>
+
                             <td>Churros de queso</td>
                             <td>Bocadillos</td>
                             <td>25</td>
                             <td>C$15</td>
+
                             <td>
-                                <button class="edit">
-                                    <img src="img/lapiz.png" alt="">
+
+                                <button class="edit openEditModal">
+
+                                    <img src="img/lapiz.png">
+
                                     Editar
+
                                 </button>
 
-                                <button class="delete">
+                              <button class="delete openDeleteModal">
+
                                     <img src="img/bote-de-basura.png" alt="">
+
                                     Eliminar
+
                                 </button>
+
                             </td>
+
                         </tr>
 
                     </tbody>
@@ -296,7 +546,8 @@
                 </table>
 
 
-               
+                <!-- FOOTER -->
+
                 <div class="table-footer">
 
                     <span>
@@ -304,11 +555,19 @@
                     </span>
 
                     <div class="pagination">
+
                         <button>&lt;</button>
-                        <button class="active">1</button>
+
+                        <button class="active">
+                            1
+                        </button>
+
                         <button>2</button>
+
                         <button>3</button>
+
                         <button>&gt;</button>
+
                     </div>
 
                 </div>
@@ -319,8 +578,11 @@
 
     </div>
 
-   
-   <script src="Producto.js"></script>
+
+    <!-- JAVASCRIPT -->
+
+    <script src="Producto.js"></script>
 
 </body>
+
 </html>
