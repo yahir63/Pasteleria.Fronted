@@ -4,93 +4,21 @@
     <meta charset="UTF-8">
     <title>Configuracion</title>
     <link rel="stylesheet" href="Configuracion.css">
+    <link rel="stylesheet" href="/Components/global.css">
 </head>
 
 <body class="configuracion">
 
 <div class="container">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-        <h2>Pastelería Soto</h2>
-
-        <ul>
-            <li class="active">
-                <img src="img/crecimiento.png" alt="Dashboard">
-                Dashboard
-            </li>
-
-            <li>
-                <img src="img/caja.png" alt="Productos">
-                Productos
-            </li>
-
-            <li>
-                <img src="img/personalizacion.png" alt="Personalización">
-                Personalizacion
-            </li>
-
-            <li>
-                <img src="img/categoria.png" alt="Categoría">
-                Categoria
-            </li>
-
-            <li>
-                <img src="img/avatar.png" alt="Clientes">
-                Clientes
-            </li>
-
-            <li>
-                <img src="img/mollete.png" alt="Opciones">
-                Opciones
-            </li>
-
-            <li>
-                <img src="img/nueva-cuenta.png" alt="Usuarios">
-                Usuarios
-            </li>
-
-            <li>
-                <img src="img/pastel.png" alt="Pedidos">
-                Pedidos
-            </li>
-
-            <li>
-                <img src="img/bolsa-de-la-compra.png" alt="Compras">
-                Compras
-            </li>
-
-            <li>
-                <img src="img/carro.png" alt="Ventas">
-                Ventas
-            </li>
-
-            <li>
-                <img src="img/engranaje.png" alt="Configuración">
-                Configuración
-            </li>
-
-            <li>
-                <img src="img/cerrar-sesion.png" alt="Cerrar Sesión">
-                Cerrar Sesión
-            </li>
-        </ul>
-    </aside>
+    <!-- SIDEBAR GLOBAL -->
+    <div id="sidebar-container"></div>
 
     <!-- MAIN -->
     <main class="main-content">
 
-        <!-- USUARIO -->
-        <div class="top-user">
-            <div class="user-card">
-                <img src="https://img.freepik.com/fotos-premium/concepto-personas-mujeres-retratos-cara-mujer-joven-sonriente-feliz_380164-119771.jpg?semt=ais_hybrid&w=740&q=80" alt="Usuario">
-
-                <div>
-                    <h3>Admin Soto</h3>
-                    <p>Administrador</p>
-                </div>
-            </div>
-        </div>
+        <!-- TOPBAR GLOBAL -->
+        <div id="topbar-container"></div>
 
         <!-- GRID -->
         <section class="grid-secundario">
@@ -98,7 +26,7 @@
             <!-- DATOS DEL SISTEMA -->
             <div class="card">
                 <span>
-                    <img src="img/engranaje.png" class="icon-card" alt="">
+                    <img src="/Assets/img/engranaje.png" class="icon-card" alt="">
                     Datos del sistema
                 </span>
 
@@ -130,7 +58,7 @@
             <!-- SEGURIDAD -->
             <div class="card">
                 <span>
-                    <img src="img/candado.png" class="icon-card" alt="">
+                    <img src="/Assets/img/candado.png" class="icon-card" alt="">
                     Seguridad
                 </span>
 
@@ -157,7 +85,7 @@
             <!-- APARIENCIA -->
             <div class="card">
                 <span>
-                    <img src="img/paleta-de-color.png" class="icon-card" alt="">
+                    <img src="/Assets/img/paleta-de-color.png" class="icon-card" alt="">
                     Apariencia
                 </span>
 
@@ -168,7 +96,7 @@
                         class="btn-save"
                         onclick="document.body.classList.toggle('dark-mode')">
 
-                        <img src="img/luna.png" class="icon-card" alt="">
+                        <img src="/Assets/img/luna.png" class="icon-card" alt="">
                         Modo Oscuro
                     </button>
                 </div>
@@ -182,7 +110,7 @@
             <!-- SISTEMA -->
             <div class="card">
                 <span>
-                    <img src="img/inmune.png" class="icon-card" alt="">
+                    <img src="/Assets/img/inmune.png" class="icon-card" alt="">
                     Sistema
                 </span>
 
@@ -202,6 +130,8 @@
     </main>
 
 </div>
+<!-- JS -->
+<script src="/JS/components.js"></script>
 
 </body>
 </html>

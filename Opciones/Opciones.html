@@ -4,42 +4,20 @@
     <meta charset="UTF-8">
     <title>Pasteleria Soto</title>
     <link rel="stylesheet" href="Opciones.css">
+    <link rel="stylesheet" href="/Components/global.css">
 </head>
 <body>
 
     <div class="container">
 
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-            <h2>Pastelería Soto</h2>
-            <ul>
-                <li><img src="/Login/Dashboard/img/crecimiento.png">Dashboard</li>
-                <li><img src="/Login/Dashboard/img/caja.png">Productos</li>
-                <li><img src="/Login/Dashboard/img/personalizacion.png">Personalización</li>
-                <li><img src="/Login/Dashboard/img/categoria.png">Categoría</li>
-                <li><img src="/Login/Dashboard/img/avatar.png">Clientes</li>
-                <li class="active"><img src="/Login/Dashboard/img/mollete.png">Opciones</li>
-                <li><img src="/Login/Dashboard/img/nueva-cuenta.png">Usuarios</li>
-                <li><img src="/Login/Dashboard/img/pastel.png">Pedidos</li>
-                <li><img src="/Login/Dashboard/img/bolsa-de-la-compra.png">Compras</li>
-                <li><img src="/Login/Dashboard/img/carro.png">Ventas</li>
-                <li><img src="/Login/Dashboard/img/engranaje.png">Configuración</li>
-                <li><img src="/Login/Dashboard/img/cerrar-sesion.png">Cerrar Sesión</li>
-            </ul>
-        </aside>
+        <!-- SIDEBAR GLOBAL -->
+        <div id="sidebar-container"></div>
 
         <!-- MAIN -->
         <main class="main">
 
-           <section class="top-opciones">
-                    <div class="opciones-card">
-                        <img src="https://img.freepik.com/fotos-premium/concepto-personas-mujeres-retratos-cara-mujer-joven-sonriente-feliz_380164-119771.jpg?semt=ais_hybrid&w=740&q=80" alt="Usuario">
-                        <div class="user-info">
-                            <h3>Admin Soto</h3>
-                            <p>Administrador</p>
-                        </div>
-                    </div>
-            </section>
+                <!-- TOPBAR GLOBAL -->
+                <div id="topbar-container"></div>
 
             <!-- HEADER -->
             <div class="header">
@@ -90,7 +68,7 @@
                     </div>
 
                  </div>
-                 <img src="/Login/Dashboard/img/Opciones.png">
+                 <img src="/Assets/img/Opciones.png">
 
             </div>
 
@@ -101,7 +79,7 @@
                 <div class="top-bar">
                     <div class="search-box">
                         <input type="text" placeholder="Buscar Opciones...">
-                        <img src="/Login/Dashboard/img/lupa.png" class="search-icon">
+                        <img src="/Assets/img/lupa.png" class="search-icon">
                     </div>
                     
 
@@ -134,11 +112,11 @@
                             <td>
                                 <div class="actions">
                                     <button class="edit">
-                                        <img src="/Login/Dashboard/img/editar.png">
+                                        <img src="/Assets/img/editar.png">
                                         Editar
                                     </button>
                                     <button class="delete">
-                                        <img src="/Login/Dashboard/img/eliminar-usuario.png">
+                                        <img src="/Assets/img/eliminar-usuario.png">
                                         Eliminar
                                     </button>
                                 </div>
@@ -154,11 +132,11 @@
                             <td>
                                 <div class="actions">
                                     <button class="edit">
-                                       <img src="/Login/Dashboard/img/editar.png">
+                                       <img src="/Assets/img/editar.png">
                                         Editar
                                     </button>
                                     <button class="delete">
-                                        <img src="/Login/Dashboard/img/eliminar-usuario.png">
+                                        <img src="/Assets/img/eliminar-usuario.png">
                                         Eliminar
                                     </button>
                                 </div>
@@ -173,11 +151,11 @@
                             <td>
                             <div class="actions">
                                     <button class="edit">
-                                        <img src="/Login/Dashboard/img/editar.png">
+                                        <img src="/Assets/img/editar.png">
                                         Editar
                                     </button>
                                     <button class="delete">
-                                        <img src="/Login/Dashboard/img/eliminar-usuario.png">
+                                        <img src="/Assets/img/eliminar-usuario.png">
                                         Eliminar
                                     </button>
                                 </div>
@@ -193,11 +171,11 @@
                             <td>
                                 <div class="actions">
                                     <button class="edit">
-                                        <img src="/Login/Dashboard/img/editar.png">
+                                        <img src="/Assets/img/editar.png">
                                         Editar
                                     </button>
                                     <button class="delete">
-                                        <img src="/Login/Dashboard/img/eliminar-usuario.png">
+                                        <img src="/Assets/img/eliminar-usuario.png">
                                         Eliminar
                                     </button>
                                 </div>
@@ -227,6 +205,9 @@
         </main>
 
     </div>
+
+<!-- JS -->
+<script src="/JS/components.js"></script>
 
 </body>
 </html>
