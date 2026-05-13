@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -11,16 +12,23 @@ body {
 
 .container {
   display: flex;
+  position: relative;
 }
 
-/* SIDEBAR */
+/* ================= SIDEBAR FIJO ================= */
 .sidebar {
   width: 220px;
-  min-height: 100vh;
+  height: 100vh;
+  position: fixed; 
+  top: 0;
+  left: 0;
   background: #BBE6FC;
   padding: 20px;
   border-right: 1px solid #eee;
   box-shadow: 2px 0 10px rgba(0,0,0,0.03);
+  z-index: 900; /* Se mantiene encima del fondo pero debajo del topbar si es necesario */
+  overflow-y: auto; /* Permite scroll dentro del menú si es muy largo */
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sidebar h2 {
@@ -84,10 +92,14 @@ body {
   color: white;
 }
 
-/* MAIN */
+/* ================= MAIN CONTENT ================= */
 .main {
   flex: 1;
   padding: 20px;
+  /* Ajustes para que el contenido no quede debajo del sidebar fijo */
+  margin-left: 220px; 
+  width: calc(100% - 220px);
+  min-height: 100vh;
 }
 
 /* USUARIO */
@@ -122,4 +134,181 @@ body {
 .user-info p {
   font-size: 13px;
   color: #888;
+}
+
+/* ================= RESPONSIVE GLOBAL ================= */
+
+/* Overlay para cerrar sidebar en móvil */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.sidebar-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Botón Hamburguesa (Oculto por defecto en PC) */
+.hamburger-btn {
+  display: none; 
+  position: fixed;
+  top: 20px; left: 20px;
+  z-index: 1001; 
+  width: 44px; height: 44px;
+  background: #032F44;
+  border: none; border-radius: 12px;
+  cursor: pointer;
+  align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(3, 47, 68, 0.3);
+}
+.hamburger-btn span {
+  display: block; width: 22px; height: 2px; background: #fff;
+  position: relative; transition: 0.3s; border-radius: 2px;
+}
+.hamburger-btn span::before, .hamburger-btn span::after {
+  content: ''; position: absolute; width: 22px; height: 2px;
+  background: #fff; border-radius: 2px; transition: 0.3s;
+}
+.hamburger-btn span::before { top: -7px; }
+.hamburger-btn span::after { top: 7px; }
+
+.hamburger-btn.active span { background: transparent; }
+.hamburger-btn.active span::before { top: 0; transform: rotate(45deg); }
+.hamburger-btn.active span::after { top: 0; transform: rotate(-45deg); }
+
+/* ================= TABLET (≤ 1024px) ================= */
+@media (max-width: 1024px) {
+  /* Sidebar un poco más pequeño pero aún fijo */
+  .sidebar {
+    width: 200px;
+    padding: 16px;
+  }
+  
+  /* Ajustar el margen del main para que coincida con el nuevo ancho del sidebar */
+  .main {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    padding: 16px 20px;
+  }
+
+  .sidebar li {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  .sidebar li img {
+    width: 18px; height: 18px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: 100% !important;
+  }
+  .top-user {
+    margin-bottom: 12px;
+  }
+  .user-card img {
+    width: 45px; height: 45px;
+  }
+}
+
+/* ================= CELULAR (≤ 768px) ================= */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  /* En móvil, el sidebar ya es fixed y se oculta/muestra con la clase .open */
+  .sidebar {
+    width: 260px;
+    transform: translateX(-100%); /* Oculto por defecto */
+    padding: 70px 20px 20px;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0); /* Visible */
+  }
+  
+  .sidebar li:nth-child(8) {
+    margin-top: 20px;
+  }
+  .sidebar li:hover,
+  .sidebar li.active {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  /* En móvil, el main ocupa todo el ancho (sin margen izquierdo) */
+  .main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 16px 14px;
+  }
+
+  .top-user {
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .user-card {
+    padding: 6px 10px;
+  }
+  .user-card img {
+    width: 40px; height: 40px;
+  }
+  .user-info h3 {
+    font-size: 14px;
+  }
+  .user-info p {
+    font-size: 11px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+  .card {
+    padding: 16px;
+    gap: 20px;
+  }
+  .card-icon {
+    width: 50px; height: 50px;
+  }
+  .card-icon img {
+    width: 24px; height: 24px;
+  }
+  .card .number {
+    font-size: 24px;
+  }
+
+  .banner {
+    padding: 30px 20px;
+    min-height: 180px;
+  }
+}
+
+/* ================= CELULAR PEQUEÑO (≤ 480px) ================= */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.3rem;
+    padding-left: 50px;
+  }
+  .header p {
+    padding-left: 50px;
+    font-size: 0.82rem;
+  }
+  .sidebar {
+    width: 80%;
+    max-width: 300px;
+  }
 }

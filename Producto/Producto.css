@@ -319,349 +319,82 @@ td button:last-child {
 .btn-delete-confirm:hover {
     background: #07668b;
 }
-/* ===================================== */
-/* RESPONSIVE PRODUCTOS */
-/* ===================================== */
+/* =========================================
+    RESPONSIVE OPTIMIZADO
+   ========================================= */
 
-@media (max-width: 1024px) {
 
-    .sidebar {
-        width: 190px;
-    }
 
-    .main {
-        margin-left: 190px;
-        width: calc(100% - 190px);
-    }
-
-    .top-bar {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .top-bar input {
-        width: 100%;
-    }
-
-    .actions {
-        width: 100%;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-
-    .actions select,
-    .btn-new {
-        width: 100%;
-    }
-
-    table {
-        min-width: 700px;
-    }
-
-    .card {
-        overflow-x: auto;
-    }
-
-    .modal-content {
-        width: 90%;
-    }
-
+/*  LAPTOP (1025px - 1366px) */
+@media (max-width: 1366px) and (min-width: 1025px) {
+  .main { padding: 16px 20px; }
+  .top-bar input { width: 250px; }
+  .card { padding: 16px; }
+  th, td { padding: 10px; font-size: 13px; }
+  .form-grid { gap: 12px; }
+  .modal-content { width: 90%; max-width: 650px; }
 }
 
+/*  TABLET / MÓVIL GRANDE (≤ 1024px) */
+@media (max-width: 1024px) {
+  .top-bar { flex-wrap: wrap; gap: 12px; }
+  .top-bar input { width: 100%; max-width: 400px; }
+  .actions { flex-wrap: wrap; gap: 10px; }
+  .actions select { flex: 1; min-width: 120px; }
+  .btn-new { flex: 1; min-width: 140px; justify-content: center; }
+  .form-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/*  MÓVIL (≤ 768px) */
 @media (max-width: 768px) {
 
-    .container {
-        flex-direction: column;
-    }
+  .header h1 { font-size: 20px; margin-top: 8px; padding-left: 30px; text-align: center; }
+  .header p { font-size: 13px; margin-bottom: 12px; padding-left: 30px; text-align: center; }
 
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-    }
+  .card { padding: 12px; overflow-x: auto; }
 
-    .main {
-        margin-left: 0;
-        width: 100%;
-        padding: 15px;
-    }
+  /* Top bar apilado */
 
-    .top-user {
-        justify-content: center;
-    }
+  #topbar-container, .top-user { 
+    justify-content: center !important; /* Centra horizontalmente */
+    width: 100% !important; 
+    padding: 0 !important; 
+    margin: 10px 0 15px 0 !important; /* Margen superior e inferior */
+  }
 
-    .header {
-        text-align: center;
-    }
+  /* Tabla con scroll horizontal suave */
+  .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; }
+  table { min-width: 700px; display: block; }
+  th, td { padding: 10px 8px; font-size: 12px; }
+  .action-cells { gap: 6px; }
+  .view, .delete, .Active{ padding: 4px 8px !important; font-size: 11px !important; }
 
-    .top-bar {
-        flex-direction: column;
-        align-items: stretch;
-    }
+  /* Footer y paginación */
+  .table-footer { flex-direction: column; gap: 10px; text-align: center; margin-top: 12px; }
+  .pagination { justify-content: center; flex-wrap: wrap; }
 
-    .actions {
-        flex-direction: column;
-    }
-
-    .actions select,
-    .btn-new {
-        width: 100%;
-    }
-
-    .modal-content {
-        width: 95%;
-        padding: 20px;
-    }
-
-    .modal-buttons {
-        flex-direction: column;
-    }
-
-    .btn-cancel,
-    .btn-save,
-    .btn-delete-confirm {
-        width: 100%;
-    }
-
-    .table-footer {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
+  /* MODALES EN MÓVIL */
+  .modal-content { width: 95%; padding: 16px; max-height: 85vh; }
+  .modal-small { width: 90%; }
+  .modal-large { width: 98%; }
+  .modal-header { padding: 12px; }
+  .modal-header h2 { font-size: 18px; }
+  .modal-body { padding: 12px; }
+  .form-grid { grid-template-columns: 1fr; gap: 10px; }
+  .form-group input, .form-group select { padding: 10px; font-size: 14px; }
+  .btn-add { margin-top: 8px; }
+  .modal-footer { flex-direction: column; gap: 10px; padding: 12px; }
+  .btn-cancel, .btn-save { width: 100%; }
+  .total-box { flex-direction: column; align-items: stretch; gap: 8px; }
+  .total-box input { width: 100%; }
+  .details-box table { display: block; overflow-x: auto; min-width: 100%; }
 }
 
+/*  MÓVIL PEQUEÑO (≤ 480px) */
 @media (max-width: 480px) {
-
-    .sidebar h2 {
-        font-size: 20px;
-        text-align: center;
-    }
-
-    .sidebar li {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    .user-card {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .header h1 {
-        font-size: 22px;
-    }
-
-    .header p {
-        font-size: 14px;
-    }
-
-    th,
-    td {
-        padding: 12px;
-        font-size: 13px;
-    }
-
-    .edit,
-    .delete {
-        width: 100%;
-        margin-bottom: 5px;
-    }
-
-    .pagination {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-}
-/* ===================================== */
-/* TABLET */
-/* ===================================== */
-
-@media screen and (max-width: 1024px) {
-
-    .sidebar {
-        width: 190px;
-    }
-
-    .main {
-        margin-left: 190px;
-        width: calc(100% - 190px);
-        padding: 18px;
-    }
-
-    .top-bar {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .top-bar input {
-        width: 100%;
-    }
-
-    .actions {
-        width: 100%;
-        display: flex;
-        gap: 10px;
-    }
-
-    .actions select {
-        flex: 1;
-    }
-
-    .btn-new {
-        flex: 1;
-    }
-
-    .card {
-        overflow-x: auto;
-    }
-
-    table {
-        min-width: 700px;
-    }
-
-    .modal-content,
-    .large-modal {
-        width: 90%;
-    }
-
-}
-
-
-/* ===================================== */
-/* CELULAR */
-/* ===================================== */
-
-@media screen and (max-width: 768px) {
-
-    .container {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-    }
-
-    .main {
-        width: 100%;
-        margin-left: 0;
-        padding: 15px;
-    }
-
-    .top-user {
-        justify-content: center;
-    }
-
-    .user-card {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .header {
-        text-align: center;
-    }
-
-    .header h1 {
-        font-size: 24px;
-    }
-
-    .header p {
-        font-size: 14px;
-    }
-
-    .top-bar {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .actions {
-        flex-direction: column;
-    }
-
-    .actions select,
-    .btn-new {
-        width: 100%;
-    }
-
-    .card {
-        overflow-x: auto;
-    }
-
-    table {
-        min-width: 700px;
-    }
-
-    th,
-    td {
-        padding: 12px;
-        font-size: 14px;
-    }
-
-    .edit,
-    .delete {
-        width: 100%;
-        margin-bottom: 6px;
-    }
-
-    .table-footer {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    .pagination {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .modal-content,
-    .large-modal {
-        width: 95%;
-        padding: 20px;
-    }
-
-    .form-row {
-        flex-direction: column;
-    }
-
-    .modal-buttons {
-        flex-direction: column;
-    }
-
-    .btn-save,
-    .btn-cancel,
-    .btn-delete-confirm {
-        width: 100%;
-    }
-
-}
-
-
-/* ===================================== */
-/* PANTALLAS GRANDES */
-/* ===================================== */
-
-@media screen and (min-width: 1400px) {
-
-    .main {
-        padding: 30px;
-    }
-
-    .card {
-        padding: 30px;
-    }
-
-    th,
-    td {
-        font-size: 16px;
-    }
-
-    .top-bar input {
-        width: 400px;
-    }
-
+  .header h1 { font-size: 18px; }
+  .card { padding: 10px; border-radius: 12px; }
+  th, td { padding: 8px 6px; font-size: 11px; }
+  .modal-content { padding: 14px; }
+  .form-group label { font-size: 12px; }
 }

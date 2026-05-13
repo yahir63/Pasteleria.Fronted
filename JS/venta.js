@@ -2,16 +2,32 @@ const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modal-body");
 const closeModal = document.getElementById("close-modal");
 const modalContent = document.querySelector(".modal-content");
+
 const overlay = document.querySelector(".sidebar-overlay");
 const sidebar = document.querySelector(".sidebar");
 const toggleBtn = document.querySelector(".sidebar-toggle");
 
 // =====================
-// SIDEBAR
+// SIDEBAR RESPONSIVE
 // =====================
-toggleBtn.addEventListener("click", () => {
-  sidebar.classList.toggle("sidebar-open");
-});
+if (toggleBtn && sidebar) {
+  toggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("sidebar-open");
+
+    // si existe overlay también lo activa
+    if (overlay) {
+      overlay.classList.toggle("active");
+    }
+  });
+}
+
+if (overlay) {
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("sidebar-open");
+    overlay.classList.remove("active");
+  });
+}
+
 
 // =
 
@@ -24,7 +40,9 @@ function abrirModal(html) {
   modal.classList.add("show");
 }
 
-closeModal.addEventListener("click", cerrarModal);
+if (closeModal) {
+  closeModal.addEventListener("click", cerrarModal);
+}
 
 window.addEventListener("click", (e) => {
   if (e.target === modal) cerrarModal();
@@ -148,8 +166,6 @@ document.addEventListener("click", (e) => {
     modalContent.classList.remove("modal-large");
     modalContent.classList.add("modal-small");
 
-    const fila = btnDelete.closest("tr");
-
     abrirModal(`
       <h3>Eliminar Venta</h3>
       <p>¿Estás seguro?</p>
@@ -162,9 +178,43 @@ document.addEventListener("click", (e) => {
 
     document.getElementById("confirm-delete").onclick = (ev) => {
       ev.stopPropagation();
+
       abrirModal(`
-        <div style="text-align:center; padding:10px;"> <div style=" width:60px; height:60px; margin:0 auto 10px; background:#d4f8d4; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:30px; color:#1b5e20; "> ✓ </div> <h3 style="margin-bottom:8px;">Venta eliminada</h3> <p style="color:#666; font-size:14px;"> La Venta se eliminó correctamente. </p> <button id="close" style=" margin-top:15px; padding:8px 16px; border:none; border-radius:8px; background:#32a8e7; color:white; cursor:pointer; font-weight:600; transition:0.2s; "> Aceptar </button> </div>
+        <div style="text-align:center; padding:10px;">
+          <div style="
+            width:60px;
+            height:60px;
+            margin:0 auto 10px;
+            background:#d4f8d4;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:30px;
+            color:#1b5e20;
+          ">✓</div>
+
+          <h3 style="margin-bottom:8px;">Venta eliminada</h3>
+
+          <p style="color:#666; font-size:14px;">
+            La Venta se eliminó correctamente.
+          </p>
+
+          <button id="close" style="
+            margin-top:15px;
+            padding:8px 16px;
+            border:none;
+            border-radius:8px;
+            background:#32a8e7;
+            color:white;
+            cursor:pointer;
+            font-weight:600;
+          ">
+            Aceptar
+          </button>
+        </div>
       `);
+
       document.getElementById("close").onclick = cerrarModal;
     };
 
@@ -178,12 +228,10 @@ document.addEventListener("click", (e) => {
 
     let html = `<div class="modal-header">
   <h2>Nueva Venta</h2>
-  
 </div>
 
 <div class="modal-body">
 
-  <!-- GRID FORM -->
   <div class="form-grid">
 
     <div class="form-group">
@@ -199,7 +247,6 @@ document.addEventListener("click", (e) => {
         <option>Joel Arias</option>
         <option>Carol Rodriguez</option>
         <option>Jairo Hernandez</option>
-
       </select>
     </div>
 
@@ -228,7 +275,6 @@ document.addEventListener("click", (e) => {
 
   </div>
 
-  <!-- TABLA -->
   <div class="details-box">
     <table>
       <thead>
@@ -240,38 +286,43 @@ document.addEventListener("click", (e) => {
           <th>Eliminar Detalle</th>
         </tr>
       </thead>
+
       <tbody id="details-body">
-      <tr>
-      <td>Pastel Vainilla</td>
-      <td>10</td>
-      <td>25$</td>
-      <td>250$</td>
-      <td>
-        <div class="delete-detail" >
-          <button class="delete-detail-btn">
-            &times;
-          </button>
-        </div>
-      </td>
-      </tr>
+        <tr>
+          <td>Pastel Vainilla</td>
+          <td>10</td>
+          <td>25$</td>
+          <td>250$</td>
+          <td>
+            <div class="delete-detail">
+              <button class="delete-detail-btn">
+                &times;
+              </button>
+            </div>
+          </td>
+        </tr>
       </tbody>
+
     </table>
   </div>
 
-  
-
 </div>
-
-
 
 <div class="modal-footer">
   <div class="total-box">
     <span>Total:</span>
     <input type="text" value="$0.00" readonly>
   </div>
-  <button id="btn-cancel" class="btn-cancel">Cancelar</button>
-  <button id="btn-savePurchase" class="btn-save">Guardar Venta</button>
+
+  <button id="btn-cancel" class="btn-cancel">
+    Cancelar
+  </button>
+
+  <button id="btn-savePurchase" class="btn-save">
+    Guardar Venta
+  </button>
 </div>`;
+
     htmlNuevaCompra = html;
     abrirModal(htmlNuevaCompra);
   }
@@ -289,17 +340,26 @@ document.addEventListener("click", (e) => {
 
     abrirModal(`
       <div style="text-align:center; padding:10px;">
-        <h2> Estas Seguro de cancelar?</h2>
+        <h2>Estas Seguro de cancelar?</h2>
+
         <div style="margin-top:15px; display:flex; gap:10px; justify-content:center;">
-          <button id="confirm-delete" class="delete">Cancelar Venta</button>
-          <button id="btn-continue" class = "view">Seguir</button>
+          <button id="confirm-delete" class="delete">
+            Cancelar Venta
+          </button>
+
+          <button id="btn-continue" class="view">
+            Seguir
+          </button>
         </div>
-      </div>`);
-    // ================= SEGUIR COMPRA =================
+      </div>
+    `);
+
     document.getElementById("btn-continue").onclick = (ev) => {
       ev.stopPropagation();
+
       modalContent.classList.remove("modal-small");
       modalContent.classList.add("modal-large");
+
       abrirModal(htmlNuevaCompra);
     };
   }

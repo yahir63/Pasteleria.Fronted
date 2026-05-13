@@ -1,9 +1,11 @@
+/* =========================================
+   CONFIGURACIÓN - CSS COMPLETO CORREGIDO
+   ========================================= */
 
-
-/* MAIN CONTENT */
+/* MAIN CONTENT - AJUSTADO PARA SIDEBAR FIJO */
 .main-content {
- 
-    width: calc(100% - 220px);
+    width: calc(100% - 220px);  /* Ancho total menos el sidebar */
+    margin-left: 220px;          /* Espacio para el sidebar fijo */
     min-height: 100vh;
     padding: 30px;
     display: flex;
@@ -119,35 +121,30 @@
 }
 
 /* ========================= */
-/* MODO OSCURO - TU PALETA */
+/* MODO OSCURO */
 /* ========================= */
 
 body.configuracion.dark-mode {
     background: #032f44;
 }
 
-/* contenido principal */
 body.configuracion.dark-mode .main-content {
     background: #01161f;
 }
 
-/* sidebar */
 body.configuracion.dark-mode .sidebar {
     background: #022838;
 }
 
-/* tarjetas */
 body.configuracion.dark-mode .card {
     background: #062e3f;
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
-/* tarjeta usuario */
 body.configuracion.dark-mode .user-card {
     background: #021a24;
 }
 
-/* textos */
 body.configuracion.dark-mode .card span,
 body.configuracion.dark-mode .top-user h3,
 body.configuracion.dark-mode .top-user p,
@@ -156,14 +153,12 @@ body.configuracion.dark-mode .sidebar h2 {
     color: #ffffff;
 }
 
-/* inputs */
 body.configuracion.dark-mode .item input {
     background: #06384d;
     color: white;
     border: 1px solid #63c6f8;
 }
 
-/* botones */
 body.configuracion.dark-mode .btn-save {
     background: #63c6f8;
     color: #032f44;
@@ -174,9 +169,185 @@ body.configuracion.dark-mode .btn-save:hover {
     background: #bbe6fc;
 }
 
-/* hover sidebar */
 body.configuracion.dark-mode .sidebar li:hover,
 body.configuracion.dark-mode .sidebar .active {
     background: #0d445f;
     color: #1a90c7;
+}
+
+/* =========================================
+   RESPONSIVE OPTIMIZADO
+   ========================================= */
+
+/* Base para Checkbox Hack */
+.sidebar-toggle { display: none !important; }
+.sidebar-overlay {
+  display: none; position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%; background: rgba(0,0,0,0.5);
+  z-index: 9998; cursor: pointer;
+}
+.hamburger-btn {
+  display: none; position: fixed; top: 15px; left: 15px;
+  z-index: 10000; background: #032F44; color: white;
+  width: 40px; height: 40px; border-radius: 10px;
+  cursor: pointer; align-items: center; justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.hamburger-btn span { display: block; width: 20px; height: 2px; background: white; position: relative; transition: 0.3s; }
+.hamburger-btn span::before, .hamburger-btn span::after {
+  content: ''; position: absolute; width: 20px; height: 2px; background: white; left: 0; transition: 0.3s;
+}
+.hamburger-btn span::before { top: -6px; }
+.hamburger-btn span::after { top: 6px; }
+
+/* TABLET (≤ 1024px) */
+@media (max-width: 1024px) {
+  .main-content {
+    width: calc(100% - 200px) !important;  /* Ajustado al sidebar de 200px */
+    margin-left: 200px !important;
+    padding: 20px !important;
+  }
+  
+  .grid-secundario {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .item input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .btn-save {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
+}
+
+/* MÓVIL (≤ 768px) */
+@media (max-width: 768px) {
+  body { overflow-x: hidden !important; }
+  .container { flex-direction: column !important; }
+  
+  .main-content {
+    width: 100% !important;
+    margin-left: 0 !important;  /* Sin margen en móvil */
+    padding: 10px !important;
+  }
+  
+  .hamburger-btn { display: flex !important; }
+
+  /* Sidebar Oculto */
+  #sidebar-container, .sidebar {
+    position: fixed !important; left: 0 !important; top: 0 !important;
+    width: 80% !important; max-width: 300px !important; height: 100vh !important;
+    z-index: 9999 !important; transform: translateX(-100%) !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background: #BBE6FC !important; overflow-y: auto;
+  }
+  .sidebar.open, #sidebar-container.open { transform: translateX(0) !important; }
+
+  /* Lógica Checkbox */
+  .sidebar-toggle:checked ~ .sidebar-overlay { display: block !important; }
+  .sidebar-toggle:checked ~ .container #sidebar-container,
+  .sidebar-toggle:checked ~ .container .sidebar { transform: translateX(0) !important; }
+  
+  .sidebar-toggle:checked ~ .hamburger-btn span { background: transparent !important; }
+  .sidebar-toggle:checked ~ .hamburger-btn span::before { transform: rotate(45deg) !important; top: 0 !important; }
+  .sidebar-toggle:checked ~ .hamburger-btn span::after { transform: rotate(-45deg) !important; top: 0 !important; }
+
+  /* Header & Topbar */
+  .header { margin-top: 60px !important; padding-left: 10px !important; }
+  .header h1 { font-size: 20px !important; }
+  .header p { font-size: 13px !important; }
+  #topbar-container, .top-user { justify-content: center !important; width: 100% !important; margin-top: 10px !important; }
+  .user-card { transform: scale(0.9) !important; padding: 6px 10px !important; }
+  .user-card img { width: 40px !important; height: 40px !important; }
+
+  /* Grid a 1 columna */
+  .grid-secundario {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* Cards */
+  .card {
+    padding: 18px !important;
+    border-radius: 16px !important;
+  }
+  
+  .card span:first-child {
+    font-size: 16px !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .icon-card {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  /* Inputs */
+  .item {
+    margin-bottom: 14px !important;
+  }
+  
+  .item span {
+    font-size: 13px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .item input {
+    padding: 12px !important;
+    font-size: 1rem !important;
+    border-radius: 10px !important;
+  }
+
+  /* Botones full-width */
+  .btn-save {
+    width: 100% !important;
+    padding: 14px !important;
+    font-size: 1rem !important;
+    margin-top: 8px !important;
+    border-radius: 12px !important;
+  }
+}
+
+/* MÓVIL PEQUEÑO (≤ 480px) */
+@media (max-width: 480px) {
+  .main-content { padding: 8px !important; }
+  
+  .card { padding: 16px !important; }
+  
+  .card span:first-child { font-size: 15px !important; }
+  
+  .item span { font-size: 12px !important; }
+  
+  .item input { padding: 10px !important; font-size: 0.95rem !important; }
+  
+  .btn-save { padding: 12px !important; font-size: 0.95rem !important; }
+  
+  .user-card { padding: 4px 8px !important; }
+  .user-card img { width: 36px !important; height: 36px !important; }
+}
+
+/* MODO OSCURO EN MÓVIL */
+@media (max-width: 768px) {
+  body.configuracion.dark-mode .hamburger-btn {
+    background: #ffffff !important;
+    color: #032F44 !important;
+  }
+  
+  body.configuracion.dark-mode .hamburger-btn span,
+  body.configuracion.dark-mode .hamburger-btn span::before,
+  body.configuracion.dark-mode .hamburger-btn span::after {
+    background: #032F44 !important;
+  }
+  
+  body.configuracion.dark-mode .sidebar-overlay {
+    background: rgba(0,0,0,0.7) !important;
+  }
 }

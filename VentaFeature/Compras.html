@@ -8,17 +8,23 @@
     <link rel="stylesheet" href="/Components/global.css" />
   </head>
   <body>
-    <!-- BODY NORMAL-->
+
+    <!-- 1. CHECKBOX OCULTO (Controlador del menú) -->
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
+    
+    <!-- 2. BOTÓN HAMBURGUESA -->
+    <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
+    
+    <!-- 3. FONDO OSCURO (Overlay) -->
+    <label for="sidebar-toggle" class="sidebar-overlay"></label>
+    
     <div class="container">
       <!-- SIDEBAR -->
       <div id="sidebar-container"></div>
 
       <!-- MAIN -->
       <main class="main">
-        <button class="sidebar-toggle">
-          <img src="/Assets/img/menu.png" alt="Toggle Menu" />
-        </button>
-     
+       
         <!-- TOPBAR -->
         <div id="topbar-container"></div>
 
@@ -76,7 +82,6 @@
                   </div>
                 </td>
               </tr>
-
               <tr>
                 <td>Panadería Central</td>
                 <td>26 Abr 2026</td>
@@ -95,7 +100,6 @@
                   </div>
                 </td>
               </tr>
-
               <tr>
                 <td>Insumos La Favorita</td>
                 <td>25 Abr 2026</td>
@@ -114,44 +118,6 @@
                   </div>
                 </td>
               </tr>
-              <tr>
-                <td>Panadería Central</td>
-                <td>26 Abr 2026</td>
-                <td>$85.50</td>
-                <td><span class="status-pendiente">Pendiente</span></td>
-                <td>
-                  <div class="action-cells">
-                    <button class="view">
-                      <img src="/Assets/img/view.png" />
-                      Ver
-                    </button>
-                    <button class="delete">
-                      <img src="/Assets/img/eliminar.png" />
-                      Eliminar
-                    </button>
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Insumos La Favorita</td>
-                <td>25 Abr 2026</td>
-                <td>$200.00</td>
-                <td><span class="status-pagado">Pagado</span></td>
-                <td>
-                  <div class="action-cells">
-                    <button class="view">
-                      <img src="/Assets/img/view.png" />
-                      Ver
-                    </button>
-                    <button class="delete">
-                      <img src="/Assets/img/eliminar.png" />
-                      Eliminar
-                    </button>
-                  </div>
-                </td>
-              </tr>
-
               <tr>
                 <td>Harinas del Norte</td>
                 <td>24 Abr 2026</td>
@@ -175,7 +141,7 @@
 
           <!-- FOOTER -->
           <div class="table-footer">
-            <span>Mostrando 1 a 6 de 20 compras</span>
+            <span>Mostrando 1 a 4 de 20 compras</span>
 
             <div class="pagination">
               <button>&lt;</button>
@@ -188,13 +154,16 @@
         </div>
       </main>
     </div>
+
+    <!-- MODAL DINÁMICO (Se llena con JS) -->
     <div id="modal" class="modal">
       <div id="modal-content" class="modal-content">
         <span id="close-modal">&times;</span>
         <div id="modal-body"></div>
       </div>
     </div>
-    <script src="/JS/compras.js"></script>
+  
      <script src="/JS/components.js"></script>
+     <script src="/JS/compras.js"></script>
   </body>
 </html>

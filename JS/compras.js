@@ -5,17 +5,10 @@ const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modal-body");
 const closeModal = document.getElementById("close-modal");
 const modalContent = document.querySelector(".modal-content");
-const overlay = document.querySelector(".sidebar-overlay");
+
 const sidebar = document.querySelector(".sidebar");
 const toggleBtn = document.querySelector(".sidebar-toggle");
 
-// =====================
-// SIDEBAR
-// =====================
-toggleBtn.addEventListener("click", () => {
-  sidebar.classList.toggle("sidebar-open");
-  overlay.classList.toggle("active");
-});
 
 // =====================
 // MODAL
@@ -199,43 +192,6 @@ document.addEventListener("click", (e) => {
             <button class="btn-add">+ Agregar</button>
           </div>
         </div>
-        <div class="details-box">
-          <table>
-            <thead>
-              <tr>
-                <th>Producto</th>
-                <th>Cant.</th>
-                <th>P. Unitario</th>
-                <th>Subtotal</th>
-                <th style="text-align: center;">Acciones</th >
-              </tr>
-            </thead>
-            <tbody id="details-body">
-              <tr>
-                <td>Pastel Vainilla</td>
-                <td>10</td>
-                <td>$25</td>
-                <td>$250</td>
-                <td>
-                  <div class="delete-detail">
-                    
-                    <button class= "edit-detail-btn"><img src="/Assets/img/editar.png" alt=""> Editar </button>
-                    <button class="delete-detail-btn">&times;</button>
-                  </div>
-
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="total-box">
-          <span>Total:</span>
-          <input type="text" value="$0.00" readonly>
-        </div>
-        <button id="btn-cancel" class="btn-cancel">Cancelar</button>
-        <button id="btn-savePurchase" class="btn-save">Guardar Compra</button>
       </div>
     `;
 

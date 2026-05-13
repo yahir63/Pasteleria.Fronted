@@ -1,416 +1,173 @@
 
-/* MAIN */
-.main {
+.main { flex: 1; padding: 20px; }
+.top-user { display: flex; justify-content: flex-end; align-items: center; margin-top: 20px; }
+.user-card { display: flex; align-items: center; background: white; padding: 8px 12px; border-radius: 50px; }
+.user-card img { width: 50px; border-radius: 50%; margin-right: 10px; }
+.header h1 { margin-top: 15px; }
+.header p { color: #777; margin-bottom: 20px; }
+.card { background: white; padding: 20px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.top-bar { display: flex; justify-content: space-between; margin-bottom: 15px; }
+.top-bar input, .actions select { padding: 10px 14px; border-radius: 12px; border: 1px solid #e1e5ea; background: #f9fbfd; outline: none; }
+.top-bar input { width: 300px; padding: 10px; border-radius: 10px; border: 1px solid #ccc; }
+.actions { display: flex; justify-content: center; align-items: right; gap: 8px; }
+.actions select { padding: 10px; border-radius: 10px; border: 1px solid #ccc; width: 180px; }
+.btn-new { background: #4da3ff; color: white; border: none; padding: 10px 16px; border-radius: 10px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+.btn-new:hover { background: #2d8cff; transform: scale(1.05); }
+.btn-new:active { transform: scale(0.95); filter: saturate(1.5); }
+table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 12px; overflow: hidden; background: white; }
+thead { background: #f4f7fb; }
+th { font-size: 13px; color: #555; font-weight: 600; }
+tbody tr:hover { background: #f9fbfd; }
+th, td { padding: 10px; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.05); }
+tbody tr { border-top: 1px solid #eee; }
+th:last-child, td:last-child { text-align: center; }
+.view { background: #32a8e7; color: white; border: none; padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; display: flex; align-items: center; gap: 5px; transition: 0.2s; }
+.view:hover { background: #0aadff; transform: scale(1.05); }
+.view:active { transform: scale(0.95); }
+button img { width: 12px; height: 14px; }
+.edit { background: #63CEF8; color: white; border: none; padding: 6px 8px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.3s ease; }
+.delete { background: #dc3545; color: white; border: none; padding: 6px 8px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.3s ease; }
+.edit:hover, .delete:hover, .Activo:hover { transform: scale(1.05); }
+.delete:active { transform: scale(0.95); filter: saturate(1.5); }
+.accios { display: flex; gap: 10px; align-items: center; }
+.Activo { background: #bbe9fc; border: none; padding: 6px 8px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 2px; transition: all 0.3s ease; }
+.status-pagado { background: #d4f8d4; color: #1b5e20; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+.status-pendiente { background: #fff3cd; color: #856404; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+.table-footer { display: flex; justify-content: space-between; margin-top: 15px; }
+.pagination button { margin: 2px; padding: 6px 12px; border: 1px solid #e1e5ea; background: white; border-radius: 8px; cursor: pointer; font-size: 13px; transition: 0.2s; }
+.pagination button:hover:not(.active) { background: #f1f5f9; border-color: #cbd5e1; transform: translateY(-1px); }
+.pagination button:active { transform: scale(0.95); }
+.pagination .active { background: #4da3ff; color: white; border-color: #4da3ff; }
+.modal-toggle { display: none; }
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 10001; }
+.modal-body input, .modal-body select { width: 100%; padding: 10px 10px; border-radius: 10px; border: 1px solid #ccc; background: #f9fbfd; transition: all 0.3s ease; }
+.modal-toggle:checked + .modal-overlay { display: flex; }
+.modal-content { background: #bbe5fa; padding: 10px; border-radius: 10px; width: 420px; height: 300px; }
+.form-group { display: flex; flex-direction: column; margin-bottom: 10px; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; }
+.modal-close { cursor: pointer; font-size: 20px; }
+.modal-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; gap: 10px; }
+.btn-save { background: #4da3ff; color: white; border: none; padding: 8px 8px; border-radius: 6px; cursor: pointer; font-size: 14px; transition: all 0.3s ease; }
+.btn-save:hover { background: #4a9cf5; transform: scale(1.05); }
+.btn-cancel { background: #808080; color: white; padding: 8px 8px; border-radius: 6px; cursor: pointer; font-size: 14px; transition: all 0.3s ease; text-align: center; }
+.btn-cancel:hover { background: #575656; transform: scale(1.05); }
+.search-box { position: relative; width: 250px; }
+.search-box input { width: 100%; padding: 8px 30px 8px 10px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box; }
+.search-icon { position: absolute; right: 8px; top: 45%; transform: translateY(-50%); width: 18px; }
 
-  flex: 1;
-  padding: 20px;
-}
+/* =========================================
+   CHECKBOX HACK 
+   ========================================= */
 
-/* USER */
-.top-user {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;   /* 👈 esto ayuda si hay altura */
-  margin-top: 20px;      /* 👈 bajalo, 90px es demasiado */
-}
+.sidebar-toggle { display: none !important; }
 
-.user-card {
-  display: flex;
-  align-items: center;
-  background: white;
-  padding: 8px 12px;
-  border-radius: 50px;
-}
-
-.user-card img {
-  width: 50px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-/* HEADER */
-.header h1 {
-  margin-top: 15px;
-}
-
-.header p {
-  color: #777;
-  margin-bottom: 20px;
-}
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-/* TOP BAR */
-.top-bar {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.top-bar input,
-.actions select {
-  padding: 10px 14px;
-  border-radius: 12px;
-  border: 1px solid #e1e5ea;
-  background: #f9fbfd;
-  outline: none;
-}
-.top-bar input {
-  width: 300px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-/* ACCIONES (IMPORTANTE) */
-.actions{
-  display: flex;
-  justify-content: center;
-  align-items:right;
-  gap: 8px;
+.sidebar-overlay {
+  display: none; position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%; background: rgba(0,0,0,0.5);
+  z-index: 9998; cursor: pointer;
 }
 
-.actions select {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  width:180px;
+.hamburger-btn {
+  display: none; position: fixed; top: 15px; left: 15px;
+  z-index: 10000; background: #032F44; color: white;
+  width: 40px; height: 40px; border-radius: 10px;
+  cursor: pointer; align-items: center; justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.hamburger-btn span {
+  display: block; width: 20px; height: 2px; background: white;
+  position: relative; transition: 0.3s;
+}
+.hamburger-btn span::before, .hamburger-btn span::after {
+  content: ''; position: absolute; width: 20px; height: 2px;
+  background: white; left: 0; transition: 0.3s;
+}
+.hamburger-btn span::before { top: -6px; }
+.hamburger-btn span::after { top: 6px; }
+
+/* =========================================
+   MÓVIL 
+   ========================================= */
+
+@media (max-width: 768px) {
+  .hamburger-btn { display: flex !important; }
   
-}
+  .container { 
+    flex-direction: column !important; 
+    position: relative !important;
+  }
+  .main { 
+    width: 100% !important; 
+    padding: 10px !important; 
+    margin-left: 0 !important; 
+  }
 
-.btn-new {
-  background: #4da3ff;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
-}
+    .header{
+    min-height: 100px;
+    padding: 10px;
+  }
 
-.btn-new:hover {
-  background: #2d8cff;
-  transform: scale(1.05);
-}
-
-.btn-new:active {
-  transform: scale(0.95);
-  filter: saturate(1.5);
-}
-
-/* TABLA */
-table {
-  width: 100%;
-  border-collapse: separate; /* CLAVE */
-  border-spacing: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  background: white;
-}
-
-thead {
-  background: #f4f7fb;
-}
-
-th {
-  font-size: 13px;
-  color: #555;
-  font-weight: 600;
-}
-
-tbody tr:hover {
-  background: #f9fbfd;
-}
-
-th,
-td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-
-}
-
-
-
-tbody tr {
-  border-top: 1px solid #eee;
-}
-
-th:last-child,
-td:last-child {
-  text-align: center;
-}
-
-.view {
-  background: #32a8e7;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: 0.2s;
-}
-
-.view:hover {
-  background: #0aadff;
-  transform: scale(1.05);
-}
-
-.view:active {
-  transform: scale(0.95);
-}
-
-
-/* ICONOS EN BOTONES */
-button img {
-  width: 12px;
-  height: 14px;
-}
-
-/* BOTÓN EDITAR */
-.edit  {
-    background: #63CEF8;
-    color: white;
-    border: none;
-    padding: 6px 8px;
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: all 0.3s ease;
-}
-
-/* BOTÓN ELIMINAR */
-.delete {
-  background: #dc3545;
-  color: white;
-  border: none;
-  padding: 6px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: all 0.3s ease;
-}
-
-.edit:hover,
-.delete:hover,
-.Activo:hover {
-  transform: scale(1.05);
-}
-.delete:active {
-  transform: scale(0.95);
-  filter: saturate(1.5);
-}
-.accios {
-  display: flex;
-  gap: 10px;           /* espacio entre botones */
-  align-items: center; /* alineación vertical */
-}
-
-/* BOTÓN ACTIVO */
-.Activo  {
-  background: #bbe9fc;
-  border: none;
-  padding: 6px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  transition: all 0.3s ease;
-}
-
-/* ESTADOS */
-.status-pagado {
-  background: #d4f8d4;
-  color: #1b5e20;
-  padding: 4px 8px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.status-pendiente {
-  background: #fff3cd;
-  color: #856404;
-  padding: 4px 8px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-/* FOOTER */
-.table-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-
-.pagination button {
-  margin: 2px;
-  padding: 6px 12px;
-  border: 1px solid #e1e5ea;
-  background: white;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 13px;
-  transition: 0.2s;
-}
-
-.pagination button:hover:not(.active) {
-  background: #f1f5f9;
-  border-color: #cbd5e1;
-  transform: translateY(-1px);
-}
-
-.pagination button:active {
-  transform: scale(0.95);
-}
-
-.pagination .active {
-  background: #4da3ff;
-  color: white;
-  border-color: #4da3ff;
-}
-
-/* OCULTAR INPUT */
-.modal-toggle {
-  display: none;
-}
-
-/* FONDO */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-
-}
-
-.modal-body input,
-.modal-body select {
-  width: 100%;
-  padding: 10px 10px;
-  border-radius: 10px; /* 🔥 aquí está lo redondito */
-  border: 1px solid #ccc;
-  background: #f9fbfd;
-  transition: all 0.3s ease;
-}
-
-/* 🔥 ESTO ES LA MAGIA (igual al ejemplo) */
-.modal-toggle:checked + .modal-overlay {
-  display: flex;
-}
-
-/* CAJA */
-.modal-content {
-  background: #bbe5fa;
-  padding: 10px;
-  border-radius: 10px;
-  width: 420px;
-  height: 300px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column; /* 👈 esto pone label arriba */
-  margin-bottom: 10px;
-}
-
-/* HEADER */
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* CERRAR */
-.modal-close {
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.modal-footer {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  margin-top: 15px;
-  gap: 10px;
-}
-
-.btn-save {
-  background: #4da3ff; 
-  color: white;
-  border: none;
-  padding: 8px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.btn-save:hover {
-  background: #4a9cf5;
-  transform: scale(1.05);
-}
-
-.btn-cancel {
-  background: #808080; 
-  color: white;
-  padding: 8px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-.btn-cancel:hover {
-  background: #575656;
-  transform: scale(1.05);
-}
-
-/* CONTENEDOR */
-.search-box {
-  position: relative;
-  width: 250px;
   
-}
 
-/* INPUT */
-.search-box input {
-  width: 100%;
-  padding: 8px 30px 8px 10px; /* espacio para la lupa */
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-/* ICONO (ARREGLADO) */
-.search-icon {
-  position: absolute;
-  right: 8px;
-  top: 45%;
-  transform: translateY(-50%);
-  width: 18px; 
+  
+  /* Sidebar */
+  #sidebar-container, .sidebar {
+    position: fixed !important; 
+    left: 0 !important; 
+    top: 0 !important;
+    width: 80% !important; 
+    max-width: 300px !important; 
+    height: 100vh !important;
+    z-index: 9999 !important; 
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background: #BBE6FC !important;
+    overflow-y: auto;
+  }
+  
+  /* Checkbox hack */
+  .sidebar-toggle:checked ~ .sidebar-overlay { display: block !important; }
+  .sidebar-toggle:checked ~ .container #sidebar-container,
+  .sidebar-toggle:checked ~ .container .sidebar,
+  #sidebar-container.open, .sidebar.open { transform: translateX(0) !important; }
+  
+  /* Icono X */
+  .sidebar-toggle:checked ~ .hamburger-btn span { background: transparent !important; }
+  .sidebar-toggle:checked ~ .hamburger-btn span::before { transform: rotate(45deg) !important; top: 0 !important; }
+  .sidebar-toggle:checked ~ .hamburger-btn span::after { transform: rotate(-45deg) !important; top: 0 !important; }
+  
+  /*  USUARIO CENTRADO */
+  #topbar-container, .top-user { 
+    justify-content: center !important; /* Centra horizontalmente */
+    width: 100% !important; 
+    padding: 0 !important; 
+    margin: 10px 0 15px 0 !important; /* Margen superior e inferior */
+  }
+  .user-card { 
+    transform: scale(0.9) !important; 
+    padding: 6px 10px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+  }
+  .user-card img { width: 40px !important; margin-right: 8px !important; }
+  
+  .header h1 { font-size: 20px !important; text-align: center !important; }
+  .header p { font-size: 13px !important; text-align: center !important; }
+  
+  .top-bar { flex-direction: column !important; gap: 10px !important; }
+  .search-box { width: 100% !important; }
+  .actions { flex-direction: column !important; width: 100% !important; }
+  .actions select, .btn-new { width: 100% !important; }
+  
+  .card { padding: 15px !important; overflow-x: auto !important; }
+  table { min-width: 600px !important; display: block !important; overflow-x: auto !important; }
+  th, td { padding: 12px 15px !important; font-size: 12px !important; }
+  .edit, .delete, .Activo { padding: 4px 8px !important; font-size: 11px !important; }
+  
+  .table-footer { flex-direction: column !important; gap: 10px !important; text-align: center !important; }
+  .pagination { justify-content: center !important; }
+  
+  .modal-content { width: 90% !important; height: auto !important; max-height: 85vh !important; overflow-y: auto !important; }
+  .modal-footer { flex-direction: column !important; }
+  .btn-save, .btn-cancel { width: 100% !important; }
 
 }
