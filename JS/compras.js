@@ -207,7 +207,7 @@ document.addEventListener("click", (e) => {
                 <th>Cant.</th>
                 <th>P. Unitario</th>
                 <th>Subtotal</th>
-                <th>Eliminar</th>
+                <th style="text-align: center;">Acciones</th >
               </tr>
             </thead>
             <tbody id="details-body">
@@ -218,8 +218,11 @@ document.addEventListener("click", (e) => {
                 <td>$250</td>
                 <td>
                   <div class="delete-detail">
+                    
+                    <button class= "edit-detail-btn"><img src="/Assets/img/editar.png" alt=""> Editar </button>
                     <button class="delete-detail-btn">&times;</button>
                   </div>
+
                 </td>
               </tr>
             </tbody>

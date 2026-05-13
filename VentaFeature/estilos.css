@@ -1,7 +1,5 @@
-
 /* MAIN */
 .main {
-  
   flex: 1;
   padding: 20px;
 }
@@ -250,7 +248,7 @@ button img {
 
 /* MODAL */
 .modal {
-  margin-left: 100px;
+  margin-left: calc(100%-220px);
   position: fixed;
   top: 0;
   left: 0;
@@ -443,16 +441,36 @@ button img {
   padding: 6px 12px;
   border: none;
   border-radius: 8px;
+  background: #dc3545;
+  color: black;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.delete-detail-btn:hover {
+  transform: scale(1.05);
+}
+
+.edit-detail-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
   background: #32a8e7;
   color: black;
   cursor: pointer;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
-.delete-detail-btn:hover {
-  background: #0aadff;
+.edit-detail-btn:hover {
   transform: scale(1.05);
+}
+
+.edit-detail-btn:active {
+  transform: scale(0.95);
 }
 
 .delete-detail-btn:active {
