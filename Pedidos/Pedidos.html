@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Pasteleria Soto</title>
     <link rel="stylesheet" href="Pedidos.css">
+    <link rel="stylesheet" href="/Components/global.css">
 </head>
 <body>
 
@@ -19,7 +20,21 @@
             <div class="modalPedido-body">
                 <div class="form-group">
                  <p>Cliente</p>
-                 <input type="text" placeholder>
+                  <select>
+                     <option>Rafaela ramirez</option>
+                     <option>Jafet Sanchez</option>
+                     <option>Juan lopez</option>
+                   </select>
+                </div>
+
+                <div class="form-group">
+                 <p>Producto</p>
+                  <select>
+                     <option>Pastel de chocolate </option>
+                     <option>Cupcake</option>
+                     <option>Galletas</option>
+                     <option>Pastel de Vainilla</option>
+                   </select>
                 </div>
 
                 <div class="form-group">
@@ -64,7 +79,7 @@
     <input type="checkbox" id="Detalle-modal" class="modalDetalle-toggle">
     <div class="modalDetalle-overlay">
         <div class="modalDetalle-content">
-           <label for="Detalle-modal" class="btn-Cerrar"><img src="/Login/Dashboard/img/devolver.png"> Cerrar</label>
+           <label for="Detalle-modal" class="btn-Cerrar"><img src="/Assets/img/devolver.png"> Cerrar</label>
 
             <div class="modalDetalle-header">
                 <h2>DETALLE DE PEDIDO</h2>
@@ -109,7 +124,7 @@
                             <tbody>
                                 <tr>
                                     <td class="producto">
-                                        <img src="/Login/Dashboard/img/Pastel de chocolate.jpg">
+                                        <img src="/Assets/img/Pastel de chocolate.jpg">
                                         Pastel de Chocolate</td>
                                     <td>Pastel de chocolate con relleno de crema</td>
                                     <td >1</td>
@@ -121,7 +136,7 @@
                             <tbody>
                                 <tr>
                                     <td class="producto" >
-                                        <img src="/Login/Dashboard/img/Cupcakes.jpg">
+                                        <img src="/Assets/img/Cupcakes.jpg">
                                         Cupcakes de vainilla</td>
                                     <td>Caja de 6 unidades decoradas</td>
                                     <td >2</td>
@@ -133,7 +148,7 @@
                             <tbody>
                                 <tr>
                                     <td  class="producto">
-                                        <img src="/Login/Dashboard/img/Galletas decoradas.jpg">
+                                        <img src="/Assets/img/Galletas decoradas.jpg">
                                         Galletas Decoradas</td>
                                     <td>Paquetes de 10</td>
                                     <td >3</td>
@@ -145,7 +160,7 @@
                             <tbody>
                                 <tr>
                                     <td  class="producto">
-                                        <img src="/Login/Dashboard/img/Pastel de bodas.webp">
+                                        <img src="/Assets/img/Pastel de bodas.webp">
                                         Pastel de bodas</td>
                                     <td>Pastel de bodas relleno de leche condensada</td>
                                     <td >1</td>
@@ -191,36 +206,13 @@
     <div class="container">
 
         <!-- SIDEBAR -->
-        <aside class="sidebar">
-            <h2>Pastelería Soto</h2>
-            <ul>
-                <li><img src="/Login/Dashboard/img/crecimiento.png">Dashboard</li>
-                <li><img src="/Login/Dashboard/img/caja.png">Productos</li>
-                <li><img src="/Login/Dashboard/img/personalizacion.png">Personalización</li>
-                <li><img src="/Login/Dashboard/img/categoria.png">Categoría</li>
-                <li><img src="/Login/Dashboard/img/avatar.png">Clientes</li>
-                <li><img src="/Login/Dashboard/img/mollete.png">Opciones</li>
-                <li><img src="/Login/Dashboard/img/nueva-cuenta.png">Usuarios</li>
-                <li class="active"><img src="/Login/Dashboard/img/pastel.png">Pedidos</li>
-                <li><img src="/Login/Dashboard/img/bolsa-de-la-compra.png">Compras</li>
-                <li><img src="/Login/Dashboard/img/carro.png">Ventas</li>
-                <li><img src="/Login/Dashboard/img/engranaje.png">Configuración</li>
-                <li><img src="/Login/Dashboard/img/cerrar-sesion.png">Cerrar Sesión</li>
-            </ul>
-        </aside>
+        <div id="sidebar-container"></div>
 
         <!-- MAIN -->
         <main class="main">
 
-           <section class="top-user">
-                    <div class="user-card">
-                        <img src="https://img.freepik.com/fotos-premium/concepto-personas-mujeres-retratos-cara-mujer-joven-sonriente-feliz_380164-119771.jpg?semt=ais_hybrid&w=740&q=80" alt="Usuario">
-                        <div class="user-info">
-                            <h3>Admin Soto</h3>
-                            <p>Administrador</p>
-                        </div>
-                    </div>
-            </section>
+            <!-- TOPBAR -->
+            <div id="topbar-container"></div>
 
             <!-- HEADER -->
             <div class="header">
@@ -235,7 +227,7 @@
                 <div class="top-bar">
                     <div class="search-box">
                         <input type="text" placeholder="Buscar Pedido...">
-                        <img src="/Login/Dashboard/img/lupa.png" class="search-icon">
+                        <img src="/Assets/img/lupa.png" class="search-icon">
                     </div>
                     
                     <div class="actions">
@@ -370,6 +362,9 @@
         </main>
 
     </div>
+
+    <!-- JS -->
+<script src="/JS/components.js"></script>
  
 </body>
 </html>
