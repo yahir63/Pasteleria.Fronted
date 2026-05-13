@@ -2,7 +2,7 @@
 
 /* MAIN CONTENT */
 .main-content {
-    margin-left: 220px;
+ 
     width: calc(100% - 220px);
     min-height: 100vh;
     padding: 30px;
