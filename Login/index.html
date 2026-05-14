@@ -14,19 +14,43 @@
 
         <div class="input-field">
             <label>Usuario</label>
-            <input type="text" placeholder="Tu usuario">
+            <input id="username" type="text" placeholder="Tu usuario">
             <i class="fas fa-user"></i>
         </div>
 
         <div class="input-field">
             <label>Contraseña</label>
-            <input type="password" placeholder="Tu contraseña">
+            <input id="password" type="password" placeholder="Tu contraseña">
             <i class="fas fa-lock"></i>
         </div>
                 <a href="Dashboard/dashboard.html">
-                     <button class="signup-btn">Ingresar</button>
+                     <button class="signup-btn" onclick="login()">Ingresar</button>
                     <p class="footer-text">Se te olvido tu contraseña?</p>
                 </a>
+                    <script>
+        // Credenciales fijas (lógica quemada)
+        const USER = "admin";
+        const PASS = "1234";
+
+        function login() {
+            const userInput = document.getElementById("username").value.trim();
+            const passInput = document.getElementById("password").value.trim();
+            const errorMsg = document.getElementById("error-msg");
+
+            // Validación simple
+            if (userInput === USER && passInput === PASS) {
+                alert("✅ Login exitoso");
+                // Aquí podrías redirigir a otra página
+                // window.location.href = "dashboard.html";
+            } else {
+                errorMsg.textContent = "❌ Usuario o contraseña incorrectos";
+            }
+        }
+    </script>
+
+
+
+
    
     </div>
 
