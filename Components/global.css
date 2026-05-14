@@ -26,8 +26,8 @@ body {
   padding: 20px;
   border-right: 1px solid #eee;
   box-shadow: 2px 0 10px rgba(0,0,0,0.03);
-  z-index: 900; /* Se mantiene encima del fondo pero debajo del topbar si es necesario */
-  overflow-y: auto; /* Permite scroll dentro del menú si es muy largo */
+  z-index: 900;
+  overflow-y: auto; 
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -96,7 +96,6 @@ body {
 .main {
   flex: 1;
   padding: 20px;
-  /* Ajustes para que el contenido no quede debajo del sidebar fijo */
   margin-left: 220px; 
   width: calc(100% - 220px);
   min-height: 100vh;
@@ -184,13 +183,12 @@ body {
 
 /* ================= TABLET (≤ 1024px) ================= */
 @media (max-width: 1024px) {
-  /* Sidebar un poco más pequeño pero aún fijo */
+ 
   .sidebar {
     width: 200px;
     padding: 16px;
   }
   
-  /* Ajustar el margen del main para que coincida con el nuevo ancho del sidebar */
   .main {
     margin-left: 200px;
     width: calc(100% - 200px);
@@ -227,15 +225,15 @@ body {
     display: flex;
   }
 
-  /* En móvil, el sidebar ya es fixed y se oculta/muestra con la clase .open */
+ 
   .sidebar {
     width: 260px;
-    transform: translateX(-100%); /* Oculto por defecto */
+    transform: translateX(-100%); 
     padding: 70px 20px 20px;
   }
   
   .sidebar.open {
-    transform: translateX(0); /* Visible */
+    transform: translateX(0); 
   }
   
   .sidebar li:nth-child(8) {

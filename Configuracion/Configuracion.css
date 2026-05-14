@@ -1,11 +1,7 @@
-/* =========================================
-   CONFIGURACIÓN - CSS COMPLETO CORREGIDO
-   ========================================= */
 
-/* MAIN CONTENT - AJUSTADO PARA SIDEBAR FIJO */
 .main-content {
-    width: calc(100% - 220px);  /* Ancho total menos el sidebar */
-    margin-left: 220px;          /* Espacio para el sidebar fijo */
+    width: calc(100% - 220px);  
+    margin-left: 220px;         
     min-height: 100vh;
     padding: 30px;
     display: flex;
@@ -203,7 +199,7 @@ body.configuracion.dark-mode .sidebar .active {
 /* TABLET (≤ 1024px) */
 @media (max-width: 1024px) {
   .main-content {
-    width: calc(100% - 200px) !important;  /* Ajustado al sidebar de 200px */
+    width: calc(100% - 200px) !important;
     margin-left: 200px !important;
     padding: 20px !important;
   }
@@ -235,7 +231,7 @@ body.configuracion.dark-mode .sidebar .active {
   
   .main-content {
     width: 100% !important;
-    margin-left: 0 !important;  /* Sin margen en móvil */
+    margin-left: 0 !important;  
     padding: 10px !important;
   }
   
