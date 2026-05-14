@@ -13,8 +13,14 @@
 <body>
 
 
-<label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
-<label for="sidebar-toggle" class="sidebar-overlay"></label>
+  <!-- 1. CHECKBOX OCULTO (Controlador del menú) -->
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
+    
+    <!-- 2. BOTÓN HAMBURGUESA -->
+    <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
+    
+    <!-- 3. FONDO OSCURO (Overlay) -->
+    <label for="sidebar-toggle" class="sidebar-overlay"></label>
 
     <!-- ===================================== -->
     <!-- MODAL AGREGAR PRODUCTO -->
@@ -506,7 +512,6 @@
 
    
     <script src="/JS/components.js"></script>
-    <script src="/JS/responsive.js"></script>
     <script src="Producto.js"></script>
 
 </body>
