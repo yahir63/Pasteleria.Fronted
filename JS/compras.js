@@ -353,8 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     }
 
-    if (e.target.id === "confirm-delete") {
-      cerrarModal();
-    }
-  });
+  if (e.target.id === "confirm-delete") {
+    cerrarModal();
+  }
 });

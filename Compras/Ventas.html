@@ -4,44 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ventas</title>
-    <link rel="stylesheet" href="Ventas.css" />
     <link rel="stylesheet" href="/Components/global.css" />
+    <link rel="stylesheet" href="Ventas.css" />
   </head>
   <body>
-    <!-- BODY NORMAL-->
+
+    <!-- 1. CHECKBOX OCULTO (Controlador del menú) -->
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
+    
+    <!-- 2. BOTÓN HAMBURGUESA -->
+    <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
+    
+    <!-- 3. FONDO OSCURO -->
+    <label for="sidebar-toggle" class="sidebar-overlay"></label>
+    
     <div class="container">
-      <!-- SIDEBAR GLOBAL -->
       <div id="sidebar-container"></div>
 
-      <!-- MAIN -->
       <main class="main">
-        <!-- TOPBAR GLOBAL -->
         <div id="topbar-container"></div>
 
-        <!-- HEADER -->
         <div class="header">
           <h1>Gestión de Ventas</h1>
           <p>Consulta y administra las ventas realizadas.</p>
         </div>
 
-        <!-- CONTENIDO -->
         <div class="card">
-          <!-- BARRA SUPERIOR -->
           <div class="top-bar">
             <input type="text" placeholder="Buscar venta..." />
-
             <div class="actions">
               <select>
                 <option>Todas las Ventas</option>
                 <option>Pagadas</option>
                 <option>Pendientes</option>
               </select>
-
               <button class="btn-new">+ Nueva Venta</button>
             </div>
           </div>
 
-          <!-- TABLA -->
           <table>
             <thead>
               <tr>
@@ -52,7 +52,6 @@
                 <th>Acciones</th>
               </tr>
             </thead>
-
             <tbody>
               <tr>
                 <td>Maria Lopez</td>
@@ -61,18 +60,11 @@
                 <td><span class="status-pagado">Pagado</span></td>
                 <td>
                   <div class="action-cells">
-                    <button class="view">
-                      <img src="/Assets/img/view.png" />
-                      Ver
-                    </button>
-                    <button class="delete">
-                      <img src="/Assets/img/eliminar.png" />
-                      Eliminar
-                    </button>
+                    <button class="view"><img src="/Assets/img/view.png" /> Ver</button>
+                    <button class="delete"><img src="/Assets/img/eliminar.png" /> Eliminar</button>
                   </div>
                 </td>
               </tr>
-
               <tr>
                 <td>Lucero Lopez</td>
                 <td>26 Abr 2026</td>
@@ -80,18 +72,11 @@
                 <td><span class="status-pendiente">Pendiente</span></td>
                 <td>
                   <div class="action-cells">
-                    <button class="view">
-                      <img src="/Assets/img/view.png" />
-                      Ver
-                    </button>
-                    <button class="delete">
-                      <img src="/Assets/img/eliminar.png" />
-                      Eliminar
-                    </button>
+                    <button class="view"><img src="/Assets/img/view.png" /> Ver</button>
+                    <button class="delete"><img src="/Assets/img/eliminar.png" /> Eliminar</button>
                   </div>
                 </td>
               </tr>
-
               <tr>
                 <td>Joel Arias</td>
                 <td>25 Abr 2026</td>
@@ -99,14 +84,8 @@
                 <td><span class="status-pagado">Pagado</span></td>
                 <td>
                   <div class="action-cells">
-                    <button class="view">
-                      <img src="/Assets/img/view.png" />
-                      Ver
-                    </button>
-                    <button class="delete">
-                      <img src="/Assets/img/eliminar.png" />
-                      Eliminar
-                    </button>
+                    <button class="view"><img src="/Assets/img/view.png" /> Ver</button>
+                    <button class="delete"><img src="/Assets/img/eliminar.png" /> Eliminar</button>
                   </div>
                 </td>
               </tr>
@@ -117,18 +96,11 @@
                 <td><span class="status-pendiente">Pendiente</span></td>
                 <td>
                   <div class="action-cells">
-                    <button class="view">
-                      <img src="/Assets/img/view.png" />
-                      Ver
-                    </button>
-                    <button class="delete">
-                      <img src="/Assets/img/eliminar.png" />
-                      Eliminar
-                    </button>
+                    <button class="view"><img src="/Assets/img/view.png" /> Ver</button>
+                    <button class="delete"><img src="/Assets/img/eliminar.png" /> Eliminar</button>
                   </div>
                 </td>
               </tr>
-
               <tr>
                 <td>Maria Chavez</td>
                 <td>25 Abr 2026</td>
@@ -136,18 +108,11 @@
                 <td><span class="status-pagado">Pagado</span></td>
                 <td>
                   <div class="action-cells">
-                    <button class="view">
-                      <img src="/Assets/img/view.png" />
-                      Ver
-                    </button>
-                    <button class="delete">
-                      <img src="/Assets/img/eliminar.png" />
-                      Eliminar
-                    </button>
+                    <button class="view"><img src="/Assets/img/view.png" /> Ver</button>
+                    <button class="delete"><img src="/Assets/img/eliminar.png" /> Eliminar</button>
                   </div>
                 </td>
               </tr>
-
               <tr>
                 <td>Carol Rodriguez</td>
                 <td>24 Abr 2026</td>
@@ -155,24 +120,16 @@
                 <td><span class="status-pendiente">Pendiente</span></td>
                 <td>
                   <div class="action-cells">
-                    <button class="view">
-                      <img src="/Assets/img/view.png" />
-                      Ver
-                    </button>
-                    <button class="delete">
-                      <img src="/Assets/img/eliminar.png" />
-                      Eliminar
-                    </button>
+                    <button class="view"><img src="/Assets/img/view.png" /> Ver</button>
+                    <button class="delete"><img src="/Assets/img/eliminar.png" /> Eliminar</button>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          <!-- FOOTER -->
           <div class="table-footer">
             <span>Mostrando 1 a 6 de 20 ventas</span>
-
             <div class="pagination">
               <button>&lt;</button>
               <button class="active">1</button>
@@ -185,6 +142,7 @@
       </main>
     </div>
 
+    <!-- MODAL DINÁMICO -->
     <div id="modal" class="modal">
       <div id="modal-content" class="modal-content">
         <span id="close-modal">&times;</span>
@@ -192,8 +150,7 @@
       </div>
     </div>
     
+    <script src="/JS/components.js"></script>
     <script src="/JS/venta.js"></script>
-    <!-- JS -->
-<script src="/JS/components.js"></script>
   </body>
 </html>

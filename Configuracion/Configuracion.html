@@ -2,12 +2,22 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuracion</title>
     <link rel="stylesheet" href="Configuracion.css">
     <link rel="stylesheet" href="/Components/global.css">
 </head>
 
 <body class="configuracion">
+
+     <!-- 1. Checkbox de control (oculto) -->
+  <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
+  
+  <!-- 2. Botón hamburguesa (label conectado) -->
+  <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
+  
+  <!-- 3. Overlay para cerrar -->
+  <label for="sidebar-toggle" class="sidebar-overlay"></label>
 
 <div class="container">
 
