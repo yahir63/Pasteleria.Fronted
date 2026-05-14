@@ -251,19 +251,63 @@ button img { width: 12px; height: 14px; }
 .btn-cancel { background: #e9ecef; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; }
 .btn-save { background: #32a8e7; color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; }
 .delete-detail-btn {
-  padding: 6px 12px; border: none; border-radius: 8px;
-  background: #32a8e7; color: white; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
+ padding: 6px 12px;
+border: none;
+border-radius: 8px;
+background: #dc3545;
+color: white;
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: all 0.3s ease;
 }
 .delete-detail-btn:hover { background: #0aadff; transform: scale(1.05); }
 .delete-detail-btn:active { transform: scale(0.95); }
 
 /* ================= CHECKBOX HACK BASE ================= */
-.sidebar-toggle { display: none !important; }
+.sidebar-toggle {
+  display: none !important;
+}
+
 .sidebar-overlay {
-  display: none; position: fixed; top: 0; left: 0;
-  width: 100%; height: 100%; background: rgba(0,0,0,0.5);
-  z-index: 9998; cursor: pointer;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 9998;
+  cursor: pointer;
+}
+
+.delete-detail-btn:hover {
+  transform: scale(1.05);
+}
+
+.edit-detail-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #32a8e7;
+  color: black;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.edit-detail-btn:hover {
+  transform: scale(1.05);
+}
+
+.edit-detail-btn:active {
+  transform: scale(0.95);
+}
+
+.delete-detail-btn:active {
+  transform: scale(0.95);
 }
 .hamburger-btn {
   display: none; position: fixed; top: 15px; left: 15px;

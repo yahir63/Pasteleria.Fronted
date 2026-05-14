@@ -29,7 +29,7 @@ if (overlay) {
 }
 
 
-// =
+
 
 function cerrarModal() {
   modal.classList.remove("show");
@@ -283,24 +283,28 @@ document.addEventListener("click", (e) => {
           <th>Cant.</th>
           <th>P. Unitario</th>
           <th>Subtotal</th>
-          <th>Eliminar Detalle</th>
+          <th>Acciones</th>
         </tr>
       </thead>
 
       <tbody id="details-body">
-        <tr>
-          <td>Pastel Vainilla</td>
-          <td>10</td>
-          <td>25$</td>
-          <td>250$</td>
-          <td>
-            <div class="delete-detail">
-              <button class="delete-detail-btn">
-                &times;
-              </button>
-            </div>
-          </td>
-        </tr>
+    <tr>
+  <td>Pastel Vainilla</td>
+  <td>10</td>
+  <td>25$</td>
+  <td>250$</td>
+  <td>
+    <div class="delete-detail">
+      <button class="edit-detail-btn">
+        <img src="/Assets/img/editar.png" alt=""> Editar
+      </button>
+
+      <button class="delete-detail-btn">
+        &times;
+      </button>
+    </div>
+  </td>
+</tr>
       </tbody>
 
     </table>
@@ -331,6 +335,72 @@ document.addEventListener("click", (e) => {
   if (e.target.closest(".delete-detail-btn")) {
     const row = e.target.closest("tr");
     row.remove();
+  }
+
+  if (e.target.closest(".edit-detail-btn")) {
+    const fila = e.target.closest("tr");
+
+    const tbody = fila.closest("tbody");
+    const filaIndex = Array.from(tbody.rows).indexOf(fila);
+
+    const celdas = fila.querySelectorAll("td");
+    const productoActual = celdas[0].innerText.trim();
+    const cantidadActual = celdas[1].innerText.trim();
+    const precioActual = celdas[2].innerText.replace("$", "").trim();
+
+    modalContent.classList.remove("modal-small");
+    modalContent.classList.add("modal-large");
+
+    abrirModal(`
+        <div class="modal-header">
+          <h2>Editar Detalle</h2>
+        </div>
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Producto</label>
+              <select id="edit-producto">
+                <option ${productoActual === "Vainilla" ? "selected" : ""}>Vainilla</option>
+                <option ${productoActual === "Chocolate" ? "selected" : ""}>Chocolate</option>
+                <option ${productoActual === "Frutos Rojos" ? "selected" : ""}>Frutos Rojos</option>
+                <option ${productoActual === "Pastel Vainilla" ? "selected" : ""}>Pastel Vainilla</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Cantidad</label>
+              <input type="number" id="edit-cantidad" value="${cantidadActual}">
+            </div>
+           
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="btn-cancelEdit" class="btn-cancel">Cancelar</button>
+          <button id="btn-saveEdit" class="btn-save">Guardar Cambios</button>
+        </div>
+      `);
+
+    document.getElementById("btn-saveEdit").onclick = () => {
+      const nuevoProducto = document.getElementById("edit-producto").value;
+      const nuevaCantidad = document.getElementById("edit-cantidad").value;
+
+      modalContent.classList.remove("modal-small");
+      modalContent.classList.add("modal-large");
+      abrirModal(htmlNuevaCompra);
+
+      const tbodyNuevo = document.getElementById("details-body");
+      const filaNueva = tbodyNuevo.rows[filaIndex];
+
+      if (filaNueva) {
+        filaNueva.cells[0].innerText = nuevoProducto;
+        filaNueva.cells[1].innerText = nuevaCantidad;
+      }
+    };
+
+    document.getElementById("btn-cancelEdit").onclick = () => {
+      modalContent.classList.remove("modal-small");
+      modalContent.classList.add("modal-large");
+      abrirModal(htmlNuevaCompra);
+    };
   }
 
   // ================= CANCELAR COMPRA =================
