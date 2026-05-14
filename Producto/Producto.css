@@ -1,5 +1,5 @@
 
-/* MAIN */
+
 .main {
   
     padding: 20px;
@@ -356,10 +356,10 @@ td button:last-child {
   /* Top bar apilado */
 
   #topbar-container, .top-user { 
-    justify-content: center !important; /* Centra horizontalmente */
+    justify-content: center !important;
     width: 100% !important; 
     padding: 0 !important; 
-    margin: 10px 0 15px 0 !important; /* Margen superior e inferior */
+    margin: 10px 0 15px 0 !important; 
   }
 
   /* Tabla con scroll horizontal suave */
