@@ -23,7 +23,7 @@ td button:last-child { margin-right: 0; }
 /* =========================================
    2. MODALES BASE
    ========================================= */
-/* Modal Base - CORREGIDO */
+/* Modal Base */
 .modal { 
   display: none; 
   position: fixed; 
@@ -152,7 +152,7 @@ td button:last-child { margin-right: 0; }
 }
 
 /* =========================================
-   5. MODALES (EDITAR / ELIMINAR)
+   5. MODALES 
    ========================================= */
 .modal.active, 
 .modal.show {
