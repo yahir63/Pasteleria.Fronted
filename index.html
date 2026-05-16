@@ -24,30 +24,10 @@
             <i class="fas fa-lock"></i>
         </div>
                 <a href="/Login/Dashboard/dashboard.html">
-                     <button class="signup-btn" onclick="login()">Ingresar</button>
+                     <button class="signup-btn">Ingresar</button>
                     <p class="footer-text">Se te olvido tu contraseña?</p>
                 </a>
-                    <script>
-        // Credenciales fijas (lógica quemada)
-        const USER = "admin";
-        const PASS = "1234";
-
-        function login() {
-            const userInput = document.getElementById("username").value.trim();
-            const passInput = document.getElementById("password").value.trim();
-            const errorMsg = document.getElementById("error-msg");
-
-            // Validación simple
-            if (userInput === USER && passInput === PASS) {
-                alert("✅ Login exitoso");
-                // Aquí podrías redirigir a otra página
-                // window.location.href = "dashboard.html";
-            } else {
-                errorMsg.textContent = "❌ Usuario o contraseña incorrectos";
-            }
-        }
-    </script>
-
+                    
 
 
 

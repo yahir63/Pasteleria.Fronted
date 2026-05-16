@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   <td>
                     <div class="delete-detail">
                       <button class="edit-detail-btn"><img src="/Assets/img/editar.png" alt=""> Editar</button>
-                      <button class="delete-detail-btn">&times;</button>
+                      <button class="delete-detail-btn">&times; Eliminar</button>
                     </div>
                   </td>
                 </tr>
