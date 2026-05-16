@@ -404,7 +404,7 @@ button img {
   background: #dc3545;
   color: white;
   border: none;
-  padding: 6px 12px;
+  padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -413,7 +413,7 @@ button img {
   background: #32a8e7;
   color: white;
   border: none;
-  padding: 6px 12px;
+  padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
 }

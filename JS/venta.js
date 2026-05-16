@@ -48,7 +48,7 @@ window.addEventListener("click", (e) => {
   if (e.target === modal) cerrarModal();
 });
 
-// 👇 HTML GLOBAL (clave para no romper el modal)
+//  HTML GLOBAL 
 let htmlNuevaCompra = "";
 
 // DATA
@@ -240,7 +240,7 @@ document.addEventListener("click", (e) => {
     </div>
 
     <div class="form-group">
-      <label>Proveedor</label>
+      <label>Cliente</label>
       <select>
         <option>Maria Lopez</option>
         <option>Lucero Lopez</option>
@@ -300,7 +300,7 @@ document.addEventListener("click", (e) => {
       </button>
 
       <button class="delete-detail-btn">
-        &times;
+        &times; Eliminar
       </button>
     </div>
   </td>

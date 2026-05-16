@@ -123,10 +123,10 @@ h1 {
 }
 
 /* =========================================
-   LOGIN - RESPONSIVE OPTIMIZADO
+    RESPONSIVE OPTIMIZADO
    ========================================= */
 
-/* 💻 TABLET (768px - 1024px) */
+/* TABLET (768px - 1024px) */
 @media (max-width: 1024px) {
   .main-card {
     width: 90%;
@@ -161,7 +161,7 @@ h1 {
   }
 }
 
-/* 📱 MÓVIL (≤ 768px) - DISEÑO APILADO */
+/* MÓVIL (≤ 768px) */
 @media (max-width: 768px) {
   body {
     align-items: flex-start;
@@ -242,7 +242,7 @@ h1 {
   }
 }
 
-/* 📏 MÓVIL PEQUEÑO (≤ 480px) */
+/*  MÓVIL PEQUEÑO (≤ 480px) */
 @media (max-width: 480px) {
   body {
     padding: 10px;
