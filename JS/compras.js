@@ -36,6 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function abrirModal(html) {
     modalBody.innerHTML = html;
+
+    // RESET TOTAL
+    modalContent.classList.remove("modal-small", "modal-large");
+
+    // APLICAR TAMAÑO
+    if (size === "large") {
+      modalContent.classList.add("modal-large");
+    } else {
+      modalContent.classList.add("modal-small");
+    }
+
     modal.classList.add("show");
   }
 
@@ -229,6 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   <td>
                     <div class="delete-detail">
                       <button class="edit-detail-btn"><img src="/Assets/img/editar.png" alt=""> Editar</button>
+                      
                       <button class="delete-detail-btn">&times;</button>
                     </div>
                   </td>
@@ -248,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
 
       htmlNuevaCompra = html;
-      abrirModal(htmlNuevaCompra);
+      abrirModal(htmlNuevaCompra, "large");
     }
 
     // ELIMINAR DETALLE DE TABLA
@@ -353,8 +365,8 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     }
 
-  if (e.target.id === "confirm-delete") {
-    cerrarModal();
-  }
-});
+    if (e.target.id === "confirm-delete") {
+      cerrarModal();
+    }
+  });
 });
