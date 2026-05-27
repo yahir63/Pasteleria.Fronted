@@ -29,7 +29,14 @@ body {
   z-index: 900;
   overflow-y: auto; 
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+   -ms-overflow-style: none; 
+        scrollbar-width: none;   
 }
+.sidebar ::-webkit-scrollbar {
+ display: 
+ none;
+}
+
 
 .sidebar h2 {
   margin-bottom: 20px;
