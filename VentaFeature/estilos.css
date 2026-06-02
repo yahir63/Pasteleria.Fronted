@@ -2,7 +2,7 @@
 .main {
   flex: 1;
   padding: 20px;
-  /* Ajustes para sidebar estático */
+
   margin-left: 220px;
   width: calc(100% - 220px);
 }
