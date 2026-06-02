@@ -18,28 +18,15 @@
     <!-- 3. FONDO OSCURO (Para cerrar menú) -->
     <label for="sidebar-toggle" class="sidebar-overlay"></label>
 
-    <div class="container">
-        <!-- SIDEBAR -->
-        <div id="sidebar-container"></div>
-
-        <!-- MAIN -->
-        <main class="main">
-            <!-- TOPBAR -->
-            <div id="topbar-container"></div>
-
-            <!-- HEADER -->
-            <div class="header">
-                <h1>Gestión de Opciones</h1>
-                <p>Administra las opciones disponibles para los productos.</p>
-            </div>
-
-            <!-- SECCIÓN FORMULARIO + IMAGEN -->
-            <div class="cardNewOpcion">
+    <!-- SECCIÓN MODAL  -->
+    <input type="checkbox" id="opcion-modal" class="modal-toggle">
+            <div class="modal-overlay">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2>Nueva Opción</h2>
-                        <span class="close">&times;</span>
+                        <label for="opcion-modal" class="modal-close">×</label>
                     </div>
+
                     <div class="modal-body">
                         <div class="form-group">
                             <p>Nombre</p>
@@ -62,13 +49,29 @@
                             <input type="text" placeholder="Ej: C$ 50">
                         </div>
                     </div>
+
                     <div class="modal-footer">
-                        <button class="btn-cancel">Cancelar</button>
+                        <label for="opcion-modal" class="btn-cancel">Cancelar</label>
                         <button class="btn-save">Guardar</button>
                     </div>
                 </div>
-                <img src="/Assets/img/Opciones.png" alt="Imagen opciones">
             </div>
+
+    <div class="container">
+        <!-- SIDEBAR -->
+        <div id="sidebar-container"></div>
+
+        <!-- MAIN -->
+        <main class="main">
+            <!-- TOPBAR -->
+            <div id="topbar-container"></div>
+
+            <!-- HEADER -->
+            <div class="header">
+                <h1>Gestión de Opciones</h1>
+                <p>Administra las opciones disponibles para los productos.</p>
+            </div>
+
 
             <!-- TABLA DE DATOS -->
             <div class="card">
@@ -77,12 +80,14 @@
                     <div class="search-box">
                         <input type="text" placeholder="Buscar Opciones...">
                         <img src="/Assets/img/lupa.png" class="search-icon">
+                        
                     </div>
+                    
                     <div class="actions">
                         <select>
                             <option>Todas las opciones</option>
                         </select>
-                       
+                        <label for="opcion-modal" class="btn-new">+ Nueva Opcion</label>
                     </div>
                 </div>
 
