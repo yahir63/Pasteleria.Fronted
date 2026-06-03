@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos</title>
+    <link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
+    <link
+      rel="stylesheet"
+      href="/src/modules/Producto/components/Producto.css"
+    />
+  </head>
+
+  <body>
+    <!-- 1. CHECKBOX OCULTO (Controlador del menú) -->
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
+
+    <!-- 2. BOTÓN HAMBURGUESA -->
+    <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
+
+    <!-- 3. FONDO OSCURO (Overlay) -->
+    <label for="sidebar-toggle" class="sidebar-overlay"></label>
+
+    <!-- ===================================== -->
+    <!-- MODAL AGREGAR PRODUCTO -->
+    <!-- ===================================== -->
+
+    <div class="modal" id="productModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Agregar Nuevo Producto</h2>
+
+          <span class="close" id="closeModal"> &times; </span>
+        </div>
+
+        <form class="modal-form">
+          <div class="form-group">
+            <label>Nombre del producto</label>
+
+            <input type="text" placeholder="Ej: Cheesecake" />
+          </div>
+
+          <div class="form-group">
+            <label>Categoría</label>
+
+            <select>
+              <option>Seleccionar categoría</option>
+              <option>Postres</option>
+              <option>Bebidas</option>
+              <option>Pastel</option>
+              <option>Bocadillos</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Cantidad</label>
+
+            <input type="number" placeholder="Ej: 10" />
+          </div>
+
+          <div class="form-group">
+            <label>Precio</label>
+
+            <input type="text" placeholder="Ej: C$120" />
+          </div>
+
+          <div class="modal-buttons">
+            <button type="button" class="btn-cancel" id="cancelModal">
+              Cancelar
+            </button>
+
+            <button type="submit" class="btn-save">Guardar Producto</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="deleteModal">
+      <div class="modal-content delete-modal">
+        <h2>Eliminar Producto</h2>
+
+        <p id="deleteText">¿Seguro que deseas eliminar este producto?</p>
+
+        <div class="modal-buttons">
+          <button type="button" class="btn-cancel" id="cancelDeleteModal">
+            Cancelar
+          </button>
+
+          <button type="button" class="btn-delete-confirm" id="confirmDelete">
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================== -->
+    <!-- MODAL EDITAR PRODUCTO -->
+    <!-- ===================================== -->
+
+    <div class="modal" id="editModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Editar Producto</h2>
+
+          <span class="close" id="closeEditModal"> &times; </span>
+        </div>
+
+        <form class="modal-form">
+          <div class="form-group">
+            <label>Nombre del producto</label>
+
+            <input type="text" id="editNombre" />
+          </div>
+
+          <div class="form-group">
+            <label>Categoría</label>
+
+            <select id="editCategoria">
+              <option>Postres</option>
+              <option>Bebidas</option>
+              <option>Pastel</option>
+              <option>Bocadillos</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Cantidad</label>
+
+            <input type="number" id="editCantidad" />
+          </div>
+
+          <div class="form-group">
+            <label>Precio</label>
+
+            <input type="text" id="editPrecio" />
+          </div>
+
+          <div class="modal-buttons">
+            <button type="button" class="btn-cancel" id="cancelEditModal">
+              Cancelar
+            </button>
+
+            <button type="submit" class="btn-save">Guardar Cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ===================================== -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ===================================== -->
+
+    <div class="container">
+      <!-- SIDEBAR -->
+      <div id="sidebar-container"></div>
+
+      <!-- MAIN -->
+
+      <main class="main">
+        <!-- TOPBAR -->
+        <div id="topbar-container"></div>
+
+        <!-- HEADER -->
+
+        <header class="header">
+          <h1>Gestión de Productos</h1>
+
+          <p>Aquí puedes administrar los productos de tu pastelería.</p>
+        </header>
+
+        <!-- CARD -->
+
+        <div class="card">
+          <!-- TOP BAR -->
+
+          <div class="top-bar">
+            <input type="text" placeholder="Buscar producto..." />
+
+            <div class="actions">
+              <select>
+                <option>Todos los productos</option>
+              </select>
+
+              <button class="btn-new" id="openModal">+ Nuevo Producto</button>
+            </div>
+          </div>
+
+          <!-- TABLA -->
+
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <!-- PRODUCTO 1 -->
+
+              <tr>
+                <td>Cheesecake</td>
+                <td>Postres</td>
+                <td>20</td>
+                <td>C$120</td>
+
+                <td>
+                  <button class="edit openEditModal">
+                    <img src="/src/modules/Shared/Assets/img/editar.png" />
+
+                    Editar
+                  </button>
+
+                  <button class="delete openDeleteModal">
+                    <img
+                      src="/src/modules/Shared/Assets/img/eliminar.png"
+                      alt=""
+                    />
+
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+
+              <!-- PRODUCTO 2 -->
+
+              <tr>
+                <td>Brownies</td>
+                <td>Postres</td>
+                <td>15</td>
+                <td>C$50</td>
+
+                <td>
+                  <button class="edit openEditModal">
+                    <img src="/src/modules/Shared/Assets/img/editar.png" />
+
+                    Editar
+                  </button>
+
+                  <button class="delete openDeleteModal">
+                    <img
+                      src="/src/modules/Shared/Assets/img/eliminar.png"
+                      alt=""
+                    />
+
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+
+              <!-- PRODUCTO 3 -->
+
+              <tr>
+                <td>Cacao Skimo</td>
+                <td>Bebidas</td>
+                <td>10</td>
+                <td>C$30</td>
+
+                <td>
+                  <button class="edit openEditModal">
+                    <img src="/src/modules/Shared/Assets/img/editar.png" />
+
+                    Editar
+                  </button>
+
+                  <button class="delete openDeleteModal">
+                    <img
+                      src="/src/modules/Shared/Assets/img/eliminar.png"
+                      alt=""
+                    />
+
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+
+              <!-- PRODUCTO 4 -->
+
+              <tr>
+                <td>Selva Negra</td>
+                <td>Pastel</td>
+                <td>5</td>
+                <td>C$1450</td>
+
+                <td>
+                  <button class="edit openEditModal">
+                    <img src="/src/modules/Shared/Assets/img/editar.png" />
+
+                    Editar
+                  </button>
+
+                  <button class="delete openDeleteModal">
+                    <img
+                      src="/src/modules/Shared/Assets/img/eliminar.png"
+                      alt=""
+                    />
+
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+
+              <!-- PRODUCTO 5 -->
+
+              <tr>
+                <td>Churros de queso</td>
+                <td>Bocadillos</td>
+                <td>25</td>
+                <td>C$15</td>
+
+                <td>
+                  <button class="edit openEditModal">
+                    <img src="/src/modules/Shared/Assets/img/editar.png" />
+
+                    Editar
+                  </button>
+
+                  <button class="delete openDeleteModal">
+                    <img
+                      src="/src/modules/Shared/Assets/img/eliminar.png"
+                      alt=""
+                    />
+
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- FOOTER -->
+
+          <div class="table-footer">
+            <span> Mostrando 1 a 5 de 25 productos </span>
+
+            <div class="pagination">
+              <button>&lt;</button>
+
+              <button class="active">1</button>
+
+              <button>2</button>
+
+              <button>3</button>
+
+              <button>&gt;</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- JAVASCRIPT -->
+
+    <script src="/src/modules/Shared/components/components.js"></script>
+    <script src="/src/modules/Producto/services/Producto.js"></script>
+  </body>
+</html>
