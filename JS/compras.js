@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.classList.remove("show");
   }
 
-  function abrirModal(html) {
+  function abrirModal(html, size) {
     modalBody.innerHTML = html;
 
     // RESET TOTAL
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const detalles = DetallesCompra[proveedor];
 
       if (!detalles) {
-        abrirModal("<p>No hay detalles disponibles</p>");
+        abrirModal("<p>No hay detalles disponibles</p>", "small");
         return;
       }
 
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p style="color:#666; font-size:14px;">La compra se guardó correctamente.</p>
           <button id="close" style="margin-top:15px;padding:8px 16px;border:none;border-radius:8px;background:#32a8e7;color:white;cursor:pointer;font-weight:600;">Aceptar</button>
         </div>
-      `);
+      `, "small");
     }
 
     // CERRAR DESDE SUCCESS
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <button id="confirm-delete" class="delete">Eliminar</button>
           <button id="cancel-delete" class="view">Cancelar</button>
         </div>
-      `);
+      `, "small");
 
       document.getElementById("confirm-delete").onclick = (ev) => {
         ev.stopPropagation();
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p style="color:#666; font-size:14px;">La compra se eliminó correctamente.</p>
             <button id="close" style="margin-top:15px;padding:8px 16px;border:none;border-radius:8px;background:#32a8e7;color:white;cursor:pointer;font-weight:600;">Aceptar</button>
           </div>
-        `);
+        `, "small");
         document.getElementById("close").onclick = cerrarModal;
       };
 
@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         modalContent.classList.remove("modal-small");
         modalContent.classList.add("modal-large");
-        abrirModal(htmlNuevaCompra);
+        abrirModal(htmlNuevaCompra, "large");
 
         const tbodyNuevo = document.getElementById("details-body");
         const filaNueva = tbodyNuevo.rows[filaIndex];
@@ -338,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("btn-cancelEdit").onclick = () => {
         modalContent.classList.remove("modal-small");
         modalContent.classList.add("modal-large");
-        abrirModal(htmlNuevaCompra);
+        abrirModal(htmlNuevaCompra, "large");
       };
     }
 
@@ -355,13 +355,13 @@ document.addEventListener("DOMContentLoaded", () => {
             <button id="btn-continue" class="view">Seguir</button>
           </div>
         </div>
-      `);
+      `, "small");
 
       document.getElementById("btn-continue").onclick = (ev) => {
         ev.stopPropagation();
         modalContent.classList.remove("modal-small");
         modalContent.classList.add("modal-large");
-        abrirModal(htmlNuevaCompra);
+        abrirModal(htmlNuevaCompra, "large");
       };
     }
 
