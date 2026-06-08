@@ -98,9 +98,9 @@ tbody tr:hover {
   gap: 8px;                      
   text-decoration: none;         
   border: none;
-  padding: 10px 16px;            
+ padding: 8px 14px;
   border-radius: 6px;
-  font-size: 14px;
+ font-size: 13px;
   font-weight: 500;
   cursor: pointer;
   transition: 0.2s;
