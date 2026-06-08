@@ -1,25 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // =====================
-  // ELEMENTOS
-  // =====================
-  const modal = document.getElementById("modal");
-  const modalBody = document.getElementById("modal-body");
-  const closeModal = document.getElementById("close-modal");
+  const modal        = document.getElementById("modal");
+  const modalBody    = document.getElementById("modal-body");
+  const closeModal   = document.getElementById("close-modal");
   const modalContent = document.querySelector(".modal-content");
-  const overlay = document.querySelector(".sidebar-overlay");
-  const sidebar = document.querySelector(".sidebar");
-  const toggleBtn = document.querySelector(".sidebar-toggle");
+  const overlay      = document.querySelector(".sidebar-overlay");
+  const sidebar      = document.querySelector(".sidebar");
+  const toggleBtn    = document.querySelector(".sidebar-toggle");
 
-  // =====================
-  // SIDEBAR
-  // =====================
   if (toggleBtn) {
     toggleBtn.addEventListener("click", () => {
       sidebar.classList.toggle("sidebar-open");
       overlay.classList.toggle("active");
     });
   }
-
   if (overlay) {
     overlay.addEventListener("click", () => {
       sidebar.classList.remove("sidebar-open");
@@ -27,40 +20,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =====================
-  // MODAL
-  // =====================
-  function cerrarModal() {
-    modal.classList.remove("show");
-  }
+  function cerrarModal() { modal.classList.remove("show"); }
 
-  function abrirModal(html) {
+  function abrirModal(html, size) {
     modalBody.innerHTML = html;
-
-    // RESET TOTAL
     modalContent.classList.remove("modal-small", "modal-large");
-
-    // APLICAR TAMAÑO
-    if (size === "large") {
-      modalContent.classList.add("modal-large");
-    } else {
-      modalContent.classList.add("modal-small");
-    }
-
+    if (size === "large") modalContent.classList.add("modal-large");
+    else modalContent.classList.add("modal-small");
     modal.classList.add("show");
   }
 
   closeModal.addEventListener("click", cerrarModal);
-
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) cerrarModal();
-  });
+  window.addEventListener("click", (e) => { if (e.target === modal) cerrarModal(); });
 
   let htmlNuevaCompra = "";
 
-  // =====================
-  // DATA
-  // =====================
   const DetallesCompra = {
     "Distribuidora El Sol": [
       { producto: "Pastel de manzana", cantidad: 2, precio: 30 },
@@ -76,22 +50,19 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
   };
 
-  // =====================
-  // EVENTOS DELEGADOS
-  // =====================
   document.addEventListener("click", (e) => {
-    const btnView = e.target.closest(".view");
-    const btnDelete = e.target.closest(".delete");
+    const btnView        = e.target.closest(".view");
+    const btnDelete      = e.target.closest(".delete");
     const btnNewPurchase = e.target.closest(".btn-new");
 
-    // VER
+    // ================= VER =================
     if (btnView) {
-      const fila = btnView.closest("tr");
+      const fila     = btnView.closest("tr");
       const proveedor = fila.children[0].innerText.trim();
-      const detalles = DetallesCompra[proveedor];
+      const detalles  = DetallesCompra[proveedor];
 
       if (!detalles) {
-        abrirModal("<p>No hay detalles disponibles</p>");
+        abrirModal("<p>No hay detalles disponibles</p>", "small");
         return;
       }
 
@@ -100,89 +71,82 @@ document.addEventListener("DOMContentLoaded", () => {
         <table style="width:100%; margin-top:10px;">
           <thead>
             <tr>
-              <th>Producto</th>
-              <th>Cant.</th>
-              <th>P. Unitario</th>
-              <th>Total</th>
+              <th>Producto</th><th>Cant.</th><th>P. Unitario</th><th>Total</th>
             </tr>
           </thead>
-          <tbody>
-      `;
+          <tbody>`;
 
       detalles.forEach((item) => {
         const total = item.cantidad * item.precio;
-        html += `
-          <tr>
-            <td>${item.producto}</td>
-            <td>${item.cantidad}</td>
-            <td>$${item.precio}</td>
-            <td>$${total}</td>
-          </tr>
-        `;
+        html += `<tr>
+          <td>${item.producto}</td>
+          <td>${item.cantidad}</td>
+          <td>$${item.precio}</td>
+          <td>$${total}</td>
+        </tr>`;
       });
 
       html += `</tbody></table>`;
       abrirModal(html);
     }
 
-    // GUARDAR COMPRA
+    // ================= GUARDAR COMPRA =================
     if (e.target.id === "btn-savePurchase") {
-      modalContent.classList.remove("modal-large");
-      modalContent.classList.add("modal-small");
-
       abrirModal(`
-        <div style="text-align:center; padding:10px;">
-          <div style="width:60px;height:60px;margin:0 auto 10px;background:#d4f8d4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;color:#1b5e20;">✓</div>
+        <div style="text-align:center; padding:20px;">
+          <div style="width:60px;height:60px;margin:0 auto 12px;background:#d4f8d4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:#1b5e20;">✓</div>
           <h3 style="margin-bottom:8px;">Compra guardada</h3>
-          <p style="color:#666; font-size:14px;">La compra se guardó correctamente.</p>
-          <button id="close" style="margin-top:15px;padding:8px 16px;border:none;border-radius:8px;background:#32a8e7;color:white;cursor:pointer;font-weight:600;">Aceptar</button>
+          <p style="color:#666;font-size:14px;">La compra se guardó correctamente.</p>
+          <button id="close" style="margin-top:15px;padding:8px 20px;border:none;border-radius:8px;background:#0BB2F4;color:white;cursor:pointer;font-weight:600;">Aceptar</button>
         </div>
-      `);
+      `, "small");
+      setTimeout(() => {
+        document.getElementById("close")?.addEventListener("click", cerrarModal);
+      }, 50);
     }
 
-    // CERRAR DESDE SUCCESS
-    if (e.target.id === "close") {
-      cerrarModal();
-    }
+    if (e.target.id === "close") cerrarModal();
 
-    // ELIMINAR FILA
+    // ================= ELIMINAR =================
     if (btnDelete && !btnDelete.matches("#confirm-delete")) {
-      modalContent.classList.remove("modal-large");
-      modalContent.classList.add("modal-small");
-
       const fila = btnDelete.closest("tr");
-
       abrirModal(`
-        <h3>Eliminar compra</h3>
-        <p>¿Estás seguro?</p>
-        <div style="margin-top:15px; display:flex; gap:10px; justify-content:flex-end;">
-          <button id="confirm-delete" class="delete">Eliminar</button>
-          <button id="cancel-delete" class="view">Cancelar</button>
-        </div>
-      `);
-
-      document.getElementById("confirm-delete").onclick = (ev) => {
-        ev.stopPropagation();
-        abrirModal(`
-          <div style="text-align:center; padding:10px;">
-            <div style="width:60px;height:60px;margin:0 auto 10px;background:#d4f8d4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;color:#1b5e20;">✓</div>
-            <h3 style="margin-bottom:8px;">Compra eliminada</h3>
-            <p style="color:#666; font-size:14px;">La compra se eliminó correctamente.</p>
-            <button id="close" style="margin-top:15px;padding:8px 16px;border:none;border-radius:8px;background:#32a8e7;color:white;cursor:pointer;font-weight:600;">Aceptar</button>
+        <div style="text-align:center; padding:15px;">
+          <div style="width:60px;height:60px;margin:0 auto 15px;background:#ffe4e4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;">🗑️</div>
+          <h3 style="margin-bottom:8px;">Eliminar compra</h3>
+          <p style="color:#666;font-size:14px;margin-bottom:20px;">¿Estás seguro? Esta acción no se puede deshacer.</p>
+          <div style="display:flex; gap:10px; justify-content:center;">
+            <button id="cancel-delete" style="background:#ccc;color:black;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;">Cancelar</button>
+            <button id="confirm-delete" style="background:#dc3545;color:white;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;display:flex;align-items:center;gap:6px;">
+              <img src="/src/modules/Shared/Assets/img/eliminar.png" style="width:12px;height:14px;"> Eliminar
+            </button>
           </div>
-        `);
-        document.getElementById("close").onclick = cerrarModal;
-      };
+        </div>
+      `, "small");
 
-      document.getElementById("cancel-delete").onclick = cerrarModal;
+      setTimeout(() => {
+        document.getElementById("confirm-delete")?.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          fila?.remove();
+          abrirModal(`
+            <div style="text-align:center; padding:20px;">
+              <div style="width:60px;height:60px;margin:0 auto 12px;background:#d4f8d4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:#1b5e20;">✓</div>
+              <h3 style="margin-bottom:8px;">Compra eliminada</h3>
+              <p style="color:#666;font-size:14px;">La compra se eliminó correctamente.</p>
+              <button id="close" style="margin-top:15px;padding:8px 20px;border:none;border-radius:8px;background:#0BB2F4;color:white;cursor:pointer;font-weight:600;">Aceptar</button>
+            </div>
+          `, "small");
+          setTimeout(() => {
+            document.getElementById("close")?.addEventListener("click", cerrarModal);
+          }, 50);
+        });
+        document.getElementById("cancel-delete")?.addEventListener("click", cerrarModal);
+      }, 50);
     }
 
-    // NUEVA COMPRA
+    // ================= NUEVA COMPRA =================
     if (btnNewPurchase) {
-      modalContent.classList.remove("modal-small");
-      modalContent.classList.add("modal-large");
-
-      let html = `
+      const html = `
         <div class="modal-header">
           <h2>Nueva Compra</h2>
         </div>
@@ -228,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   <th>Cant.</th>
                   <th>P. Unitario</th>
                   <th>Subtotal</th>
-                  <th style="text-align: center;">Acciones</th>
+                  <th style="text-align:center;">Acciones</th>
                 </tr>
               </thead>
               <tbody id="details-body">
@@ -238,10 +202,13 @@ document.addEventListener("DOMContentLoaded", () => {
                   <td>$25</td>
                   <td>$250</td>
                   <td>
-                    <div class="delete-detail">
-                      <button class="edit-detail-btn"><img src="/Assets/img/editar.png" alt=""> Editar</button>
-                      
-                      <button class="delete-detail-btn">&times;</button>
+                    <div style="display:flex; gap:6px; justify-content:center;">
+                      <button class="edit-detail-btn" style="background:#07729C;color:white;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:12px;display:flex;align-items:center;gap:5px;">
+                        <img src="/src/modules/Shared/Assets/img/editar.png" style="width:12px;height:14px;"> Editar
+                      </button>
+                      <button class="delete-detail-btn" style="background:#dc3545;color:white;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:12px;display:flex;align-items:center;gap:5px;">
+                        <img src="/src/modules/Shared/Assets/img/eliminar.png" style="width:12px;height:14px;"> Eliminar
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -263,25 +230,20 @@ document.addEventListener("DOMContentLoaded", () => {
       abrirModal(htmlNuevaCompra, "large");
     }
 
-    // ELIMINAR DETALLE DE TABLA
+    // ================= ELIMINAR FILA DETALLE =================
     if (e.target.closest(".delete-detail-btn")) {
       e.target.closest("tr").remove();
     }
 
-    // EDITAR DETALLE
+    // ================= EDITAR DETALLE =================
     if (e.target.closest(".edit-detail-btn")) {
-      const fila = e.target.closest("tr");
-
-      const tbody = fila.closest("tbody");
+      const fila      = e.target.closest("tr");
+      const tbody     = fila.closest("tbody");
       const filaIndex = Array.from(tbody.rows).indexOf(fila);
-
-      const celdas = fila.querySelectorAll("td");
+      const celdas    = fila.querySelectorAll("td");
       const productoActual = celdas[0].innerText.trim();
       const cantidadActual = celdas[1].innerText.trim();
-      const precioActual = celdas[2].innerText.replace("$", "").trim();
-
-      modalContent.classList.remove("modal-small");
-      modalContent.classList.add("modal-large");
+      const precioActual   = celdas[2].innerText.replace("$", "").trim();
 
       abrirModal(`
         <div class="modal-header">
@@ -312,61 +274,56 @@ document.addEventListener("DOMContentLoaded", () => {
           <button id="btn-cancelEdit" class="btn-cancel">Cancelar</button>
           <button id="btn-saveEdit" class="btn-save">Guardar Cambios</button>
         </div>
-      `);
+      `, "large");
 
-      document.getElementById("btn-saveEdit").onclick = () => {
-        const nuevoProducto = document.getElementById("edit-producto").value;
-        const nuevaCantidad = document.getElementById("edit-cantidad").value;
-        const nuevoPrecio = document.getElementById("edit-precio").value;
-        const nuevoSubtotal = nuevaCantidad * nuevoPrecio;
+      setTimeout(() => {
+        document.getElementById("btn-saveEdit")?.addEventListener("click", () => {
+          const nuevoProducto = document.getElementById("edit-producto").value;
+          const nuevaCantidad = document.getElementById("edit-cantidad").value;
+          const nuevoPrecio   = document.getElementById("edit-precio").value;
+          const nuevoSubtotal = nuevaCantidad * nuevoPrecio;
 
-        modalContent.classList.remove("modal-small");
-        modalContent.classList.add("modal-large");
-        abrirModal(htmlNuevaCompra);
+          abrirModal(htmlNuevaCompra, "large");
 
-        const tbodyNuevo = document.getElementById("details-body");
-        const filaNueva = tbodyNuevo.rows[filaIndex];
+          setTimeout(() => {
+            const tbodyNuevo = document.getElementById("details-body");
+            const filaNueva  = tbodyNuevo?.rows[filaIndex];
+            if (filaNueva) {
+              filaNueva.cells[0].innerText = nuevoProducto;
+              filaNueva.cells[1].innerText = nuevaCantidad;
+              filaNueva.cells[2].innerText = `$${nuevoPrecio}`;
+              filaNueva.cells[3].innerText = `$${nuevoSubtotal}`;
+            }
+          }, 50);
+        });
 
-        if (filaNueva) {
-          filaNueva.cells[0].innerText = nuevoProducto;
-          filaNueva.cells[1].innerText = nuevaCantidad;
-          filaNueva.cells[2].innerText = `$${nuevoPrecio}`;
-          filaNueva.cells[3].innerText = `$${nuevoSubtotal}`;
-        }
-      };
-
-      document.getElementById("btn-cancelEdit").onclick = () => {
-        modalContent.classList.remove("modal-small");
-        modalContent.classList.add("modal-large");
-        abrirModal(htmlNuevaCompra);
-      };
+        document.getElementById("btn-cancelEdit")?.addEventListener("click", () => {
+          abrirModal(htmlNuevaCompra, "large");
+        });
+      }, 50);
     }
 
-    // CANCELAR COMPRA
+    // ================= CANCELAR COMPRA =================
     if (e.target.id === "btn-cancel") {
-      modalContent.classList.remove("modal-large");
-      modalContent.classList.add("modal-small");
-
       abrirModal(`
-        <div style="text-align:center; padding:10px;">
-          <h2>¿Estás seguro de cancelar?</h2>
-          <div style="margin-top:15px; display:flex; gap:10px; justify-content:center;">
-            <button id="confirm-delete" class="delete">Cancelar Compra</button>
-            <button id="btn-continue" class="view">Seguir</button>
+        <div style="text-align:center; padding:15px;">
+          <h3 style="margin-bottom:10px;">¿Estás seguro de cancelar?</h3>
+          <div style="display:flex; gap:10px; justify-content:center; margin-top:15px;">
+            <button id="btn-continue" style="background:#0BB2F4;color:white;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;">Seguir editando</button>
+            <button id="confirm-delete" style="background:#dc3545;color:white;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;">Cancelar Compra</button>
           </div>
         </div>
-      `);
+      `, "small");
 
-      document.getElementById("btn-continue").onclick = (ev) => {
-        ev.stopPropagation();
-        modalContent.classList.remove("modal-small");
-        modalContent.classList.add("modal-large");
-        abrirModal(htmlNuevaCompra);
-      };
+      setTimeout(() => {
+        document.getElementById("btn-continue")?.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          abrirModal(htmlNuevaCompra, "large");
+        });
+        document.getElementById("confirm-delete")?.addEventListener("click", cerrarModal);
+      }, 50);
     }
 
-    if (e.target.id === "confirm-delete") {
-      cerrarModal();
-    }
+    if (e.target.id === "confirm-delete") cerrarModal();
   });
 });

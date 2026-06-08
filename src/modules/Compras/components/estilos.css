@@ -1,7 +1,6 @@
 .main {
   flex: 1;
   padding: 20px;
-  /* Ajustes para sidebar estático */
   margin-left: 220px;
   width: calc(100% - 220px);
 }
@@ -20,14 +19,8 @@
   margin-right: 10px;
 }
 
-.header h1 {
-  margin-top: 15px;
-}
-
-.header p {
-  color: #777;
-  margin-bottom: 20px;
-}
+.header h1 { margin-top: 15px; }
+.header p { color: #777; margin-bottom: 20px; }
 
 .card {
   background: white;
@@ -41,7 +34,6 @@
   justify-content: space-between;
   margin-bottom: 15px;
 }
-
 .top-bar input,
 .actions select {
   padding: 10px 14px;
@@ -50,7 +42,6 @@
   background: #f9fbfd;
   outline: none;
 }
-
 .top-bar input {
   width: 300px;
   padding: 10px;
@@ -58,16 +49,8 @@
   border: 1px solid #ccc;
 }
 
-.actions {
-  display: flex;
-  gap: 10px;
-}
-
-.actions select {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
+.actions { display: flex; gap: 10px; }
+.actions select { padding: 10px; border-radius: 10px; border: 1px solid #ccc; }
 
 .btn-new {
   background: #0bb2f4;
@@ -79,16 +62,8 @@
   font-weight: 600;
   transition: 0.2s;
 }
-
-.btn-new:hover {
-  background: #0992c8;
-  transform: scale(1.05);
-}
-
-.btn-new:active {
-  transform: scale(0.95);
-  filter: saturate(1.5);
-}
+.btn-new:hover { background: #0992c8; transform: scale(1.05); }
+.btn-new:active { transform: scale(0.95); filter: saturate(1.5); }
 
 /* TABLA */
 table {
@@ -99,39 +74,20 @@ table {
   overflow: hidden;
   background: white;
 }
-
-thead {
-  background: #f4f7fb;
-}
-
-th {
-  font-size: 13px;
-  color: #555;
-  font-weight: 600;
-}
-
-tbody tr:hover {
-  background: #f9fbfd;
-}
-
-th,
-td {
+thead { background: #f4f7fb; }
+th { font-size: 13px; color: #555; font-weight: 600; }
+tbody tr:hover { background: #f9fbfd; }
+th, td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
+tbody tr { border-top: 1px solid #eee; }
+th:last-child, td:last-child { text-align: center; }
 
-tbody tr {
-  border-top: 1px solid #eee;
-}
-
-th:last-child,
-td:last-child {
-  text-align: center;
-}
-
+/* BOTÓN VER — igual que Pedidos */
 .view {
-  background: #32a8e7;
+  background: #07729C;
   color: white;
   border: none;
   padding: 6px 12px;
@@ -143,15 +99,8 @@ td:last-child {
   gap: 5px;
   transition: 0.2s;
 }
-
-.view:hover {
-  background: #0aadff;
-  transform: scale(1.05);
-}
-
-.view:active {
-  transform: scale(0.95);
-}
+.view:hover { background: #0aadff; transform: scale(1.05); }
+.view:active { transform: scale(0.95); }
 
 .action-cells {
   display: flex;
@@ -160,10 +109,7 @@ td:last-child {
   gap: 8px;
 }
 
-button img {
-  width: 12px;
-  height: 14px;
-}
+button img { width: 12px; height: 14px; }
 
 .delete {
   background: #dc3545;
@@ -177,17 +123,9 @@ button img {
   gap: 5px;
   transition: all 0.3s ease;
 }
+.delete:hover { transform: scale(1.05); }
+.delete:active { transform: scale(0.95); filter: saturate(1.5); }
 
-.delete:hover {
-  transform: scale(1.05);
-}
-
-.delete:active {
-  transform: scale(0.95);
-  filter: saturate(1.5);
-}
-
-/* ESTADOS */
 .status-pagado {
   background: #d4f8d4;
   color: #1b5e20;
@@ -196,7 +134,6 @@ button img {
   font-size: 12px;
   font-weight: bold;
 }
-
 .status-pendiente {
   background: #fff3cd;
   color: #856404;
@@ -206,13 +143,7 @@ button img {
   font-weight: bold;
 }
 
-/* FOOTER */
-.table-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-
+.table-footer { display: flex; justify-content: space-between; margin-top: 15px; }
 .pagination button {
   margin: 2px;
   padding: 6px 12px;
@@ -223,30 +154,19 @@ button img {
   font-size: 13px;
   transition: 0.2s;
 }
-
 .pagination button:hover:not(.active) {
   background: #f1f5f9;
   border-color: #cbd5e1;
   transform: translateY(-1px);
 }
+.pagination button:active { transform: scale(0.95); }
+.pagination .active { background: #0bb2f4; color: white; border-color: #0bb2f4; }
 
-.pagination button:active {
-  transform: scale(0.95);
-}
-
-.pagination .active {
-  background: #0bb2f4;
-  color: white;
-  border-color: #0bb2f4;
-}
-
-/* MODAL CORREGIDO */
+/* MODAL */
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(0, 0, 0, 0.3);
   display: none;
   justify-content: center;
@@ -254,21 +174,15 @@ button img {
   opacity: 0;
   visibility: hidden;
   transform: scale(0.95);
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease,
-    visibility 0.25s;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
   z-index: 9999;
 }
-
-/* Clase para mostrar modal con JS */
 .modal.show {
   display: flex;
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
-
 .modal-content {
   background: white;
   padding: 20px;
@@ -280,26 +194,18 @@ button img {
   overflow-y: auto;
   position: relative;
 }
-
-.modal-small {
-  width: 400px;
-}
-.modal-large {
-  width: 1000px;
-}
+.modal-small { width: 400px; }
+.modal-medium { width: 700px; }
+.modal-large { width: 1000px; }
 
 #close-modal {
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 15px; right: 20px;
   cursor: pointer;
   font-size: 24px;
   color: #888;
 }
-
-#close-modal:hover {
-  color: #dc3545;
-}
+#close-modal:hover { color: #dc3545; }
 
 .modal-header {
   display: flex;
@@ -309,34 +215,17 @@ button img {
   margin-bottom: 20px;
   border-bottom: 1px solid #eee;
 }
+.modal-header h2 { font-size: 20px; }
+.modal-body { padding: 10px 0; }
 
-.modal-header h2 {
-  font-size: 20px;
-}
-
-.modal-body {
-  padding: 10px 0;
-}
-
-/* Estilos genéricos para modales de compras */
 .form-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
   margin-bottom: 20px;
 }
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  font-size: 13px;
-  margin-bottom: 5px;
-  color: #555;
-}
-
+.form-group { display: flex; flex-direction: column; }
+.form-group label { font-size: 13px; margin-bottom: 5px; color: #555; }
 .form-group input,
 .form-group select {
   padding: 10px;
@@ -345,16 +234,23 @@ button img {
   background: #f9fbfd;
 }
 
+.add-btn { display: flex; align-items: flex-end; }
+
+/* BOTÓN AGREGAR — igual que Guardar */
 .btn-add {
   margin-top: 10px;
   width: 100%;
-  background: #32a8e7;
+  background: #0BB2F4;
   color: white;
   border: none;
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
 }
+.btn-add:hover { background: #0aadff; transform: scale(1.02); }
+.btn-add:active { transform: scale(0.95); }
 
 .details-box {
   border: 1px solid #eee;
@@ -362,23 +258,14 @@ button img {
   overflow: hidden;
   margin-bottom: 15px;
 }
-
-.details-box table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
+.details-box table { width: 100%; border-collapse: collapse; }
 .details-box th {
   background: #f4f7fb;
   font-size: 13px;
   padding: 10px;
   text-align: left;
 }
-
-.details-box td {
-  padding: 12px;
-  border-top: 1px solid #eee;
-}
+.details-box td { padding: 12px; border-top: 1px solid #eee; }
 
 .total-box {
   display: flex;
@@ -399,55 +286,69 @@ button img {
 }
 
 .btn-cancel {
-  background: #e9ecef;
+  background: #ccc;
+  color: black;
   border: none;
   padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.2s;
 }
+.btn-cancel:hover { background: #bbb; }
 
 .btn-save {
-  background: #32a8e7;
+  background: #0BB2F4;
   color: white;
   border: none;
   padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.2s;
 }
+.btn-save:hover { background: #0aadff; transform: scale(1.02); }
+
+/* BOTONES DETALLE MODAL — igual que Pedidos */
+.edit-detail-btn {
+  background: #07729C;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.2s;
+}
+.edit-detail-btn:hover { background: #0aadff; transform: scale(1.05); }
+.edit-detail-btn:active { transform: scale(0.95); }
 
 .delete-detail-btn {
   background: #dc3545;
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.2s;
 }
-
-.edit-detail-btn {
-  background: #32a8e7;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-}
+.delete-detail-btn:hover { background: #c82333; transform: scale(1.05); }
+.delete-detail-btn:active { transform: scale(0.95); }
 
 /* =========================================
-   RESPONSIVE OPTIMIZADO
-   ========================================= */
-
-/* Base para Checkbox Hack */
-.sidebar-toggle {
-  display: none !important;
-}
+   CHECKBOX HACK BASE
+========================================= */
+.sidebar-toggle { display: none !important; }
 .sidebar-overlay {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 9998;
   cursor: pointer;
@@ -455,13 +356,11 @@ button img {
 .hamburger-btn {
   display: none;
   position: fixed;
-  top: 15px;
-  left: 15px;
+  top: 15px; left: 15px;
   z-index: 10000;
   background: #032f44;
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 40px; height: 40px;
   border-radius: 10px;
   cursor: pointer;
   align-items: center;
@@ -469,342 +368,111 @@ button img {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .hamburger-btn span {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: white;
-  position: relative;
-  transition: 0.3s;
+  display: block; width: 20px; height: 2px;
+  background: white; position: relative; transition: 0.3s;
 }
 .hamburger-btn span::before,
 .hamburger-btn span::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 2px;
-  background: white;
-  left: 0;
-  transition: 0.3s;
+  content: ""; position: absolute;
+  width: 20px; height: 2px;
+  background: white; left: 0; transition: 0.3s;
 }
-.hamburger-btn span::before {
-  top: -6px;
-}
-.hamburger-btn span::after {
-  top: 6px;
-}
+.hamburger-btn span::before { top: -6px; }
+.hamburger-btn span::after { top: 6px; }
 
 /* LAPTOP (1025px - 1366px) */
 @media (max-width: 1366px) and (min-width: 1025px) {
-  .main {
-    padding: 16px 20px;
-    margin-left: 200px;
-    width: calc(100% - 200px);
-  }
-  .top-bar input {
-    width: 220px;
-  }
-  .card {
-    padding: 16px;
-  }
-  th,
-  td {
-    padding: 10px;
-    font-size: 13px;
-  }
-  .form-grid {
-    gap: 12px;
-  }
-  .modal-content {
-    width: 90%;
-    max-width: 650px;
-  }
-  .details-box th,
-  .details-box td {
-    padding: 8px 10px;
-  }
+  .main { padding: 16px 20px; margin-left: 200px; width: calc(100% - 200px); }
+  .top-bar input { width: 220px; }
+  .card { padding: 16px; }
+  th, td { padding: 10px; font-size: 13px; }
+  .form-grid { gap: 12px; }
+  .modal-content { width: 90%; max-width: 650px; }
+  .details-box th, .details-box td { padding: 8px 10px; }
 }
 
 /* TABLET (≤ 1024px) */
 @media (max-width: 1024px) {
-  .main {
-    padding: 16px 20px;
-    margin-left: 200px;
-    width: calc(100% - 200px);
-  }
-  .top-bar {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .top-bar input {
-    width: 100%;
-    max-width: 400px;
-  }
-  .actions {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .actions select {
-    flex: 1;
-    min-width: 120px;
-  }
-  .btn-new {
-    flex: 1;
-    min-width: 140px;
-    justify-content: center;
-  }
-  .form-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .details-box table {
-    font-size: 13px;
-  }
-  .total-box {
-    gap: 12px;
-  }
+  .main { padding: 16px 20px; margin-left: 200px; width: calc(100% - 200px); }
+  .top-bar { flex-wrap: wrap; gap: 12px; }
+  .top-bar input { width: 100%; max-width: 400px; }
+  .actions { flex-wrap: wrap; gap: 10px; }
+  .actions select { flex: 1; min-width: 120px; }
+  .btn-new { flex: 1; min-width: 140px; justify-content: center; }
+  .form-grid { grid-template-columns: repeat(2, 1fr); }
+  .details-box table { font-size: 13px; }
+  .total-box { gap: 12px; }
 }
 
 /* MÓVIL (≤ 768px) */
 @media (max-width: 768px) {
-  body {
-    overflow-x: hidden !important;
-  }
-  .container {
-    flex-direction: column !important;
-  }
+  body { overflow-x: hidden !important; }
+  .container { flex-direction: column !important; }
+  .main { width: 100% !important; margin-left: 0 !important; padding: 10px !important; }
+  .hamburger-btn { display: flex !important; }
 
-  .main {
-    width: 100% !important;
-    margin-left: 0 !important;
-    padding: 10px !important;
-  }
-
-  .hamburger-btn {
-    display: flex !important;
-  }
-
-  /* Sidebar Oculto (Off-canvas) */
-  #sidebar-container,
-  .sidebar {
-    position: fixed !important;
-    left: 0 !important;
-    top: 0 !important;
-    width: 80% !important;
-    max-width: 300px !important;
-    height: 100vh !important;
-    z-index: 9999 !important;
-    transform: translateX(-100%) !important;
+  #sidebar-container, .sidebar {
+    position: fixed !important; left: 0 !important; top: 0 !important;
+    width: 80% !important; max-width: 300px !important; height: 100vh !important;
+    z-index: 9999 !important; transform: translateX(-100%) !important;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    background: #bbe6fc !important;
-    overflow-y: auto;
+    background: #bbe6fc !important; overflow-y: auto;
   }
-  .sidebar.open,
-  #sidebar-container.open {
-    transform: translateX(0) !important;
-  }
+  .sidebar.open, #sidebar-container.open { transform: translateX(0) !important; }
 
-  /* Lógica Checkbox */
-  .sidebar-toggle:checked ~ .sidebar-overlay {
-    display: block !important;
-  }
+  .sidebar-toggle:checked ~ .sidebar-overlay { display: block !important; }
   .sidebar-toggle:checked ~ .container #sidebar-container,
-  .sidebar-toggle:checked ~ .container .sidebar {
-    transform: translateX(0) !important;
-  }
+  .sidebar-toggle:checked ~ .container .sidebar { transform: translateX(0) !important; }
+  .sidebar-toggle:checked ~ .hamburger-btn span { background: transparent !important; }
+  .sidebar-toggle:checked ~ .hamburger-btn span::before { transform: rotate(45deg) !important; top: 0 !important; }
+  .sidebar-toggle:checked ~ .hamburger-btn span::after { transform: rotate(-45deg) !important; top: 0 !important; }
 
-  .sidebar-toggle:checked ~ .hamburger-btn span {
-    background: transparent !important;
-  }
-  .sidebar-toggle:checked ~ .hamburger-btn span::before {
-    transform: rotate(45deg) !important;
-    top: 0 !important;
-  }
-  .sidebar-toggle:checked ~ .hamburger-btn span::after {
-    transform: rotate(-45deg) !important;
-    top: 0 !important;
-  }
+  .header { margin-top: 60px !important; padding-left: 10px !important; }
+  .header h1 { font-size: 20px !important; }
+  .header p { font-size: 13px !important; }
+  #topbar-container, .top-user { justify-content: center !important; width: 100% !important; margin-top: 10px !important; }
+  .user-card { transform: scale(0.9) !important; padding: 6px 10px !important; }
+  .user-card img { width: 40px !important; height: 40px !important; }
 
-  /* Header & Topbar */
-  .header {
-    margin-top: 60px !important;
-    padding-left: 10px !important;
-  }
-  .header h1 {
-    font-size: 20px !important;
-  }
-  .header p {
-    font-size: 13px !important;
-  }
-  #topbar-container,
-  .top-user {
-    justify-content: center !important;
-    width: 100% !important;
-    margin-top: 10px !important;
-  }
-  .user-card {
-    transform: scale(0.9) !important;
-    padding: 6px 10px !important;
-  }
-  .user-card img {
-    width: 40px !important;
-    height: 40px !important;
-  }
+  .top-bar { flex-direction: column !important; gap: 10px !important; }
+  .top-bar input { width: 100% !important; }
+  .actions { flex-direction: column !important; width: 100% !important; }
+  .actions select, .btn-new { width: 100% !important; }
 
-  /* Barra Superior */
-  .top-bar {
-    flex-direction: column !important;
-    gap: 10px !important;
-  }
-  .top-bar input {
-    width: 100% !important;
-  }
-  .actions {
-    flex-direction: column !important;
-    width: 100% !important;
-  }
-  .actions select,
-  .btn-new {
-    width: 100% !important;
-  }
+  .card { padding: 15px !important; overflow-x: auto !important; }
+  table { min-width: 650px !important; display: block !important; width: 100% !important; }
+  th, td { padding: 10px 8px !important; font-size: 12px !important; }
+  .action-cells { gap: 6px !important; }
+  .view, .delete { padding: 6px 8px !important; font-size: 12px !important; }
+  .status-pagado, .status-pendiente { font-size: 11px !important; padding: 3px 6px !important; }
 
-  /* Tabla */
-  .card {
-    padding: 15px !important;
-    overflow-x: auto !important;
-  }
-  table {
-    min-width: 650px !important;
-    display: block !important;
-    width: 100% !important;
-  }
-  th,
-  td {
-    padding: 10px 8px !important;
-    font-size: 12px !important;
-  }
-  .action-cells {
-    gap: 6px !important;
-  }
-  .view,
-  .delete {
-    padding: 6px 8px !important;
-    font-size: 12px !important;
-  }
-  .status-pagado,
-  .status-pendiente {
-    font-size: 11px !important;
-    padding: 3px 6px !important;
-  }
+  .table-footer { flex-direction: column !important; gap: 10px !important; text-align: center !important; margin-top: 12px !important; }
+  .pagination { justify-content: center !important; flex-wrap: wrap !important; }
 
-  /* Footer y paginación */
-  .table-footer {
-    flex-direction: column !important;
-    gap: 10px !important;
-    text-align: center !important;
-    margin-top: 12px !important;
-  }
-  .pagination {
-    justify-content: center !important;
-    flex-wrap: wrap !important;
-  }
-
-  /* MODALES */
-  .modal-content {
-    width: 95% !important;
-    padding: 16px !important;
-    max-height: 85vh !important;
-  }
-  .modal-small {
-    width: 90% !important;
-  }
-  .modal-large {
-    width: 98% !important;
-  }
-  .modal-header {
-    padding: 0 0 12px 0 !important;
-    margin-bottom: 12px !important;
-  }
-  .modal-header h2 {
-    font-size: 18px !important;
-  }
-  .modal-body {
-    padding: 12px 0 !important;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr !important;
-    gap: 10px !important;
-  }
-  .form-group input,
-  .form-group select {
-    padding: 10px !important;
-    font-size: 14px !important;
-  }
-  .btn-add {
-    margin-top: 8px !important;
-  }
-
-  .modal-footer {
-    flex-direction: column !important;
-    gap: 10px !important;
-    padding: 12px 0 0 !important;
-  }
-  .btn-cancel,
-  .btn-save {
-    width: 100% !important;
-  }
-
-  .total-box {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 8px !important;
-    justify-content: flex-start !important;
-  }
-
-  .details-box {
-    border-radius: 8px !important;
-  }
-  .details-box table {
-    display: block !important;
-    overflow-x: auto !important;
-    min-width: 100% !important;
-  }
-  .details-box th,
-  .details-box td {
-    padding: 8px !important;
-    font-size: 12px !important;
-  }
-
-  .delete-detail-btn,
-  .edit-detail-btn {
-    width: 100% !important;
-    justify-content: center !important;
-    margin-top: 4px !important;
-  }
+  .modal-content { width: 95% !important; padding: 16px !important; max-height: 85vh !important; }
+  .modal-small { width: 90% !important; }
+  .modal-large { width: 98% !important; }
+  .modal-header { padding: 0 0 12px 0 !important; margin-bottom: 12px !important; }
+  .modal-header h2 { font-size: 18px !important; }
+  .modal-body { padding: 12px 0 !important; }
+  .form-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .form-group input, .form-group select { padding: 10px !important; font-size: 14px !important; }
+  .btn-add { margin-top: 8px !important; }
+  .modal-footer { flex-direction: column !important; gap: 10px !important; padding: 12px 0 0 !important; }
+  .btn-cancel, .btn-save { width: 100% !important; }
+  .total-box { flex-direction: column !important; align-items: stretch !important; gap: 8px !important; justify-content: flex-start !important; }
+  .details-box { border-radius: 8px !important; }
+  .details-box table { display: block !important; overflow-x: auto !important; min-width: 100% !important; }
+  .details-box th, .details-box td { padding: 8px !important; font-size: 12px !important; }
+  .edit-detail-btn, .delete-detail-btn { width: 100% !important; justify-content: center !important; margin-top: 4px !important; }
 }
 
 /* MÓVIL PEQUEÑO (≤ 480px) */
 @media (max-width: 480px) {
-  .header h1 {
-    font-size: 18px !important;
-  }
-  .card {
-    padding: 10px !important;
-    border-radius: 12px !important;
-  }
-  th,
-  td {
-    padding: 8px 6px !important;
-    font-size: 11px !important;
-  }
-  .modal-content {
-    padding: 14px !important;
-  }
-  .form-group label {
-    font-size: 12px !important;
-  }
-  .btn-add,
-  .btn-save,
-  .btn-cancel {
-    font-size: 14px !important;
-  }
+  .header h1 { font-size: 18px !important; }
+  .card { padding: 10px !important; border-radius: 12px !important; }
+  th, td { padding: 8px 6px !important; font-size: 11px !important; }
+  .modal-content { padding: 14px !important; }
+  .form-group label { font-size: 12px !important; }
+  .btn-add, .btn-save, .btn-cancel { font-size: 14px !important; }
 }

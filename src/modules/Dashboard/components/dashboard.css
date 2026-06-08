@@ -35,7 +35,7 @@
 
 .banner {
   position: relative;
-  background-image: url("/Assets/img/WhatsApp Image 2026-04-26 at 7.11.07 PM.jpeg");
+  background-image: url("/src/modules/Shared/Assets/img/Banner.png");
   background-size: cover;
   background-position: center;
   border-radius: 20px;

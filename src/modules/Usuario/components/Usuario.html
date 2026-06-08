@@ -2,21 +2,18 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Pasteleria Soto</title>
     <link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
     <link rel="stylesheet" href="/src/modules/Usuario/components/Usuario.css" />
   </head>
   <body>
-    <!-- 1. CONTROL SIDEBAR (Checkbox Hack) -->
+    <!-- 1. CONTROL SIDEBAR -->
     <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
     <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
     <label for="sidebar-toggle" class="sidebar-overlay"></label>
 
-    <!-- 2. CONTROL MODAL -->
+    <!-- MODAL AGREGAR -->
     <input type="checkbox" id="user-modal" class="modal-toggle" />
     <div class="modal-overlay">
       <div class="modal-content">
@@ -27,7 +24,7 @@
         <div class="modal-body">
           <div class="form-group">
             <p>Nombre</p>
-            <input type="text" placeholder />
+            <input type="text" placeholder="Nombre del usuario" />
           </div>
           <div class="form-group">
             <p>Rol</p>
@@ -45,13 +42,54 @@
           </div>
         </div>
         <div class="modal-footer">
-          <label for="user-modal" class="btn-cancel">Cancelar</label>
-          <button class="btn-save">Guardar</button>
+          <label for="user-modal" class="btn cancel">Cancelar</label>
+          <button class="btn save">Guardar</button>
         </div>
       </div>
     </div>
 
-    <!-- 3. CONTENIDO PRINCIPAL -->
+    <!-- MODAL EDITAR -->
+    <div id="modalEdit" class="modal">
+      <div class="modal-content">
+        <h2>Editar Usuario</h2>
+        <div class="form-group">
+          <p>Nombre</p>
+          <input type="text" value="Admin Soto" />
+        </div>
+        <div class="form-group">
+          <p>Rol</p>
+          <select>
+            <option>Administrador</option>
+            <option>Cajero</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <p>Estado</p>
+          <select>
+            <option>Activo</option>
+            <option>Inactivo</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <a href="#" class="btn cancel">Cancelar</a>
+          <button class="btn save">Actualizar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL ELIMINAR -->
+    <div id="modalDelete" class="modal">
+      <div class="modal-content delete-box">
+        <h2>¿Eliminar usuario?</h2>
+        <p>Esta acción no se puede deshacer</p>
+        <div class="modal-actions">
+          <a href="#" class="btn cancel">Cancelar</a>
+          <button class="btn btn-delete">Eliminar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
     <div class="container">
       <div id="sidebar-container"></div>
 
@@ -60,17 +98,14 @@
 
         <div class="header">
           <h1>Gestión de Usuarios</h1>
-          <p>Administra la informacion de los usuarios.</p>
+          <p>Administra la información de los usuarios.</p>
         </div>
 
         <div class="card">
           <div class="top-bar">
             <div class="search-box">
               <input type="text" placeholder="Buscar Usuario..." />
-              <img
-                src="/src/modules/Shared/Assets/img/lupa.png"
-                class="search-icon"
-              />
+              <img src="/src/modules/Shared/Assets/img/lupa.png" class="search-icon" />
             </div>
             <div class="actions">
               <select>
@@ -93,77 +128,53 @@
               <tr>
                 <td>Admin Soto</td>
                 <td>Administrador</td>
-                <td><button class="Activo">Activo</button></td>
-                <td>
-                  <div class="actions">
-                    <button class="edit">
-                      <img src="/src/modules/Shared/Assets/img/editar.png" />
-                      Editar
-                    </button>
-                    <button class="delete">
-                      <img
-                        src="/src/modules/Shared/Assets/img/eliminar-usuario.png"
-                      />
-                      Eliminar
-                    </button>
-                  </div>
+                <td><span class="badge-activo">Activo</span></td>
+                <td class="table-actions">
+                  <a href="#modalEdit" class="edit">
+                    <img src="/src/modules/Shared/Assets/img/editar.png" /> Editar
+                  </a>
+                  <a href="#modalDelete" class="delete">
+                    <img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" /> Eliminar
+                  </a>
                 </td>
               </tr>
               <tr>
                 <td>Yahir Lopez</td>
                 <td>Cajero</td>
-                <td><button class="Activo">Activo</button></td>
-                <td>
-                  <div class="actions">
-                    <button class="edit">
-                      <img src="/src/modules/Shared/Assets/img/editar.png" />
-                      Editar
-                    </button>
-                    <button class="delete">
-                      <img
-                        src="/src/modules/Shared/Assets/img/eliminar-usuario.png"
-                      />
-                      Eliminar
-                    </button>
-                  </div>
+                <td><span class="badge-activo">Activo</span></td>
+                <td class="table-actions">
+                  <a href="#modalEdit" class="edit">
+                    <img src="/src/modules/Shared/Assets/img/editar.png" /> Editar
+                  </a>
+                  <a href="#modalDelete" class="delete">
+                    <img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" /> Eliminar
+                  </a>
                 </td>
               </tr>
               <tr>
                 <td>Alison Villa</td>
                 <td>Cajero</td>
-                <td><button class="Activo">Activo</button></td>
-                <td>
-                  <div class="actions">
-                    <button class="edit">
-                      <img src="/src/modules/Shared/Assets/img/editar.png" />
-                      Editar
-                    </button>
-                    <button class="delete">
-                      <img
-                        src="/src/modules/Shared/Assets/img/eliminar-usuario.png"
-                      />
-                      Eliminar
-                    </button>
-                  </div>
+                <td><span class="badge-activo">Activo</span></td>
+                <td class="table-actions">
+                  <a href="#modalEdit" class="edit">
+                    <img src="/src/modules/Shared/Assets/img/editar.png" /> Editar
+                  </a>
+                  <a href="#modalDelete" class="delete">
+                    <img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" /> Eliminar
+                  </a>
                 </td>
               </tr>
               <tr>
                 <td>Jafet Sanchez</td>
                 <td>Cajero</td>
-                <td><button class="Activo">Activo</button></td>
-                <td>
-                  <div class="actions">
-                    <button class="edit">
-                      <img src="/src/modules/Shared/Assets/img/editar.png" />
-                      Editar
-                    </button>
-                    <button class="delete">
-                      <img
-                        src="/src/modules/Shared/Assets/img/eliminar-usuario.png"
-                      />
-                      Eliminar
-                    </button>
-                  </div>
+                <td><span class="badge-activo">Activo</span></td>
+                <td class="table-actions">
+                  <a href="#modalEdit" class="edit">
+                    <img src="/src/modules/Shared/Assets/img/editar.png" /> Editar
+                  </a>
+                  <a href="#modalDelete" class="delete">
+                    <img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" /> Eliminar
+                  </a>
                 </td>
               </tr>
             </tbody>
