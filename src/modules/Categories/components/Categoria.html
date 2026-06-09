@@ -9,36 +9,28 @@
 </head>
 <body>
 
-  <!-- 1. Checkbox de control (oculto) -->
   <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
   
-  <!-- 2. Botón hamburguesa (label conectado) -->
   <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
   
-  <!-- 3. Overlay para cerrar -->
   <label for="sidebar-toggle" class="sidebar-overlay"></label>
 
 
 <div class="container">
 
-    <!-- SIDEBAR GLOBAL -->
     <div id="sidebar-container"></div>
 
-    <!-- MAIN -->
     <main class="main">
       
         <div id="topbar-container"></div>
 
-        <!-- HEADER -->
         <div class="header">
             <h1>Gestión de Categorías</h1>
             <p>Consulta y administra las categorías disponibles.</p>
         </div>
 
-        <!-- CONTENIDO -->
         <div class="card">
 
-            <!-- TOP BAR -->
             <div class="top-bar">
                 <input type="text" placeholder="Buscar categoría...">
 
@@ -56,112 +48,112 @@
                 </div>
             </div>
 
-            <!-- TABLA -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>Icono</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Productos</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Productos</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    <tr>
-                        <td><img class="row-icon" src="/src/modules/Shared/Assets/img/postre.png" alt="postre"></td>
-                        <td>Postres</td>
-                        <td>Postres de la mejor calidad</td>
-                        <td><span class="count">30 productos</span></td>
-                        <td class="table-actions">
-                            <a href="#modalEdit" class="edit">
-                                <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
-                            </a>
-                            <a href="#modalDelete" class="delete">
-                                <img src="/src/modules/Shared/Assets/img/eliminar.png"> Eliminar
-                            </a>
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td><img class="row-icon" src="/src/modules/Shared/Assets/img/postre.png" alt="postre"></td>
+                            <td>Postres</td>
+                            <td>Postres de la mejor calidad</td>
+                            <td><span class="count">30 productos</span></td>
+                            <td class="table-actions">
+                                <a href="#modalEdit" class="edit">
+                                    <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
+                                </a>
+                                <a href="#modalDelete" class="delete">
+                                    <img src="/src/modules/Shared/Assets/img/eliminar.png"> Eliminar
+                                </a>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td><img class="row-icon" src="/src/modules/Shared/Assets/img/pastel.png" alt="pastel"></td>
-                        <td>Pasteles</td>
-                        <td>Pasteles de diferentes sabores y tamaños</td>
-                        <td><span class="count">15 productos</span></td>
-                        <td class="table-actions">
-                            <a href="#modalEdit" class="edit">
-                                <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
-                            </a>
-                            <a href="#modalDelete" class="delete">
-                                <img src="/src/modules/Shared/Assets/img/eliminar.png"> Eliminar
-                            </a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><img class="row-icon" src="/src/modules/Shared/Assets/img/pastel.png" alt="pastel"></td>
+                            <td>Pasteles</td>
+                            <td>Pasteles de diferentes sabores y tamaños</td>
+                            <td><span class="count">15 productos</span></td>
+                            <td class="table-actions">
+                                <a href="#modalEdit" class="edit">
+                                    <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
+                                </a>
+                                <a href="#modalDelete" class="delete">
+                                    <img src="/src/modules/Shared/Assets/img/eliminar.png"> Eliminar
+                                </a>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td><img class="row-icon" src="/src/modules/Shared/Assets/img/galleta.png" alt="galleta"></td>
-                        <td>Galletas</td>
-                        <td>Galletas de todo tipo</td>
-                        <td><span class="count">60 productos</span></td>
-                        <td class="table-actions">
-                            <a href="#modalEdit" class="edit">
-                                <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
-                            </a>
-                            <a href="#modalDelete" class="delete">
-                                <img src="/src/modules/Shared/Assets/img/eliminar.png"> Eliminar
-                            </a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><img class="row-icon" src="/src/modules/Shared/Assets/img/galleta.png" alt="galleta"></td>
+                            <td>Galletas</td>
+                            <td>Galletas de todo tipo</td>
+                            <td><span class="count">60 productos</span></td>
+                            <td class="table-actions">
+                                <a href="#modalEdit" class="edit">
+                                    <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
+                                </a>
+                                <a href="#modalDelete" class="delete">
+                                    <img src="/src/modules/Shared/Assets/img/eliminar.png"> Eliminar
+                                </a>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td><img class="row-icon" src="/src/modules/Shared/Assets/img/cupcake.png" alt="cupcake"></td>
-                        <td>Cupcakes</td>
-                        <td>Cupcakes para disfrutar en todo momento</td>
-                        <td><span class="count">20 productos</span></td>
-                        <td class="table-actions">
-                            <a href="#modalEdit" class="edit">
-                                <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
-                            </a>
-                            <a href="#modalDelete" class="delete">
-                                <img src="/src/modules/Shared/Assets/img/eliminar.png"> Eliminar
-                            </a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><img class="row-icon" src="/src/modules/Shared/Assets/img/cupcake.png" alt="cupcake"></td>
+                            <td>Cupcakes</td>
+                            <td>Cupcakes para disfrutar en todo momento</td>
+                            <td><span class="count">20 productos</span></td>
+                            <td class="table-actions">
+                                <a href="#modalEdit" class="edit">
+                                    <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
+                                </a>
+                                <a href="#modalDelete" class="delete">
+                                    <img src="/src/modules/Shared/Assets/img/eliminar.png"> Eliminar
+                                </a>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td><img class="row-icon" src="/src/modules/Shared/Assets/img/bebida.png" alt="bebida"></td>
-                        <td>Bebidas</td>
-                        <td>Bebidas refrescantes</td>
-                        <td><span class="count">35 productos</span></td>
-                        <td class="table-actions">
-                            <a href="#modalEdit" class="edit">
-                                <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
-                            </a>
-                            <a href="#modalDelete" class="delete">
-                                <img src="/src/modules/Shared/Assets/img/eliminar.png"> Eliminar
-                            </a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><img class="row-icon" src="/src/modules/Shared/Assets/img/bebida.png" alt="bebida"></td>
+                            <td>Bebidas</td>
+                            <td>Bebidas refrescantes</td>
+                            <td><span class="count">35 productos</span></td>
+                            <td class="table-actions">
+                                <a href="#modalEdit" class="edit">
+                                    <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
+                                </a>
+                                <a href="#modalDelete" class="delete">
+                                    <img src="/src/modules/Shared/Assets/img/eliminar.png"> Eliminar
+                                </a>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td><img class="row-icon" src="/src/modules/Shared/Assets/img/bocadillo.png" alt="bocadillo"></td>
-                        <td>Bocadillos</td>
-                        <td>Bocadillos para sustentar tu dia</td>
-                        <td><span class="count">35 productos</span></td>
-                        <td class="table-actions">
-                            <a href="#modalEdit" class="edit">
-                                <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
-                            </a>
-                            <a href="#modalDelete" class="delete">
-                                <img src="/src/modules/Shared/Assets/img/eliminar.png"> Eliminar
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        <tr>
+                            <td><img class="row-icon" src="/src/modules/Shared/Assets/img/bocadillo.png" alt="bocadillo"></td>
+                            <td>Bocadillos</td>
+                            <td>Bocadillos para sustentar tu dia</td>
+                            <td><span class="count">35 productos</span></td>
+                            <td class="table-actions">
+                                <a href="#modalEdit" class="edit">
+                                    <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
+                                </a>
+                                <a href="#modalDelete" class="delete">
+                                    <img src="/src/modules/Shared/Assets/img/eliminar.png"> Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <!-- FOOTER -->
             <div class="table-footer">
                 <span>Mostrando 1 a 6 de 6 categorías</span>
                 <div class="pagination">
@@ -177,7 +169,6 @@
 
 </div>
 
-<!-- MODAL AGREGAR -->
 <div id="modalAdd" class="modal">
   <div class="modal-content">
     <h2>Nueva Categoría</h2>
@@ -190,7 +181,6 @@
   </div>
 </div>
 
-<!-- MODAL EDITAR -->
 <div id="modalEdit" class="modal">
   <div class="modal-content">
     <h2>Editar Categoría</h2>
@@ -203,7 +193,6 @@
   </div>
 </div>
 
-<!-- MODAL ELIMINAR -->
 <div id="modalDelete" class="modal">
   <div class="modal-content delete-box">
     <h2>¿Eliminar categoría?</h2>
@@ -215,7 +204,6 @@
   </div>
 </div>
 
-<!-- JS -->
 <script src="/src/modules/Shared/components/components.js"></script>
 
 </body>

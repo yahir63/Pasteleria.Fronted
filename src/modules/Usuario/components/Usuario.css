@@ -1,300 +1,651 @@
-/* =========================================
-   CONTENEDOR PRINCIPAL
-========================================= */
+.main {
+  flex: 1;
+  padding: 20px;
+}
 
-.main { flex: 1; padding: 20px; }
+.header h1 {
+  margin-top: 15px;
+}
 
-/* =========================================
-   HEADER
-========================================= */
+.header p {
+  color: #777;
+  margin-bottom: 20px;
+}
 
-.header h1 { margin-top: 15px; }
-.header p { color: #777; margin-bottom: 20px; }
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+}
 
-/* =========================================
-   CARD
-========================================= */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
 
-.card { background: white; padding: 20px; border-radius: 15px; }
+.top-bar input {
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
 
-/* =========================================
-   TOP BAR
-========================================= */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-.top-bar { display: flex; justify-content: space-between; margin-bottom: 15px; }
-.top-bar input { width: 300px; padding: 10px; border-radius: 10px; border: 1px solid #ccc; }
-
-.actions { display: flex; align-items: center; gap: 10px; }
-.actions select { padding: 10px; border-radius: 10px; border: 1px solid #ccc; width: 180px; }
+.actions select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 180px;
+}
 
 .btn-new {
-  background: #0BB2F4; color: white; border: none;
-  padding: 10px 15px; border-radius: 10px; cursor: pointer;
-  font-size: 14px; font-weight: 500; display: flex;
-  align-items: center; gap: 8px; text-decoration: none; transition: 0.2s;
+  background: #0BB2F4;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: 0.2s;
 }
-.btn-new:hover { background: #0aadff; transform: scale(1.02); }
 
-/* =========================================
-   TABLA
-========================================= */
+.btn-new:hover {
+  background: #0aadff;
+  transform: scale(1.02);
+}
 
-table { width: 100%; border-collapse: collapse; }
-thead { background: #f0f4f8; }
-th { font-size: 13px; color: #555; font-weight: 600; }
-th, td { padding: 12px; text-align: left; }
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+}
 
-tbody tr { border-top: 1px solid #eee; transition: all 0.2s ease; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+thead {
+  background: #f0f4f8;
+}
+
+th {
+  font-size: 13px;
+  color: #555;
+  font-weight: 600;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-top: 1px solid #eee;
+  transition: all 0.2s ease;
+}
+
 tbody tr:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 15px rgba(0,0,0,0.08);
   background: #f9fcff;
 }
 
-/* =========================================
-   BADGE ACTIVO
-========================================= */
-
 .badge-activo {
-  background: #e8f7ff; color: #055270;
-  padding: 4px 12px; border-radius: 20px;
-  font-size: 12px; font-weight: 600;
+  background: #e8f7ff;
+  color: #055270;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
   display: inline-block;
 }
 
-/* =========================================
-   BOTONES EDITAR / ELIMINAR
-========================================= */
-
 .edit, .delete {
-  display: inline-flex; align-items: center;
-  justify-content: center; gap: 6px;
-  border: none; padding: 8px 14px; border-radius: 6px;
-  font-size: 13px; font-weight: 500; cursor: pointer;
-  transition: 0.2s; text-decoration: none; color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+  text-decoration: none;
+  color: white;
 }
-.edit { background: #07729C; }
-.delete { background: #dc3545; }
-.edit img, .delete img { width: 14px; height: 14px; }
-.edit:hover { transform: scale(1.05); background: #0aadff; }
-.delete:hover { transform: scale(1.05); background: #c82333; }
-.edit:active, .delete:active { transform: scale(0.95); }
 
-.table-actions { display: flex; gap: 8px; align-items: center; }
+.edit {
+  background: #07729C;
+}
 
-/* =========================================
-   FOOTER TABLA
-========================================= */
+.delete {
+  background: #dc3545;
+}
 
-.table-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
-.table-footer span { font-size: 13px; color: #777; }
+.edit img, .delete img {
+  width: 14px;
+  height: 14px;
+}
+
+.edit:hover {
+  transform: scale(1.05);
+  background: #0aadff;
+}
+
+.delete:hover {
+  transform: scale(1.05);
+  background: #c82333;
+}
+
+.edit:active, .delete:active {
+  transform: scale(0.95);
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.table-footer span {
+  font-size: 13px;
+  color: #777;
+}
 
 .pagination button {
-  margin: 2px; padding: 5px 10px; border: none;
-  border-radius: 5px; cursor: pointer; background: #f0f4f8; transition: 0.2s;
+  margin: 2px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #f0f4f8;
+  transition: 0.2s;
 }
-.pagination button:hover:not(.active) { background: #e2eaf2; }
-.pagination .active { background: #8FDBFA; color: white; }
 
-/* =========================================
-   MODAL AGREGAR (checkbox hack)
-========================================= */
+.pagination button:hover:not(.active) {
+  background: #e2eaf2;
+}
 
-.modal-toggle { display: none; }
+.pagination .active {
+  background: #8FDBFA;
+  color: white;
+}
+
+.sidebar-toggle {
+  display: none;
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 9998;
+  cursor: pointer;
+}
+
+.hamburger-btn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 10000;
+  background: #032F44;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: white;
+  position: relative;
+  transition: 0.3s;
+}
+
+.hamburger-btn span::before,
+.hamburger-btn span::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: white;
+  left: 0;
+  transition: 0.3s;
+}
+
+.hamburger-btn span::before {
+  top: -6px;
+}
+
+.hamburger-btn span::after {
+  top: 6px;
+}
+
+.modal-toggle {
+  display: none;
+}
 
 .modal-overlay {
-  position: fixed; top: 0; left: 0;
-  width: 100%; height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0,0,0,0.4);
-  display: none; justify-content: center;
-  align-items: center; z-index: 10001;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10001;
 }
-.modal-toggle:checked + .modal-overlay { display: flex; }
 
-/* =========================================
-   MODAL EDITAR / ELIMINAR (anchor hash)
-========================================= */
+.modal-toggle:checked + .modal-overlay {
+  display: flex;
+}
 
 .modal {
-  position: fixed; top: 0; left: 0;
-  width: 100%; height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0,0,0,0.4);
-  display: none; justify-content: center;
-  align-items: center; z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
-.modal:target { display: flex; }
 
-/* =========================================
-   CONTENIDO MODAL
-========================================= */
+.modal:target {
+  display: flex;
+}
 
-.modal-content, .modal-overlay .modal-content {
-  background: white; padding: 25px; border-radius: 15px;
-  width: 350px; max-width: 95%; max-height: 90vh;
-  overflow-y: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+.modal-content,
+.modal-overlay .modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 350px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   text-align: center;
 }
 
-.modal-content h2 { margin-bottom: 15px; color: #333; font-size: 20px; }
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 20px;
+}
 
 .modal-header {
-  display: flex; justify-content: space-between;
-  align-items: center; margin-bottom: 10px; text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  text-align: left;
 }
-.modal-header h2 { margin-bottom: 0; }
 
-.close { font-size: 24px; cursor: pointer; color: #888; transition: 0.2s; }
-.close:hover { color: #dc3545; }
-
-/* =========================================
-   FORM
-========================================= */
-
-.modal-body { display: flex; flex-direction: column; margin-top: 10px; }
-
-.modal-body input, .modal-body select,
-.modal-content input, .modal-content select {
-  width: 100%; padding: 10px; margin-top: 6px;
-  border-radius: 8px; border: 1px solid #ccc;
-  outline: none; box-sizing: border-box;
+.modal-header h2 {
+  margin-bottom: 0;
 }
-.modal-body input:focus, .modal-body select:focus,
-.modal-content input:focus, .modal-content select:focus { border-color: #0BB2F4; }
 
-.form-group { display: flex; flex-direction: column; margin-bottom: 12px; text-align: left; }
-.form-group p { margin: 0 0 4px 0; font-weight: 600; font-size: 13px; color: #444; }
+.close {
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+  transition: 0.2s;
+}
 
-/* =========================================
-   BOTONES MODAL
-========================================= */
+.close:hover {
+  color: #dc3545;
+}
 
-.modal-footer, .modal-actions {
-  display: flex; justify-content: space-between;
-  align-items: center; margin-top: 20px; gap: 10px;
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.modal-body input,
+.modal-body select,
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.modal-body input:focus,
+.modal-body select:focus,
+.modal-content input:focus,
+.modal-content select:focus {
+  border-color: #0BB2F4;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.form-group p {
+  margin: 0 0 4px 0;
+  font-weight: 600;
+  font-size: 13px;
+  color: #444;
+}
+
+.modal-footer,
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
 }
 
 .btn {
-  padding: 8px 12px; border-radius: 8px;
-  display: flex; align-items: center;
-  justify-content: center; text-decoration: none;
-  cursor: pointer; font-size: 14px; border: none; transition: 0.2s;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  transition: 0.2s;
 }
-.save { background: #0BB2F4; color: white; }
-.save:hover { background: #0aadff; }
-.cancel { background: #ccc; color: black; }
-.cancel:hover { background: #bbb; }
-.btn-delete { background: #dc3545; color: white; }
-.btn-delete:hover { background: #c82333; }
 
-.delete-box p { color: #666; margin: 10px 0 5px; font-size: 14px; }
-
-/* =========================================
-   SEARCH BOX
-========================================= */
-
-.search-box { position: relative; width: 300px; }
-.search-box input { width: 100%; padding: 10px 36px 10px 10px; border-radius: 10px; border: 1px solid #ccc; box-sizing: border-box; }
-.search-icon { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 16px; opacity: 0.5; }
-
-/* =========================================
-   SIDEBAR BASE
-========================================= */
-
-.sidebar-toggle { display: none !important; }
-.sidebar-overlay {
-  display: none; position: fixed; top: 0; left: 0;
-  width: 100%; height: 100%; background: rgba(0,0,0,0.5);
-  z-index: 9998; cursor: pointer;
+.save {
+  background: #0BB2F4;
+  color: white;
 }
-.hamburger-btn {
-  display: none; position: fixed; top: 15px; left: 15px;
-  z-index: 10000; background: #032F44; color: white;
-  width: 40px; height: 40px; border-radius: 10px;
-  cursor: pointer; align-items: center; justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-.hamburger-btn span { display: block; width: 20px; height: 2px; background: white; position: relative; transition: 0.3s; }
-.hamburger-btn span::before, .hamburger-btn span::after { content: ''; position: absolute; width: 20px; height: 2px; background: white; left: 0; transition: 0.3s; }
-.hamburger-btn span::before { top: -6px; }
-.hamburger-btn span::after { top: 6px; }
 
-/* =========================================
-   TABLET
-========================================= */
+.save:hover {
+  background: #0aadff;
+}
+
+.cancel {
+  background: #ccc;
+  color: black;
+}
+
+.cancel:hover {
+  background: #bbb;
+}
+
+.btn-delete {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #c82333;
+}
+
+.delete-box p {
+  color: #666;
+  margin: 10px 0 5px;
+  font-size: 14px;
+}
+
+.search-box {
+  position: relative;
+  width: 300px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 36px 10px 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  opacity: 0.5;
+}
 
 @media (max-width: 1024px) {
-  .main { padding: 16px 20px; }
-  .top-bar { flex-wrap: wrap; gap: 12px; }
-  .top-bar input { width: 100%; max-width: 400px; }
-  .actions { flex-wrap: wrap; gap: 10px; }
-  .actions select, .btn-new { flex: 1; min-width: 140px; justify-content: center; }
-  .card { overflow-x: auto; }
-  table { min-width: 500px; }
-  .modal-content { width: 90%; }
+  .main {
+    padding: 16px 20px;
+  }
+  .top-bar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .top-bar input {
+    width: 100%;
+    max-width: 400px;
+  }
+  .actions {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .actions select,
+  .btn-new {
+    flex: 1;
+    min-width: 140px;
+    justify-content: center;
+  }
+  .modal-content {
+    width: 90%;
+  }
 }
-
-/* =========================================
-   MÓVIL
-========================================= */
 
 @media (max-width: 768px) {
-  body { overflow-x: hidden !important; }
-  .container { flex-direction: column !important; }
-  .main { width: 100% !important; padding: 10px !important; margin-left: 0 !important; }
-  .hamburger-btn { display: flex !important; }
-
-  #sidebar-container, .sidebar {
-    position: fixed !important; left: 0 !important; top: 0 !important;
-    width: 80% !important; max-width: 300px !important; height: 100vh !important;
-    z-index: 9999 !important; transform: translateX(-100%) !important;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    background: #BBE6FC !important; overflow-y: auto;
+  body {
+    overflow-x: hidden;
   }
-  .sidebar.open, #sidebar-container.open { transform: translateX(0) !important; }
-
-  .sidebar-toggle:checked ~ .sidebar-overlay { display: block !important; }
+  .container {
+    flex-direction: column;
+  }
+  .main {
+    width: 100%;
+    padding: 10px;
+    margin-left: 0;
+  }
+  .hamburger-btn {
+    display: flex;
+  }
+  #sidebar-container,
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #BBE6FC;
+    overflow-y: auto;
+  }
+  .sidebar.open,
+  #sidebar-container.open {
+    transform: translateX(0);
+  }
+  .sidebar-toggle:checked ~ .sidebar-overlay {
+    display: block;
+  }
   .sidebar-toggle:checked ~ .container #sidebar-container,
-  .sidebar-toggle:checked ~ .container .sidebar { transform: translateX(0) !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span { background: transparent !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span::before { transform: rotate(45deg) !important; top: 0 !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span::after { transform: rotate(-45deg) !important; top: 0 !important; }
-
-  .header { margin-top: 60px !important; padding-left: 10px !important; }
-  .header h1 { font-size: 20px !important; text-align: center; }
-  .header p { font-size: 13px !important; text-align: center; }
-  #topbar-container, .top-user { justify-content: center !important; width: 100% !important; margin-top: 10px !important; }
-  .user-card { transform: scale(0.9) !important; padding: 6px 10px !important; }
-
-  .top-bar { flex-direction: column !important; gap: 10px !important; }
-  .search-box { width: 100% !important; }
-  .actions { flex-direction: column !important; width: 100% !important; }
-  .actions select, .btn-new { width: 100% !important; justify-content: center !important; }
-
-  .card { padding: 15px !important; overflow-x: auto !important; border-radius: 16px !important; }
-  table { min-width: 500px !important; display: block !important; width: 100% !important; }
-  th, td { padding: 10px 8px !important; font-size: 12px !important; white-space: nowrap !important; }
-
-  .edit, .delete { padding: 8px !important; font-size: 11px !important; width: 100% !important; justify-content: center !important; }
-  .edit img, .delete img { width: 13px !important; height: 13px !important; }
-  .table-actions { flex-direction: column; gap: 4px !important; }
-
-  .table-footer { flex-direction: column !important; gap: 10px !important; text-align: center !important; margin-top: 12px !important; }
-  .pagination { justify-content: center !important; flex-wrap: wrap !important; }
-
-  .modal-content { width: 92% !important; padding: 20px !important; max-height: 85vh !important; border-radius: 16px !important; }
-  .modal-footer, .modal-actions { flex-direction: column !important; gap: 10px !important; margin-top: 15px !important; }
-  .modal-footer .btn, .modal-actions .btn { width: 100% !important; padding: 12px !important; font-size: 1rem !important; }
-
-  .modal .btn-delete { width: 100% !important; height: auto !important; padding: 12px !important; border-radius: 8px !important; font-size: 1rem !important; }
+  .sidebar-toggle:checked ~ .container .sidebar {
+    transform: translateX(0);
+  }
+  .sidebar-toggle:checked ~ .hamburger-btn span {
+    background: transparent;
+  }
+  .sidebar-toggle:checked ~ .hamburger-btn span::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  .sidebar-toggle:checked ~ .hamburger-btn span::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+  .header {
+    margin-top: 60px;
+    padding-left: 10px;
+  }
+  .header h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .header p {
+    font-size: 13px;
+    text-align: center;
+  }
+  #topbar-container,
+  .top-user {
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .user-card {
+    transform: scale(0.9);
+    padding: 6px 10px;
+  }
+  .top-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .search-box {
+    width: 100%;
+  }
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .actions select,
+  .btn-new {
+    width: 100%;
+    justify-content: center;
+  }
+  .card {
+    padding: 15px;
+    border-radius: 16px;
+  }
+  table {
+    min-width: 500px;
+  }
+  th, td {
+    padding: 10px 8px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .edit,
+  .delete {
+    padding: 8px;
+    font-size: 11px;
+    width: 100%;
+    justify-content: center;
+  }
+  .edit img,
+  .delete img {
+    width: 13px;
+    height: 13px;
+  }
+  .table-actions {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .table-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    margin-top: 12px;
+  }
+  .pagination {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .modal-content {
+    width: 92%;
+    padding: 20px;
+    max-height: 85vh;
+    border-radius: 16px;
+  }
+  .modal-footer,
+  .modal-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  .modal-footer .btn,
+  .modal-actions .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+  .modal .btn-delete {
+    width: 100%;
+    height: auto;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
 }
 
-/* =========================================
-   MÓVIL PEQUEÑO
-========================================= */
-
 @media (max-width: 480px) {
-  .header h1 { font-size: 18px !important; }
-  .card { padding: 10px !important; }
-  th, td { padding: 8px 6px !important; font-size: 11px !important; }
-  .modal-content { padding: 16px !important; }
+  .header h1 {
+    font-size: 18px;
+  }
+  .card {
+    padding: 10px;
+  }
+  th, td {
+    padding: 8px 6px;
+    font-size: 11px;
+  }
+  .modal-content {
+    padding: 16px;
+  }
 }

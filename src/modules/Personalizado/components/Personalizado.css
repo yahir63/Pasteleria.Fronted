@@ -24,8 +24,15 @@
 }
 .btn-new:hover { background: #0aadff; transform: scale(1.02); }
 
+/* WRAPPER DE TABLA — hace solo el scroll interno */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* TABLA */
-table { width: 100%; border-collapse: collapse; }
+table { width: 100%; border-collapse: collapse; min-width: 700px; }
 thead { background: #f0f4f8; }
 th, td { padding: 12px; text-align: left; }
 th { font-size: 13px; color: #555; font-weight: 600; }
@@ -37,13 +44,11 @@ tbody tr:hover {
 }
 
 /* BOTONES */
-.edit {
+.edit, .delete {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  background: #07729C;
-  color: white;
   border: none;
   padding: 8px 14px;
   border-radius: 6px;
@@ -51,30 +56,15 @@ tbody tr:hover {
   font-weight: 500;
   cursor: pointer;
   transition: 0.2s;
+  color: white;
   margin-right: 6px;
 }
-.edit img { width: 14px; height: 14px; }
+.edit { background: #07729C; }
+.delete { background: #dc3545; }
+.edit img, .delete img { width: 14px; height: 14px; }
 .edit:hover { transform: scale(1.05); background: #0aadff; }
-.edit:active { transform: scale(0.95); }
-
-.delete {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  background: #dc3545;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.delete img { width: 14px; height: 14px; }
 .delete:hover { transform: scale(1.05); background: #c82333; }
-.delete:active { transform: scale(0.95); }
+.edit:active, .delete:active { transform: scale(0.95); }
 
 /* FOOTER */
 .table-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
@@ -137,42 +127,23 @@ tbody tr:hover {
 .modal-buttons { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
 
 .btn-cancel {
-  background: #ccc;
-  color: black;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.2s;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #ccc; color: black; border: none;
+  padding: 10px 16px; border-radius: 8px; cursor: pointer;
+  font-size: 14px; transition: 0.2s;
 }
 .btn-cancel:hover { background: #bbb; transform: scale(1.02); }
 
 .btn-save {
-  background: #0BB2F4;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.2s;
+  background: #0BB2F4; color: white; border: none;
+  padding: 10px 16px; border-radius: 8px; cursor: pointer;
+  font-size: 14px; transition: 0.2s;
 }
 .btn-save:hover { background: #0aadff; transform: scale(1.02); }
 
 .btn-delete-confirm {
-  background: #dc3545;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.2s;
+  background: #dc3545; color: white; border: none;
+  padding: 10px 16px; border-radius: 8px; cursor: pointer;
+  font-size: 14px; transition: 0.2s;
 }
 .btn-delete-confirm:hover { background: #c82333; transform: scale(1.02); }
 
@@ -193,7 +164,9 @@ tbody tr:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 .hamburger-btn span { display: block; width: 20px; height: 2px; background: white; position: relative; transition: 0.3s; }
-.hamburger-btn span::before, .hamburger-btn span::after { content: ''; position: absolute; width: 20px; height: 2px; background: white; left: 0; transition: 0.3s; }
+.hamburger-btn span::before, .hamburger-btn span::after {
+  content: ''; position: absolute; width: 20px; height: 2px; background: white; left: 0; transition: 0.3s;
+}
 .hamburger-btn span::before { top: -6px; }
 .hamburger-btn span::after { top: 6px; }
 
@@ -204,69 +177,78 @@ tbody tr:hover {
   .top-bar input { width: 100%; max-width: 400px; }
   .actions { flex-wrap: wrap; gap: 10px; }
   .actions select, .btn-new { flex: 1; min-width: 140px; justify-content: center; }
-  .card { overflow-x: auto; }
-  table { min-width: 700px; }
   .modal-content, .large-modal { width: 90%; }
   .form-row { gap: 15px; }
 }
 
 /* MÓVIL */
 @media (max-width: 768px) {
-  body { overflow-x: hidden !important; }
-  .container { flex-direction: column !important; }
-  .main { width: 100% !important; padding: 10px !important; margin-left: 0 !important; }
+  body { overflow-x: hidden; }
+  .container { flex-direction: column; }
+  .main { width: 100%; margin-left: 0; padding: 10px; }
   .hamburger-btn { display: flex !important; }
 
   #sidebar-container, .sidebar {
-    position: fixed !important; left: 0 !important; top: 0 !important;
-    width: 80% !important; max-width: 300px !important; height: 100vh !important;
-    z-index: 9999 !important; transform: translateX(-100%) !important;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    background: #BBE6FC !important; overflow-y: auto;
+    position: fixed !important; left: 0; top: 0;
+    width: 80%; max-width: 300px; height: 100vh;
+    z-index: 9999; transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #BBE6FC; overflow-y: auto;
   }
-  .sidebar.open, #sidebar-container.open { transform: translateX(0) !important; }
+  .sidebar.open, #sidebar-container.open { transform: translateX(0); }
 
   .sidebar-toggle:checked ~ .sidebar-overlay { display: block !important; }
   .sidebar-toggle:checked ~ .container #sidebar-container,
-  .sidebar-toggle:checked ~ .container .sidebar { transform: translateX(0) !important; }
+  .sidebar-toggle:checked ~ .container .sidebar { transform: translateX(0); }
   .sidebar-toggle:checked ~ .hamburger-btn span { background: transparent !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span::before { transform: rotate(45deg) !important; top: 0 !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span::after { transform: rotate(-45deg) !important; top: 0 !important; }
+  .sidebar-toggle:checked ~ .hamburger-btn span::before { transform: rotate(45deg); top: 0 !important; }
+  .sidebar-toggle:checked ~ .hamburger-btn span::after  { transform: rotate(-45deg); top: 0 !important; }
 
-  .header { margin-top: 60px !important; padding-left: 10px !important; }
-  .header h1 { font-size: 20px !important; }
-  .header p { font-size: 13px !important; }
-  #topbar-container, .top-user { justify-content: center !important; width: 100% !important; margin-top: 10px !important; }
-  .user-card { transform: scale(0.9) !important; padding: 6px 10px !important; }
+  .header { margin-top: 60px; padding-left: 10px; }
+  .header h1 { font-size: 20px; }
+  .header p  { font-size: 13px; }
+  #topbar-container, .top-user {
+    justify-content: center; width: 100%;
+    padding: 0; margin: 10px 0 15px 0;
+  }
 
-  .top-bar { flex-direction: column !important; gap: 10px !important; }
-  .top-bar input { width: 100% !important; }
-  .actions { flex-direction: column !important; width: 100% !important; }
-  .actions select, .btn-new { width: 100% !important; justify-content: center !important; }
+  .top-bar { flex-direction: column; gap: 10px; }
+  .top-bar input { width: 100%; }
+  .actions { flex-direction: column; width: 100%; }
+  .actions select, .btn-new { width: 100%; justify-content: center; }
 
-  .card { padding: 15px !important; overflow-x: auto !important; border-radius: 16px !important; }
-  table { min-width: 700px !important; display: block !important; width: 100% !important; }
-  th, td { padding: 10px 8px !important; font-size: 12px !important; white-space: nowrap !important; }
+  /* CARD sin overflow — el wrapper interno maneja el scroll */
+  .card { padding: 15px; border-radius: 16px; }
 
-  .edit, .delete { padding: 8px !important; font-size: 11px !important; margin-right: 0 !important; margin-bottom: 4px !important; width: 100% !important; justify-content: center !important; }
-  .edit img, .delete img { width: 13px !important; height: 13px !important; }
-  td:last-child { display: flex; flex-direction: column; gap: 4px; }
+  /* SOLO el wrapper hace scroll horizontal */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+  }
 
-  .table-footer { flex-direction: column !important; gap: 10px !important; text-align: center !important; margin-top: 12px !important; }
-  .pagination { justify-content: center !important; flex-wrap: wrap !important; }
+  /* La tabla NO se convierte en block */
+  table { min-width: 700px; }
+  th, td { padding: 10px 8px; font-size: 12px; white-space: nowrap; }
 
-  .modal-content, .large-modal { width: 92% !important; padding: 20px !important; max-height: 85vh !important; border-radius: 16px !important; }
-  .modal-header h2 { font-size: 18px !important; }
-  .form-row { flex-direction: column !important; gap: 12px !important; }
-  .modal-buttons { flex-direction: column !important; gap: 10px !important; }
-  .btn-cancel, .btn-save, .btn-delete-confirm { width: 100% !important; padding: 12px !important; }
+  .edit, .delete { padding: 7px 10px; font-size: 11px; margin-right: 4px; }
+  .edit img, .delete img { width: 12px; height: 12px; }
+
+  .table-footer { flex-direction: column; gap: 10px; text-align: center; margin-top: 12px; }
+  .pagination { justify-content: center; flex-wrap: wrap; }
+
+  .modal-content { width: 92%; padding: 20px; max-height: 85vh; overflow-y: auto; border-radius: 16px; }
+  .modal-header h2 { font-size: 18px; }
+  .form-row { flex-direction: column; gap: 12px; }
+  .modal-buttons { flex-direction: column; gap: 10px; }
+  .btn-cancel, .btn-save, .btn-delete-confirm { width: 100%; }
 }
 
 /* MÓVIL PEQUEÑO */
 @media (max-width: 480px) {
-  .header h1 { font-size: 18px !important; }
-  .card { padding: 10px !important; }
-  th, td { padding: 8px 6px !important; font-size: 11px !important; }
-  .modal-content { padding: 16px !important; }
-  .form-group label { font-size: 13px !important; }
+  .header h1 { font-size: 18px; }
+  .card { padding: 10px; border-radius: 12px; }
+  th, td { padding: 8px 6px; font-size: 11px; }
+  .modal-content { padding: 16px; }
+  .form-group label { font-size: 12px; }
 }

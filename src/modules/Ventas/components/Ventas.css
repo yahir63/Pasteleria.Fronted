@@ -8,6 +8,7 @@
 .header h1 {
   margin-top: 15px;
 }
+
 .header p {
   color: #777;
   margin-bottom: 20px;
@@ -25,6 +26,7 @@
   justify-content: space-between;
   margin-bottom: 15px;
 }
+
 .top-bar input,
 .actions select {
   padding: 10px 14px;
@@ -33,6 +35,7 @@
   background: #f9fbfd;
   outline: none;
 }
+
 .top-bar input {
   width: 300px;
   padding: 10px;
@@ -44,6 +47,7 @@
   display: flex;
   gap: 10px;
 }
+
 .actions select {
   padding: 10px;
   border-radius: 10px;
@@ -60,49 +64,62 @@
   font-weight: 600;
   transition: 0.2s;
 }
+
 .btn-new:hover {
   background: #0992c8;
   transform: scale(1.05);
 }
+
 .btn-new:active {
   transform: scale(0.95);
   filter: saturate(1.5);
 }
 
-/* TABLA */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+}
+
 table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 12px;
-  overflow: hidden;
   background: white;
+  min-width: 650px;
 }
+
 thead {
   background: #f4f7fb;
 }
+
 th {
   font-size: 13px;
   color: #555;
   font-weight: 600;
 }
+
 tbody tr:hover {
   background: #f9fbfd;
 }
+
 th, td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
 }
+
 tbody tr {
   border-top: 1px solid #eee;
 }
+
 th:last-child,
 td:last-child {
   text-align: center;
 }
 
-/* BOTÓN VER — igual que Pedidos */
 .view {
   background: #07729C;
   color: white;
@@ -116,10 +133,12 @@ td:last-child {
   gap: 5px;
   transition: 0.2s;
 }
+
 .view:hover {
   background: #0aadff;
   transform: scale(1.05);
 }
+
 .view:active {
   transform: scale(0.95);
 }
@@ -148,9 +167,11 @@ button img {
   gap: 5px;
   transition: all 0.3s ease;
 }
+
 .delete:hover {
   transform: scale(1.05);
 }
+
 .delete:active {
   transform: scale(0.95);
   filter: saturate(1.5);
@@ -164,6 +185,7 @@ button img {
   font-size: 12px;
   font-weight: bold;
 }
+
 .status-pendiente {
   background: #fff3cd;
   color: #856404;
@@ -178,6 +200,7 @@ button img {
   justify-content: space-between;
   margin-top: 15px;
 }
+
 .pagination button {
   margin: 2px;
   padding: 6px 12px;
@@ -188,25 +211,29 @@ button img {
   font-size: 13px;
   transition: 0.2s;
 }
+
 .pagination button:hover:not(.active) {
   background: #f1f5f9;
   border-color: #cbd5e1;
   transform: translateY(-1px);
 }
+
 .pagination button:active {
   transform: scale(0.95);
 }
+
 .pagination .active {
   background: #0bb2f4;
   color: white;
   border-color: #0bb2f4;
 }
 
-/* MODAL */
 .modal {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.3);
   display: none;
   justify-content: center;
@@ -217,12 +244,14 @@ button img {
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
   z-index: 9999;
 }
+
 .modal.show {
   display: flex;
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
+
 .modal-content {
   background: white;
   padding: 20px;
@@ -234,17 +263,27 @@ button img {
   overflow-y: auto;
   position: relative;
 }
-.modal-small { width: 400px; }
-.modal-large { width: 1000px; }
+
+.modal-small {
+  width: 400px;
+}
+
+.modal-large {
+  width: 1000px;
+}
 
 #close-modal {
   position: absolute;
-  top: 15px; right: 20px;
+  top: 15px;
+  right: 20px;
   cursor: pointer;
   font-size: 24px;
   color: #888;
 }
-#close-modal:hover { color: #dc3545; }
+
+#close-modal:hover {
+  color: #dc3545;
+}
 
 .modal-header {
   display: flex;
@@ -254,8 +293,14 @@ button img {
   margin-bottom: 20px;
   border-bottom: 1px solid #eee;
 }
-.modal-header h2 { font-size: 20px; }
-.modal-body { padding: 10px 0; }
+
+.modal-header h2 {
+  font-size: 20px;
+}
+
+.modal-body {
+  padding: 10px 0;
+}
 
 .form-grid {
   display: grid;
@@ -263,8 +308,18 @@ button img {
   gap: 15px;
   margin-bottom: 20px;
 }
-.form-group { display: flex; flex-direction: column; }
-.form-group label { font-size: 13px; margin-bottom: 5px; color: #555; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
 .form-group input,
 .form-group select {
   padding: 10px;
@@ -273,9 +328,11 @@ button img {
   background: #f9fbfd;
 }
 
-.add-btn { display: flex; align-items: flex-end; }
+.add-btn {
+  display: flex;
+  align-items: flex-end;
+}
 
-/* BOTÓN AGREGAR — igual que Guardar */
 .btn-add {
   margin-top: 23px;
   width: 100%;
@@ -288,11 +345,15 @@ button img {
   font-size: 14px;
   transition: 0.2s;
 }
+
 .btn-add:hover {
   background: #0aadff;
   transform: scale(1.02);
 }
-.btn-add:active { transform: scale(0.95); }
+
+.btn-add:active {
+  transform: scale(0.95);
+}
 
 .details-box {
   border: 1px solid #eee;
@@ -300,13 +361,19 @@ button img {
   overflow: hidden;
   margin-bottom: 15px;
 }
-.details-box table { width: 100%; border-collapse: collapse; }
+
+.details-box table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 .details-box th {
   background: #f4f7fb;
   font-size: 13px;
   padding: 10px;
   text-align: left;
 }
+
 .details-box td {
   padding: 12px;
   border-top: 1px solid #eee;
@@ -320,6 +387,7 @@ button img {
   gap: 10px;
   font-weight: bold;
 }
+
 .total-box input {
   width: 120px;
   padding: 8px;
@@ -345,7 +413,10 @@ button img {
   cursor: pointer;
   transition: 0.2s;
 }
-.btn-cancel:hover { background: #bbb; }
+
+.btn-cancel:hover {
+  background: #bbb;
+}
 
 .btn-save {
   background: #0BB2F4;
@@ -356,9 +427,12 @@ button img {
   cursor: pointer;
   transition: 0.2s;
 }
-.btn-save:hover { background: #0aadff; transform: scale(1.02); }
 
-/* BOTONES DETALLE MODAL — igual que Pedidos */
+.btn-save:hover {
+  background: #0aadff;
+  transform: scale(1.02);
+}
+
 .edit-detail-btn {
   background: #07729C;
   color: white;
@@ -372,8 +446,15 @@ button img {
   gap: 5px;
   transition: 0.2s;
 }
-.edit-detail-btn:hover { background: #0aadff; transform: scale(1.05); }
-.edit-detail-btn:active { transform: scale(0.95); }
+
+.edit-detail-btn:hover {
+  background: #0aadff;
+  transform: scale(1.05);
+}
+
+.edit-detail-btn:active {
+  transform: scale(0.95);
+}
 
 .delete-detail-btn {
   background: #dc3545;
@@ -388,126 +469,312 @@ button img {
   gap: 5px;
   transition: 0.2s;
 }
-.delete-detail-btn:hover { background: #c82333; transform: scale(1.05); }
-.delete-detail-btn:active { transform: scale(0.95); }
 
-/* ================= CHECKBOX HACK BASE ================= */
-.sidebar-toggle { display: none !important; }
+.delete-detail-btn:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}
+
+.delete-detail-btn:active {
+  transform: scale(0.95);
+}
+
+.sidebar-toggle {
+  display: none;
+}
+
 .sidebar-overlay {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 9998;
   cursor: pointer;
 }
+
 .hamburger-btn {
   display: none;
   position: fixed;
-  top: 15px; left: 15px;
+  top: 15px;
+  left: 15px;
   z-index: 10000;
   background: #032f44;
   color: white;
-  width: 40px; height: 40px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
   cursor: pointer;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 .hamburger-btn span {
-  display: block; width: 20px; height: 2px;
-  background: white; position: relative; transition: 0.3s;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: white;
+  position: relative;
+  transition: 0.3s;
 }
+
 .hamburger-btn span::before,
 .hamburger-btn span::after {
-  content: ""; position: absolute;
-  width: 20px; height: 2px;
-  background: white; left: 0; transition: 0.3s;
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: white;
+  left: 0;
+  transition: 0.3s;
 }
-.hamburger-btn span::before { top: -6px; }
-.hamburger-btn span::after { top: 6px; }
 
-/* ================= RESPONSIVE ================= */
+.hamburger-btn span::before {
+  top: -6px;
+}
+
+.hamburger-btn span::after {
+  top: 6px;
+}
 
 @media (max-width: 1024px) {
-  .main { margin-left: 200px; width: calc(100% - 200px); padding: 16px 20px; }
-  .top-bar { flex-wrap: wrap; gap: 12px; }
-  .top-bar input { width: 100%; max-width: 400px; }
-  .actions { flex-wrap: wrap; gap: 10px; }
-  .actions select { flex: 1; min-width: 120px; }
-  .btn-new { flex: 1; min-width: 140px; justify-content: center; }
-  .form-grid { grid-template-columns: repeat(2, 1fr); }
+  .main {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    padding: 16px 20px;
+  }
+  .top-bar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .top-bar input {
+    width: 100%;
+    max-width: 400px;
+  }
+  .actions {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .actions select {
+    flex: 1;
+    min-width: 120px;
+  }
+  .btn-new {
+    flex: 1;
+    min-width: 140px;
+    justify-content: center;
+  }
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-  body { overflow-x: hidden !important; }
-  .container { flex-direction: column !important; }
-  .main { width: 100% !important; margin-left: 0 !important; padding: 10px !important; }
-  .hamburger-btn { display: flex !important; }
-
-  #sidebar-container, .sidebar {
-    position: fixed !important; left: 0 !important; top: 0 !important;
-    width: 80% !important; max-width: 300px !important; height: 100vh !important;
-    z-index: 9999 !important; transform: translateX(-100%) !important;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    background: #bbe6fc !important; overflow-y: auto;
+  body {
+    overflow-x: hidden;
   }
-  .sidebar.open, #sidebar-container.open { transform: translateX(0) !important; }
-
-  .sidebar-toggle:checked ~ .sidebar-overlay { display: block !important; }
+  .container {
+    flex-direction: column;
+  }
+  .main {
+    width: 100%;
+    margin-left: 0;
+    padding: 10px;
+  }
+  .hamburger-btn {
+    display: flex;
+  }
+  #sidebar-container, .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #bbe6fc;
+    overflow-y: auto;
+  }
+  .sidebar.open, #sidebar-container.open {
+    transform: translateX(0);
+  }
+  .sidebar-toggle:checked ~ .sidebar-overlay {
+    display: block;
+  }
   .sidebar-toggle:checked ~ .container #sidebar-container,
-  .sidebar-toggle:checked ~ .container .sidebar { transform: translateX(0) !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span { background: transparent !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span::before { transform: rotate(45deg) !important; top: 0 !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span::after { transform: rotate(-45deg) !important; top: 0 !important; }
-
-  .header { margin-top: 60px !important; padding-left: 10px !important; }
-  .header h1 { font-size: 20px !important; }
-  .header p { font-size: 13px !important; }
-  #topbar-container, .top-user { justify-content: center !important; width: 100% !important; margin-top: 10px !important; }
-  .user-card { transform: scale(0.9) !important; padding: 6px 10px !important; }
-  .user-card img { width: 40px !important; height: 40px !important; }
-
-  .top-bar { flex-direction: column !important; gap: 10px !important; }
-  .top-bar input { width: 100% !important; }
-  .actions { flex-direction: column !important; width: 100% !important; }
-  .actions select, .btn-new { width: 100% !important; }
-
-  .card { padding: 15px !important; overflow-x: auto !important; }
-  table { min-width: 650px !important; display: block !important; width: 100% !important; }
-  th, td { padding: 10px 8px !important; font-size: 12px !important; }
-  .action-cells { gap: 6px !important; }
-  .view, .delete { padding: 6px 8px !important; font-size: 12px !important; }
-  .status-pagado, .status-pendiente { font-size: 11px !important; padding: 3px 6px !important; }
-
-  .table-footer { flex-direction: column !important; gap: 10px !important; text-align: center !important; margin-top: 12px !important; }
-  .pagination { justify-content: center !important; flex-wrap: wrap !important; }
-
-  .modal-content { width: 95% !important; padding: 16px !important; max-height: 85vh !important; }
-  .modal-small { width: 90% !important; }
-  .modal-large { width: 98% !important; }
-  .modal-header { padding: 0 0 12px 0 !important; margin-bottom: 12px !important; }
-  .modal-header h2 { font-size: 18px !important; }
-  .modal-body { padding: 12px 0 !important; }
-  .form-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
-  .form-group input, .form-group select { padding: 10px !important; font-size: 14px !important; }
-  .btn-add { margin-top: 8px !important; }
-  .modal-footer { flex-direction: column !important; gap: 10px !important; padding: 12px 0 0 !important; }
-  .btn-cancel, .btn-save { width: 100% !important; }
-  .total-box { flex-direction: column !important; align-items: stretch !important; gap: 8px !important; justify-content: flex-start !important; }
-  .details-box { border-radius: 8px !important; }
-  .details-box table { display: block !important; overflow-x: auto !important; min-width: 100% !important; }
-  .details-box th, .details-box td { padding: 8px !important; font-size: 12px !important; }
-  .edit-detail-btn, .delete-detail-btn { width: 100% !important; justify-content: center !important; margin-top: 4px !important; }
+  .sidebar-toggle:checked ~ .container .sidebar {
+    transform: translateX(0);
+  }
+  .sidebar-toggle:checked ~ .hamburger-btn span {
+    background: transparent;
+  }
+  .sidebar-toggle:checked ~ .hamburger-btn span::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  .sidebar-toggle:checked ~ .hamburger-btn span::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+  .header {
+    margin-top: 60px;
+    padding-left: 10px;
+  }
+  .header h1 {
+    font-size: 20px;
+  }
+  .header p {
+    font-size: 13px;
+  }
+  #topbar-container, .top-user {
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .user-card {
+    transform: scale(0.9);
+    padding: 6px 10px;
+  }
+  .user-card img {
+    width: 40px;
+    height: 40px;
+  }
+  .top-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .top-bar input {
+    width: 100%;
+  }
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .actions select, .btn-new {
+    width: 100%;
+  }
+  .card {
+    padding: 15px;
+  }
+  table {
+    min-width: 650px;
+    display: block;
+    width: 100%;
+  }
+  th, td {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+  .action-cells {
+    gap: 6px;
+  }
+  .view, .delete {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+  .status-pagado, .status-pendiente {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+  .table-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    margin-top: 12px;
+  }
+  .pagination {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .modal-content {
+    width: 95%;
+    padding: 16px;
+    max-height: 85vh;
+  }
+  .modal-small {
+    width: 90%;
+  }
+  .modal-large {
+    width: 98%;
+  }
+  .modal-header {
+    padding: 0 0 12px 0;
+    margin-bottom: 12px;
+  }
+  .modal-header h2 {
+    font-size: 18px;
+  }
+  .modal-body {
+    padding: 12px 0;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .form-group input, .form-group select {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .btn-add {
+    margin-top: 8px;
+  }
+  .modal-footer {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 0 0;
+  }
+  .btn-cancel, .btn-save {
+    width: 100%;
+  }
+  .total-box {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+  .details-box {
+    border-radius: 8px;
+  }
+  .details-box table {
+    display: block;
+    overflow-x: auto;
+    min-width: 100%;
+  }
+  .details-box th, .details-box td {
+    padding: 8px;
+    font-size: 12px;
+  }
+  .edit-detail-btn, .delete-detail-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+  }
 }
 
 @media (max-width: 480px) {
-  .header h1 { font-size: 18px !important; }
-  .card { padding: 10px !important; border-radius: 12px !important; }
-  th, td { padding: 8px 6px !important; font-size: 11px !important; }
-  .modal-content { padding: 14px !important; }
-  .form-group label { font-size: 12px !important; }
-  .btn-add, .btn-save, .btn-cancel { font-size: 14px !important; }
+  .header h1 {
+    font-size: 18px;
+  }
+  .card {
+    padding: 10px;
+    border-radius: 12px;
+  }
+  th, td {
+    padding: 8px 6px;
+    font-size: 11px;
+  }
+  .modal-content {
+    padding: 14px;
+  }
+  .form-group label {
+    font-size: 12px;
+  }
+  .btn-add, .btn-save, .btn-cancel {
+    font-size: 14px;
+  }
 }

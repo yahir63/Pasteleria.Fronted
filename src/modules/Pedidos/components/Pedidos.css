@@ -1,7 +1,3 @@
-/* =========================================
-   MAIN CONTENT
-========================================= */
-
 .main {
   flex: 1;
   padding: 20px;
@@ -16,19 +12,11 @@
   margin-bottom: 20px;
 }
 
-/* =========================================
-   CARD PRINCIPAL
-========================================= */
-
 .card {
   background: white;
   padding: 20px;
   border-radius: 15px;
 }
-
-/* =========================================
-   TOP BAR
-========================================= */
 
 .top-bar {
   display: flex;
@@ -57,10 +45,6 @@
   width: 160px;
 }
 
-/* =========================================
-   BOTÓN NUEVO PEDIDO
-========================================= */
-
 .btn-new {
   background: #0BB2F4;
   color: white;
@@ -84,9 +68,7 @@
 .btn-new:active {
   transform: scale(0.95);
 }
-/* =========================================
-   BOTON AGREGAR
-========================================= */
+
 .btn-add {
   width: 100%;
   background: #0BB2F4;
@@ -99,19 +81,15 @@
   transition: 0.2s;
   margin-top: 23px;
 }
- 
+
 .btn-add:hover {
   background: #0aadff;
   transform: scale(1.02);
 }
- 
+
 .btn-add:active {
   transform: scale(0.95);
 }
-
-/* =========================================
-   BUSCADOR
-========================================= */
 
 .search-box {
   position: relative;
@@ -135,13 +113,17 @@
   opacity: 0.5;
 }
 
-/* =========================================
-   TABLA
-========================================= */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+}
 
 table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 550px;
 }
 
 thead {
@@ -157,6 +139,7 @@ th {
 th, td {
   padding: 12px;
   text-align: left;
+  white-space: nowrap;
 }
 
 tbody tr {
@@ -169,10 +152,6 @@ tbody tr:hover {
   box-shadow: 0 8px 15px rgba(0,0,0,0.08);
   background: #f9fcff;
 }
-
-/* =========================================
-   ESTADOS DE PEDIDOS
-========================================= */
 
 .Pendiente {
   background: #eecbd6;
@@ -203,10 +182,6 @@ tbody tr:hover {
   font-weight: 600;
   display: inline-block;
 }
-
-/* =========================================
-   BOTÓN VER DETALLE
-========================================= */
 
 .view {
   background: #07729C;
@@ -244,10 +219,6 @@ button img {
   height: 14px;
 }
 
-/* =========================================
-   FOOTER TABLA / PAGINACIÓN
-========================================= */
-
 .table-footer {
   display: flex;
   justify-content: space-between;
@@ -279,14 +250,12 @@ button img {
   color: white;
 }
 
-/* =========================================
-   MODAL DINÁMICO
-========================================= */
-
 .modal {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0,0,0,0.4);
   display: none;
   justify-content: center;
@@ -317,24 +286,31 @@ button img {
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.modal-small  { width: 400px; }
-.modal-medium { width: 700px; }
-.modal-large  { width: 1000px; }
+.modal-small {
+  width: 400px;
+}
+
+.modal-medium {
+  width: 700px;
+}
+
+.modal-large {
+  width: 1000px;
+}
 
 #close-modal {
   position: absolute;
-  top: 15px; right: 20px;
+  top: 15px;
+  right: 20px;
   cursor: pointer;
   font-size: 24px;
   color: #888;
   transition: 0.2s;
 }
 
-#close-modal:hover { color: #dc3545; }
-
-/* =========================================
-   MODAL HEADER / BODY / FOOTER
-========================================= */
+#close-modal:hover {
+  color: #dc3545;
+}
 
 .modal-header {
   display: flex;
@@ -362,10 +338,6 @@ button img {
   border-top: 1px solid #eee;
   margin-top: 15px;
 }
-
-/* =========================================
-   FORMULARIO MODAL
-========================================= */
 
 .form-grid {
   display: grid;
@@ -401,10 +373,6 @@ button img {
   border-color: #0BB2F4;
 }
 
-/* =========================================
-   DETAILS BOX (tabla productos en modal ver)
-========================================= */
-
 .details-box {
   border: 1px solid #eee;
   border-radius: 10px;
@@ -431,10 +399,6 @@ button img {
   border-top: 1px solid #eee;
   font-size: 13px;
 }
-
-/* =========================================
-   BOTONES MODAL
-========================================= */
 
 .btn-save {
   background: #0BB2F4;
@@ -474,17 +438,17 @@ button img {
   background: #bbb;
 }
 
-/* =========================================
-   SIDEBAR BASE
-========================================= */
-
-.sidebar-toggle { display: none !important; }
+.sidebar-toggle {
+  display: none;
+}
 
 .sidebar-overlay {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0,0,0,0.5);
   z-index: 9998;
   cursor: pointer;
@@ -493,11 +457,13 @@ button img {
 .hamburger-btn {
   display: none;
   position: fixed;
-  top: 15px; left: 15px;
+  top: 15px;
+  left: 15px;
   z-index: 10000;
   background: #032F44;
   color: white;
-  width: 40px; height: 40px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
   cursor: pointer;
   align-items: center;
@@ -506,100 +472,233 @@ button img {
 }
 
 .hamburger-btn span {
-  display: block; width: 20px; height: 2px;
-  background: white; position: relative; transition: 0.3s;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: white;
+  position: relative;
+  transition: 0.3s;
 }
 
 .hamburger-btn span::before,
 .hamburger-btn span::after {
-  content: ''; position: absolute;
-  width: 20px; height: 2px;
-  background: white; left: 0; transition: 0.3s;
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: white;
+  left: 0;
+  transition: 0.3s;
 }
 
-.hamburger-btn span::before { top: -6px; }
-.hamburger-btn span::after  { top:  6px; }
+.hamburger-btn span::before {
+  top: -6px;
+}
 
-/* =========================================
-   TABLET (≤ 1024px)
-========================================= */
+.hamburger-btn span::after {
+  top: 6px;
+}
 
 @media (max-width: 1024px) {
-  .main { padding: 16px 20px; }
-  .top-bar { flex-wrap: wrap; gap: 12px; }
-  .top-bar input { width: 100%; max-width: 400px; }
-  .actions { flex-wrap: wrap; gap: 10px; }
-  .actions select, .btn-new { flex: 1; min-width: 140px; justify-content: center; }
-  .card { overflow-x: auto; }
-  table { min-width: 600px; }
-  .modal-content { width: 90%; }
-  .form-grid { grid-template-columns: repeat(2, 1fr); }
+  .main {
+    padding: 16px 20px;
+  }
+  .top-bar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .top-bar input {
+    width: 100%;
+    max-width: 400px;
+  }
+  .actions {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .actions select,
+  .btn-new {
+    flex: 1;
+    min-width: 140px;
+    justify-content: center;
+  }
+  .modal-content {
+    width: 90%;
+  }
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-
-/* =========================================
-   MÓVIL (≤ 768px)
-========================================= */
 
 @media (max-width: 768px) {
-  body { overflow-x: hidden !important; }
-  .container { flex-direction: column !important; }
-  .main { width: 100% !important; padding: 10px !important; margin-left: 0 !important; }
-  .hamburger-btn { display: flex !important; }
-
-  #sidebar-container, .sidebar {
-    position: fixed !important; left: 0 !important; top: 0 !important;
-    width: 80% !important; max-width: 300px !important; height: 100vh !important;
-    z-index: 9999 !important; transform: translateX(-100%) !important;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    background: #BBE6FC !important; overflow-y: auto;
+  body {
+    overflow-x: hidden;
   }
-  .sidebar.open, #sidebar-container.open { transform: translateX(0) !important; }
-
-  .sidebar-toggle:checked ~ .sidebar-overlay { display: block !important; }
+  .container {
+    flex-direction: column;
+  }
+  .main {
+    width: 100%;
+    padding: 10px;
+    margin-left: 0;
+  }
+  .hamburger-btn {
+    display: flex;
+  }
+  #sidebar-container,
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #BBE6FC;
+    overflow-y: auto;
+  }
+  .sidebar.open,
+  #sidebar-container.open {
+    transform: translateX(0);
+  }
+  .sidebar-toggle:checked ~ .sidebar-overlay {
+    display: block;
+  }
   .sidebar-toggle:checked ~ .container #sidebar-container,
-  .sidebar-toggle:checked ~ .container .sidebar { transform: translateX(0) !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span { background: transparent !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span::before { transform: rotate(45deg) !important; top: 0 !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span::after  { transform: rotate(-45deg) !important; top: 0 !important; }
-
-  .header { margin-top: 60px !important; padding-left: 10px !important; }
-  .header h1 { font-size: 20px !important; text-align: center; }
-  .header p  { font-size: 13px !important; text-align: center; }
-  #topbar-container, .top-user { justify-content: center !important; width: 100% !important; margin-top: 10px !important; }
-  .user-card { transform: scale(0.9) !important; padding: 6px 10px !important; }
-
-  .top-bar { flex-direction: column !important; gap: 10px !important; }
-  .search-box { width: 100% !important; }
-  .actions { flex-direction: column !important; width: 100% !important; }
-  .actions select, .btn-new { width: 100% !important; justify-content: center !important; }
-
-  .card { padding: 15px !important; overflow-x: auto !important; border-radius: 16px !important; }
-  table { min-width: 550px !important; display: block !important; width: 100% !important; }
-  th, td { padding: 10px 8px !important; font-size: 12px !important; white-space: nowrap !important; }
-
-  .view { padding: 6px 10px !important; font-size: 11px !important; }
-
-  .table-footer { flex-direction: column !important; gap: 10px !important; text-align: center !important; margin-top: 12px !important; }
-  .pagination { justify-content: center !important; flex-wrap: wrap !important; }
-
-  .modal-content { width: 95% !important; padding: 16px !important; max-height: 85vh !important; }
-  .modal-medium  { width: 95% !important; }
-  .modal-header h2 { font-size: 18px !important; }
-  .form-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
-  .modal-footer { flex-direction: column !important; gap: 10px !important; padding: 12px 0 0 !important; }
-  .btn-save, .btn-cancel { width: 100% !important; padding: 12px !important; font-size: 1rem !important; justify-content: center !important; }
-  .details-box table { display: block !important; overflow-x: auto !important; }
-  .details-box th, .details-box td { padding: 8px !important; font-size: 12px !important; }
+  .sidebar-toggle:checked ~ .container .sidebar {
+    transform: translateX(0);
+  }
+  .sidebar-toggle:checked ~ .hamburger-btn span {
+    background: transparent;
+  }
+  .sidebar-toggle:checked ~ .hamburger-btn span::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  .sidebar-toggle:checked ~ .hamburger-btn span::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+  .header {
+    margin-top: 60px;
+    padding-left: 10px;
+  }
+  .header h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .header p {
+    font-size: 13px;
+    text-align: center;
+  }
+  #topbar-container,
+  .top-user {
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .user-card {
+    transform: scale(0.9);
+    padding: 6px 10px;
+  }
+  .top-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .search-box {
+    width: 100%;
+  }
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .actions select,
+  .btn-new {
+    width: 100%;
+    justify-content: center;
+  }
+  .card {
+    padding: 15px;
+    border-radius: 16px;
+  }
+  table {
+    min-width: 550px;
+    display: block;
+    width: 100%;
+  }
+  th, td {
+    padding: 10px 8px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .view {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  .table-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    margin-top: 12px;
+  }
+  .pagination {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .modal-content {
+    width: 95%;
+    padding: 16px;
+    max-height: 85vh;
+  }
+  .modal-medium {
+    width: 95%;
+  }
+  .modal-header h2 {
+    font-size: 18px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .modal-footer {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 0 0;
+  }
+  .btn-save,
+  .btn-cancel {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    justify-content: center;
+  }
+  .details-box table {
+    display: block;
+    overflow-x: auto;
+  }
+  .details-box th,
+  .details-box td {
+    padding: 8px;
+    font-size: 12px;
+  }
 }
 
-/* =========================================
-   MÓVIL PEQUEÑO (≤ 480px)
-========================================= */
-
 @media (max-width: 480px) {
-  .header h1 { font-size: 18px !important; }
-  .card { padding: 10px !important; }
-  th, td { padding: 8px 6px !important; font-size: 11px !important; }
-  .modal-content { padding: 14px !important; }
-  .form-group label { font-size: 12px !important; }
+  .header h1 {
+    font-size: 18px;
+  }
+  .card {
+    padding: 10px;
+  }
+  th, td {
+    padding: 8px 6px;
+    font-size: 11px;
+  }
+  .modal-content {
+    padding: 14px;
+  }
+  .form-group label {
+    font-size: 12px;
+  }
 }
