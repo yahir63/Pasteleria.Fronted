@@ -1,16 +1,7 @@
-/* =========================================
-   CONTENEDOR PRINCIPAL
-   ========================================= */
-
 .main {
   flex: 1;
   padding: 20px;
 }
-
-
-/* =========================================
-   HEADER
-   ========================================= */
 
 .header {
   margin-top: 0;
@@ -27,21 +18,11 @@
   margin-bottom: 0;
 }
 
-
-/* =========================================
-   CARD PRINCIPAL
-   ========================================= */
-
 .card {
   background: white;
   padding: 20px;
   border-radius: 15px;
 }
-
-
-/* =========================================
-   TOP BAR
-   ========================================= */
 
 .top-bar {
   display: flex;
@@ -56,11 +37,6 @@
   border: 1px solid #ccc;
 }
 
-
-/* =========================================
-   ACTIONS
-   ========================================= */
-
 .actions {
   display: flex;
   align-items: center;
@@ -72,11 +48,6 @@
   border-radius: 10px;
   border: 1px solid #ccc;
 }
-
-
-/* =========================================
-   BOTÓN NUEVO
-   ========================================= */
 
 .btn-new {
   background: #0BB2F4;
@@ -99,14 +70,17 @@
   transform: scale(1.02);
 }
 
-
-/* =========================================
-   TABLA
-   ========================================= */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+}
 
 table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 700px;
 }
 
 thead {
@@ -116,6 +90,7 @@ thead {
 th, td {
   padding: 12px;
   text-align: left;
+  white-space: nowrap;
 }
 
 th {
@@ -139,11 +114,6 @@ th:last-child,
 td:last-child {
   text-align: left;
 }
-
-
-/* =========================================
-   BOTÓN EDITAR
-   ========================================= */
 
 .edit {
   display: inline-flex;
@@ -176,11 +146,6 @@ td:last-child {
   transform: scale(0.95);
 }
 
-
-/* =========================================
-   BOTÓN ELIMINAR
-   ========================================= */
-
 .delete {
   display: inline-flex;
   align-items: center;
@@ -212,11 +177,6 @@ td:last-child {
   transform: scale(0.95);
 }
 
-
-/* =========================================
-   FOOTER TABLA
-   ========================================= */
-
 .table-footer {
   display: flex;
   justify-content: space-between;
@@ -228,11 +188,6 @@ td:last-child {
   font-size: 13px;
   color: #777;
 }
-
-
-/* =========================================
-   PAGINACIÓN
-   ========================================= */
 
 .pagination button {
   margin: 2px;
@@ -252,11 +207,6 @@ td:last-child {
   background: #8FDBFA;
   color: white;
 }
-
-
-/* =========================================
-   MODAL
-   ========================================= */
 
 .modal-toggle {
   display: none;
@@ -279,11 +229,6 @@ td:last-child {
   display: flex;
 }
 
-
-/* =========================================
-   CONTENIDO DEL MODAL
-   ========================================= */
-
 .modal-content {
   background: white;
   padding: 25px;
@@ -295,11 +240,6 @@ td:last-child {
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   text-align: center;
 }
-
-
-/* =========================================
-   HEADER MODAL
-   ========================================= */
 
 .modal-header {
   display: flex;
@@ -323,11 +263,6 @@ td:last-child {
 .modal-close:hover {
   color: #dc3545;
 }
-
-
-/* =========================================
-   BODY MODAL
-   ========================================= */
 
 .modal-body input,
 .modal-body select {
@@ -358,11 +293,6 @@ td:last-child {
   color: #444;
 }
 
-
-/* =========================================
-   FOOTER MODAL
-   ========================================= */
-
 .modal-footer {
   display: flex;
   justify-content: space-between;
@@ -370,11 +300,6 @@ td:last-child {
   margin-top: 20px;
   gap: 10px;
 }
-
-
-/* =========================================
-   BOTÓN GUARDAR
-   ========================================= */
 
 .btn-save {
   background: #0BB2F4;
@@ -395,11 +320,6 @@ td:last-child {
   transform: scale(1.03);
 }
 
-
-/* =========================================
-   BOTÓN CANCELAR
-   ========================================= */
-
 .btn-cancel {
   background: #ccc;
   color: black;
@@ -419,11 +339,6 @@ td:last-child {
   background: #bbb;
   transform: scale(1.03);
 }
-
-
-/* =========================================
-   BUSCADOR
-   ========================================= */
 
 .search-box {
   position: relative;
@@ -447,12 +362,7 @@ td:last-child {
   opacity: 0.5;
 }
 
-
-/* =========================================
-   SIDEBAR & RESPONSIVE BASE
-   ========================================= */
-
-.sidebar-toggle { display: none !important; }
+.sidebar-toggle { display: none; }
 
 .sidebar-overlay {
   display: none;
@@ -494,87 +404,78 @@ td:last-child {
 .hamburger-btn span::before { top: -6px; }
 .hamburger-btn span::after  { top:  6px; }
 
-
-/* =========================================
-   TABLET (≤ 1024px)
-   ========================================= */
-
 @media (max-width: 1024px) {
   .main { padding: 16px 20px; }
   .top-bar { flex-wrap: wrap; gap: 12px; }
   .top-bar input { width: 100%; max-width: 400px; }
   .actions { flex-wrap: wrap; gap: 10px; }
   .actions select, .btn-new { flex: 1; min-width: 140px; justify-content: center; }
-  .card { overflow-x: auto; }
-  table { min-width: 600px; }
   .modal-content { width: 90%; }
 }
 
-
-/* =========================================
-   MÓVIL (≤ 768px)
-   ========================================= */
-
 @media (max-width: 768px) {
-  body { overflow-x: hidden !important; }
-  .container { flex-direction: column !important; }
-  .main { width: 100% !important; padding: 10px !important; margin-left: 0 !important; }
-  .hamburger-btn { display: flex !important; }
+  body { overflow-x: hidden; }
+  .container { flex-direction: column; }
+  .container .main { width: 100%; padding: 10px; margin-left: 0; }
+  .hamburger-btn { display: flex; }
 
-  #sidebar-container, .sidebar {
-    position: fixed !important; left: 0 !important; top: 0 !important;
-    width: 80% !important; max-width: 300px !important; height: 100vh !important;
-    z-index: 9999 !important; transform: translateX(-100%) !important;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    background: #BBE6FC !important; overflow-y: auto;
+  .container #sidebar-container, 
+  .container .sidebar {
+    position: fixed; left: 0; top: 0;
+    width: 80%; max-width: 300px; height: 100vh;
+    z-index: 9999; transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #BBE6FC; overflow-y: auto;
   }
-  .sidebar.open, #sidebar-container.open { transform: translateX(0) !important; }
+  .container .sidebar.open, 
+  .container #sidebar-container.open { transform: translateX(0); }
 
-  .sidebar-toggle:checked ~ .sidebar-overlay { display: block !important; }
+  .sidebar-toggle:checked ~ .sidebar-overlay { display: block; }
   .sidebar-toggle:checked ~ .container #sidebar-container,
-  .sidebar-toggle:checked ~ .container .sidebar { transform: translateX(0) !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span { background: transparent !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span::before { transform: rotate(45deg) !important; top: 0 !important; }
-  .sidebar-toggle:checked ~ .hamburger-btn span::after  { transform: rotate(-45deg) !important; top: 0 !important; }
+  .sidebar-toggle:checked ~ .container .sidebar { transform: translateX(0); }
+  .sidebar-toggle:checked ~ .hamburger-btn span { background: transparent; }
+  .sidebar-toggle:checked ~ .hamburger-btn span::before { transform: rotate(45deg); top: 0; }
+  .sidebar-toggle:checked ~ .hamburger-btn span::after  { transform: rotate(-45deg); top: 0; }
 
-  .header { margin-top: 60px !important; padding-left: 10px !important; }
-  .header h1 { font-size: 20px !important; }
-  .header p { font-size: 13px !important; }
-  #topbar-container, .top-user { justify-content: center !important; width: 100% !important; margin-top: 10px !important; }
-  .user-card { transform: scale(0.9) !important; padding: 6px 10px !important; }
+  .main .header { margin-top: 60px; padding-left: 10px; }
+  .main .header h1 { font-size: 20px; }
+  .main .header p { font-size: 13px; }
+  .main #topbar-container, 
+  .main .top-user { justify-content: center; width: 100%; margin-top: 10px; }
+  .main .user-card { transform: scale(0.9); padding: 6px 10px; }
 
-  .top-bar { flex-direction: column !important; gap: 10px !important; }
-  .search-box { width: 100% !important; }
-  .actions { flex-direction: column !important; width: 100% !important; }
-  .actions select, .btn-new { width: 100% !important; justify-content: center !important; }
+  .main .card .top-bar { flex-direction: column; gap: 10px; }
+  .main .card .search-box { width: 100%; }
+  .main .card .actions { flex-direction: column; width: 100%; }
+  .main .card .actions select, 
+  .main .card .btn-new { width: 100%; justify-content: center; }
 
-  .card { padding: 15px !important; overflow-x: auto !important; border-radius: 16px !important; }
-  table { min-width: 580px !important; display: block !important; width: 100% !important; }
-  th, td { padding: 10px 8px !important; font-size: 12px !important; white-space: nowrap !important; }
+  .main .card { padding: 15px; border-radius: 16px; }
+  .main .card .table-wrapper table { min-width: 580px; width: 100%; }
+  .main .card .table-wrapper th, 
+  .main .card .table-wrapper td { padding: 10px 8px; font-size: 12px; white-space: nowrap; }
 
-  .edit, .delete { width: 100% !important; justify-content: center !important; padding: 8px !important; font-size: 11px !important; }
-  .edit img, .delete img { width: 13px !important; height: 13px !important; }
-  td:last-child .actions { flex-direction: column; gap: 4px !important; }
+  .main .card .table-wrapper .edit, 
+  .main .card .table-wrapper .delete { width: auto; flex: 1; justify-content: center; padding: 8px; font-size: 11px; }
+  .main .card .table-wrapper .edit img, 
+  .main .card .table-wrapper .delete img { width: 13px; height: 13px; }
+  .main .card .table-wrapper td:last-child .actions { flex-direction: row; gap: 4px; }
 
-  .table-footer { flex-direction: column !important; gap: 10px !important; text-align: center !important; margin-top: 12px !important; }
-  .pagination { justify-content: center !important; flex-wrap: wrap !important; }
+  .main .card .table-footer { flex-direction: column; gap: 10px; text-align: center; margin-top: 12px; }
+  .main .card .pagination { justify-content: center; flex-wrap: wrap; }
 
-  .modal-content { width: 92% !important; padding: 20px !important; max-height: 85vh !important; border-radius: 16px !important; }
-  .modal-header h2 { font-size: 18px !important; }
-  .modal-body input, .modal-body select { padding: 12px !important; font-size: 1rem !important; }
-  .modal-footer { flex-direction: column !important; gap: 10px !important; margin-top: 15px !important; }
-  .modal-footer .btn-save,
-  .modal-footer .btn-cancel { width: 100% !important; padding: 12px !important; font-size: 1rem !important; }
+  .modal-overlay .modal-content { width: 92%; padding: 20px; max-height: 85vh; border-radius: 16px; }
+  .modal-overlay .modal-header h2 { font-size: 18px; }
+  .modal-overlay .modal-body input, 
+  .modal-overlay .modal-body select { padding: 12px; font-size: 1rem; }
+  .modal-overlay .modal-footer { flex-direction: column; gap: 10px; margin-top: 15px; }
+  .modal-overlay .modal-footer .btn-save,
+  .modal-overlay .modal-footer .btn-cancel { width: 100%; padding: 12px; font-size: 1rem; }
 }
 
-
-/* =========================================
-   MÓVIL PEQUEÑO (≤ 480px)
-   ========================================= */
-
 @media (max-width: 480px) {
-  .header h1 { font-size: 18px !important; }
-  .card { padding: 10px !important; }
-  th, td { padding: 8px 6px !important; font-size: 11px !important; }
-  .modal-content { padding: 16px !important; }
+  .main .header h1 { font-size: 18px; }
+  .main .card { padding: 10px; }
+  .main .card .table-wrapper th, 
+  .main .card .table-wrapper td { padding: 8px 6px; font-size: 11px; }
 }

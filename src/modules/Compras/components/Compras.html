@@ -1,40 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Compras</title>
     <link rel="stylesheet" href="estilos.css" />
     <link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
   </head>
   <body>
-    <!-- 1. CHECKBOX OCULTO (Controlador del menú) -->
     <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
-
-    <!-- 2. BOTÓN HAMBURGUESA -->
     <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
-
-    <!-- 3. FONDO OSCURO (Overlay) -->
     <label for="sidebar-toggle" class="sidebar-overlay"></label>
 
     <div class="container">
-      <!-- SIDEBAR -->
       <div id="sidebar-container"></div>
 
-      <!-- MAIN -->
       <main class="main">
-        <!-- TOPBAR -->
         <div id="topbar-container"></div>
 
-        <!-- HEADER -->
         <div class="header">
           <h1>Gestión de Compras</h1>
           <p>Consulta y administra las compras realizadas.</p>
         </div>
 
-        <!-- CONTENIDO -->
         <div class="card">
-          <!-- BARRA SUPERIOR -->
           <div class="top-bar">
             <input type="text" placeholder="Buscar compra..." />
 
@@ -49,95 +38,95 @@
             </div>
           </div>
 
-          <!-- TABLA -->
-          <table>
-            <thead>
-              <tr>
-                <th>Proveedor</th>
-                <th>Fecha</th>
-                <th>Total</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Proveedor</th>
+                  <th>Fecha</th>
+                  <th>Total</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              <tr>
-                <td>Distribuidora El Sol</td>
-                <td>27 Abr 2026</td>
-                <td>$120.00</td>
-                <td><span class="status-pagado">Pagado</span></td>
-                <td>
-                  <div class="action-cells">
-                    <button class="view">
-                      <img src="/src/modules/Shared/Assets/img/view.png" />
-                      Ver detalle
-                    </button>
-                    <button class="delete">
-                      <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                      Eliminar
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Panadería Central</td>
-                <td>26 Abr 2026</td>
-                <td>$85.50</td>
-                <td><span class="status-pendiente">Pendiente</span></td>
-                <td>
-                  <div class="action-cells">
-                    <button class="view">
-                      <img src="/src/modules/Shared/Assets/img/view.png" />
-                      Ver detalle
-                    </button>
-                    <button class="delete">
-                      <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                      Eliminar
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Insumos La Favorita</td>
-                <td>25 Abr 2026</td>
-                <td>$200.00</td>
-                <td><span class="status-pagado">Pagado</span></td>
-                <td>
-                  <div class="action-cells">
-                    <button class="view">
-                      <img src="/src/modules/Shared/Assets/img/view.png" />
-                      Ver detalle
-                    </button>
-                    <button class="delete">
-                      <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                      Eliminar
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Harinas del Norte</td>
-                <td>24 Abr 2026</td>
-                <td>$310.75</td>
-                <td><span class="status-pendiente">Pendiente</span></td>
-                <td>
-                  <div class="action-cells">
-                    <button class="view">
-                      <img src="/src/modules/Shared/Assets/img/view.png" />
-                      Ver detalle
-                    </button>
-                    <button class="delete">
-                      <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                      Eliminar
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <tbody>
+                <tr>
+                  <td>Distribuidora El Sol</td>
+                  <td>27 Abr 2026</td>
+                  <td>$120.00</td>
+                  <td><span class="status-pagado">Pagado</span></td>
+                  <td>
+                    <div class="action-cells">
+                      <button class="view">
+                        <img src="/src/modules/Shared/Assets/img/view.png" />
+                        Ver detalle
+                      </button>
+                      <button class="delete">
+                        <img src="/src/modules/Shared/Assets/img/eliminar.png" />
+                        Eliminar
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Panadería Central</td>
+                  <td>26 Abr 2026</td>
+                  <td>$85.50</td>
+                  <td><span class="status-pendiente">Pendiente</span></td>
+                  <td>
+                    <div class="action-cells">
+                      <button class="view">
+                        <img src="/src/modules/Shared/Assets/img/view.png" />
+                        Ver detalle
+                      </button>
+                      <button class="delete">
+                        <img src="/src/modules/Shared/Assets/img/eliminar.png" />
+                        Eliminar
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Insumos La Favorita</td>
+                  <td>25 Abr 2026</td>
+                  <td>$200.00</td>
+                  <td><span class="status-pagado">Pagado</span></td>
+                  <td>
+                    <div class="action-cells">
+                      <button class="view">
+                        <img src="/src/modules/Shared/Assets/img/view.png" />
+                        Ver detalle
+                      </button>
+                      <button class="delete">
+                        <img src="/src/modules/Shared/Assets/img/eliminar.png" />
+                        Eliminar
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Harinas del Norte</td>
+                  <td>24 Abr 2026</td>
+                  <td>$310.75</td>
+                  <td><span class="status-pendiente">Pendiente</span></td>
+                  <td>
+                    <div class="action-cells">
+                      <button class="view">
+                        <img src="/src/modules/Shared/Assets/img/view.png" />
+                        Ver detalle
+                      </button>
+                      <button class="delete">
+                        <img src="/src/modules/Shared/Assets/img/eliminar.png" />
+                        Eliminar
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          <!-- FOOTER -->
           <div class="table-footer">
             <span>Mostrando 1 a 4 de 20 compras</span>
 
@@ -153,7 +142,6 @@
       </main>
     </div>
 
-    <!-- MODAL DINÁMICO (Se llena con JS) -->
     <div id="modal" class="modal">
       <div id="modal-content" class="modal-content">
         <span id="close-modal">&times;</span>

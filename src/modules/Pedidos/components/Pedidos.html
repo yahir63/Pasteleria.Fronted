@@ -1,8 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Pasteleria Soto</title>
     <link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
     <link rel="stylesheet" href="/src/modules/Pedidos/components/pedidos.css" />
@@ -12,7 +12,6 @@
     <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
     <label for="sidebar-toggle" class="sidebar-overlay"></label>
 
-    <!-- MODAL NUEVO PEDIDO -->
     <div id="modal" class="modal">
       <div id="modal-content" class="modal-content">
         <span id="close-modal">&times;</span>
@@ -48,84 +47,86 @@
             </div>
           </div>
 
-          <table>
-            <thead>
-              <tr>
-                <th>Cliente</th>
-                <th>Fecha</th>
-                <th>Total</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Rosa Aguirre</td>
-                <td>29/04/26 04:30 p.m.</td>
-                <td>C$ 4600</td>
-                <td><span class="Pendiente">Pendiente</span></td>
-                <td>
-                  <div class="action-cells">
-                    <button class="view">
-                      <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Belen Garcia</td>
-                <td>28/04/26 02:30 p.m.</td>
-                <td>C$ 1200</td>
-                <td><span class="Proceso">En Proceso</span></td>
-                <td>
-                  <div class="action-cells">
-                    <button class="view">
-                      <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Juan Lopez</td>
-                <td>25/04/26 10:30 a.m.</td>
-                <td>C$ 900</td>
-                <td><span class="Entregado">Entregado</span></td>
-                <td>
-                  <div class="action-cells">
-                    <button class="view">
-                      <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Maria Garcia</td>
-                <td>27/04/26 11:30 a.m.</td>
-                <td>C$ 1000</td>
-                <td><span class="Entregado">Entregado</span></td>
-                <td>
-                  <div class="action-cells">
-                    <button class="view">
-                      <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Carlos Garay</td>
-                <td>23/04/26 08:30 a.m.</td>
-                <td>C$ 800</td>
-                <td><span class="Entregado">Entregado</span></td>
-                <td>
-                  <div class="action-cells">
-                    <button class="view">
-                      <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Fecha</th>
+                  <th>Total</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Rosa Aguirre</td>
+                  <td>29/04/26 04:30 p.m.</td>
+                  <td>C$ 4600</td>
+                  <td><span class="Pendiente">Pendiente</span></td>
+                  <td>
+                    <div class="action-cells">
+                      <button class="view">
+                        <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Belen Garcia</td>
+                  <td>28/04/26 02:30 p.m.</td>
+                  <td>C$ 1200</td>
+                  <td><span class="Proceso">En Proceso</span></td>
+                  <td>
+                    <div class="action-cells">
+                      <button class="view">
+                        <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Juan Lopez</td>
+                  <td>25/04/26 10:30 a.m.</td>
+                  <td>C$ 900</td>
+                  <td><span class="Entregado">Entregado</span></td>
+                  <td>
+                    <div class="action-cells">
+                      <button class="view">
+                        <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Maria Garcia</td>
+                  <td>27/04/26 11:30 a.m.</td>
+                  <td>C$ 1000</td>
+                  <td><span class="Entregado">Entregado</span></td>
+                  <td>
+                    <div class="action-cells">
+                      <button class="view">
+                        <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Carlos Garay</td>
+                  <td>23/04/26 08:30 a.m.</td>
+                  <td>C$ 800</td>
+                  <td><span class="Entregado">Entregado</span></td>
+                  <td>
+                    <div class="action-cells">
+                      <button class="view">
+                        <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <div class="table-footer">
             <span>Mostrando Pedidos 1/9</span>

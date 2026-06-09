@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -10,30 +10,22 @@
   <body>
     <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
 
-    <!-- 2. Botón hamburguesa (label conectado) -->
     <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
 
-    <!-- 3. Overlay para cerrar -->
     <label for="sidebar-toggle" class="sidebar-overlay"></label>
 
     <div class="container">
-      <!-- SIDEBAR GLOBAL -->
       <div id="sidebar-container"></div>
 
-      <!-- MAIN -->
       <main class="main">
-        <!-- TOPBAR GLOBAL -->
         <div id="topbar-container"></div>
 
-        <!-- HEADER -->
         <div class="header">
           <h1>Gestión de Clientes</h1>
           <p>Consulta y administra la información de tus clientes.</p>
         </div>
 
-        <!-- CONTENIDO -->
         <div class="card">
-          <!-- TOP BAR -->
           <div class="top-bar">
             <input type="text" placeholder="Buscar cliente..." />
 
@@ -49,83 +41,83 @@
             </div>
           </div>
 
-          <!-- TABLA -->
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Teléfono</th>
-                <th>Cédula</th>
-                <th>Dirección</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Teléfono</th>
+                  <th>Cédula</th>
+                  <th>Dirección</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              <tr>
-                <td>Juan</td>
-                <td>Pérez</td>
-                <td>8888-8888</td>
-                <td>001-123456-0000A</td>
-                <td>Jinotepe</td>
+              <tbody>
+                <tr>
+                  <td>Juan</td>
+                  <td>Pérez</td>
+                  <td>8888-8888</td>
+                  <td>001-123456-0000A</td>
+                  <td>Jinotepe</td>
 
-                <td class="table-actions">
-                  <a href="#modalEdit" class="edit">
-                    <img src="/src/modules/Shared/Assets/img/editar.png" />
-                    Editar
-                  </a>
+                  <td class="table-actions">
+                    <a href="#modalEdit" class="edit">
+                      <img src="/src/modules/Shared/Assets/img/editar.png" />
+                      Editar
+                    </a>
 
-                  <a href="#modalDelete" class="delete">
-                    <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                    Eliminar
-                  </a>
-                </td>
-              </tr>
+                    <a href="#modalDelete" class="delete">
+                      <img src="/src/modules/Shared/Assets/img/eliminar.png" />
+                      Eliminar
+                    </a>
+                  </td>
+                </tr>
 
-              <tr>
-                <td>María</td>
-                <td>López</td>
-                <td>8899-9999</td>
-                <td>002-234567-0001B</td>
-                <td>Diriamba</td>
+                <tr>
+                  <td>María</td>
+                  <td>López</td>
+                  <td>8899-9999</td>
+                  <td>002-234567-0001B</td>
+                  <td>Diriamba</td>
 
-                <td class="table-actions">
-                  <a href="#modalEdit" class="edit">
-                    <img src="/src/modules/Shared/Assets/img/editar.png" />
-                    Editar
-                  </a>
+                  <td class="table-actions">
+                    <a href="#modalEdit" class="edit">
+                      <img src="/src/modules/Shared/Assets/img/editar.png" />
+                      Editar
+                    </a>
 
-                  <a href="#modalDelete" class="delete">
-                    <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                    Eliminar
-                  </a>
-                </td>
-              </tr>
+                    <a href="#modalDelete" class="delete">
+                      <img src="/src/modules/Shared/Assets/img/eliminar.png" />
+                      Eliminar
+                    </a>
+                  </td>
+                </tr>
 
-              <tr>
-                <td>Carlos</td>
-                <td>Martínez</td>
-                <td>8877-7777</td>
-                <td>003-345678-0002C</td>
-                <td>Masaya</td>
+                <tr>
+                  <td>Carlos</td>
+                  <td>Martínez</td>
+                  <td>8877-7777</td>
+                  <td>003-345678-0002C</td>
+                  <td>Masaya</td>
 
-                <td class="table-actions">
-                  <a href="#modalEdit" class="edit">
-                    <img src="/src/modules/Shared/Assets/img/editar.png" />
-                    Editar
-                  </a>
+                  <td class="table-actions">
+                    <a href="#modalEdit" class="edit">
+                      <img src="/src/modules/Shared/Assets/img/editar.png" />
+                      Editar
+                    </a>
 
-                  <a href="#modalDelete" class="delete">
-                    <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                    Eliminar
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                    <a href="#modalDelete" class="delete">
+                      <img src="/src/modules/Shared/Assets/img/eliminar.png" />
+                      Eliminar
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          <!-- FOOTER -->
           <div class="table-footer">
             <span>Mostrando 1 a 3 de 25 clientes</span>
 
@@ -141,7 +133,6 @@
       </main>
     </div>
 
-    <!-- MODAL AGREGAR -->
     <div id="modalAdd" class="modal">
       <div class="modal-content">
         <h2>Nuevo Cliente</h2>
@@ -160,7 +151,6 @@
       </div>
     </div>
 
-    <!-- MODAL EDITAR -->
     <div id="modalEdit" class="modal">
       <div class="modal-content">
         <h2>Editar Cliente</h2>
@@ -179,7 +169,6 @@
       </div>
     </div>
 
-    <!-- MODAL ELIMINAR -->
     <div id="modalDelete" class="modal">
       <div class="modal-content delete-box">
         <h2>¿Eliminar cliente?</h2>
@@ -194,7 +183,6 @@
       </div>
     </div>
 
-    <!-- JS -->
     <script src="/src/modules/Shared/components/components.js"></script>
   </body>
 </html>

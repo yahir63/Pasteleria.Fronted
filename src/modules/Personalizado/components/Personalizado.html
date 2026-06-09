@@ -2,16 +2,10 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personalizados</title>
     <link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
-    <link
-      rel="stylesheet"
-      href="/src/modules/Personalizado/components/Personalizado.css"
-    />
+    <link rel="stylesheet" href="/src/modules/Personalizado/components/Personalizado.css" />
   </head>
   <body>
     <!-- SIDEBAR TOGGLE -->
@@ -29,12 +23,12 @@
         <form class="modal-form">
           <div class="form-row">
             <div class="form-group">
-              <label>Nombre del Producto</label
-              ><input type="text" placeholder="Ej: Pastel de cumpleaños" />
+              <label>Nombre del Producto</label>
+              <input type="text" placeholder="Ej: Pastel de cumpleaños" />
             </div>
             <div class="form-group">
-              <label>Categoría</label
-              ><select>
+              <label>Categoría</label>
+              <select>
                 <option>Seleccionar categoría</option>
                 <option>Pastel</option>
                 <option>Postres</option>
@@ -45,17 +39,18 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Cantidad</label><input type="number" placeholder="Ej: 2" />
+              <label>Cantidad</label>
+              <input type="number" placeholder="Ej: 2" />
             </div>
             <div class="form-group">
-              <label>Volumen</label
-              ><input type="text" placeholder="Ej: 2 libras" />
+              <label>Volumen</label>
+              <input type="text" placeholder="Ej: 2 libras" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Opciones</label
-              ><select>
+              <label>Opciones</label>
+              <select>
                 <option>Agregar opciones</option>
                 <option>Relleno de piña</option>
                 <option>Chispitas de colores</option>
@@ -64,20 +59,18 @@
               </select>
             </div>
             <div class="form-group">
-              <label>Descripción</label
-              ><input type="text" placeholder="Ej: Sin fondant" />
+              <label>Descripción</label>
+              <input type="text" placeholder="Ej: Sin fondant" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group full-width">
-              <label>Precio</label
-              ><input type="text" placeholder="Ej: C$1500" />
+              <label>Precio</label>
+              <input type="text" placeholder="Ej: C$1500" />
             </div>
           </div>
           <div class="modal-buttons">
-            <button type="button" class="btn-cancel" id="cancelModal">
-              Cancelar
-            </button>
+            <button type="button" class="btn-cancel" id="cancelModal">Cancelar</button>
             <button type="submit" class="btn-save">Guardar Producto</button>
           </div>
         </form>
@@ -93,12 +86,12 @@
         <form class="modal-form">
           <div class="form-row">
             <div class="form-group">
-              <label>Nombre</label
-              ><input type="text" id="editPersonalizadoNombre" />
+              <label>Nombre</label>
+              <input type="text" id="editPersonalizadoNombre" />
             </div>
             <div class="form-group">
-              <label>Categoría</label
-              ><select id="editPersonalizadoCategoria">
+              <label>Categoría</label>
+              <select id="editPersonalizadoCategoria">
                 <option>Postres</option>
                 <option>Bebidas</option>
                 <option>Pastel</option>
@@ -108,38 +101,33 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Cantidad</label
-              ><input type="number" id="editPersonalizadoCantidad" />
+              <label>Cantidad</label>
+              <input type="number" id="editPersonalizadoCantidad" />
             </div>
             <div class="form-group">
-              <label>Volumen</label
-              ><input type="text" id="editPersonalizadoVolumen" />
+              <label>Volumen</label>
+              <input type="text" id="editPersonalizadoVolumen" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Opciones</label
-              ><input type="text" id="editPersonalizadoOpciones" />
+              <label>Opciones</label>
+              <input type="text" id="editPersonalizadoOpciones" />
             </div>
             <div class="form-group">
-              <label>Descripción</label
-              ><input type="text" id="editPersonalizadoDescripcion" />
+              <label>Descripción</label>
+              <input type="text" id="editPersonalizadoDescripcion" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group full-width">
-              <label>Precio</label
-              ><input type="text" id="editPersonalizadoPrecio" />
+              <label>Precio</label>
+              <input type="text" id="editPersonalizadoPrecio" />
             </div>
           </div>
           <div class="modal-buttons">
-            <button
-              type="button"
-              class="btn-cancel"
-              id="cancelEditPersonalizadoModal"
-            >
-              Cancelar</button
-            ><button type="submit" class="btn-save">Guardar Cambios</button>
+            <button type="button" class="btn-cancel" id="cancelEditPersonalizadoModal">Cancelar</button>
+            <button type="submit" class="btn-save">Guardar Cambios</button>
           </div>
         </form>
       </div>
@@ -153,11 +141,8 @@
         </div>
         <p id="deleteText">¿Seguro que deseas eliminar este producto?</p>
         <div class="modal-buttons">
-          <button type="button" class="btn-cancel" id="cancelDeleteModal">
-            Cancelar</button
-          ><button type="button" class="btn-delete-confirm" id="confirmDelete">
-            Eliminar
-          </button>
+          <button type="button" class="btn-cancel" id="cancelDeleteModal">Cancelar</button>
+          <button type="button" class="btn-delete-confirm" id="confirmDelete">Eliminar</button>
         </div>
       </div>
     </div>
@@ -169,10 +154,7 @@
         <div id="topbar-container"></div>
         <header class="header">
           <h1>Gestión de Productos Personalizados</h1>
-          <p>
-            Aquí puedes administrar los productos personalizados de tu
-            pastelería.
-          </p>
+          <p>Aquí puedes administrar los productos personalizados de tu pastelería.</p>
         </header>
 
         <div class="card">
@@ -182,112 +164,106 @@
               <select>
                 <option>Todos los productos</option>
               </select>
-              <button class="btn-new" id="openModal">
-                + Nuevo Producto Personalizado
-              </button>
+              <button class="btn-new" id="openModal">+ Nuevo Producto Personalizado</button>
             </div>
           </div>
 
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Categoría</th>
-                <th>Cantidad</th>
-                <th>Volumen</th>
-                <th>Opciones</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Pastel de SuperMan</td>
-                <td>Pastel</td>
-                <td>01</td>
-                <td>2</td>
-                <td>Relleno de Chocolate</td>
-                <td>Sin Fondant</td>
-                <td>C$1600</td>
-                <td>
-                  <!-- CORREGIDO: Se agregó la clase openEditPersonalizadoModal -->
-                  <button class="edit openEditPersonalizadoModal">
-                    <img src="/src/modules/Shared/Assets/img/editar.png" />
-                    Editar
-                  </button>
-                  <!-- CORREGIDO: Se agregó la clase openDeleteModal -->
-                  <button class="delete openDeleteModal">
-                    <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                    Eliminar
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>Brownies</td>
-                <td>Postres</td>
-                <td>20</td>
-                <td>0</td>
-                <td>Chispitas</td>
-                <td>Color Rojo</td>
-                <td>C$45</td>
-                <td>
-                  <button class="edit openEditPersonalizadoModal">
-                    <img src="/src/modules/Shared/Assets/img/editar.png" />
-                    Editar
-                  </button>
-                  <button class="delete openDeleteModal">
-                    <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                    Eliminar
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>Cacao Skimo</td>
-                <td>Bebidas</td>
-                <td>50</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>C$30</td>
-                <td>
-                  <button class="edit openEditPersonalizadoModal">
-                    <img src="/src/modules/Shared/Assets/img/editar.png" />
-                    Editar
-                  </button>
-                  <button class="delete openDeleteModal">
-                    <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                    Eliminar
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>Selva Negra</td>
-                <td>Pastel</td>
-                <td>03</td>
-                <td>2.5</td>
-                <td>Relleno de Fresa</td>
-                <td>Color Azul</td>
-                <td>C$700</td>
-                <td>
-                  <button class="edit openEditPersonalizadoModal">
-                    <img src="/src/modules/Shared/Assets/img/editar.png" />
-                    Editar
-                  </button>
-                  <button class="delete openDeleteModal">
-                    <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                    Eliminar
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <!-- WRAPPER QUE HACE EL SCROLL -->
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Categoría</th>
+                  <th>Cantidad</th>
+                  <th>Volumen</th>
+                  <th>Opciones</th>
+                  <th>Descripción</th>
+                  <th>Precio</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pastel de SuperMan</td>
+                  <td>Pastel</td>
+                  <td>01</td>
+                  <td>2</td>
+                  <td>Relleno de Chocolate</td>
+                  <td>Sin Fondant</td>
+                  <td>C$1600</td>
+                  <td>
+                    <button class="edit openEditPersonalizadoModal">
+                      <img src="/src/modules/Shared/Assets/img/editar.png" /> Editar
+                    </button>
+                    <button class="delete openDeleteModal">
+                      <img src="/src/modules/Shared/Assets/img/eliminar.png" /> Eliminar
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Brownies</td>
+                  <td>Postres</td>
+                  <td>20</td>
+                  <td>0</td>
+                  <td>Chispitas</td>
+                  <td>Color Rojo</td>
+                  <td>C$45</td>
+                  <td>
+                    <button class="edit openEditPersonalizadoModal">
+                      <img src="/src/modules/Shared/Assets/img/editar.png" /> Editar
+                    </button>
+                    <button class="delete openDeleteModal">
+                      <img src="/src/modules/Shared/Assets/img/eliminar.png" /> Eliminar
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Cacao Skimo</td>
+                  <td>Bebidas</td>
+                  <td>50</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>C$30</td>
+                  <td>
+                    <button class="edit openEditPersonalizadoModal">
+                      <img src="/src/modules/Shared/Assets/img/editar.png" /> Editar
+                    </button>
+                    <button class="delete openDeleteModal">
+                      <img src="/src/modules/Shared/Assets/img/eliminar.png" /> Eliminar
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Selva Negra</td>
+                  <td>Pastel</td>
+                  <td>03</td>
+                  <td>2.5</td>
+                  <td>Relleno de Fresa</td>
+                  <td>Color Azul</td>
+                  <td>C$700</td>
+                  <td>
+                    <button class="edit openEditPersonalizadoModal">
+                      <img src="/src/modules/Shared/Assets/img/editar.png" /> Editar
+                    </button>
+                    <button class="delete openDeleteModal">
+                      <img src="/src/modules/Shared/Assets/img/eliminar.png" /> Eliminar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <div class="table-footer">
             <span>Mostrando 1 a 4 de 25 productos</span>
             <div class="pagination">
-              <button>&lt;</button><button class="active">1</button
-              ><button>2</button><button>3</button><button>&gt;</button>
+              <button>&lt;</button>
+              <button class="active">1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>&gt;</button>
             </div>
           </div>
         </div>

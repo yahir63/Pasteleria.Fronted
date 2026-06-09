@@ -76,6 +76,7 @@ h1 {
     color: #0e235c;
     font-weight: 600;
 }
+
 .input-field input {
     width: 100%;
     background: transparent;
@@ -109,7 +110,7 @@ h1 {
 
 .signup-btn:hover {
     background: #032F44;
-    color:#fff;
+    color: #fff;
     transform: scale(1.02);
 }
 
@@ -128,171 +129,167 @@ h1 {
 
 /* TABLET (768px - 1024px) */
 @media (max-width: 1024px) {
-  .main-card {
-    width: 90%;
-    height: auto;
-    min-height: 500px;
-    flex-direction: row;
-  }
-  
-  .form-side {
-    padding: 40px;
-    flex: 1.1;
-  }
-  
-  .image-side {
-    flex: 0.9;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-  }
-  
-  .input-field input {
-    font-size: 0.95rem;
-    padding: 10px 25px 10px 0;
-  }
-  
-  .signup-btn {
-    padding: 14px;
-    font-size: 1rem;
-  }
+    .main-card {
+        width: 90%;
+        height: auto;
+        min-height: 500px;
+        flex-direction: row;
+    }
+    
+    .form-side {
+        padding: 40px;
+        flex: 1.1;
+    }
+    
+    .image-side {
+        flex: 0.9;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .input-field input {
+        font-size: 0.95rem;
+        padding: 10px 25px 10px 0;
+    }
+    
+    .signup-btn {
+        padding: 14px;
+        font-size: 1rem;
+    }
 }
 
 /* MÓVIL (≤ 768px) */
 @media (max-width: 768px) {
-  body {
-    align-items: flex-start;
-    padding: 20px 15px;
-    height: auto;
-    min-height: 100vh;
-  }
-  
-  .main-card {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-    min-height: auto;
-    flex-direction: column;
-    border-radius: 30px;
-    margin: 0 auto;
-  }
-  
-  /* Imagen arriba, más compacta */
-  .image-side {
-    padding: 20px 20px 0;
-    order: 1;
-    flex: none;
-    height: 180px;
-  }
-  
-  .image-container {
-    border-radius: 20px;
-    height: 100%;
-  }
-  
-  .image-container img {
-    border-radius: 20px;
-  }
-  
-  /* Formulario abajo */
-  .form-side {
-    padding: 30px 25px 40px;
-    order: 2;
-    flex: none;
-  }
-  
-  h1 {
-    font-size: 1.6rem;
-    margin-bottom: 25px;
-    text-align: center;
-  }
-  
-  .input-field {
-    margin-bottom: 20px;
-    border-bottom-width: 1.5px;
-  }
-  
-  .input-field label {
-    font-size: 0.8rem;
-  }
-  
-  .input-field input {
-    font-size: 1rem;
-    padding: 12px 30px 12px 0;
-  }
-  
-  .input-field i {
-    bottom: 14px;
-    font-size: 0.9rem;
-  }
-  
-  .signup-btn {
-    padding: 16px;
-    font-size: 1.05rem;
-    border-radius: 40px;
-    margin-top: 15px;
-  }
-  
-  .footer-text {
-    font-size: 0.75rem;
-    margin-top: 20px;
-  }
+    body {
+        align-items: center; /* Centrado vertical en responsive */
+        padding: 20px 15px;
+        height: 100vh; /* Se mantiene al alto total para centrar con flexbox */
+    }
+    
+    .main-card {
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        min-height: auto;
+        flex-direction: column;
+        border-radius: 30px;
+        margin: 0; /* Centrado controlado por el body flex */
+    }
+    
+    /* Imagen arriba, más compacta */
+    .image-side {
+        padding: 20px 20px 0;
+        order: 1;
+        flex: none;
+        height: 180px;
+    }
+    
+    .image-container {
+        border-radius: 20px;
+        height: 100%;
+    }
+    
+    .image-container img {
+        border-radius: 20px;
+    }
+    
+    /* Formulario abajo */
+    .form-side {
+        padding: 30px 25px 40px;
+        order: 2;
+        flex: none;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    
+    .input-field {
+        margin-bottom: 20px;
+        border-bottom-width: 1.5px;
+    }
+    
+    .input-field label {
+        font-size: 0.8rem;
+    }
+    
+    .input-field input {
+        font-size: 1rem;
+        padding: 12px 30px 12px 0;
+    }
+    
+    .input-field i {
+        bottom: 14px;
+        font-size: 0.9rem;
+    }
+    
+    .signup-btn {
+        padding: 16px;
+        font-size: 1.05rem;
+        border-radius: 40px;
+        margin-top: 15px;
+    }
+    
+    .footer-text {
+        font-size: 0.75rem;
+        margin-top: 20px;
+    }
 }
 
-/*  MÓVIL PEQUEÑO (≤ 480px) */
+/* MÓVIL PEQUEÑO (≤ 480px) */
 @media (max-width: 480px) {
-  body {
-    padding: 10px;
-  }
-  
-  .main-card {
-    border-radius: 24px;
-    max-width: 100%;
-  }
-  
-  .image-side {
-    height: 140px;
-    padding: 15px 15px 0;
-  }
-  
-  .image-container {
-    border-radius: 16px;
-  }
-  
-  .form-side {
-    padding: 25px 20px 30px;
-  }
-  
-  h1 {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-  }
-  
-  .input-field {
-    margin-bottom: 18px;
-  }
-  
-  .input-field label {
-    font-size: 0.75rem;
-  }
-  
-  .input-field input {
-    font-size: 0.95rem;
-    padding: 10px 25px 10px 0;
-  }
-  
-  .signup-btn {
-    padding: 14px;
-    font-size: 1rem;
-  }
-  
-  .footer-text {
-    font-size: 0.7rem;
-  }
+    body {
+        padding: 10px;
+    }
+    
+    .main-card {
+        border-radius: 24px;
+        max-width: 100%;
+    }
+    
+    .image-side {
+        height: 140px;
+        padding: 15px 15px 0;
+    }
+    
+    .image-container {
+        border-radius: 16px;
+    }
+    
+    .form-side {
+        padding: 25px 20px 30px;
+    }
+    
+    h1 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+    
+    .input-field {
+        margin-bottom: 18px;
+    }
+    
+    .input-field label {
+        font-size: 0.75rem;
+    }
+    
+    .input-field input {
+        font-size: 0.95rem;
+        padding: 10px 25px 10px 0;
+    }
+    
+    .signup-btn {
+        padding: 14px;
+        font-size: 1rem;
+    }
+    
+    .footer-text {
+        font-size: 0.7rem;
+    }
 }
-
-
-

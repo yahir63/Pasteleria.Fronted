@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -8,16 +8,12 @@
     <link rel="stylesheet" href="Opciones.css" />
   </head>
   <body>
-    <!-- 1. CONTROLADOR DEL SIDEBAR (Oculto) -->
     <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
 
-    <!-- 2. BOTÓN HAMBURGUESA (Visible en móvil) -->
     <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
 
-    <!-- 3. FONDO OSCURO (Para cerrar menú) -->
     <label for="sidebar-toggle" class="sidebar-overlay"></label>
 
-    <!-- SECCIÓN MODAL  -->
     <input type="checkbox" id="opcion-modal" class="modal-toggle" />
     <div class="modal-overlay">
       <div class="modal-content">
@@ -57,30 +53,21 @@
     </div>
 
     <div class="container">
-      <!-- SIDEBAR -->
       <div id="sidebar-container"></div>
 
-      <!-- MAIN -->
       <main class="main">
-        <!-- TOPBAR -->
         <div id="topbar-container"></div>
 
-        <!-- HEADER -->
         <div class="header">
           <h1>Gestión de Opciones</h1>
           <p>Administra las opciones disponibles para los productos.</p>
         </div>
 
-        <!-- TABLA DE DATOS -->
         <div class="card">
-          <!-- BARRA SUPERIOR -->
           <div class="top-bar">
             <div class="search-box">
               <input type="text" placeholder="Buscar Opciones..." />
-              <img
-                src="/src/modules/Shared/Assets/img/lupa.png"
-                class="search-icon"
-              />
+              <img src="/src/modules/Shared/Assets/img/lupa.png" class="search-icon" />
             </div>
 
             <div class="actions">
@@ -91,102 +78,94 @@
             </div>
           </div>
 
-          <!-- TABLA -->
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Unidad</th>
-                <th>Precio</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Relleno de Chocolate</td>
-                <td>Relleno hecho a base de chocolate</td>
-                <td>Gramos (gr)</td>
-                <td>C$10</td>
-                <td>
-                  <div class="actions">
-                    <button class="edit">
-                      <img src="/src/modules/Shared/Assets/img/editar.png" />
-                      Editar
-                    </button>
-                    <button class="delete">
-                      <img
-                        src="/src/modules/Shared/Assets/img/eliminar-usuario.png"
-                      />
-                      Eliminar
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Baño de fresa</td>
-                <td>Baño hecho 100% de fresas</td>
-                <td>Gramos(gr)</td>
-                <td>C$ 20</td>
-                <td>
-                  <div class="actions">
-                    <button class="edit">
-                      <img src="/src/modules/Shared/Assets/img/editar.png" />
-                      Editar
-                    </button>
-                    <button class="delete">
-                      <img
-                        src="/src/modules/Shared/Assets/img/eliminar-usuario.png"
-                      />
-                      Eliminar
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Calcomanilla de flores</td>
-                <td>Calcomanillas con forma de flores</td>
-                <td>Unidad</td>
-                <td>C$ 12</td>
-                <td>
-                  <div class="actions">
-                    <button class="edit">
-                      <img src="/src/modules/Shared/Assets/img/editar.png" />
-                      Editar
-                    </button>
-                    <button class="delete">
-                      <img
-                        src="/src/modules/Shared/Assets/img/eliminar-usuario.png"
-                      />
-                      Eliminar
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Vela Spiderman</td>
-                <td>Vela con un spiderman</td>
-                <td>Unidad</td>
-                <td>C$ 13</td>
-                <td>
-                  <div class="actions">
-                    <button class="edit">
-                      <img src="/src/modules/Shared/Assets/img/editar.png" />
-                      Editar
-                    </button>
-                    <button class="delete">
-                      <img
-                        src="/src/modules/Shared/Assets/img/eliminar-usuario.png"
-                      />
-                      Eliminar
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Unidad</th>
+                  <th>Precio</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Relleno de Chocolate</td>
+                  <td>Relleno hecho a base de chocolate</td>
+                  <td>Gramos (gr)</td>
+                  <td>C$10</td>
+                  <td>
+                    <div class="actions">
+                      <button class="edit">
+                        <img src="/src/modules/Shared/Assets/img/editar.png" />
+                        Editar
+                      </button>
+                      <button class="delete">
+                        <img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" />
+                        Eliminar
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Baño de fresa</td>
+                  <td>Baño hecho 100% de fresas</td>
+                  <td>Gramos(gr)</td>
+                  <td>C$ 20</td>
+                  <td>
+                    <div class="actions">
+                      <button class="edit">
+                        <img src="/src/modules/Shared/Assets/img/editar.png" />
+                        Editar
+                      </button>
+                      <button class="delete">
+                        <img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" />
+                        Eliminar
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Calcomanilla de flores</td>
+                  <td>Calcomanillas con forma de flores</td>
+                  <td>Unidad</td>
+                  <td>C$ 12</td>
+                  <td>
+                    <div class="actions">
+                      <button class="edit">
+                        <img src="/src/modules/Shared/Assets/img/editar.png" />
+                        Editar
+                      </button>
+                      <button class="delete">
+                        <img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" />
+                        Eliminar
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Vela Spiderman</td>
+                  <td>Vela con un spiderman</td>
+                  <td>Unidad</td>
+                  <td>C$ 13</td>
+                  <td>
+                    <div class="actions">
+                      <button class="edit">
+                        <img src="/src/modules/Shared/Assets/img/editar.png" />
+                        Editar
+                      </button>
+                      <button class="delete">
+                        <img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" />
+                        Eliminar
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          <!-- FOOTER -->
           <div class="table-footer">
             <span>Mostrando Opciones 1/7</span>
             <div class="pagination">
@@ -202,7 +181,6 @@
       </main>
     </div>
 
-    <!-- JS -->
     <script src="/src/modules/Shared/components/components.js"></script>
   </body>
 </html>
