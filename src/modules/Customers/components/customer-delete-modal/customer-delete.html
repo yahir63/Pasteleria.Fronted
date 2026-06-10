@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/modules/Shared/components/global.css">
+    <link rel="stylesheet" href="/src/modules/Customers/components/customer-delete-modal/customer-delete.css">
+    <title>Cambiar Estado Cliente</title>
+</head>
+<body>
+    <div id="modalDelete" class="modal">
+        <div class="modal-content delete-box">
+
+            <h2>Cambiar Estado</h2>
+            <p>¿Deseas cambiar el estado del cliente?</p>
+
+            <select id="selectEstado">
+                <option value="true">Activo</option>
+                <option value="false">Inactivo</option>
+            </select>
+
+            <div class="modal-actions">
+                <button class="btn cancel closeModal">Cancelar</button>
+                <button class="btn accept">Aceptar</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
