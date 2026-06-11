@@ -46,9 +46,11 @@
 
                     <div class="actions">
 
-                        <select>
-                            <option>Todos los clientes</option>
-                        </select>
+                     <select id="filtroEstado">
+                      <option value="">Todos los clientes</option>
+                     <option value="true">Activos</option>
+                     <option value="false">Inactivos</option>
+                     </select>
 
                         <button
                             id="btnNuevoCliente"
@@ -191,7 +193,7 @@
     <div id="modal-container"></div>
 
     <script src="/src/modules/Shared/components/components.js"></script>
-    <script src="/src/modules/Customers/Services/Clientes.js"></script>
+    <script type="module" src="/src/modules/Customers/pages/Clientes.js"></script>
 
 </body>
 </html>
