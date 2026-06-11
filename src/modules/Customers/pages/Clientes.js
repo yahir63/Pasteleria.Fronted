@@ -1,18 +1,19 @@
-const API_BASE = "https://localhost:7249/api/customers";
+import { getAll } from "/src/modules/Customers/services/customer.service.js";
 
-// ─── Estado global (compartido con modales) ───────────────────────────────────
-window.ClientesState = {
+// ─── Estado compartido con modales ────────────────────────────────────────────
+export const state = {
   clienteEditandoId: null,
-  recargar: null, // se asigna abajo
+  recargar: null,
 };
 
 // ─── DOM ──────────────────────────────────────────────────────────────────────
-const tbody         = document.querySelector("table tbody");
-const inputBuscar   = document.querySelector(".top-bar input[type='text']");
-const spanConteo    = document.querySelector(".table-footer span");
-const paginacionDiv = document.querySelector(".pagination");
-const btnNuevo      = document.getElementById("btnNuevoCliente");
+const tbody          = document.querySelector("table tbody");
+const inputBuscar    = document.querySelector(".top-bar input[type='text']");
+const spanConteo     = document.querySelector(".table-footer span");
+const paginacionDiv  = document.querySelector(".pagination");
+const btnNuevo       = document.getElementById("btnNuevoCliente");
 const modalContainer = document.getElementById("modal-container");
+const filtroEstado   = document.getElementById("filtroEstado");
 
 // ─── Estado local ─────────────────────────────────────────────────────────────
 let paginaActual   = 1;
@@ -30,7 +31,6 @@ async function cargarModales() {
 
   const htmls = await Promise.all(rutas.map(r => fetch(r).then(res => res.text())));
 
-  // Extraer solo el contenido del <body> de cada modal
   htmls.forEach(html => {
     const parser = new DOMParser();
     const doc    = parser.parseFromString(html, "text/html");
@@ -38,29 +38,16 @@ async function cargarModales() {
     if (modal) modalContainer.appendChild(modal);
   });
 
-  // Cargar scripts de modales en orden
-  await cargarScript("/src/modules/Customers/components/customer-add-modal/customer-add.js");
-  await cargarScript("/src/modules/Customers/components/customer-edit-modal/customer-edit.js");
-  await cargarScript("/src/modules/Customers/components/customer-delete-modal/customer-delete.js");
-}
+  // Importar módulos de modales dinámicamente
+  const [{ init: initAdd }, { init: initEdit }, { init: initDelete }] = await Promise.all([
+    import("/src/modules/Customers/components/customer-add-modal/customer-add.js"),
+    import("/src/modules/Customers/components/customer-edit-modal/customer-edit.js"),
+    import("/src/modules/Customers/components/customer-delete-modal/customer-delete.js"),
+  ]);
 
-function cargarScript(src) {
-  return new Promise((resolve) => {
-    const s = document.createElement("script");
-    s.src = src;
-    s.onload = resolve;
-    document.body.appendChild(s);
-  });
-}
-
-// ─── API ──────────────────────────────────────────────────────────────────────
-async function fetchClientes(pagina = 1, nombre = "") {
-  const params = new URLSearchParams({ PageNumber: pagina, PageSize: 8 });
-  if (nombre) params.append("Name", nombre);
-  const res  = await fetch(`${API_BASE}?${params}`);
-  if (!res.ok) throw new Error("Error al obtener clientes");
-  const json = await res.json();
-  return json.value;
+  initAdd(state);
+  initEdit(state);
+  initDelete(state);
 }
 
 // ─── Render tabla ─────────────────────────────────────────────────────────────
@@ -68,7 +55,7 @@ function renderTabla(items) {
   tbody.innerHTML = "";
 
   if (!items || items.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#888">Sin resultados</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#888">Sin resultados</td></tr>`;
     return;
   }
 
@@ -146,8 +133,9 @@ function actualizarConteo(items) {
 // ─── Carga principal ──────────────────────────────────────────────────────────
 async function cargarPagina(pagina = 1) {
   const nombre = inputBuscar.value.trim();
+  const estado = filtroEstado ? filtroEstado.value : "";
   try {
-    const data     = await fetchClientes(pagina, nombre);
+    const data     = await getAll(pagina, nombre, estado);
     paginaActual   = data.pageIndex;
     totalPaginas   = data.totalPages;
     totalRegistros = data.totalRegisters;
@@ -156,7 +144,7 @@ async function cargarPagina(pagina = 1) {
     actualizarConteo(data.items);
   } catch (err) {
     console.error("Error cargando clientes:", err);
-    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#e74c3c">Error al cargar clientes</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#e74c3c">Error al cargar clientes</td></tr>`;
   }
 }
 
@@ -164,39 +152,32 @@ async function cargarPagina(pagina = 1) {
 function bindAcciones() {
   tbody.querySelectorAll(".btnEdit").forEach((btn) => {
     btn.addEventListener("click", () => {
-      window.ClientesState.clienteEditandoId = parseInt(btn.dataset.id);
-      // Llenar modal editar y abrirlo
-      if (typeof window.abrirModalEdit === "function") {
-        window.abrirModalEdit(btn.dataset);
-      }
+      state.clienteEditandoId = parseInt(btn.dataset.id);
+      state.abrirModalEdit?.(btn.dataset);
     });
   });
 
   tbody.querySelectorAll(".btnDelete").forEach((btn) => {
     btn.addEventListener("click", () => {
-      window.ClientesState.clienteEditandoId = parseInt(btn.dataset.id);
-      if (typeof window.abrirModalDelete === "function") {
-        window.abrirModalDelete();
-      }
+      state.clienteEditandoId = parseInt(btn.dataset.id);
+      state.abrirModalDelete?.();
     });
   });
 }
 
-// ─── Abrir modal Add ──────────────────────────────────────────────────────────
-btnNuevo.addEventListener("click", () => {
-  if (typeof window.abrirModalAdd === "function") window.abrirModalAdd();
-});
+// ─── Eventos ──────────────────────────────────────────────────────────────────
+btnNuevo.addEventListener("click", () => state.abrirModalAdd?.());
 
-// ─── Búsqueda con debounce ────────────────────────────────────────────────────
+filtroEstado.addEventListener("change", () => { paginaActual = 1; cargarPagina(1); });
+
 inputBuscar.addEventListener("input", () => {
   clearTimeout(busquedaTimer);
   busquedaTimer = setTimeout(() => { paginaActual = 1; cargarPagina(1); }, 400);
 });
 
-// ─── Exponer recarga para los modales ─────────────────────────────────────────
-window.ClientesState.recargar = () => cargarPagina(paginaActual);
-
 // ─── Init ─────────────────────────────────────────────────────────────────────
+state.recargar = () => cargarPagina(paginaActual);
+
 (async () => {
   await cargarModales();
   await cargarPagina(1);

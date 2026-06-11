@@ -1,7 +1,7 @@
-{
-  const API_BASE = "https://localhost:7249/api/customers";
-  const modal    = document.getElementById("modalAdd");
+import { create } from "/src/modules/Customers/services/customer.service.js";
 
+export function init(state) {
+  const modal      = document.getElementById("modalAdd");
   const addNombre    = document.getElementById("addNombre");
   const addApellido  = document.getElementById("addApellido");
   const addTelefono  = document.getElementById("addTelefono");
@@ -11,10 +11,10 @@
   const btnGuardar   = modal.querySelector(".btn.save");
   const btnCancelar  = modal.querySelector(".btn.cancel");
 
-  window.abrirModalAdd = function () {
+  function abrir() {
     limpiar();
     modal.style.display = "flex";
-  };
+  }
 
   function cerrar() {
     modal.style.display = "none";
@@ -38,33 +38,21 @@
       return;
     }
 
-    const data = {
-      Name   : `${nombre} ${apellido}`,
-      DNI    : addCedula.value.trim(),
-      Address: addDireccion.value.trim(),
-      City   : addCiudad.value.trim(),
-      Phone  : addTelefono.value.trim(),
-    };
-
     try {
-      const res = await fetch(API_BASE, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+      await create({
+        Name   : `${nombre} ${apellido}`,
+        DNI    : addCedula.value.trim(),
+        Address: addDireccion.value.trim(),
+        City   : addCiudad.value.trim(),
+        Phone  : addTelefono.value.trim(),
       });
-
-      if (!res.ok) {
-        const err = await res.json();
-        const msgs = err.Errors?.join("\n") ?? "Error al crear cliente";
-        alert(msgs);
-        return;
-      }
-
       cerrar();
-      window.ClientesState.recargar();
+      state.recargar();
     } catch (err) {
-      alert("No se pudo guardar el cliente.");
-      console.error(err);
+      alert(err.message);
     }
   });
+
+  // Exponer al state para que Clientes.js pueda abrirlo
+  state.abrirModalAdd = abrir;
 }
