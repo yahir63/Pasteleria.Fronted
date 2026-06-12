@@ -1,7 +1,7 @@
 const API_BASE = "https://localhost:7249/api/Auth";
 
 export async function login(userName, password) {
-  const res = await fetch(`${API_BASE}/Auth`, {
+  const res = await fetch(`${API_BASE}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

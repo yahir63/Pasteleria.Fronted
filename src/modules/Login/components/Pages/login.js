@@ -1,4 +1,4 @@
-import { login } from "../Services/login.js";
+import { login } from "/src/modules/Login/components/Services/login.Service.js";
 
 
 const boton = document.getElementById("loginButton");
@@ -30,7 +30,7 @@ boton.addEventListener("click", async () => {
         console.log("Login correcto", respuesta);
 
 
-        window.location.href = "../../Dashboard/components/dashboard.html";
+        window.location.href = "src/modules/Dashboard/components/dashboard.html";
 
 
     } catch(error) {
