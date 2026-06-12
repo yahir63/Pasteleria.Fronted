@@ -53,6 +53,6 @@ export function init(state) {
     }
   });
 
-  // Exponer al state para que Clientes.js pueda abrirlo
+
   state.abrirModalAdd = abrir;
 }

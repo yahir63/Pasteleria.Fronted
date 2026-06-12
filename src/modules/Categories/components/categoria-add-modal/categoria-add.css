@@ -1,0 +1,136 @@
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.modal:target {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 350px;
+    max-width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal-actions .btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.save {
+    background: #0BB2F4;
+    color: white;
+    border: none;
+}
+
+.cancel {
+    background: #ccc;
+    color: black;
+}
+
+
+@media (max-width: 1024px) {
+    .modal-content { width: 90%; }
+}
+
+@media (max-width: 768px) {
+    .modal .modal-content { width: 92%; padding: 20px; border-radius: 16px; }
+    .modal .modal-content h2 { font-size: 18px; margin-bottom: 15px; }
+    .modal .modal-content input, 
+    .modal .modal-content textarea { padding: 12px; font-size: 1rem; margin-top: 8px; }
+    .modal .modal-actions { flex-direction: column; gap: 10px; margin-top: 15px; }
+    .modal .modal-actions .btn { width: 100%; padding: 12px; font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+    .modal .modal-content { padding: 16px; }
+}
+
+.icon-field {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.icon-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.icon-hint {
+    font-weight: 400;
+    color: #888;
+    font-size: 12px;
+}
+
+.icon-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+
+.icon-preview {
+    font-size: 20px;
+    color: #0BB2F4;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.icon-input-wrapper input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+}
+
+/* CSS para el ícono en la tabla */
+.categoria-icon {
+    font-size: 22px;
+    color: #0BB2F4;
+}

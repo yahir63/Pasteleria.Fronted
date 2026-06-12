@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/src/modules/Shared/components/global.css">
+    <link rel="stylesheet" href="/src/modules/Categories/components/categoria-add-modal/categoria-add.css">
+    <title>Nueva Categoría</title>
+</head>
+<body>
+    <div id="modalAdd" class="modal">
+        <div class="modal-content">
+            <h2>Nueva Categoría</h2>
+
+            <input type="text" placeholder="Nombre de categoría">
+            <textarea placeholder="Descripción"></textarea>
+
+            <div class="icon-field">
+                <label>Ícono <span class="icon-hint">(clase de Font Awesome, ej: fa-solid fa-cake-candles)</span></label>
+                <div class="icon-input-wrapper">
+                    <i class="icon-preview fa-solid fa-tag"></i>
+                    <input type="text" class="input-icon" placeholder="fa-solid fa-tag">
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn cancel">Cancelar</button>
+                <button class="btn save">Guardar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
