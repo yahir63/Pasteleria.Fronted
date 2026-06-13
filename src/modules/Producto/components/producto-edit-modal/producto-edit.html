@@ -4,31 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/modules/Shared/components/global.css">
-    <link rel="stylesheet" href="/src/modules/Producto/components/producto-edit-modal/product-edit.css">
+    <link rel="stylesheet" href="/src/modules/Producto/components/producto-edit-modal/producto-edit.css">
     <title>Editar Producto</title>
 </head>
 <body>
-
     <div id="modalEdit" class="modal">
         <div class="modal-content">
-
             <h2>Editar Producto</h2>
 
             <input type="text" id="editNombre" placeholder="Nombre del producto">
-
-            <input type="number" id="editCategoria" placeholder="ID Categoría">
-
-            <input type="number" id="editProveedor" placeholder="ID Proveedor">
-
             <input type="text" id="editDescripcion" placeholder="Descripción">
 
+            <select id="editCategoria">
+                <option value="">-- Selecciona una categoría --</option>
+            </select>
+
+            <select id="editProveedor">
+                <option value="">-- Selecciona un proveedor --</option>
+            </select>
+
             <div class="modal-actions">
-                <button class="btn cancel closeModal">Cancelar</button>
+                <button class="btn cancel">Cancelar</button>
                 <button class="btn save">Actualizar</button>
             </div>
-
         </div>
     </div>
-
 </body>
 </html>
