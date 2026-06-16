@@ -1,43 +1,22 @@
 import { login } from "/src/modules/Login/components/Services/login.Service.js";
 
-
 const boton = document.getElementById("loginButton");
 
-
 boton.addEventListener("click", async () => {
+  const userName = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
 
+  if (!userName || !password) {
+    alert("Usuario y contraseña son obligatorios.");
+    return;
+  }
 
-    const userName = document.getElementById("username").value.toString();
-
-    const password = document.getElementById("password").value.toString();
-
-
-
-    const datos = {
-        userName: userName,
-        password: password
-    };
-
-
-    try {
-
-        const respuesta = await login(
-            datos.userName,
-            datos.password
-        );
-
-
-        console.log("Login correcto", respuesta);
-
-
-        window.location.href = "src/modules/Dashboard/components/dashboard.html";
-
-
-    } catch(error) {
-
-        alert(error.message);
-
-    }
-
-
+  try {
+    const respuesta = await login(userName, password);
+    localStorage.setItem("token", respuesta.value.token);
+    localStorage.setItem("user", JSON.stringify(respuesta.value));
+    window.location.href = "/index.html#/dashboard";
+  } catch (err) {
+    alert(err.message);
+  }
 });
