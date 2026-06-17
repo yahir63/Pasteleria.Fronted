@@ -1,186 +1,99 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Opciones - Pastelería Soto</title>
-    <link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
-    <link rel="stylesheet" href="Opciones.css" />
-  </head>
-  <body>
-    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
+<link rel="stylesheet" href="/src/modules/Opciones/components/Opciones.css" />
 
-    <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
-
-    <label for="sidebar-toggle" class="sidebar-overlay"></label>
-
-    <input type="checkbox" id="opcion-modal" class="modal-toggle" />
-    <div class="modal-overlay">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Nueva Opción</h2>
-          <label for="opcion-modal" class="modal-close">×</label>
-        </div>
-
-        <div class="modal-body">
-          <div class="form-group">
-            <p>Nombre</p>
-            <input type="text" placeholder="Ej: Relleno de fresa" />
-          </div>
-          <div class="form-group">
-            <p>Descripción</p>
-            <input type="text" placeholder="Ej: Hecho 100% natural" />
-          </div>
-          <div class="form-group">
-            <p>Unidad de Medida</p>
-            <select>
-              <option>Unidad</option>
-              <option>Gramos (gr)</option>
-              <option>Onzas</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <p>Precio</p>
-            <input type="text" placeholder="Ej: C$ 50" />
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <label for="opcion-modal" class="btn-cancel">Cancelar</label>
-          <button class="btn-save">Guardar</button>
-        </div>
+<input type="checkbox" id="opcion-modal" class="modal-toggle" />
+<div class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Nueva Opción</h2>
+      <label for="opcion-modal" class="modal-close">×</label>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <p>Nombre</p>
+        <input type="text" placeholder="Ej: Relleno de fresa" />
+      </div>
+      <div class="form-group">
+        <p>Descripción</p>
+        <input type="text" placeholder="Ej: Hecho 100% natural" />
+      </div>
+      <div class="form-group">
+        <p>Unidad de Medida</p>
+        <select>
+          <option>Unidad</option>
+          <option>Gramos (gr)</option>
+          <option>Onzas</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <p>Precio</p>
+        <input type="text" placeholder="Ej: C$ 50" />
       </div>
     </div>
-
-    <div class="container">
-      <div id="sidebar-container"></div>
-
-      <main class="main">
-        <div id="topbar-container"></div>
-
-        <div class="header">
-          <h1>Gestión de Opciones</h1>
-          <p>Administra las opciones disponibles para los productos.</p>
-        </div>
-
-        <div class="card">
-          <div class="top-bar">
-            <div class="search-box">
-              <input type="text" placeholder="Buscar Opciones..." />
-              <img src="/src/modules/Shared/Assets/img/lupa.png" class="search-icon" />
-            </div>
-
-            <div class="actions">
-              <select>
-                <option>Todas las opciones</option>
-              </select>
-              <label for="opcion-modal" class="btn-new">+ Nueva Opcion</label>
-            </div>
-          </div>
-
-          <div class="table-wrapper">
-            <table>
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Descripción</th>
-                  <th>Unidad</th>
-                  <th>Precio</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Relleno de Chocolate</td>
-                  <td>Relleno hecho a base de chocolate</td>
-                  <td>Gramos (gr)</td>
-                  <td>C$10</td>
-                  <td>
-                    <div class="actions">
-                      <button class="edit">
-                        <img src="/src/modules/Shared/Assets/img/editar.png" />
-                        Editar
-                      </button>
-                      <button class="delete">
-                        <img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" />
-                        Eliminar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Baño de fresa</td>
-                  <td>Baño hecho 100% de fresas</td>
-                  <td>Gramos(gr)</td>
-                  <td>C$ 20</td>
-                  <td>
-                    <div class="actions">
-                      <button class="edit">
-                        <img src="/src/modules/Shared/Assets/img/editar.png" />
-                        Editar
-                      </button>
-                      <button class="delete">
-                        <img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" />
-                        Eliminar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Calcomanilla de flores</td>
-                  <td>Calcomanillas con forma de flores</td>
-                  <td>Unidad</td>
-                  <td>C$ 12</td>
-                  <td>
-                    <div class="actions">
-                      <button class="edit">
-                        <img src="/src/modules/Shared/Assets/img/editar.png" />
-                        Editar
-                      </button>
-                      <button class="delete">
-                        <img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" />
-                        Eliminar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Vela Spiderman</td>
-                  <td>Vela con un spiderman</td>
-                  <td>Unidad</td>
-                  <td>C$ 13</td>
-                  <td>
-                    <div class="actions">
-                      <button class="edit">
-                        <img src="/src/modules/Shared/Assets/img/editar.png" />
-                        Editar
-                      </button>
-                      <button class="delete">
-                        <img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" />
-                        Eliminar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="table-footer">
-            <span>Mostrando Opciones 1/7</span>
-            <div class="pagination">
-              <button>&lt;</button>
-              <button class="active">1</button>
-              <button>2</button>
-              <button>3</button>
-              <button>4</button>
-              <button>&gt;</button>
-            </div>
-          </div>
-        </div>
-      </main>
+    <div class="modal-footer">
+      <label for="opcion-modal" class="btn-cancel">Cancelar</label>
+      <button class="btn-save">Guardar</button>
     </div>
+  </div>
+</div>
 
-    <script src="/src/modules/Shared/components/components.js"></script>
-  </body>
-</html>
+<div class="header">
+  <h1>Gestión de Opciones</h1>
+  <p>Administra las opciones disponibles para los productos.</p>
+</div>
+
+<div class="card">
+  <div class="top-bar">
+    <div class="search-box">
+      <input type="text" placeholder="Buscar Opciones..." />
+      <img src="/src/modules/Shared/Assets/img/lupa.png" class="search-icon" />
+    </div>
+    <div class="actions">
+      <select><option>Todas las opciones</option></select>
+      <label for="opcion-modal" class="btn-new">+ Nueva Opcion</label>
+    </div>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Nombre</th><th>Descripción</th><th>Unidad</th><th>Precio</th><th>Acciones</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Relleno de Chocolate</td><td>Relleno hecho a base de chocolate</td><td>Gramos (gr)</td><td>C$10</td>
+          <td><div class="actions">
+            <button class="edit"><img src="/src/modules/Shared/Assets/img/editar.png" /> Editar</button>
+            <button class="delete"><img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" /> Eliminar</button>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Baño de fresa</td><td>Baño hecho 100% de fresas</td><td>Gramos(gr)</td><td>C$ 20</td>
+          <td><div class="actions">
+            <button class="edit"><img src="/src/modules/Shared/Assets/img/editar.png" /> Editar</button>
+            <button class="delete"><img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" /> Eliminar</button>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Calcomanilla de flores</td><td>Calcomanillas con forma de flores</td><td>Unidad</td><td>C$ 12</td>
+          <td><div class="actions">
+            <button class="edit"><img src="/src/modules/Shared/Assets/img/editar.png" /> Editar</button>
+            <button class="delete"><img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" /> Eliminar</button>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Vela Spiderman</td><td>Vela con un spiderman</td><td>Unidad</td><td>C$ 13</td>
+          <td><div class="actions">
+            <button class="edit"><img src="/src/modules/Shared/Assets/img/editar.png" /> Editar</button>
+            <button class="delete"><img src="/src/modules/Shared/Assets/img/eliminar-usuario.png" /> Eliminar</button>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-footer">
+    <span>Mostrando Opciones 1/7</span>
+    <div class="pagination">
+      <button>&lt;</button><button class="active">1</button>
+      <button>2</button><button>3</button><button>4</button><button>&gt;</button>
+    </div>
+  </div>
+</div>

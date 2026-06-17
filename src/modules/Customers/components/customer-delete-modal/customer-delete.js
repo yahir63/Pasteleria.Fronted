@@ -1,14 +1,15 @@
-{
-  const API_BASE    = "https://localhost:7249/api/customers";
-  const modal       = document.getElementById("modalDelete");
-  const selectEstado = document.getElementById("selectEstado");
-  const btnAceptar  = modal.querySelector(".btn.accept");
-  const btnCancelar = modal.querySelector(".btn.cancel");
+import { toggleEstado } from "/src/modules/Customers/services/customer.service.js";
 
-  window.abrirModalDelete = function () {
+export function init(state) {
+  const modal        = document.getElementById("modalDelete");
+  const selectEstado = document.getElementById("selectEstado");
+  const btnAceptar   = modal.querySelector(".btn.accept");
+  const btnCancelar  = modal.querySelector(".btn.cancel");
+
+  function abrir() {
     selectEstado.value = "true";
     modal.style.display = "flex";
-  };
+  }
 
   function cerrar() {
     modal.style.display = "none";
@@ -18,18 +19,18 @@
   modal.addEventListener("click", (e) => { if (e.target === modal) cerrar(); });
 
   btnAceptar.addEventListener("click", async () => {
-    const id = window.ClientesState.clienteEditandoId;
+    const id = state.clienteEditandoId;
     if (id === null) return;
 
     try {
-      const res = await fetch(`${API_BASE}/${id}`, { method: "PATCH" });
-      if (!res.ok) throw new Error("Error al cambiar estado");
-      window.ClientesState.clienteEditandoId = null;
+      await toggleEstado(id);
+      state.clienteEditandoId = null;
       cerrar();
-      window.ClientesState.recargar();
+      state.recargar();
     } catch (err) {
-      alert("No se pudo cambiar el estado del cliente.");
-      console.error(err);
+      alert(err.message);
     }
   });
+
+  state.abrirModalDelete = abrir;
 }

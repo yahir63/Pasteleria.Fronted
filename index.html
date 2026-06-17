@@ -1,41 +1,31 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pasteleria Soto</title>
-    <link rel="stylesheet" href="/src/modules/Login/components/login.css" />
-  </head>
-  <body>
-    <div class="main-card">
-      <div class="form-side">
-        <h1>Bienvenidos</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastelería Soto</title>
+    <link rel="stylesheet" href="/src/modules/Shared/components/global.css">
+</head>
+<body>
 
-        <div class="input-field">
-          <label>Usuario</label>
-          <input id="username" type="text" placeholder="Tu usuario" />
-          <i class="fas fa-user"></i>
-        </div>
+  <button class="hamburger-btn"><span></span></button>
+ 
 
-        <div class="input-field">
-          <label>Contraseña</label>
-          <input id="password" type="password" placeholder="Tu contraseña" />
-          <i class="fas fa-lock"></i>
-        </div>
-        <a href="/src/modules/Dashboard/components/dashboard.html">
-          <button class="signup-btn">Ingresar</button>
-          <p class="footer-text">Se te olvido tu contraseña?</p>
-        </a>
-      </div>
+  <div class="container">
+    <div id="sidebar-container"></div>
 
-      <div class="image-side">
-        <div class="image-container">
-          <img
-            src="https://media.easy-peasy.ai/9a7627ad-75b9-4d23-b767-3ece2e4a625f/17485dd7-a4e0-4534-9ec1-da47d1e984d2.png"
-            alt="pastel"
-          />
-        </div>
-      </div>
-    </div>
-  </body>
+     <div class="sidebar-overlay"></div>
+
+    <main class="main">
+      <div id="topbar-container"></div>
+      <div id="app-container"></div>
+    </main>
+  </div>
+
+  <div id="modal-container"></div>
+
+  <script src="/src/modules/Shared/components/components.js"></script>
+  <script type="module" src="/app/app.js"></script>
+
+</body>
 </html>

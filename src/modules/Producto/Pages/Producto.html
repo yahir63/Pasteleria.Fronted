@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/src/modules/Producto/components/product-add-modal/producto-add.css">
+<link rel="stylesheet" href="/src/modules/Producto/components/producto-edit-modal/producto-edit.css">
+<link rel="stylesheet" href="/src/modules/Producto/components/product-delete-modal/producto-delete.css">
+<link rel="stylesheet" href="/src/modules/Producto/Pages/Producto.css">
+
+<div class="header">
+    <h1>Gestión de Productos</h1>
+    <p>Consulta y administra la información de tus productos.</p>
+</div>
+
+<div class="card">
+    <div class="top-bar">
+        <input type="text" placeholder="Buscar producto...">
+        <div class="actions">
+            <select id="filtroEstado">
+                <option value="">Todos los productos</option>
+                <option value="true">Activos</option>
+                <option value="false">Inactivos</option>
+            </select>
+            <button id="btnNuevoProducto" class="btn-new" type="button">
+                <span class="icon">+</span>
+                Nuevo Producto
+            </button>
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Categoría</th>
+                    <th>Proveedor</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div class="table-footer">
+        <span>Mostrando 1 a 3 de 25 productos</span>
+        <div class="pagination">
+            <button>&lt;</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>&gt;</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="module" src="/src/modules/Producto/Pages/Producto.js"></script>
