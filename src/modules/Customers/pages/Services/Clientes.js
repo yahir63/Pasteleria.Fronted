@@ -7,18 +7,18 @@ window.ClientesState = {
 };
 
 // ─── DOM ──────────────────────────────────────────────────────────────────────
-const tbody         = document.querySelector("table tbody");
-const inputBuscar   = document.querySelector(".top-bar input[type='text']");
-const spanConteo    = document.querySelector(".table-footer span");
+const tbody = document.querySelector("table tbody");
+const inputBuscar = document.querySelector(".top-bar input[type='text']");
+const spanConteo = document.querySelector(".table-footer span");
 const paginacionDiv = document.querySelector(".pagination");
-const btnNuevo      = document.getElementById("btnNuevoCliente");
+const btnNuevo = document.getElementById("btnNuevoCliente");
 const modalContainer = document.getElementById("modal-container");
 
 // ─── Estado local ─────────────────────────────────────────────────────────────
-let paginaActual   = 1;
-let totalPaginas   = 1;
+let paginaActual = 1;
+let totalPaginas = 1;
 let totalRegistros = 0;
-let busquedaTimer  = null;
+let busquedaTimer = null;
 
 // ─── Cargar modales ───────────────────────────────────────────────────────────
 async function cargarModales() {
@@ -28,20 +28,28 @@ async function cargarModales() {
     "/src/modules/Customers/components/customer-delete-modal/customer-delete.html",
   ];
 
-  const htmls = await Promise.all(rutas.map(r => fetch(r).then(res => res.text())));
+  const htmls = await Promise.all(
+    rutas.map((r) => fetch(r).then((res) => res.text())),
+  );
 
   // Extraer solo el contenido del <body> de cada modal
-  htmls.forEach(html => {
+  htmls.forEach((html) => {
     const parser = new DOMParser();
-    const doc    = parser.parseFromString(html, "text/html");
-    const modal  = doc.querySelector(".modal");
+    const doc = parser.parseFromString(html, "text/html");
+    const modal = doc.querySelector(".modal");
     if (modal) modalContainer.appendChild(modal);
   });
 
   // Cargar scripts de modales en orden
-  await cargarScript("/src/modules/Customers/components/customer-add-modal/customer-add.js");
-  await cargarScript("/src/modules/Customers/components/customer-edit-modal/customer-edit.js");
-  await cargarScript("/src/modules/Customers/components/customer-delete-modal/customer-delete.js");
+  await cargarScript(
+    "/src/modules/Customers/components/customer-add-modal/customer-add.js",
+  );
+  await cargarScript(
+    "/src/modules/Customers/components/customer-edit-modal/customer-edit.js",
+  );
+  await cargarScript(
+    "/src/modules/Customers/components/customer-delete-modal/customer-delete.js",
+  );
 }
 
 function cargarScript(src) {
@@ -57,7 +65,7 @@ function cargarScript(src) {
 async function fetchClientes(pagina = 1, nombre = "") {
   const params = new URLSearchParams({ PageNumber: pagina, PageSize: 8 });
   if (nombre) params.append("Name", nombre);
-  const res  = await fetch(`${API_BASE}?${params}`);
+  const res = await fetch(`${API_BASE}?${params}`);
   if (!res.ok) throw new Error("Error al obtener clientes");
   const json = await res.json();
   return json.value;
@@ -73,10 +81,10 @@ function renderTabla(items) {
   }
 
   items.forEach((c) => {
-    const partes   = (c.customerName ?? "").split(" ");
-    const nombre   = partes[0] ?? "";
+    const partes = (c.customerName ?? "").split(" ");
+    const nombre = partes[0] ?? "";
     const apellido = partes.slice(1).join(" ");
-    const activo   = c.isActive;
+    const activo = c.isActive;
 
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -139,7 +147,7 @@ function renderPaginacion() {
 
 function actualizarConteo(items) {
   const desde = items.length === 0 ? 0 : (paginaActual - 1) * 8 + 1;
-  const hasta  = (paginaActual - 1) * 8 + items.length;
+  const hasta = (paginaActual - 1) * 8 + items.length;
   spanConteo.textContent = `Mostrando ${desde} a ${hasta} de ${totalRegistros} clientes`;
 }
 
@@ -147,9 +155,9 @@ function actualizarConteo(items) {
 async function cargarPagina(pagina = 1) {
   const nombre = inputBuscar.value.trim();
   try {
-    const data     = await fetchClientes(pagina, nombre);
-    paginaActual   = data.pageIndex;
-    totalPaginas   = data.totalPages;
+    const data = await fetchClientes(pagina, nombre);
+    paginaActual = data.pageIndex;
+    totalPaginas = data.totalPages;
     totalRegistros = data.totalRegisters;
     renderTabla(data.items);
     renderPaginacion();
@@ -190,7 +198,10 @@ btnNuevo.addEventListener("click", () => {
 // ─── Búsqueda con debounce ────────────────────────────────────────────────────
 inputBuscar.addEventListener("input", () => {
   clearTimeout(busquedaTimer);
-  busquedaTimer = setTimeout(() => { paginaActual = 1; cargarPagina(1); }, 400);
+  busquedaTimer = setTimeout(() => {
+    paginaActual = 1;
+    cargarPagina(1);
+  }, 400);
 });
 
 // ─── Exponer recarga para los modales ─────────────────────────────────────────

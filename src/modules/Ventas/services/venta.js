@@ -1,315 +1,185 @@
-const modal = document.getElementById("modal");
-const modalBody = document.getElementById("modal-body");
-const closeModal = document.getElementById("close-modal");
-const modalContent = document.querySelector(".modal-content");
+const API_URL = "https://localhost:7249/api/sales";
 
-const overlay = document.querySelector(".sidebar-overlay");
-const sidebar = document.querySelector(".sidebar");
-const toggleBtn = document.querySelector(".sidebar-toggle");
-
-if (toggleBtn && sidebar) {
-  toggleBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("sidebar-open");
-    if (overlay) overlay.classList.toggle("active");
-  });
-}
-
-if (overlay) {
-  overlay.addEventListener("click", () => {
-    sidebar.classList.remove("sidebar-open");
-    overlay.classList.remove("active");
-  });
-}
-
-function cerrarModal() {
-  modal.classList.remove("show");
-}
-
-function abrirModal(html, size) {
-  modalBody.innerHTML = html;
-  modalContent.classList.remove("modal-small", "modal-large");
-  if (size === "large") modalContent.classList.add("modal-large");
-  else if (size === "small") modalContent.classList.add("modal-small");
-  modal.classList.add("show");
-}
-
-if (closeModal) closeModal.addEventListener("click", cerrarModal);
-window.addEventListener("click", (e) => { if (e.target === modal) cerrarModal(); });
-
-let htmlNuevaVenta = "";
-
-const DetallesVenta = {
-  "Maria Lopez": [
-    { producto: "Pastel de manzana", cantidad: 2, precio: 30 },
-    { producto: "Pastel de chocolate", cantidad: 2, precio: 25 },
-  ],
-  "Lucero Lopez": [
-    { producto: "Mantequilla", cantidad: 3, precio: 15 },
-    { producto: "Huevos", cantidad: 2, precio: 10 },
-  ],
-  "Joel Arias": [
-    { producto: "Chocolate", cantidad: 4, precio: 25 },
-    { producto: "Vainilla", cantidad: 4, precio: 25 },
-  ],
+window.VentaState = {
+  recargar: null,
 };
 
-document.addEventListener("click", (e) => {
-  const btnView        = e.target.closest(".view");
-  const btnDelete      = e.target.closest(".delete");
-  const btnNewPurchase = e.target.closest(".btn-new");
+const tbody = document.querySelector("table tbody");
+const buscarInput = document.getElementById("BuscarVenta");
+const spanConteo = document.querySelector(".table-footer span");
+const paginacionDiv = document.querySelector(".pagination");
+const btnNuevo = document.getElementById("btn-new");
+const modalContainer = document.getElementById("modal-container");
 
-  // ================= VER =================
-  if (btnView) {
-    const fila     = btnView.closest("tr");
-    const cliente  = fila.children[0].innerText.trim();
-    const detalles = DetallesVenta[cliente];
+let paginaActual = 1;
+let totalPaginas = 1;
+let totalRegistros = 0;
+let busquedaTimer = 0;
 
-    if (!detalles) {
-      abrirModal("<p>No hay detalles disponibles</p>");
-      return;
+async function CargarModales() {
+  CargarCSS("/src/modules/Ventas/components/sales-add.css");
+  CargarCSS("/src/modules/Ventas/components/sales-detail.css");
+  const rutas = [
+    "/src/modules/Ventas/components/sales-add.html",
+    "/src/modules/Ventas/components/sales-detail-modal.html",
+  ];
+
+  const htmls = await Promise.all(
+    rutas.map((r) => fetch(r).then((res) => res.text())),
+  );
+
+  htmls.forEach((html) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const modal = doc.querySelector(".modal");
+    if (modal) modalContainer.appendChild(modal);
+  });
+
+  await Promise.all([
+    CargarScripts("/src/modules/Ventas/components/sales-add.js"),
+    CargarScripts("/src/modules/Ventas/components/sales-detail.js"),
+  ]);
+}
+
+const CargarScripts = (src) => {
+  return new Promise((resolve) => {
+    const s = document.createElement("script");
+    s.src = src;
+    s.onload = resolve;
+    document.body.appendChild(s);
+  });
+};
+
+const GetVentas = async (page = 1, Name = "") => {
+  try {
+    const params = new URLSearchParams({ PageNumber: page, PageSize: 8 });
+    if (Name) params.append("CustomerName", Name);
+
+    const response = await fetch(`${API_URL}?${params}`);
+    if (!response.ok) {
+      throw new Error("Ocurrió un error al cargar las ventas");
     }
 
-    let html = `<h3>${cliente}</h3>
-      <table style="width:100%; margin-top:10px;">
-        <thead><tr><th>Producto</th><th>Cant.</th><th>P. Unitario</th><th>Total</th></tr></thead>
-        <tbody>`;
+    const json = await response.json();
+    return json.value;
+  } catch (error) {
+    console.error("Error en GetVentas:", error);
+  }
+};
 
-    detalles.forEach((item) => {
-      const total = item.cantidad * item.precio;
-      html += `<tr>
-        <td>${item.producto}</td>
-        <td>${item.cantidad}</td>
-        <td>$${item.precio}</td>
-        <td>$${total}</td>
-      </tr>`;
+const RenderTabla = (items) => {
+  tbody.innerHTML = "";
+  if (!items || items.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#888">Sin resultados</td></tr>`;
+    return;
+  }
+
+  items.forEach((sale) => {
+    const fila = document.createElement("tr");
+    const cliente = document.createElement("td");
+    cliente.textContent = sale.customerName;
+
+    const Fecha = document.createElement("td");
+    Fecha.textContent = new Date(sale.saleDate).toLocaleDateString("es-NI");
+
+    const Total = document.createElement("td");
+    Total.textContent = `$${sale.saleTotal.toFixed(2)}`;
+
+    const Acciones = document.createElement("td");
+    const verDetallesBtn = document.createElement("button");
+    verDetallesBtn.classList.add("view");
+    verDetallesBtn.innerHTML = `
+          <img src="/src/modules/Shared/Assets/img/view.png" />
+          Ver detalle`;
+    verDetallesBtn.dataset.id = sale.saleId;
+    verDetallesBtn.addEventListener("click", async () => {
+      if (typeof window.AbrirDetalles === "function") {
+        await window.AbrirDetalles(sale.saleId);
+      }
     });
 
-    html += `</tbody></table>`;
-    abrirModal(html);
+    const accionesDiv = document.createElement("div");
+    accionesDiv.classList.add("action-cells");
+    accionesDiv.appendChild(verDetallesBtn);
+
+    Acciones.appendChild(accionesDiv);
+    fila.append(cliente, Fecha, Total, Acciones);
+    tbody.appendChild(fila);
+  });
+};
+
+function renderPaginacion() {
+  paginacionDiv.innerHTML = "";
+
+  const prev = document.createElement("button");
+  prev.textContent = "<";
+  prev.disabled = paginaActual === 1;
+  prev.addEventListener("click", () => cargarPagina(paginaActual - 1));
+  paginacionDiv.appendChild(prev);
+
+  for (let i = 1; i <= totalPaginas; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    if (i === paginaActual) btn.classList.add("active");
+    btn.addEventListener("click", () => cargarPagina(i));
+    paginacionDiv.appendChild(btn);
   }
 
-  // ================= GUARDAR VENTA =================
-  if (e.target.id === "btn-savePurchase") {
-    abrirModal(`
-      <div style="text-align:center; padding:20px;">
-        <div style="width:60px;height:60px;margin:0 auto 12px;background:#d4f8d4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:#1b5e20;">✓</div>
-        <h3 style="margin-bottom:8px;">Venta guardada</h3>
-        <p style="color:#666;font-size:14px;">La Venta se guardó correctamente.</p>
-        <button id="close" style="margin-top:15px;padding:8px 16px;border:none;border-radius:8px;background:#0BB2F4;color:white;cursor:pointer;font-weight:600;">Aceptar</button>
-      </div>
-    `, "small");
-    setTimeout(() => {
-      document.getElementById("close")?.addEventListener("click", cerrarModal);
-    }, 50);
+  const next = document.createElement("button");
+  next.textContent = ">";
+  next.disabled = paginaActual === totalPaginas;
+  next.addEventListener("click", () => cargarPagina(paginaActual + 1));
+  paginacionDiv.appendChild(next);
+}
+
+function actualizarConteo(items) {
+  const desde = items.length === 0 ? 0 : (paginaActual - 1) * 8 + 1;
+  const hasta = (paginaActual - 1) * 8 + items.length;
+  spanConteo.textContent = `Mostrando ${desde} a ${hasta} de ${totalRegistros} ventas`;
+}
+
+const cargaPrincipal = async (pagina = 1) => {
+  const nombre = buscarInput.value.trim();
+  try {
+    const data = await GetVentas(pagina, nombre);
+    paginaActual = data.pageIndex;
+    totalPaginas = data.totalPages;
+    totalRegistros = data.totalRegisters;
+
+    RenderTabla(data.items);
+    renderPaginacion();
+    actualizarConteo(data.items);
+  } catch (error) {
+    console.error("Error cargando ventas:", error);
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#e74c3c">Error al cargar ventas</td></tr>`;
   }
+};
 
-  if (e.target.id === "close") cerrarModal();
+const cargarPagina = (pagina) => cargaPrincipal(pagina);
 
-  // ================= ELIMINAR =================
-  if (btnDelete && !btnDelete.matches("#confirm-delete")) {
-    abrirModal(`
-      <div style="text-align:center; padding:15px;">
-        <div style="width:60px;height:60px;margin:0 auto 15px;background:#ffe4e4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;">🗑️</div>
-        <h3 style="margin-bottom:8px;">Eliminar Venta</h3>
-        <p style="color:#666;font-size:14px;margin-bottom:20px;">¿Estás seguro? Esta acción no se puede deshacer.</p>
-        <div style="display:flex; gap:10px; justify-content:center;">
-          <button id="cancel-delete" style="background:#ccc;color:black;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;">Cancelar</button>
-          <button id="confirm-delete" style="background:#dc3545;color:white;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;display:flex;align-items:center;gap:6px;">
-            <img src="/src/modules/Shared/Assets/img/eliminar.png" style="width:12px;height:14px;"> Eliminar
-          </button>
-        </div>
-      </div>
-    `, "small");
-
-    setTimeout(() => {
-      document.getElementById("confirm-delete")?.addEventListener("click", (ev) => {
-        ev.stopPropagation();
-        abrirModal(`
-          <div style="text-align:center; padding:20px;">
-            <div style="width:60px;height:60px;margin:0 auto 12px;background:#d4f8d4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:#1b5e20;">✓</div>
-            <h3 style="margin-bottom:8px;">Venta eliminada</h3>
-            <p style="color:#666;font-size:14px;">La Venta se eliminó correctamente.</p>
-            <button id="close" style="margin-top:15px;padding:8px 16px;border:none;border-radius:8px;background:#0BB2F4;color:white;cursor:pointer;font-weight:600;">Aceptar</button>
-          </div>
-        `, "small");
-        setTimeout(() => {
-          document.getElementById("close")?.addEventListener("click", cerrarModal);
-        }, 50);
-      });
-      document.getElementById("cancel-delete")?.addEventListener("click", cerrarModal);
-    }, 50);
-  }
-
-  // ================= NUEVA VENTA =================
-  if (btnNewPurchase) {
-    const html = `
-      <div class="modal-header">
-        <h2>Nueva Venta</h2>
-      </div>
-      <div class="modal-body">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Fecha</label>
-            <input type="date">
-          </div>
-          <div class="form-group">
-            <label>Cliente</label>
-            <select>
-              <option>Maria Lopez</option>
-              <option>Lucero Lopez</option>
-              <option>Joel Arias</option>
-              <option>Carol Rodriguez</option>
-              <option>Jairo Hernandez</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Producto</label>
-            <select>
-              <option>Vainilla</option>
-              <option>Chocolate</option>
-              <option>Frutos Rojos</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Cantidad</label>
-            <input type="number" placeholder="0">
-          </div>
-          <div class="form-group">
-            <label>Precio Unitario</label>
-            <input type="number" placeholder="$0.00">
-          </div>
-          <div class="form-group add-btn">
-            <button class="btn-add">+ Agregar</button>
-          </div>
-        </div>
-
-        <div class="details-box">
-          <table>
-            <thead>
-              <tr>
-                <th>Producto</th>
-                <th>Cant.</th>
-                <th>P. Unitario</th>
-                <th>Subtotal</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="details-body">
-              <tr>
-                <td>Pastel Vainilla</td>
-                <td>10</td>
-                <td>25$</td>
-                <td>250$</td>
-                <td>
-                  <div style="display:flex; gap:6px; justify-content:center;">
-                    <button class="edit-detail-btn" style="background:#07729C;color:white;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:12px;display:flex;align-items:center;gap:5px;">
-                      <img src="/src/modules/Shared/Assets/img/editar.png" style="width:12px;height:14px;"> Editar
-                    </button>
-                    <button class="delete-detail-btn" style="background:#dc3545;color:white;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:12px;display:flex;align-items:center;gap:5px;">
-                      <img src="/src/modules/Shared/Assets/img/eliminar.png" style="width:12px;height:14px;"> Eliminar
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <div class="total-box">
-          <span>Total:</span>
-          <input type="text" value="$0.00" readonly>
-        </div>
-        <button id="btn-cancel" class="btn-cancel">Cancelar</button>
-        <button id="btn-savePurchase" class="btn-save">Guardar Venta</button>
-      </div>
-    `;
-
-    htmlNuevaVenta = html;
-    abrirModal(htmlNuevaVenta, "large");
-  }
-
-  // ================= ELIMINAR FILA DETALLE =================
-  if (e.target.closest(".delete-detail-btn")) {
-    e.target.closest("tr").remove();
-  }
-
-  // ================= EDITAR FILA DETALLE =================
-  if (e.target.closest(".edit-detail-btn")) {
-    const fila      = e.target.closest("tr");
-    const tbody     = fila.closest("tbody");
-    const filaIndex = Array.from(tbody.rows).indexOf(fila);
-    const celdas    = fila.querySelectorAll("td");
-    const productoActual = celdas[0].innerText.trim();
-    const cantidadActual = celdas[1].innerText.trim();
-
-    abrirModal(`
-      <div class="modal-header">
-        <h2>Editar Detalle</h2>
-      </div>
-      <div class="modal-body">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Producto</label>
-            <select id="edit-producto">
-              <option ${productoActual === "Vainilla" ? "selected" : ""}>Vainilla</option>
-              <option ${productoActual === "Chocolate" ? "selected" : ""}>Chocolate</option>
-              <option ${productoActual === "Frutos Rojos" ? "selected" : ""}>Frutos Rojos</option>
-              <option ${productoActual === "Pastel Vainilla" ? "selected" : ""}>Pastel Vainilla</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Cantidad</label>
-            <input type="number" id="edit-cantidad" value="${cantidadActual}">
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button id="btn-cancelEdit" class="btn-cancel">Cancelar</button>
-        <button id="btn-saveEdit" class="btn-save">Guardar Cambios</button>
-      </div>
-    `, "large");
-
-    setTimeout(() => {
-      document.getElementById("btn-saveEdit")?.addEventListener("click", () => {
-        const nuevoProducto = document.getElementById("edit-producto").value;
-        const nuevaCantidad = document.getElementById("edit-cantidad").value;
-        abrirModal(htmlNuevaVenta, "large");
-        setTimeout(() => {
-          const tbodyNuevo = document.getElementById("details-body");
-          const filaNueva  = tbodyNuevo?.rows[filaIndex];
-          if (filaNueva) {
-            filaNueva.cells[0].innerText = nuevoProducto;
-            filaNueva.cells[1].innerText = nuevaCantidad;
-          }
-        }, 50);
-      });
-      document.getElementById("btn-cancelEdit")?.addEventListener("click", () => {
-        abrirModal(htmlNuevaVenta, "large");
-      });
-    }, 50);
-  }
-
-  // ================= CANCELAR VENTA =================
-  if (e.target.id === "btn-cancel") {
-    abrirModal(`
-      <div style="text-align:center; padding:15px;">
-        <h3 style="margin-bottom:10px;">¿Estás seguro de cancelar?</h3>
-        <div style="display:flex; gap:10px; justify-content:center; margin-top:15px;">
-          <button id="btn-continue" style="background:#0BB2F4;color:white;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;">Seguir editando</button>
-          <button id="confirm-delete" style="background:#dc3545;color:white;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;">Cancelar Venta</button>
-        </div>
-      </div>
-    `, "small");
-    setTimeout(() => {
-      document.getElementById("btn-continue")?.addEventListener("click", (ev) => {
-        ev.stopPropagation();
-        abrirModal(htmlNuevaVenta, "large");
-      });
-      document.getElementById("confirm-delete")?.addEventListener("click", cerrarModal);
-    }, 50);
-  }
-
-  if (e.target.id === "confirm-delete") cerrarModal();
+btnNuevo.addEventListener("click", () => {
+  if (typeof window.AbrirModal === "function") window.AbrirModal();
 });
+
+buscarInput.addEventListener("input", () => {
+  clearTimeout(busquedaTimer);
+  busquedaTimer = setTimeout(() => {
+    paginaActual = 1;
+    cargarPagina(1);
+  }, 400);
+});
+
+function CargarCSS(href) {
+  if (document.querySelector(`link[href="${href}"]`)) return;
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = href;
+  document.head.appendChild(link);
+}
+
+window.VentaState.recargar = () => cargaPrincipal(paginaActual);
+
+(async () => {
+  await CargarModales();
+  await cargaPrincipal(1);
+})();

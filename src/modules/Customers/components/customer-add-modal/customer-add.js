@@ -1,15 +1,15 @@
 {
   const API_BASE = "https://localhost:7249/api/customers";
-  const modal    = document.getElementById("modalAdd");
+  const modal = document.getElementById("modalAdd");
 
-  const addNombre    = document.getElementById("addNombre");
-  const addApellido  = document.getElementById("addApellido");
-  const addTelefono  = document.getElementById("addTelefono");
-  const addCedula    = document.getElementById("addCedula");
+  const addNombre = document.getElementById("addNombre");
+  const addApellido = document.getElementById("addApellido");
+  const addTelefono = document.getElementById("addTelefono");
+  const addCedula = document.getElementById("addCedula");
   const addDireccion = document.getElementById("addDireccion");
-  const addCiudad    = document.getElementById("addCiudad");
-  const btnGuardar   = modal.querySelector(".btn.save");
-  const btnCancelar  = modal.querySelector(".btn.cancel");
+  const addCiudad = document.getElementById("addCiudad");
+  const btnGuardar = modal.querySelector(".btn.save");
+  const btnCancelar = modal.querySelector(".btn.cancel");
 
   window.abrirModalAdd = function () {
     limpiar();
@@ -17,20 +17,28 @@
   };
 
   function cerrar() {
-    modal.style.display = "none";
     limpiar();
+    modal.style.display = "none";
   }
 
   function limpiar() {
-    [addNombre, addApellido, addTelefono, addCedula, addDireccion, addCiudad]
-      .forEach(i => i.value = "");
+    [
+      addNombre,
+      addApellido,
+      addTelefono,
+      addCedula,
+      addDireccion,
+      addCiudad,
+    ].forEach((i) => (i.value = ""));
   }
 
   btnCancelar.addEventListener("click", cerrar);
-  modal.addEventListener("click", (e) => { if (e.target === modal) cerrar(); });
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) cerrar();
+  });
 
   btnGuardar.addEventListener("click", async () => {
-    const nombre   = addNombre.value.trim();
+    const nombre = addNombre.value.trim();
     const apellido = addApellido.value.trim();
 
     if (!nombre || !apellido) {
@@ -39,11 +47,11 @@
     }
 
     const data = {
-      Name   : `${nombre} ${apellido}`,
-      DNI    : addCedula.value.trim(),
+      Name: `${nombre} ${apellido}`,
+      DNI: addCedula.value.trim(),
       Address: addDireccion.value.trim(),
-      City   : addCiudad.value.trim(),
-      Phone  : addTelefono.value.trim(),
+      City: addCiudad.value.trim(),
+      Phone: addTelefono.value.trim(),
     };
 
     try {
