@@ -81,8 +81,7 @@ const RenderDetalles = async (saleId) => {
 
     detailsModal.style.display = "flex";
     document.body.style.overflow = "hidden";
-    const main = document.querySelector(".main");
-    if (main) main.style.pointerEvents = "none";
+    // Corrección: Eliminado el bloqueo de pointerEvents en .main de detalles de ventas
   } catch (error) {
     alert("Ocurrió un error al cargar los detalles de la venta");
   }
@@ -91,8 +90,7 @@ const RenderDetalles = async (saleId) => {
 const CerrarDetalles = () => {
   detailsModal.style.display = "none";
   document.body.style.overflow = "auto";
-  const main = document.querySelector(".main");
-  if (main) main.style.pointerEvents = "auto";
+  // Corrección: Eliminado el desbloqueo innecesario
 };
 
 btnCloseDetail.addEventListener("click", CerrarDetalles);

@@ -1,7 +1,3 @@
-// ═══════════════════════════════════════════════════════════════════════════════
-// MODAL DE DETALLES DE COMPRA - CONSUMO DE API Y RENDERIZADO
-// ═══════════════════════════════════════════════════════════════════════════════
-
 {
   const API_URL_DETAILS = "https://localhost:7249/api/purchases";
 
@@ -83,8 +79,7 @@
       detailsModal.style.display = "flex";
 
       document.body.style.overflow = "hidden";
-      const main = document.querySelector(".main");
-      if (main) main.style.pointerEvents = "none";
+      // Corrección: Eliminado el bloqueo de pointerEvents en .main de detalles
     } catch (error) {
       console.error("Error renderizando detalles:", error);
       alert("Ocurrió un error al cargar los detalles de la compra");
@@ -94,8 +89,7 @@
   const CerrarDetalles = () => {
     detailsModal.style.display = "none";
     document.body.style.overflow = "auto";
-    const main = document.querySelector(".main");
-    if (main) main.style.pointerEvents = "auto";
+    // Corrección: Eliminado el desbloqueo innecesario de detalles
   };
 
   btnCloseDetail.addEventListener("click", CerrarDetalles);
