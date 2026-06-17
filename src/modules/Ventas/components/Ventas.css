@@ -104,7 +104,8 @@ tbody tr:hover {
   background: #f9fbfd;
 }
 
-th, td {
+th,
+td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -121,7 +122,7 @@ td:last-child {
 }
 
 .view {
-  background: #07729C;
+  background: #07729c;
   color: white;
   border: none;
   padding: 6px 12px;
@@ -238,10 +239,12 @@ button img {
   display: none;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  visibility: hidden;
+
   transform: scale(0.95);
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s;
   z-index: 9999;
 }
 
@@ -336,7 +339,7 @@ button img {
 .btn-add {
   margin-top: 23px;
   width: 100%;
-  background: #0BB2F4;
+  background: #0bb2f4;
   color: white;
   border: none;
   padding: 10px;
@@ -419,7 +422,7 @@ button img {
 }
 
 .btn-save {
-  background: #0BB2F4;
+  background: #0bb2f4;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -434,7 +437,7 @@ button img {
 }
 
 .edit-detail-btn {
-  background: #07729C;
+  background: #07729c;
   color: white;
   border: none;
   padding: 6px 12px;
@@ -523,7 +526,45 @@ button img {
     margin-left: 0;
     padding: 10px;
   }
- 
+  .hamburger-btn {
+    display: flex;
+  }
+  #sidebar-container,
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #bbe6fc;
+    overflow-y: auto;
+  }
+  .sidebar.open,
+  #sidebar-container.open {
+    transform: translateX(0);
+  }
+  .sidebar-toggle:checked ~ .sidebar-overlay {
+    display: block;
+  }
+  .sidebar-toggle:checked ~ .container #sidebar-container,
+  .sidebar-toggle:checked ~ .container .sidebar {
+    transform: translateX(0);
+  }
+  .sidebar-toggle:checked ~ .hamburger-btn span {
+    background: transparent;
+  }
+  .sidebar-toggle:checked ~ .hamburger-btn span::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  .sidebar-toggle:checked ~ .hamburger-btn span::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
   .header {
     margin-top: 60px;
     padding-left: 10px;
@@ -534,7 +575,8 @@ button img {
   .header p {
     font-size: 13px;
   }
-  #topbar-container, .top-user {
+  #topbar-container,
+  .top-user {
     justify-content: center;
     width: 100%;
     margin-top: 10px;
@@ -558,7 +600,8 @@ button img {
     flex-direction: column;
     width: 100%;
   }
-  .actions select, .btn-new {
+  .actions select,
+  .btn-new {
     width: 100%;
   }
   .card {
@@ -569,18 +612,21 @@ button img {
     display: block;
     width: 100%;
   }
-  th, td {
+  th,
+  td {
     padding: 10px 8px;
     font-size: 12px;
   }
   .action-cells {
     gap: 6px;
   }
-  .view, .delete {
+  .view,
+  .delete {
     padding: 6px 8px;
     font-size: 12px;
   }
-  .status-pagado, .status-pendiente {
+  .status-pagado,
+  .status-pendiente {
     font-size: 11px;
     padding: 3px 6px;
   }
@@ -619,7 +665,8 @@ button img {
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  .form-group input, .form-group select {
+  .form-group input,
+  .form-group select {
     padding: 10px;
     font-size: 14px;
   }
@@ -631,7 +678,8 @@ button img {
     gap: 10px;
     padding: 12px 0 0;
   }
-  .btn-cancel, .btn-save {
+  .btn-cancel,
+  .btn-save {
     width: 100%;
   }
   .total-box {
@@ -648,11 +696,13 @@ button img {
     overflow-x: auto;
     min-width: 100%;
   }
-  .details-box th, .details-box td {
+  .details-box th,
+  .details-box td {
     padding: 8px;
     font-size: 12px;
   }
-  .edit-detail-btn, .delete-detail-btn {
+  .edit-detail-btn,
+  .delete-detail-btn {
     width: 100%;
     justify-content: center;
     margin-top: 4px;
@@ -667,7 +717,8 @@ button img {
     padding: 10px;
     border-radius: 12px;
   }
-  th, td {
+  th,
+  td {
     padding: 8px 6px;
     font-size: 11px;
   }
@@ -677,7 +728,9 @@ button img {
   .form-group label {
     font-size: 12px;
   }
-  .btn-add, .btn-save, .btn-cancel {
+  .btn-add,
+  .btn-save,
+  .btn-cancel {
     font-size: 14px;
   }
 }

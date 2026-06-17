@@ -1,0 +1,252 @@
+.modalAdd {
+  position: fixed;
+  top: 0;
+  right: 0px;
+  left: 200px;
+  width: calc(100% - 200px);
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  z-index: 10000;
+}
+.modalAdd button {
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.modalAdd button:hover {
+  transform: scale(1.05);
+}
+.modalAdd button :active {
+  transform: scale(0.95);
+}
+
+.modalAdd.active {
+  display: flex;
+}
+
+.header-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 15px;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
+.table-wrapper {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+}
+
+thead {
+  background: #f4f7fb;
+}
+
+th {
+  font-size: 13px;
+  color: #555;
+  font-weight: 600;
+}
+
+tbody tr:hover {
+  background: #f9fbfd;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-top: 1px solid #eee;
+}
+
+.delete {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+  width: auto; /* Evita que ocupe todo el ancho */
+  height: auto;
+}
+.delete img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.delete:hover {
+  transform: scale(1.05);
+}
+
+.delete:active {
+  transform: scale(0.95);
+  filter: saturate(1.5);
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.total-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.total-box input {
+  width: 120px;
+}
+
+.button-group {
+  display: flex;
+  align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+  .header-grid,
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .footer-buttons {
+    flex-direction: column;
+  }
+}
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  flex-shrink: 0;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.save {
+  background: #0bb2f4;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+}
+
+.cancel {
+  background: #ccc;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 92%;
+    padding: 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

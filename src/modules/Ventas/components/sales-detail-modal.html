@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
+<link rel="stylesheet" href="sales-detail.css" />
+
+<div class="modal" id="details-modal">
+  <div class="modal-content modal-details-content">
+    <div class="details-header">
+      <div>
+        <h2>Detalle de Venta</h2>
+        <span class="purchase-id"> Venta #<span id="purchase-id"></span> </span>
+      </div>
+
+      <button class="close-btn" id="btn-close-detail">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <section class="section">
+        <h3>Información General</h3>
+
+        <div class="detail-info-grid">
+          <div class="detail-card">
+            <span class="detail-label"> Fecha </span>
+            <span id="detail-date"> 12/06/2026 </span>
+          </div>
+
+          <div class="detail-card">
+            <span class="detail-label"> Cliente </span>
+            <span id="detail-supplier"> </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Productos</h3>
+
+        <div class="details-box">
+          <table>
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+
+            <tbody id="detail-products"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <div class="modal-actions">
+      <div class="total-display">
+        <span>Total:</span>
+        <strong id="detail-total"> $0.00 </strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="sales-detail.js"></script>

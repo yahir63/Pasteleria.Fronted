@@ -7,9 +7,9 @@ export function init(state) {
   const addTelefono  = document.getElementById("addTelefono");
   const addCedula    = document.getElementById("addCedula");
   const addDireccion = document.getElementById("addDireccion");
-  const addCiudad    = document.getElementById("addCiudad");
-  const btnGuardar   = modal.querySelector(".btn.save");
-  const btnCancelar  = modal.querySelector(".btn.cancel");
+  const addCiudad = document.getElementById("addCiudad");
+  const btnGuardar = modal.querySelector(".btn.save");
+  const btnCancelar = modal.querySelector(".btn.cancel");
 
   function abrir() {
     limpiar();
@@ -17,26 +17,42 @@ export function init(state) {
   }
 
   function cerrar() {
-    modal.style.display = "none";
     limpiar();
+    modal.style.display = "none";
   }
 
   function limpiar() {
-    [addNombre, addApellido, addTelefono, addCedula, addDireccion, addCiudad]
-      .forEach(i => i.value = "");
+    [
+      addNombre,
+      addApellido,
+      addTelefono,
+      addCedula,
+      addDireccion,
+      addCiudad,
+    ].forEach((i) => (i.value = ""));
   }
 
   btnCancelar.addEventListener("click", cerrar);
-  modal.addEventListener("click", (e) => { if (e.target === modal) cerrar(); });
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) cerrar();
+  });
 
   btnGuardar.addEventListener("click", async () => {
-    const nombre   = addNombre.value.trim();
+    const nombre = addNombre.value.trim();
     const apellido = addApellido.value.trim();
 
     if (!nombre || !apellido) {
       alert("Nombre y Apellido son obligatorios.");
       return;
     }
+
+    const data = {
+      Name: `${nombre} ${apellido}`,
+      DNI: addCedula.value.trim(),
+      Address: addDireccion.value.trim(),
+      City: addCiudad.value.trim(),
+      Phone: addTelefono.value.trim(),
+    };
 
     try {
       await create({
