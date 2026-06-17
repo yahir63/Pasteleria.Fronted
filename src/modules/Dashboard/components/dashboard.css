@@ -23,7 +23,6 @@
     font-size: 0.95rem;
 }
 
-/* ================= DASHBOARD TOP ================= */
 .dashboard-top {
     display: flex;
     gap: 20px;
@@ -57,11 +56,8 @@
     border-radius: 20px;
 }
 
-.banner-text img { 
-    display: none; 
-}
+.banner-text img { display: none; }
 
-/* ================= WIDGETS ================= */
 .widgets-panel {
     flex: 1;
     display: flex;
@@ -112,11 +108,7 @@
     border-radius: 20px;
 }
 
-.widget-list {
-    list-style: none;
-    padding: 0; 
-    margin: 0;
-}
+.widget-list { list-style: none; padding: 0; margin: 0; }
 
 .widget-item {
     display: flex;
@@ -126,32 +118,15 @@
     border-bottom: 1px solid #f0f4f8;
 }
 
-.widget-item:last-child { 
-    border-bottom: none; 
-}
+.widget-item:last-child { border-bottom: none; }
 
-.item-dot {
-    width: 8px; 
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
+.item-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .item-dot.dot-blue   { background: #63c6f8; }
 .item-dot.dot-orange { background: #f59e0b; }
 .item-dot.dot-green  { background: #22c55e; }
 
-.item-name { 
-    flex: 1; 
-    font-size: 0.84rem; 
-    color: #445566; 
-}
-
-.item-time { 
-    font-size: 0.8rem; 
-    color: #8899aa; 
-    font-weight: 500; 
-}
+.item-name { flex: 1; font-size: 0.84rem; color: #445566; }
+.item-time { font-size: 0.8rem; color: #8899aa; font-weight: 500; }
 
 .widget-progress {
     flex: 1;
@@ -161,11 +136,7 @@
     gap: 16px;
 }
 
-.progress-row { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 5px; 
-}
+.progress-row { display: flex; flex-direction: column; gap: 5px; }
 
 .progress-label {
     display: flex;
@@ -174,10 +145,7 @@
     color: #667788;
 }
 
-.progress-label strong { 
-    color: #032F44; 
-    font-weight: 700; 
-}
+.progress-label strong { color: #032F44; font-weight: 700; }
 
 .progress-bg {
     height: 7px;
@@ -193,11 +161,8 @@
     transition: width 0.6s ease;
 }
 
-.progress-fill.fill-green {
-    background: linear-gradient(90deg, #63c6f8, #22c55e);
-}
+.progress-fill.fill-green { background: linear-gradient(90deg, #63c6f8, #22c55e); }
 
-/* ================= CARDS ESTADÍSTICAS ================= */
 .cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -233,264 +198,36 @@
     flex-shrink: 0;
 }
 
-.card-icon img {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
-}
+.card-icon img { width: 26px; height: 26px; object-fit: contain; }
+.card-info h3 { font-size: 14px; color: #555; margin-bottom: 4px; font-weight: 500; }
+.card .number { font-size: 28px; font-weight: bold; color: #111; margin: 0; }
 
-.card-info h3 {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 4px;
-    font-weight: 500;
-}
-
-.card .number {
-    font-size: 28px;
-    font-weight: bold;
-    color: #111;
-    margin: 0;
-}
-
-/* ================= CHECKBOX HACK BASE ================= */
-.sidebar-toggle { 
-    display: none; 
-}
-
-.sidebar-overlay {
-    display: none; 
-    position: fixed; 
-    top: 0; 
-    left: 0;
-    width: 100%; 
-    height: 100%; 
-    background: rgba(0,0,0,0.5);
-    z-index: 9998; 
-    cursor: pointer;
-}
-
-.hamburger-btn {
-    display: none; 
-    position: fixed; 
-    top: 15px; 
-    left: 15px;
-    z-index: 10000; 
-    background: #032F44; 
-    color: white;
-    width: 40px; 
-    height: 40px; 
-    border-radius: 10px;
-    cursor: pointer; 
-    align-items: center; 
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.hamburger-btn span {
-    display: block; 
-    width: 20px; 
-    height: 2px; 
-    background: white;
-    position: relative; 
-    transition: 0.3s;
-}
-
-.hamburger-btn span::before, 
-.hamburger-btn span::after {
-    content: ''; 
-    position: absolute; 
-    width: 20px; 
-    height: 2px;
-    background: white; 
-    left: 0; 
-    transition: 0.3s;
-}
-.hamburger-btn span::before { top: -6px; }
-.hamburger-btn span::after { top: 6px; }
-
-/* ================= RESPONSIVE ================= */
-
-/* TABLET (≤ 1024px) */
 @media (max-width: 1024px) {
-    .main {
-        margin-left: 200px;
-        width: calc(100% - 200px);
-        padding: 16px;
-    }
-    
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .banner {
-        min-height: 250px;
-        padding: 40px;
-    }
+    .main { margin-left: 200px; width: calc(100% - 200px); padding: 16px; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .banner { min-height: 250px; padding: 40px; }
 }
 
-/* MÓVIL (≤ 768px) */
 @media (max-width: 768px) {
-    body { 
-        overflow-x: hidden; 
-    }
-    
-    .container { 
-        flex-direction: column; 
-    }
-    
-    .main {
-        width: 100%;
-        margin-left: 0;
-        padding: 15px;
-    }
-    
-    .hamburger-btn { 
-        display: flex; 
-    }
-
-    #sidebar-container, 
-    .sidebar {
-        position: fixed; 
-        left: 0; 
-        top: 0;
-        width: 80%; 
-        max-width: 300px; 
-        height: 100vh;
-        z-index: 9999; 
-        transform: translateX(-100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background: #BBE6FC; 
-        overflow-y: auto;
-    }
-    
-    .sidebar.open, 
-    #sidebar-container.open { 
-        transform: translateX(0); 
-    }
-
-    /* Lógica Checkbox Hack */
-    .sidebar-toggle:checked ~ .sidebar-overlay { 
-        display: block; 
-    }
-    
-    .sidebar-toggle:checked ~ .container #sidebar-container,
-    .sidebar-toggle:checked ~ .container .sidebar { 
-        transform: translateX(0); 
-    }
-    
-    .sidebar-toggle:checked ~ .hamburger-btn span { 
-        background: transparent; 
-    }
-    
-    .sidebar-toggle:checked ~ .hamburger-btn span::before { 
-        transform: rotate(45deg); 
-        top: 0; 
-    }
-    
-    .sidebar-toggle:checked ~ .hamburger-btn span::after { 
-        transform: rotate(-45deg); 
-        top: 0; 
-    }
-
-    /* Header */
-    .header { 
-        margin-top: 60px; 
-        padding-left: 10px; 
-    }
-    
-    .header h1 { 
-        font-size: 1.5rem; 
-    }
-    
-    .header p { 
-        font-size: 0.9rem; 
-    }
-    
-    #topbar-container, 
-    .top-user { 
-        justify-content: center; 
-        width: 100%; 
-        margin-top: 10px; 
-    }
-    
-    .user-card { 
-        transform: scale(0.9); 
-        padding: 6px 10px; 
-    }
-    
-    .user-card img { 
-        width: 40px; 
-        height: 40px; 
-    }
-
-    /* Dashboard Top */
-    .dashboard-top { 
-        flex-direction: column; 
-        gap: 15px; 
-        margin-bottom: 20px; 
-    }
-    
-    .widgets-panel { 
-        flex-direction: column; 
-    }
-    
-    .widget-card { 
-        padding: 15px; 
-    }
-    
-    .banner {
-        min-height: 180px;
-        padding: 30px 20px;
-    }
-
-    /* Cards */
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        margin-bottom: 30px;
-    }
-    
-    .card {
-        padding: 16px;
-        gap: 15px;
-    }
-    
-    .card-icon { 
-        width: 45px; 
-        height: 45px; 
-    }
-    
-    .card-icon img { 
-        width: 22px; 
-        height: 22px; 
-    }
-    
-    .card-info h3 { 
-        font-size: 13px; 
-    }
-    
-    .card .number { 
-        font-size: 24px; 
-    }
+    .main { width: 100%; margin-left: 0; padding: 15px; }
+    .header { margin-top: 60px; padding-left: 10px; }
+    .header h1 { font-size: 1.5rem; }
+    .header p { font-size: 0.9rem; }
+    .dashboard-top { flex-direction: column; gap: 15px; margin-bottom: 20px; }
+    .widgets-panel { flex-direction: column; }
+    .widget-card { padding: 15px; }
+    .banner { min-height: 180px; padding: 30px 20px; }
+    .cards { grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 30px; }
+    .card { padding: 16px; gap: 15px; }
+    .card-icon { width: 45px; height: 45px; }
+    .card-icon img { width: 22px; height: 22px; }
+    .card-info h3 { font-size: 13px; }
+    .card .number { font-size: 24px; }
 }
 
-/* MÓVIL PEQUEÑO (≤ 480px) */
 @media (max-width: 480px) {
-    .cards {
-        grid-template-columns: 1fr; 
-    }
-    
-    .card { 
-        flex-direction: row; 
-    }
-    
-    .header h1 { 
-        font-size: 1.3rem; 
-    }
-    
-    .banner { 
-        min-height: 150px; 
-        padding: 20px; 
-    }
+    .cards { grid-template-columns: 1fr; }
+    .card { flex-direction: row; }
+    .header h1 { font-size: 1.3rem; }
+    .banner { min-height: 150px; padding: 20px; }
 }

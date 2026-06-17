@@ -1,155 +1,37 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Configuracion</title>
-    <link rel="stylesheet" href="Configuracion.css" />
-    <link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
-  </head>
+<link rel="stylesheet" href="/src/modules/Configuracion/components/Configuracion.css" />
 
-  <body class="configuracion">
-    <!-- 1. Checkbox de control (oculto) -->
-    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
+<section class="grid-secundario">
+  <div class="card">
+    <span><img src="/src/modules/Shared/Assets/img/engranaje.png" class="icon-card" alt="" /> Datos del sistema</span>
+    <div class="item"><span>Nombre</span><input type="text" value="Admin Soto" /></div>
+    <div class="item"><span>Administrador</span><input type="text" value="Sasha Ramirez" /></div>
+    <div class="item"><span>Correo</span><input type="email" value="admin@soto.com" /></div>
+    <div class="item"><span>Idioma</span><input type="text" value="Español" /></div>
+    <button class="btn-save">Guardar cambios</button>
+  </div>
 
-    <!-- 2. Botón hamburguesa (label conectado) -->
-    <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
+  <div class="card">
+    <span><img src="/src/modules/Shared/Assets/img/candado.png" class="icon-card" alt="" /> Seguridad</span>
+    <div class="item"><span>Contraseña actual</span><input type="password" /></div>
+    <div class="item"><span>Nueva contraseña</span><input type="password" /></div>
+    <div class="item"><span>Confirmar</span><input type="password" /></div>
+    <button class="btn-save">Actualizar</button>
+  </div>
 
-    <!-- 3. Overlay para cerrar -->
-    <label for="sidebar-toggle" class="sidebar-overlay"></label>
-
-    <div class="container">
-      <!-- SIDEBAR GLOBAL -->
-      <div id="sidebar-container"></div>
-
-      <!-- MAIN -->
-      <main class="main-content">
-        <!-- TOPBAR GLOBAL -->
-        <div id="topbar-container"></div>
-
-        <!-- GRID -->
-        <section class="grid-secundario">
-          <!-- DATOS DEL SISTEMA -->
-          <div class="card">
-            <span>
-              <img
-                src="/src/modules/Shared/Assets/img/engranaje.png"
-                class="icon-card"
-                alt=""
-              />
-              Datos del sistema
-            </span>
-
-            <div class="item">
-              <span>Nombre</span>
-              <input type="text" value="Admin Soto" />
-            </div>
-
-            <div class="item">
-              <span>Administrador</span>
-              <input type="text" value="Sasha Ramirez" />
-            </div>
-
-            <div class="item">
-              <span>Correo</span>
-              <input type="email" value="admin@soto.com" />
-            </div>
-
-            <div class="item">
-              <span>Idioma</span>
-              <input type="text" value="Español" />
-            </div>
-
-            <button class="btn-save">Guardar cambios</button>
-          </div>
-
-          <!-- SEGURIDAD -->
-          <div class="card">
-            <span>
-              <img
-                src="/src/modules/Shared/Assets/img/candado.png"
-                class="icon-card"
-                alt=""
-              />
-              Seguridad
-            </span>
-
-            <div class="item">
-              <span>Contraseña actual</span>
-              <input type="password" />
-            </div>
-
-            <div class="item">
-              <span>Nueva contraseña</span>
-              <input type="password" />
-            </div>
-
-            <div class="item">
-              <span>Confirmar</span>
-              <input type="password" />
-            </div>
-
-            <button class="btn-save">Actualizar</button>
-          </div>
-
-          <!-- APARIENCIA -->
-          <div class="card">
-            <span>
-              <img
-                src="/src/modules/Shared/Assets/img/paleta-de-color.png"
-                class="icon-card"
-                alt=""
-              />
-              Apariencia
-            </span>
-
-            <div class="item">
-              <span>Modo oscuro</span>
-
-              <button
-                class="btn-save"
-                onclick="document.body.classList.toggle('dark-mode')"
-              >
-                <img
-                  src="/src/modules/Shared/Assets/img/luna.png"
-                  class="icon-card"
-                  alt=""
-                />
-                Modo Oscuro
-              </button>
-            </div>
-
-            <div class="item">
-              <span>Tamaño letra</span>
-              <input type="text" value="Mediano" />
-            </div>
-          </div>
-
-          <!-- SISTEMA -->
-          <div class="card">
-            <span>
-              <img
-                src="/src/modules/Shared/Assets/img/inmune.png"
-                class="icon-card"
-                alt=""
-              />
-              Sistema
-            </span>
-
-            <div class="item">
-              <span>Notificaciones</span>
-              <input type="text" value="Activadas" />
-            </div>
-
-            <div class="item">
-              <span>Estado</span>
-              <input type="text" value="Activo" />
-            </div>
-          </div>
-        </section>
-      </main>
+  <div class="card">
+    <span><img src="/src/modules/Shared/Assets/img/paleta-de-color.png" class="icon-card" alt="" /> Apariencia</span>
+    <div class="item">
+      <span>Modo oscuro</span>
+      <button class="btn-save" onclick="document.body.classList.toggle('dark-mode')">
+        <img src="/src/modules/Shared/Assets/img/luna.png" class="icon-card" alt="" /> Modo Oscuro
+      </button>
     </div>
-    <!-- JS -->
-    <script src="/src/modules/Shared/components/components.js"></script>
-  </body>
-</html>
+    <div class="item"><span>Tamaño letra</span><input type="text" value="Mediano" /></div>
+  </div>
+
+  <div class="card">
+    <span><img src="/src/modules/Shared/Assets/img/inmune.png" class="icon-card" alt="" /> Sistema</span>
+    <div class="item"><span>Notificaciones</span><input type="text" value="Activadas" /></div>
+    <div class="item"><span>Estado</span><input type="text" value="Activo" /></div>
+  </div>
+</section>

@@ -1,88 +1,43 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorias</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="Categoria.css">
-    <link rel="stylesheet" href="/src/modules/Shared/Components/global.css">
-    <link rel="stylesheet" href="/src/modules/Categories/components/categoria-add-modal/categoria-add.css">
-    <link rel="stylesheet" href="/src/modules/Categories/components/categoria-edit-modal/categoria-edit.css">
-    <link rel="stylesheet" href="/src/modules/Categories/components/categoria-delete-modal/categoria-delete.css">
-</head>
-<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="/src/modules/Categories/pages/Categoria.css">
+<link rel="stylesheet" href="/src/modules/Categories/components/categoria-add-modal/categoria-add.css">
+<link rel="stylesheet" href="/src/modules/Categories/components/categoria-edit-modal/categoria-edit.css">
+<link rel="stylesheet" href="/src/modules/Categories/components/categoria-delete-modal/categoria-delete.css">
 
-  <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
-  <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
-  <label for="sidebar-toggle" class="sidebar-overlay"></label>
+<div class="header">
+  <h1>Gestión de Categorías</h1>
+  <p>Consulta y administra las categorías disponibles.</p>
+</div>
 
-  <div class="container">
-
-    <div id="sidebar-container"></div>
-
-    <main class="main">
-
-      <div id="topbar-container"></div>
-
-      <div class="header">
-        <h1>Gestión de Categorías</h1>
-        <p>Consulta y administra las categorías disponibles.</p>
+<div class="card">
+  <div class="top-bar">
+    <input type="text" placeholder="Buscar categoría...">
+    <div class="actions">
+      <div class="total-categorias">
+        <img src="/src/modules/Shared/Assets/img/categoria.png" alt="icono">
+        <span>Total de categorías</span>
+        <strong>0</strong>
       </div>
-
-      <div class="card">
-
-        <div class="top-bar">
-          <input type="text" placeholder="Buscar categoría...">
-
-          <div class="actions">
-            <div class="total-categorias">
-              <img src="/src/modules/Shared/Assets/img/categoria.png" alt="icono">
-              <span>Total de categorías</span>
-              <strong>0</strong>
-            </div>
-
-            <button type="button" class="btn-new">
-              <span class="icon">+</span>
-              Nueva Categoría
-            </button>
-          </div>
-        </div>
-
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Icono</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-
-        <div class="table-footer">
-          <span>Mostrando 0 a 0 de 0 categorías</span>
-          <div class="pagination">
-            <button>&lt;</button>
-            <button class="active">1</button>
-            <button>&gt;</button>
-          </div>
-        </div>
-
-      </div>
-
-    </main>
-
+      <button type="button" class="btn-new">
+        <span class="icon">+</span> Nueva Categoría
+      </button>
+    </div>
   </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Icono</th><th>Nombre</th><th>Descripción</th><th>Estado</th><th>Acciones</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="table-footer">
+    <span>Mostrando 0 a 0 de 0 categorías</span>
+    <div class="pagination">
+      <button>&lt;</button><button class="active">1</button><button>&gt;</button>
+    </div>
+  </div>
+</div>
 
-  <div id="modal-container"></div>
-
-  <script src="/src/modules/Shared/components/components.js"></script>
-  <script type="module" src="/src/modules/Categories/pages/Categoria.js"></script>
-
-</body>
-</html>
+<div id="modal-container"></div>
+<script type="module" src="/src/modules/Categories/pages/Categoria.js"></script>

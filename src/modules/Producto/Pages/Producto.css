@@ -47,7 +47,6 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    text-decoration: none;
 }
 
 .btn-new .icon {
@@ -76,8 +75,7 @@ thead {
     background: #f0f4f8;
 }
 
-th,
-td {
+th, td {
     padding: 12px;
     text-align: left;
     white-space: nowrap;
@@ -94,13 +92,11 @@ tbody tr:hover {
     background: #f9fcff;
 }
 
-.edit,
-.delete {
+.edit, .delete {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    text-decoration: none;
     border: none;
     padding: 8px 14px;
     border-radius: 6px;
@@ -111,30 +107,17 @@ tbody tr:hover {
     color: white;
 }
 
-.edit {
-    background: #07729C;
-}
+.edit { background: #07729C; }
+.delete { background: #dc3545; }
 
-.delete {
-    background: #dc3545;
-}
-
-.edit img,
-.delete img {
+.edit img, .delete img {
     width: 18px;
     height: 18px;
 }
 
-.edit:hover,
-.delete:hover {
-    transform: scale(1.05);
-    background: #0aadff;
-}
-
-.edit:active,
-.delete:active {
-    transform: scale(0.95);
-}
+.edit:hover { background: #0aadff; transform: scale(1.05); }
+.delete:hover { transform: scale(1.05); }
+.edit:active, .delete:active { transform: scale(0.95); }
 
 .table-actions {
     display: flex;
@@ -153,6 +136,7 @@ tbody tr:hover {
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .pagination .active {
@@ -160,284 +144,12 @@ tbody tr:hover {
     color: white;
 }
 
-.sidebar-toggle {
-    display: none;
-}
-
-.sidebar-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 9998;
-    cursor: pointer;
-}
-
-.hamburger-btn {
-    display: none;
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    z-index: 10000;
-    background: #032F44;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.hamburger-btn span {
-    display: block;
-    width: 20px;
-    height: 2px;
-    background: white;
-    position: relative;
-    transition: 0.3s;
-}
-
-.hamburger-btn span::before,
-.hamburger-btn span::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    background: white;
-    left: 0;
-    transition: 0.3s;
-}
-
-.hamburger-btn span::before {
-    top: -6px;
-}
-
-.hamburger-btn span::after {
-    top: 6px;
-}
-
-@media (max-width: 1024px) {
-
-    .main {
-        padding: 16px 20px;
-    }
-
-    .top-bar {
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-    .top-bar input {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .actions {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .actions select,
-    .btn-new {
-        flex: 1;
-        min-width: 140px;
-        justify-content: center;
-    }
-
-    .edit,
-    .delete {
-        padding: 8px 12px;
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    body {
-        overflow-x: hidden;
-    }
-
-    .container {
-        flex-direction: column;
-    }
-
-    .container .main {
-        width: 100%;
-        padding: 10px;
-        margin-left: 0;
-    }
-
-    .hamburger-btn {
-        display: flex;
-    }
-
-    .container #sidebar-container,
-    .container .sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        z-index: 9999;
-        transform: translateX(-100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background: #BBE6FC;
-        overflow-y: auto;
-    }
-
-    .container .sidebar.open,
-    .container #sidebar-container.open {
-        transform: translateX(0);
-    }
-
-    .sidebar-toggle:checked~.sidebar-overlay {
-        display: block;
-    }
-
-    .sidebar-toggle:checked~.container #sidebar-container,
-    .sidebar-toggle:checked~.container .sidebar {
-        transform: translateX(0);
-    }
-
-    .sidebar-toggle:checked~.hamburger-btn span {
-        background: transparent;
-    }
-
-    .sidebar-toggle:checked~.hamburger-btn span::before {
-        transform: rotate(45deg);
-        top: 0;
-    }
-
-    .sidebar-toggle:checked~.hamburger-btn span::after {
-        transform: rotate(-45deg);
-        top: 0;
-    }
-
-    .main .header {
-        margin-top: 60px;
-        padding-left: 10px;
-    }
-
-    .main .header h1 {
-        font-size: 20px;
-    }
-
-    .main .header p {
-        font-size: 13px;
-    }
-
-    .main #topbar-container,
-    .main .top-user {
-        justify-content: center;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .main .user-card {
-        transform: scale(0.9);
-        padding: 6px 10px;
-    }
-
-    .main .card .top-bar {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .main .card .top-bar input {
-        width: 100%;
-    }
-
-    .main .card .actions {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .main .card .actions select,
-    .main .card .btn-new {
-        width: 100%;
-    }
-
-    .main .card {
-        padding: 15px;
-        border-radius: 16px;
-    }
-
-    .main .card .table-wrapper table {
-        min-width: 650px;
-        width: 100%;
-    }
-
-    .main .card .table-wrapper th,
-    .main .card .table-wrapper td {
-        padding: 10px 8px;
-        font-size: 12px;
-        white-space: nowrap;
-    }
-
-    .main .card .table-wrapper .table-actions {
-        flex-direction: row;
-        gap: 6px;
-    }
-
-    .main .card .table-wrapper .edit,
-    .main .card .table-wrapper .delete {
-        width: auto;
-        flex: 1;
-        justify-content: center;
-        padding: 8px;
-        font-size: 11px;
-    }
-
-    .main .card .table-wrapper .edit img,
-    .main .card .table-wrapper .delete img {
-        width: 14px;
-        height: 14px;
-    }
-
-    .main .card .table-footer {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-        margin-top: 12px;
-    }
-
-    .main .card .pagination {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .main .header h1 {
-        font-size: 18px;
-    }
-
-    .main .card {
-        padding: 10px;
-    }
-
-    .main .card .table-wrapper th,
-    .main .card .table-wrapper td {
-        padding: 8px 6px;
-        font-size: 11px;
-    }
-}
-
-
 .estado-badge {
     display: inline-block;
     padding: 4px 10px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.3px;
 }
 
 .estado-activo {
@@ -448,4 +160,31 @@ tbody tr:hover {
 .estado-inactivo {
     background: #fadadd;
     color: #b03040;
+}
+
+@media (max-width: 1024px) {
+    .top-bar { flex-wrap: wrap; gap: 12px; }
+    .top-bar input { width: 100%; max-width: 400px; }
+    .actions { flex-wrap: wrap; gap: 10px; }
+    .actions select, .btn-new { flex: 1; min-width: 140px; justify-content: center; }
+}
+
+@media (max-width: 768px) {
+    .header { margin-top: 60px; padding-left: 10px; }
+    .header h1 { font-size: 20px; }
+    .header p { font-size: 13px; }
+    .top-bar { flex-direction: column; gap: 10px; }
+    .top-bar input { width: 100%; }
+    .actions { flex-direction: column; width: 100%; }
+    .actions select, .btn-new { width: 100%; }
+    .card { padding: 15px; }
+    .table-footer { flex-direction: column; gap: 10px; text-align: center; }
+    .table-wrapper { overflow-x: auto; max-width: 100%; }
+    table { min-width: 600px; }
+}
+
+@media (max-width: 480px) {
+    .header h1 { font-size: 18px; }
+    .card { padding: 10px; }
+    th, td { padding: 8px 6px; font-size: 11px; }
 }
