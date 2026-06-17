@@ -16,8 +16,7 @@ async function loadComponents() {
   const overlay   = document.querySelector(".sidebar-overlay");
   
 hamburger.addEventListener("click", () => {
-  console.log("overlay encontrado:", overlay);
-  console.log("overlay classList:", overlay?.classList);
+
   hamburger.classList.toggle("active");
   sidebarEl.classList.toggle("open");
   if (overlay) overlay.classList.toggle("active");

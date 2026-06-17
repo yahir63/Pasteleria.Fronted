@@ -1,61 +1,42 @@
+<link rel="stylesheet" href="/src/modules/Compras/components/estilos.css">
+<link rel="stylesheet" href="/src/modules/Shared/components/global.css">
 
-    <link rel="stylesheet" href="estilos.css" />
-    <link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
-  
-    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
-    <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
-    <label for="sidebar-toggle" class="sidebar-overlay"></label>
+<div class="header">
+  <h1>Gestión de Compras</h1>
+  <p>Consulta y administra las compras realizadas.</p>
+</div>
 
-    <div class="container">
-      <div id="sidebar-container"></div>
+<div class="card">
 
-      <main class="main">
-        <div id="topbar-container"></div>
+  <div class="actions">
+    <input id="BuscarProv" class="buscar" type="text" placeholder="Buscar por Proveedor">
+    <button id="btn-new" class="btn-new">+ Nueva Compra</button>
+  </div>
 
-        <div class="header">
-          <h1>Gestión de Compras</h1>
-          <p>Consulta y administra las compras realizadas.</p>
-        </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Proveedor</th>
+          <th>Fecha</th>
+          <th>Total</th>
+          <th>ver Detalles</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
 
-        
-          <div class="card">
-           
-            <div class="actions">
-             <input id="BuscarProv" class="buscar" type="text" placeholder="Buscar por Proveedor">
-              <button id="btn-new" class="btn-new">+ Nueva Compra</button>
-            </div>
-          </div>
-
-          <div class="table-wrapper">
-            <table>
-              <thead>
-                <tr>
-                  <th>Proveedor</th>
-                  <th>Fecha</th>
-                  <th>Total</th>
-                  <th>ver Detalles</th>
-                </tr>
-              </thead>
-
-              <tbody></tbody>
-            </table>
-          </div>
-
-          <div class="table-footer">
-            <span>Mostrando 1 a 4 de 20 compras</span>
-
-            <div class="pagination">
-              <button>&lt;</button>
-              
-              <button>&gt;</button>
-            </div>
-          </div>
-        </div>
-      </main>
+  <div class="table-footer">
+    <span>Mostrando 0 a 0 de 0 compras</span>
+    <div class="pagination">
+      <button>&lt;</button>
+      <button>&gt;</button>
     </div>
+  </div>
 
-    <div id="modal-container" class="modal-container"></div>
+</div>
 
-    <script src="/src/modules/Shared/components/components.js"></script>
-    <script src="/src/modules/Compras/services/compras.js"></script>
-  
+<div id="modal-container"></div>
+
+<script type="module" src="/src/modules/Compras/services/compras.js"></script>

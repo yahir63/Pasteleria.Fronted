@@ -1,55 +1,39 @@
 <link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
 <link rel="stylesheet" href="/src/modules/Ventas/components/Ventas.css" />
 
-<input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
-<label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
-<label for="sidebar-toggle" class="sidebar-overlay"></label>
+<div class="header">
+  <h1>Gestión de Ventas</h1>
+  <p>Consulta y administra las ventas realizadas.</p>
+</div>
 
-<div class="container">
-  <div id="sidebar-container"></div>
-
-  <main class="main">
-    <div id="topbar-container"></div>
-
-    <div class="header">
-      <h1>Gestión de Ventas</h1>
-      <p>Consulta y administra las ventas realizadas.</p>
+<div class="card">
+  <div class="top-bar">
+    <input id="BuscarVenta" type="text" placeholder="Buscar venta..." />
+    <div class="actions">
+      <button id="btn-new" class="btn-new">+ Nueva Venta</button>
     </div>
+  </div>
 
-    <div class="card">
-      <div class="top-bar">
-        <input id="BuscarVenta" type="text" placeholder="Buscar venta..." />
-        <div class="actions">
-          <button id="btn-new" class="btn-new">+ Nueva Venta</button>
-        </div>
-      </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Fecha</th>
+          <th>Total</th>
+          <th>ver detalles</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
 
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Cliente</th>
-              <th>Fecha</th>
-              <th>Total</th>
-              <th>ver detalles</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-
-      <div class="table-footer">
-        <span>Mostrando 1 a 6 de 20 ventas</span>
-        <div class="pagination"></div>
-      </div>
-    </div>
-  </main>
+  <div class="table-footer">
+    <span>Mostrando 0 a 0 de 0 ventas</span>
+    <div class="pagination"></div>
+  </div>
 </div>
 
 <div id="modal-container" class="modal-container"></div>
 
-<script
-  type="module"
-  src="/src/modules/Shared/components/components.js"
-></script>
 <script type="module" src="/src/modules/Ventas/services/venta.js"></script>
