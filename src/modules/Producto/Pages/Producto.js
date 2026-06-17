@@ -5,20 +5,16 @@ export const state = {
   recargar: null,
 };
 
-const tbody         = document.querySelector("table tbody");
-const inputBuscar   = document.querySelector(".top-bar input[type='text']");
-const spanConteo    = document.querySelector(".table-footer span");
-const paginacionDiv = document.querySelector(".pagination");
-const btnNuevo      = document.getElementById("btnNuevoProducto");
-const modalContainer = document.getElementById("modal-container");
-const filtroEstado  = document.getElementById("filtroEstado");
-
+let tbody, inputBuscar, spanConteo, paginacionDiv, btnNuevo, modalContainer, filtroEstado;
 let paginaActual   = 1;
 let totalPaginas   = 1;
 let totalRegistros = 0;
 let busquedaTimer  = null;
 
 async function cargarModales() {
+
+  if (modalContainer.querySelector(".modal")) return;
+
   const rutas = [
     "/src/modules/Producto/components/product-add-modal/producto-add.html",
     "/src/modules/Producto/components/producto-edit-modal/producto-edit.html",
@@ -35,9 +31,9 @@ async function cargarModales() {
   });
 
   const [{ init: initAdd }, { init: initEdit }, { init: initDelete }] = await Promise.all([
-    import("/src/modules/Producto/components/product-add-modal/producto-add.js"),
-    import("/src/modules/Producto/components/producto-edit-modal/producto-edit.js"),
-    import("/src/modules/Producto/components/product-delete-modal/producto-delete.js"),
+    import("/src/modules/Producto/components/product-add-modal/producto-add.js?t=" + Date.now()),
+    import("/src/modules/Producto/components/producto-edit-modal/producto-edit.js?t=" + Date.now()),
+    import("/src/modules/Producto/components/product-delete-modal/producto-delete.js?t=" + Date.now()),
   ]);
 
   initAdd(state);
@@ -150,18 +146,44 @@ function bindAcciones() {
   });
 }
 
-btnNuevo.addEventListener("click", () => state.abrirModalAdd?.());
+// ─── Init — espera a que el DOM del módulo esté listo ────────────────────────
+// ─── Init ────────────────────────────────────────────────────────────────────
+function init() {
+  tbody          = document.querySelector("table tbody");
+  inputBuscar    = document.querySelector(".top-bar input[type='text']");
+  spanConteo     = document.querySelector(".table-footer span");
+  paginacionDiv  = document.querySelector(".pagination");
+  btnNuevo       = document.getElementById("btnNuevoProducto");
+  modalContainer = document.getElementById("modal-container");
+  filtroEstado   = document.getElementById("filtroEstado");
 
-filtroEstado.addEventListener("change", () => { paginaActual = 1; cargarPagina(1); });
+  if (!tbody || !btnNuevo) {
+    setTimeout(init, 50);
+    return;
+  }
 
-inputBuscar.addEventListener("input", () => {
-  clearTimeout(busquedaTimer);
-  busquedaTimer = setTimeout(() => { paginaActual = 1; cargarPagina(1); }, 400);
-});
+  btnNuevo.addEventListener("click", () => state.abrirModalAdd?.());
 
-state.recargar = () => cargarPagina(paginaActual);
+  // ── Esperar a que la carga inicial termine antes de escuchar cambios ──
+  let iniciado = false;
+  filtroEstado.addEventListener("change", () => {
+    if (!iniciado) return;
+    paginaActual = 1;
+    cargarPagina(1);
+  });
 
-(async () => {
-  await cargarModales();
-  await cargarPagina(1);
-})();
+  inputBuscar.addEventListener("input", () => {
+    clearTimeout(busquedaTimer);
+    busquedaTimer = setTimeout(() => { paginaActual = 1; cargarPagina(1); }, 400);
+  });
+
+  state.recargar = () => cargarPagina(paginaActual);
+
+  cargarModales().then(() => {
+    cargarPagina(1).then(() => {
+      iniciado = true; 
+    });
+  });
+}
+
+init();

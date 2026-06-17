@@ -1,181 +1,65 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Ventas</title>
-    <link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
-    <link rel="stylesheet" href="/src/modules/Ventas/components/Ventas.css" />
-  </head>
-  <body>
-    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
-    <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
-    <label for="sidebar-toggle" class="sidebar-overlay"></label>
+<link rel="stylesheet" href="/src/modules/Ventas/components/Ventas.css" />
 
-    <div class="container">
-      <div id="sidebar-container"></div>
+<div id="modal" class="modal">
+  <div id="modal-content" class="modal-content">
+    <span id="close-modal">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
 
-      <main class="main">
-        <div id="topbar-container"></div>
+<div class="header">
+  <h1>Gestión de Ventas</h1>
+  <p>Consulta y administra las ventas realizadas.</p>
+</div>
 
-        <div class="header">
-          <h1>Gestión de Ventas</h1>
-          <p>Consulta y administra las ventas realizadas.</p>
-        </div>
-
-        <div class="card">
-          <div class="top-bar">
-            <input type="text" placeholder="Buscar venta..." />
-            <div class="actions">
-              <select>
-                <option>Todas las Ventas</option>
-                <option>Pagadas</option>
-                <option>Pendientes</option>
-              </select>
-              <button class="btn-new">+ Nueva Venta</button>
-            </div>
-          </div>
-
-          <div class="table-wrapper">
-            <table>
-              <thead>
-                <tr>
-                  <th>Cliente</th>
-                  <th>Fecha</th>
-                  <th>Total</th>
-                  <th>Estado</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Maria Lopez</td>
-                  <td>27 Abr 2026</td>
-                  <td>$120.00</td>
-                  <td><span class="status-pagado">Pagado</span></td>
-                  <td>
-                    <div class="action-cells">
-                      <button class="view">
-                        <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
-                      </button>
-                      <button class="delete">
-                        <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                        Eliminar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Lucero Lopez</td>
-                  <td>26 Abr 2026</td>
-                  <td>$85.50</td>
-                  <td><span class="status-pendiente">Pendiente</span></td>
-                  <td>
-                    <div class="action-cells">
-                      <button class="view">
-                        <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
-                      </button>
-                      <button class="delete">
-                        <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                        Eliminar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Joel Arias</td>
-                  <td>25 Abr 2026</td>
-                  <td>$200.00</td>
-                  <td><span class="status-pagado">Pagado</span></td>
-                  <td>
-                    <div class="action-cells">
-                      <button class="view">
-                        <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
-                      </button>
-                      <button class="delete">
-                        <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                        Eliminar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Jairo Hernandez</td>
-                  <td>26 Abr 2026</td>
-                  <td>$85.50</td>
-                  <td><span class="status-pendiente">Pendiente</span></td>
-                  <td>
-                    <div class="action-cells">
-                      <button class="view">
-                        <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
-                      </button>
-                      <button class="delete">
-                        <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                        Eliminar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Maria Chavez</td>
-                  <td>25 Abr 2026</td>
-                  <td>$200.00</td>
-                  <td><span class="status-pagado">Pagado</span></td>
-                  <td>
-                    <div class="action-cells">
-                      <button class="view">
-                        <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
-                      </button>
-                      <button class="delete">
-                        <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                        Eliminar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Carol Rodriguez</td>
-                  <td>24 Abr 2026</td>
-                  <td>$310.75</td>
-                  <td><span class="status-pendiente">Pendiente</span></td>
-                  <td>
-                    <div class="action-cells">
-                      <button class="view">
-                        <img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle
-                      </button>
-                      <button class="delete">
-                        <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-                        Eliminar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="table-footer">
-            <span>Mostrando 1 a 6 de 20 ventas</span>
-            <div class="pagination">
-              <button>&lt;</button>
-              <button class="active">1</button>
-              <button>2</button>
-              <button>3</button>
-              <button>&gt;</button>
-            </div>
-          </div>
-        </div>
-      </main>
+<div class="card">
+  <div class="top-bar">
+    <input type="text" placeholder="Buscar venta..." />
+    <div class="actions">
+      <select><option>Todas las Ventas</option><option>Pagadas</option><option>Pendientes</option></select>
+      <button class="btn-new">+ Nueva Venta</button>
     </div>
-
-    <div id="modal" class="modal">
-      <div id="modal-content" class="modal-content">
-        <span id="close-modal">&times;</span>
-        <div id="modal-body"></div>
-      </div>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Cliente</th><th>Fecha</th><th>Total</th><th>Estado</th><th>Acciones</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Maria Lopez</td><td>27 Abr 2026</td><td>$120.00</td><td><span class="status-pagado">Pagado</span></td>
+          <td><div class="action-cells"><button class="view"><img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle</button><button class="delete"><img src="/src/modules/Shared/Assets/img/eliminar.png" /> Eliminar</button></div></td>
+        </tr>
+        <tr>
+          <td>Lucero Lopez</td><td>26 Abr 2026</td><td>$85.50</td><td><span class="status-pendiente">Pendiente</span></td>
+          <td><div class="action-cells"><button class="view"><img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle</button><button class="delete"><img src="/src/modules/Shared/Assets/img/eliminar.png" /> Eliminar</button></div></td>
+        </tr>
+        <tr>
+          <td>Joel Arias</td><td>25 Abr 2026</td><td>$200.00</td><td><span class="status-pagado">Pagado</span></td>
+          <td><div class="action-cells"><button class="view"><img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle</button><button class="delete"><img src="/src/modules/Shared/Assets/img/eliminar.png" /> Eliminar</button></div></td>
+        </tr>
+        <tr>
+          <td>Jairo Hernandez</td><td>26 Abr 2026</td><td>$85.50</td><td><span class="status-pendiente">Pendiente</span></td>
+          <td><div class="action-cells"><button class="view"><img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle</button><button class="delete"><img src="/src/modules/Shared/Assets/img/eliminar.png" /> Eliminar</button></div></td>
+        </tr>
+        <tr>
+          <td>Maria Chavez</td><td>25 Abr 2026</td><td>$200.00</td><td><span class="status-pagado">Pagado</span></td>
+          <td><div class="action-cells"><button class="view"><img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle</button><button class="delete"><img src="/src/modules/Shared/Assets/img/eliminar.png" /> Eliminar</button></div></td>
+        </tr>
+        <tr>
+          <td>Carol Rodriguez</td><td>24 Abr 2026</td><td>$310.75</td><td><span class="status-pendiente">Pendiente</span></td>
+          <td><div class="action-cells"><button class="view"><img src="/src/modules/Shared/Assets/img/view.png" /> Ver detalle</button><button class="delete"><img src="/src/modules/Shared/Assets/img/eliminar.png" /> Eliminar</button></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-footer">
+    <span>Mostrando 1 a 6 de 20 ventas</span>
+    <div class="pagination">
+      <button>&lt;</button><button class="active">1</button>
+      <button>2</button><button>3</button><button>&gt;</button>
     </div>
+  </div>
+</div>
 
-    <script type="module" src="/src/modules/Shared/components/components.js"></script>
-    <script type="module" src="/src/modules/Ventas/services/venta.js"></script>
-  </body>
-</html>
+<script type="module" src="/src/modules/Ventas/services/venta.js"></script>

@@ -8,21 +8,24 @@
 </head>
 <body>
 
-    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
-    <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
-    <label for="sidebar-toggle" class="sidebar-overlay"></label>
+  <button class="hamburger-btn"><span></span></button>
+ 
 
-    <div class="container">
-        <div id="sidebar-container"></div>
+  <div class="container">
+    <div id="sidebar-container"></div>
 
-        <main class="main">
-            <div id="topbar-container"></div>
-            <div id="app-container"></div>
-        </main>
-    </div>
+     <div class="sidebar-overlay"></div>
 
-    <script src="/src/modules/Shared/components/components.js"></script>
-    <script type="module" src="/app/app.js"></script>
+    <main class="main">
+      <div id="topbar-container"></div>
+      <div id="app-container"></div>
+    </main>
+  </div>
+
+  <div id="modal-container"></div>
+
+  <script src="/src/modules/Shared/components/components.js"></script>
+  <script type="module" src="/app/app.js"></script>
 
 </body>
 </html>

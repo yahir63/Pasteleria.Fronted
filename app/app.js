@@ -1,9 +1,9 @@
 import { routes, DEFAULT_ROUTE } from "./app.routers.js";
 
-// ─── Protección de ruta: si no hay sesión, ir al login ────────────────────────
+// ─── Protección de ruta ───────────────────────────────────────────────────────
 const token = localStorage.getItem("token");
 if (!token) {
- window.location.href = "/src/modules/Login/components/Pages/login.html";
+  window.location.href = "/src/modules/Login/components/Pages/login.html";
 }
 
 const appContainer = document.getElementById("app-container");
@@ -12,6 +12,13 @@ const appContainer = document.getElementById("app-container");
 async function navigate(hash) {
   const path    = hash.replace("#", "") || DEFAULT_ROUTE;
   const htmlUrl = routes[path];
+
+  // Limpiar CSS de módulos anteriores
+  document.querySelectorAll("link[data-module-css]").forEach(l => l.remove());
+
+  // Limpiar modal-container
+  const modalContainer = document.getElementById("modal-container");
+  if (modalContainer) modalContainer.innerHTML = "";
 
   if (!htmlUrl) {
     appContainer.innerHTML = `
@@ -31,25 +38,32 @@ async function navigate(hash) {
 
     appContainer.innerHTML = doc.body.innerHTML;
 
+    // Cargar CSS del módulo con marca para poder eliminarlos luego
     doc.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
       const href = link.getAttribute("href");
-      if (href && !document.querySelector(`link[href="${href}"]`)) {
+      if (href && !href.includes("global.css")) {
         const newLink = document.createElement("link");
         newLink.rel  = "stylesheet";
         newLink.href = href;
+        newLink.dataset.moduleCss = path;
         document.head.appendChild(newLink);
       }
     });
 
-    const scriptSrc = doc.querySelector("script[type='module']")?.getAttribute("src");
-    if (scriptSrc) {
-      document.querySelectorAll("script[data-module]").forEach(s => s.remove());
-      const script = document.createElement("script");
-      script.type           = "module";
-      script.src            = scriptSrc + "?t=" + Date.now();
-      script.dataset.module = path;
-      document.body.appendChild(script);
-    }
+    // Cargar script del módulo
+const scriptSrc = doc.querySelector("script[type='module']")?.getAttribute("src");
+if (scriptSrc) {
+  document.querySelectorAll("script[data-module]").forEach(s => s.remove());
+
+
+  await new Promise(resolve => setTimeout(resolve, 100));
+
+  const script = document.createElement("script");
+  script.type           = "module";
+  script.src            = scriptSrc + "?t=" + Date.now();
+  script.dataset.module = path;
+  document.body.appendChild(script);
+}
 
     actualizarSidebarActivo(path);
 
