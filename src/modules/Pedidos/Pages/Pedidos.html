@@ -1,0 +1,79 @@
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Pasteleria Soto</title>
+<link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
+<link rel="stylesheet" href="/src/modules/Pedidos/components/pedido-add-modal/pedido-add.css" />
+<link rel="stylesheet" href="/src/modules/Pedidos/components/pedido-edit-modal/pedido-edit.css" />
+<link rel="stylesheet" href="/src/modules/Pedidos/components/pedido-delete-modal/pedido-delete.css" />
+<link rel="stylesheet" href="/src/modules/Pedidos/Pages/Pedidos.css" />
+  
+  <body>
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
+    <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
+    <label for="sidebar-toggle" class="sidebar-overlay"></label>
+
+    <div class="container">
+      <div id="sidebar-container"></div>
+ 
+      <main class="main">
+        <div id="topbar-container"></div>
+
+        <div class="header">
+          <h1>Gestión de Pedidos</h1>
+          <p>Consulta y Administra los pedidos realizados</p>
+        </div>
+
+        <div class="card">
+          <div class="top-bar">
+            <input type="text" id="searchInput" placeholder="Buscar Pedido..." />
+            <div class="actions">
+              <select id="filterEstado">
+                <option value="">Todos los pedidos</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Proceso">En Proceso</option>
+                <option value="Entregado">Entregado</option>
+              </select>
+              <button class="btn-new" id="btn-nuevo-pedido" type="button">
+                <span class="icon">+</span>
+                Nuevo Pedido
+              </button>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Fecha</th>
+                  <th>Total</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="pedidos-tbody">
+                <!-- filas generadas por Pedidos.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-footer">
+            <span id="pagination-info">Mostrando pedidos</span>
+            <div class="pagination" id="pagination-controls">
+              <button id="prev-page">&lt;</button>
+              <button class="active">1</button>
+              <button>&gt;</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Aquí se cargarán los modales -->
+    <div id="modal-container"></div>
+
+    <script src="/src/modules/Shared/components/components.js"></script>
+    <script type="module" src="/src/modules/Pedidos/pages/Pedidos.js"></script>
+  </body>
+</html>
