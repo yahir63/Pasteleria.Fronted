@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/src/modules/Shared/components/global.css">
+<link rel="stylesheet" href="/src/modules/Configuracion/components/user-add-modal/user-add.css">
+
+<div class="modal" id="modalAddUser">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Nuevo Usuario</h2>
+      <span class="close" id="closeAddUser">×</span>
+    </div>
+
+    <div class="modal-body">
+      <div class="form-group">
+        <p>Nombre</p>
+        <input type="text" id="addUserNombre" placeholder="Nombre del usuario">
+      </div>
+
+      <div class="form-group">
+        <p>Contraseña</p>
+        <input type="password" id="addUserPassword" placeholder="Contraseña">
+      </div>
+
+      <div class="form-group">
+        <p>Rol</p>
+        <select id="addUserRol">
+          <option value="Admin">Administrador</option>
+          <option value="Gerent">Gerente</option>
+          <option value="Operator">Cajero</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn cancel" id="cancelAddUser">Cancelar</button>
+      <button class="btn save" id="saveAddUser">Guardar</button>
+    </div>
+  </div>
+</div>
