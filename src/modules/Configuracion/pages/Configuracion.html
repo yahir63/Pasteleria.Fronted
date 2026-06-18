@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/src/modules/Configuracion/components/Configuracion.css" />
+<link rel="stylesheet" href="/src/modules/Configuracion/pages/Configuracion.css" />
 
 <section class="grid-secundario">
   <div class="card">
@@ -34,4 +34,16 @@
     <div class="item"><span>Notificaciones</span><input type="text" value="Activadas" /></div>
     <div class="item"><span>Estado</span><input type="text" value="Activo" /></div>
   </div>
+
+  <div class="card">
+    <span><img src="/src/modules/Shared/Assets/img/nueva-cuenta.png" class="icon-card" alt="" /> Gestión de Usuarios</span>
+    <div class="item">
+      <span>Administra los usuarios del sistema</span>
+    </div>
+    <button class="btn-save" id="btnNuevoUsuario">+ Nuevo Usuario</button>
+  </div>
 </section>
+
+<div id="modal-container"></div>
+
+<script type="module" src="/src/modules/Configuracion/pages/Configuracion.js"></script>
