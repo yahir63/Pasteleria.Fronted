@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="edit-usuario.css" />
+<div id="modal" class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Editar Usuario</h2>
+      <label for="user-modal" class="close">×</label>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <p>Nombre</p>
+        <input id="name" type="text" placeholder="Nombre del usuario" />
+      </div>
+      <div class="form-group">
+        <p>Rol</p>
+        <select id="Roles">
+          <option>Elija Un Rol si desea editarlo</option>
+          <option value="Admin">Administrador</option>
+          <option value="Gerent">Gerente</option>
+          <option value="Operator">Cajero</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="cancelar" class="btn cancel">Cancelar</button>
+      <button id="guardar" class="btn save">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<script src="edit.js"></script>

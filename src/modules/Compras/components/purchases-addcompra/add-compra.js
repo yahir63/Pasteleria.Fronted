@@ -1,6 +1,7 @@
 {
   const API_URL_PURCHASES = "https://localhost:7249/api/purchases";
   const API_URL_LOAD = "https://localhost:7249/api";
+  const token = localStorage.getItem("token");
 
   const modal = document.getElementById("modalAdd");
   const tabla = document.getElementById("details-body");
@@ -78,7 +79,8 @@
     const hoy = new Date().toISOString().split("T")[0];
     fecha.value = hoy;
     supplier.innerHTML = '<option value="">Seleccione un proveedor</option>';
-    productSelect.innerHTML = '<option value="">Seleccione un producto</option>';
+    productSelect.innerHTML =
+      '<option value="">Seleccione un producto</option>';
 
     await Promise.all([loadProducts(), loadSuppliers()]);
 
@@ -124,8 +126,13 @@
 
   async function loadSuppliers() {
     try {
-      const response = await fetch(`${API_URL_LOAD}/suppliers`);
-      if (!response.ok) throw new Error("ocurrio un error al cargar los proveedores");
+      const response = await fetch(`${API_URL_LOAD}/suppliers`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok)
+        throw new Error("ocurrio un error al cargar los proveedores");
 
       const data = await response.json();
       const suppliers = data.value.items;
@@ -144,8 +151,13 @@
 
   async function loadProducts() {
     try {
-      const response = await fetch(`${API_URL_LOAD}/products`);
-      if (!response.ok) throw new Error("Ocurrio un error al cargar los productos");
+      const response = await fetch(`${API_URL_LOAD}/products`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok)
+        throw new Error("Ocurrio un error al cargar los productos");
 
       const data = await response.json();
       const products = data.value.items;
@@ -186,7 +198,10 @@
     try {
       const result = await fetch(API_URL_PURCHASES, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify(PurchaseDto),
       });
 

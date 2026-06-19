@@ -1,4 +1,5 @@
 const API_URL_DETAILS = "https://localhost:7249/api/sales";
+const token = localStorage.getItem("token");
 
 const detailsModal = document.getElementById("details-modal");
 const purchaseIdSpan = document.getElementById("purchase-id");
@@ -10,7 +11,11 @@ const btnCloseDetail = document.getElementById("btn-close-detail");
 
 const GetSaleById = async (saleId) => {
   try {
-    const response = await fetch(`${API_URL_DETAILS}/${saleId}`);
+    const response = await fetch(`${API_URL_DETAILS}/${saleId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     if (!response.ok) {
       throw new Error(`Error al obtener detalles: ${response.status}`);
     }
