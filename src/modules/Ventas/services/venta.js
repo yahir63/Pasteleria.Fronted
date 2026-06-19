@@ -1,5 +1,7 @@
 const API_URL = "https://localhost:7249/api/sales";
 
+const token = localStorage.getItem("token");
+
 window.VentaState = {
   recargar: null,
 };
@@ -17,11 +19,11 @@ let totalRegistros = 0;
 let busquedaTimer = 0;
 
 async function CargarModales() {
-  CargarCSS("/src/modules/Ventas/components/sales-add.css");
-  CargarCSS("/src/modules/Ventas/components/sales-detail.css");
+  CargarCSS("/src/modules/Ventas/components/add-sale/sales-add.css");
+  CargarCSS("/src/modules/Ventas/components/details/sales-detail.css");
   const rutas = [
-    "/src/modules/Ventas/components/sales-add.html",
-    "/src/modules/Ventas/components/sales-detail-modal.html",
+    "/src/modules/Ventas/components/add-sale/sales-add.html",
+    "/src/modules/Ventas/components/details/sales-detail-modal.html",
   ];
 
   const htmls = await Promise.all(
@@ -36,8 +38,8 @@ async function CargarModales() {
   });
 
   await Promise.all([
-    CargarScripts("/src/modules/Ventas/components/sales-add.js"),
-    CargarScripts("/src/modules/Ventas/components/sales-detail.js"),
+    CargarScripts("/src/modules/Ventas/components/add-sale/sales-add.js"),
+    CargarScripts("/src/modules/Ventas/components/details/sales-detail.js"),
   ]);
 }
 
@@ -55,7 +57,11 @@ const GetVentas = async (page = 1, Name = "") => {
     const params = new URLSearchParams({ PageNumber: page, PageSize: 8 });
     if (Name) params.append("CustomerName", Name);
 
-    const response = await fetch(`${API_URL}?${params}`);
+    const response = await fetch(`${API_URL}?${params}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     if (!response.ok) {
       throw new Error("Ocurrió un error al cargar las ventas");
     }

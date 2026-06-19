@@ -1,5 +1,6 @@
 const API_URL_SALES = "https://localhost:7249/api/sales";
 const API_URL_LOAD = "https://localhost:7249/api";
+const token = localStorage.getItem("token");
 
 const modal = document.getElementById("modalAdd");
 const tabla = document.getElementById("details-body");
@@ -130,6 +131,11 @@ async function getPriceProduct(id) {
   try {
     const response = await fetch(
       `https://localhost:7249/api/Inventory/product/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
     );
     if (!response.ok) {
       throw new Error("No se cargo bien el producto");
@@ -146,7 +152,11 @@ async function getPriceProduct(id) {
 
 async function loadCustomers() {
   try {
-    const response = await fetch(`${API_URL_LOAD}/customers`);
+    const response = await fetch(`${API_URL_LOAD}/customers`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     if (!response.ok) {
       throw new Error("Error al cargar clientes");
     }
@@ -166,7 +176,11 @@ async function loadCustomers() {
 
 async function loadProducts() {
   try {
-    const response = await fetch(`${API_URL_LOAD}/products`);
+    const response = await fetch(`${API_URL_LOAD}/products`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     if (!response.ok) {
       throw new Error("Error al cargar productos");
     }

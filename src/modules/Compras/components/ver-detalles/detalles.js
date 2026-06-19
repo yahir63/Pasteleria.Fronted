@@ -1,4 +1,5 @@
 {
+  import { getToken } from "../../../Login/components/Services/login.Service";
   const API_URL_DETAILS = "https://localhost:7249/api/purchases";
 
   const detailsModal = document.getElementById("details-modal");
@@ -11,8 +12,13 @@
 
   const GetPurchaseById = async (purchaseId) => {
     try {
-      const response = await fetch(`${API_URL_DETAILS}/${purchaseId}`);
-      if (!response.ok) throw new Error(`Error al obtener detalles: ${response.status}`);
+      const response = await fetch(`${API_URL_DETAILS}/${purchaseId}`, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
+      if (!response.ok)
+        throw new Error(`Error al obtener detalles: ${response.status}`);
       const json = await response.json();
       return json.value;
     } catch (error) {

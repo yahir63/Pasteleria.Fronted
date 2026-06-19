@@ -1,4 +1,5 @@
 const API_URL = "https://localhost:7249/api/purchases";
+const token = localStorage.getItem("token");
 
 window.CompraState = {
   recargar: null,
@@ -68,7 +69,11 @@ const GetCompras = async (page = 1, Name = "") => {
       params.append("SupplierName", Name);
     }
 
-    const response = await fetch(`${API_URL}?${params}`);
+    const response = await fetch(`${API_URL}?${params}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     if (!response.ok) {
       console.log("revisa la uri");
       throw new Error("Ocurrio un error al cargar las compras");
