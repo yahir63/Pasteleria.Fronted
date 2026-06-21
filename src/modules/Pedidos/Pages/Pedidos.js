@@ -24,8 +24,10 @@ let busquedaTimer  = null;
 async function cargarModales() {
   const rutas = [
     "/src/modules/Pedidos/components/pedido-add-modal/pedido-add.html",
-    "/src/modules/Pedidos/components/pedido-edit-modal/pedido-edit.html",
     "/src/modules/Pedidos/components/pedido-delete-modal/pedido-delete.html",
+    "/src/modules/Pedidos/components/pedido-detalle-modal/pedido-detalle.html",
+    "/src/modules/Pedidos/components/pedido-edit-modal/pedido-edit.html",
+    
   ];
 
   const htmls = await Promise.all(rutas.map(r => fetch(r).then(res => res.text())));
@@ -38,15 +40,19 @@ async function cargarModales() {
   });
 
   // Importar módulos de modales dinámicamente
-  const [{ init: initAdd }, { init: initEdit }, { init: initDelete }] = await Promise.all([
+  const [{ init: initAdd },{ init: initDelete },{ init: initDetalle }, { init: initEdit } ] = await Promise.all([
     import("/src/modules/Pedidos/components/pedido-add-modal/pedido-add.js"),
-    import("/src/modules/Pedidos/components/pedido-edit-modal/pedido-edit.js"),
     import("/src/modules/Pedidos/components/pedido-delete-modal/pedido-delete.js"),
+    import("/src/modules/Pedidos/components/pedido-detalle-modal/pedido-detalle.js"),
+    import("/src/modules/Pedidos/components/pedido-edit-modal/pedido-edit.js"),
+    
   ]);
 
   initAdd(state);
-  initEdit(state);
   initDelete(state);
+  initDetalle(state);
+  initEdit(state);
+ 
 }
 
 // ─── Render tabla ─────────────────────────────────────────────────────────────
@@ -71,8 +77,7 @@ function renderTabla(items) {
       </td>
       <td class="table-actions">
         <button type="button" class="view btnVer"
-          data-id="${p.orderId}">
-          <img src="/src/modules/Shared/Assets/img/view.png" />
+          data-pedido='${JSON.stringify(p)}'>  <img src="/src/modules/Shared/Assets/img/view.png" />
           Ver detalle
         </button>
         <button type="button" class="edit btnEdit"
@@ -159,9 +164,19 @@ async function cargarPagina(pagina = 1) {
 // ─── Acciones de fila ─────────────────────────────────────────────────────────
 function bindAcciones() {
   tbody.querySelectorAll(".btnVer").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const d = btn.dataset;
-      alert(`Cliente: ${d.cliente}\nFecha: ${d.fecha}\nTotal: C$ ${d.total}\nEstado: ${d.status}`);
+    btn.addEventListener("click", (e) => {
+      //Usa e.currentTarget para asegurarte de leer SIEMPRE el botón, aunque toques la imagen
+      const botonReal = e.currentTarget; 
+      
+      if (botonReal.dataset.pedido) {
+        const pedidoObjeto = JSON.parse(botonReal.dataset.pedido);
+        console.log("Pedido detectado con éxito:", pedidoObjeto);
+        
+        // Llamamos al modal de detalle pasándole la información
+        state.abrirModalDetalle?.(pedidoObjeto);
+      } else {
+        console.error("El atributo data-pedido no está presente en el botón.");
+      }
     });
   });
 
