@@ -1,14 +1,13 @@
 import { API_BASE } from "../../../../app/app.config.js";
 import { getToken } from "../../Login/components/Services/login.Service.js";
 
-const token = getToken();
-
 export async function GetUsers(page = 1, name = "", state) {
   const urlParams = new URLSearchParams({ PageNumber: page, PageSize: 8 });
   if (name) urlParams.append("Name", name);
   if (state !== null && state !== undefined) {
     urlParams.append("IsActive", state);
   }
+  const token = getToken();
   const response = await fetch(`${API_BASE}/Users?${urlParams}`, {
     method: "GET",
     headers: {
@@ -26,6 +25,7 @@ export async function GetUsers(page = 1, name = "", state) {
 }
 
 export async function Update(id, data) {
+  const token = getToken();
   const response = await fetch(`${API_BASE}/Users/${id}`, {
     method: "PUT",
     headers: {
@@ -44,6 +44,7 @@ export async function Update(id, data) {
   }
 }
 export async function deactivate(id) {
+  const token = getToken();
   const response = await fetch(`${API_BASE}/Users/${id}/deactivate`, {
     method: "PATCH",
     headers: {
