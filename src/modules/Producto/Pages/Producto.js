@@ -69,11 +69,11 @@ function renderTabla(items) {
           data-description="${p.description ?? ""}"
           data-categoryid="${p.categoryId ?? ""}"
           data-supplierid="${p.supplierId ?? ""}">
-          <img src="/src/modules/Shared/Assets/img/editar.png" />
+          <img src="/src/modules/Shared/Assets/img/editar.png" width="16" height="16" style="width:16px;height:16px;" />
           Editar
         </button>
         <button type="button" class="delete btnDelete" data-id="${p.productId}">
-          <img src="/src/modules/Shared/Assets/img/eliminar.png" />
+          <img src="/src/modules/Shared/Assets/img/eliminar.png" width="16" height="16" style="width:16px;height:16px;" />
           Cambiar Estado
         </button>
       </td>`;
