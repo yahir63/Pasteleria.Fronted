@@ -1,5 +1,5 @@
+import { getToken } from "/src/modules/Login/components/Services/login.Service.js";
 const API_URL = "https://localhost:7249/api/purchases";
-const token = localStorage.getItem("token");
 
 window.CompraState = {
   recargar: null,
@@ -57,6 +57,7 @@ const CargarScripts = (src) => {
   return new Promise((resolve) => {
     const s = document.createElement("script");
     s.src = src;
+    s.type = "module";
     s.onload = resolve;
     document.body.appendChild(s);
   });
@@ -68,7 +69,7 @@ const GetCompras = async (page = 1, Name = "") => {
     if (Name) {
       params.append("SupplierName", Name);
     }
-
+    const token = getToken();
     const response = await fetch(`${API_URL}?${params}`, {
       headers: {
         Authorization: `Bearer ${token}`,

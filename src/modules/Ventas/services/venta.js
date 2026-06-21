@@ -1,6 +1,7 @@
+import { getToken } from "../../Login/components/Services/login.Service.js";
 const API_URL = "https://localhost:7249/api/sales";
 
-const token = localStorage.getItem("token");
+const token = getToken();
 
 window.VentaState = {
   recargar: null,
@@ -47,6 +48,7 @@ const CargarScripts = (src) => {
   return new Promise((resolve) => {
     const s = document.createElement("script");
     s.src = src;
+    s.type = "module";
     s.onload = resolve;
     document.body.appendChild(s);
   });
