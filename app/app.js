@@ -90,8 +90,23 @@ async function navigate(hash) {
       await Promise.all(cssPromises);
     }
 
+    // 2.5 Esperar a que todas las fuentes (Font Awesome, iconos, etc.) terminen de cargar
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
+
     // 3. Insertar el HTML de manera segura
     appContainer.innerHTML = doc.body.innerHTML;
+
+    // 3.5 Esperar a que las imágenes (iconos decorativos, etc.) terminen de cargar
+    const imgs = [...appContainer.querySelectorAll("img")];
+    await Promise.all(imgs.map(img => {
+      if (img.complete) return Promise.resolve();
+      return new Promise(resolve => {
+        img.onload  = resolve;
+        img.onerror = resolve;
+      });
+    }));
 
     // 4. Asegurar con requestAnimationFrame que el navegador calculó el Layout final
     requestAnimationFrame(() => {

@@ -81,10 +81,10 @@ function renderTabla(items) {
           data-nombre="${c.name ?? ""}"
           data-descripcion="${c.description ?? ""}"
           data-icon="${iconClass}">
-          <img src="/src/modules/Shared/Assets/img/editar.png"> Editar
+          <img src="/src/modules/Shared/Assets/img/editar.png" width="16" height="16" style="width:16px;height:16px;"> Editar
         </button>
         <button type="button" class="delete btnDelete" data-id="${c.categoryId}">
-          <img src="/src/modules/Shared/Assets/img/eliminar.png"> Cambiar Estado
+          <img src="/src/modules/Shared/Assets/img/eliminar.png" width="16" height="16" style="width:16px;height:16px;"> Cambiar Estado
         </button>
       </td>`;
     tbody.appendChild(tr);
