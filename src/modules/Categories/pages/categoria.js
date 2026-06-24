@@ -17,7 +17,7 @@ const modalContainer = document.getElementById("modal-container");
 
 // ─── Estado local ─────────────────────────────────────────────────────────────
 let paginaActual   = 1;
-let totalPaginas   = 1;
+let totalPaginas   = 1; 
 let totalRegistros = 0;
 let busquedaTimer  = null;
 

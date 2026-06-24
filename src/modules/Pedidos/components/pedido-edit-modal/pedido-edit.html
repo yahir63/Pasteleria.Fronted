@@ -1,0 +1,56 @@
+<div id="modalEdit" class="modal">
+  <div class="modal-content">
+    <h2>Editar Pedido</h2>
+
+    <!-- Info de solo lectura -->
+    <div class="view-info-group">
+      <div class="view-info-item">
+        <span class="view-label">Fecha Inicio</span>
+        <span id="edit-fecha-inicio" class="view-value"></span>
+      </div>
+      <div class="view-info-item">
+        <span class="view-label">Total</span>
+        <span id="edit-total-readonly" class="view-value"></span>
+      </div>
+      <div class="view-info-item">
+        <span class="view-label">Adelanto</span>
+        <span id="edit-adelanto-readonly" class="view-value"></span>
+      </div>
+    </div>
+
+    <!-- Campos editables -->
+    <label for="editCliente">Seleccione el Cliente</label>
+    <select id="editCliente">Seleccione el Cliente</select>
+    <label for="editFecha">Fecha de Entrega</label>
+    <input type="date" id="editFecha" />
+
+    <!-- Agregar productos -->
+    <div class="add-producto-row">
+      <select id="edit-producto">
+        <option value="">Seleccione un producto</option>
+      </select>
+      <input type="number" id="edit-cantidad" placeholder="Cantidad" min="1" />
+      <input type="number" id="edit-volumen" placeholder="Volumen" min="1" />
+      <button type="button" id="btn-add-edit-detalle" class="btn save">+ Agregar</button>
+    </div>
+
+    <!-- Tabla de detalles -->
+    <table class="tabla-detalles">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Volumen</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="edit-details-body"></tbody>
+    </table>
+
+    <div class="modal-actions">
+      <button class="btn cancel" id="btn-cancel-edit">Cancelar</button>
+      <button class="btn save" id="btn-save-edit">Actualizar</button>
+    </div>
+  </div>
+</div>
