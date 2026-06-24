@@ -6,6 +6,14 @@ export const state = {
   recargar: null,
 };
 
+ // 1. Define el mapa fuera del forEach (o al inicio de la función)
+const MAPA_ESTADOS = {
+    1: "Pendiente",
+    2: "En Proceso",
+    3: "Cancelado",
+    4: "Abortado"
+};
+
 // ─── DOM ──────────────────────────────────────────────────────────────────────
 const tbody         = document.getElementById("pedidos-tbody");
 const inputBuscar   = document.getElementById("searchInput");
@@ -14,6 +22,7 @@ const paginacionDiv = document.getElementById("pagination-controls");
 const btnNuevo       = document.getElementById("btn-nuevo-pedido");
 const modalContainer = document.getElementById("modal-container");
 const filtroEstado   = document.getElementById("filterEstado");
+
 // ─── Estado local ─────────────────────────────────────────────────────────────
 let paginaActual   = 1;
 let totalPaginas   = 1;
@@ -64,39 +73,46 @@ function renderTabla(items) {
     return;
   }
 
-  items.forEach((p) => {
+items.forEach((p) => {
+  console.log("Propiedades del pedido:", p);
+    // 2. Determina el estado basándote en la propiedad correcta (según tu consola es isActive)
+    const estadoId = p.isActive ?? 1; // Usamos 1 por defecto si es null
+    const nombreEstado = MAPA_ESTADOS[estadoId] || "Desconocido";
+    
+    // 3. Crea una clase CSS segura (ej: "pendiente", "en-proceso")
+    const claseEstado = nombreEstado.toLowerCase().replace(" ", "-");
+
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${p.customerName ?? ""}</td>
       <td>${formatearFecha(p.orderDate)}</td>
       <td>C$ ${p.totalAmount ?? 0}</td>
       <td>
-        <span class="${p.status ?? "Pendiente"}">
-          ${p.status ?? "Pendiente"}
+        <span class="estado-badge ${claseEstado}">
+          ${nombreEstado}
         </span>
       </td>
       <td class="table-actions">
         <button type="button" class="view btnVer"
-          data-pedido='${JSON.stringify(p)}'>  <img src="/src/modules/Shared/Assets/img/view.png" />
+          data-pedido='${JSON.stringify(p)}'>
+          <img src="/src/modules/Shared/Assets/img/view.png" />
           Ver detalle
         </button>
         <button type="button" class="edit btnEdit"
           data-id="${p.orderId}"
           data-cliente="${p.customerName ?? ""}"
           data-fecha="${p.orderDate ?? ""}"
-          data-total="${p.totalAmount ?? ""}"
-          data-status="${p.status ?? ""}">
+          data-pedido='${JSON.stringify(p)}'>
           <img src="/src/modules/Shared/Assets/img/editar.png" />
           Editar
         </button>
         <button type="button" class="delete btnDelete"
           data-id="${p.orderId}">
-          <img src="/src/modules/Shared/Assets/img/eliminar.png" />
-          Eliminar
+          Cambiar Estado
         </button>
       </td>`;
     tbody.appendChild(tr);
-  });
+});
 
   bindAcciones();
 }
@@ -148,7 +164,15 @@ async function cargarPagina(pagina = 1) {
   const busqueda = inputBuscar.value.trim();
   const estado   = filtroEstado ? filtroEstado.value : "";
   try {
-    const data     = await getAll(pagina, busqueda, estado);
+    const data = await getAll(pagina, busqueda, estado);
+
+    if (!data || !data.items) {
+      renderTabla([]);
+      paginacionDiv.innerHTML = "";
+      spanConteo.textContent = "0 pedidos encontrados";
+      return;
+    }
+
     paginaActual   = data.pageIndex;
     totalPaginas   = data.totalPages;
     totalRegistros = data.totalRegisters;
@@ -188,13 +212,13 @@ function bindAcciones() {
     });
   });
 
-  tbody.querySelectorAll(".btnDelete").forEach((btn) => {
+tbody.querySelectorAll(".btnDelete").forEach((btn) => {
     btn.addEventListener("click", () => {
-      console.log("Abriendo delete, state.abrirModalDelete:", state.abrirModalDelete);
-      state.pedidoEditandoId = parseInt(btn.dataset.id);
-      state.abrirModalDelete?.();
+        const id = parseInt(btn.dataset.id); // Capturamos el ID del botón
+        state.abrirModalDelete?.(id); // PASAMOS EL ID AQUÍ
     });
-  });
+});
+  
 }
 // ─── Eventos ──────────────────────────────────────────────────────────────────
 btnNuevo.addEventListener("click", () => state.abrirModalAdd?.());

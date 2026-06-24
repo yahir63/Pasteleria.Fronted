@@ -1,24 +1,11 @@
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>Pasteleria Soto</title>
 <link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
 <link rel="stylesheet" href="/src/modules/Pedidos/components/pedido-add-modal/pedido-add.css" />
 <link rel="stylesheet" href="/src/modules/Pedidos/components/pedido-edit-modal/pedido-edit.css" />
 <link rel="stylesheet" href="/src/modules/Pedidos/components/pedido-delete-modal/pedido-delete.css" />
 <link rel="stylesheet" href="/src/modules/Pedidos/components/pedido-detalle-modal/pedido-detalle.css" />
 <link rel="stylesheet" href="/src/modules/Pedidos/Pages/Pedidos.css" />
-  
-  <body>
-    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
-    <label for="sidebar-toggle" class="hamburger-btn"><span></span></label>
-    <label for="sidebar-toggle" class="sidebar-overlay"></label>
 
-    <div class="container">
-      <div id="sidebar-container"></div>
- 
-      <main class="main">
-        <div id="topbar-container"></div>
 
         <div class="header">
           <h1>Gestión de Pedidos</h1>
@@ -27,13 +14,16 @@
 
         <div class="card">
           <div class="top-bar">
-            <input type="text" id="searchInput" placeholder="Buscar Pedido..." />
+            <input type="text" id="searchInput" placeholder="Buscar Pedido..."/>
             <div class="actions">
               <select id="filterEstado">
+
                 <option value="">Todos los pedidos</option>
-                <option value="Pendiente">Pendiente</option>
-                <option value="Proceso">En Proceso</option>
-                <option value="Entregado">Entregado</option>
+                <option value="1">Pendiente</option>
+                <option value="2">En Proceso</option>
+                <option value="3">Cancelado</option>
+                <option value="4">Abortado</option>
+
               </select>
               <button class="btn-new" id="btn-nuevo-pedido" type="button">
                 <span class="icon">+</span>
@@ -68,13 +58,10 @@
             </div>
           </div>
         </div>
-      </main>
-    </div>
 
     <!-- Aquí se cargarán los modales -->
     <div id="modal-container"></div>
 
     <script src="/src/modules/Shared/components/components.js"></script>
     <script type="module" src="/src/modules/Pedidos/pages/Pedidos.js"></script>
-  </body>
-</html>
+ 
