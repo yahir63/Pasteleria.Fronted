@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="/src/modules/Shared/components/global.css" />
+<link rel="stylesheet" href="/src/modules/Opciones/components/Option-Add/Option-add.css" />
+<link rel="stylesheet" href="/src/modules/Opciones/components/Option-Edit/Option-editar.css" />
+<link rel="stylesheet" href="/src/modules/Opciones/components/Option-Delete/Option-Delete.css" />
+<link rel="stylesheet" href="/src/modules/Opciones/components/Option-detalles/Option-detalle.css" />
+<link rel="stylesheet" href="/src/modules/Opciones/Pages/Option.css" />
+
+<div class="header">
+  <h1>Gestión de Opciones</h1>
+  <p>Consulta y administra las opciones del sistema</p>
+</div>
+
+<div class="card">
+  <div class="top-bar">
+    <input type="text" id="searchInput" placeholder="Buscar opción..." />
+    <div class="actions">
+      <button class="btn-new" id="btn-nueva-opcion" type="button">
+        <span class="icon">+</span>
+        Nueva Opción
+      </button>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Medida</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="opciones-tbody">
+        <!-- filas generadas por Opciones.js -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-footer">
+    <span id="pagination-info">Mostrando opciones</span>
+    <div class="pagination" id="pagination-controls">
+      <button id="prev-page">&lt;</button>
+      <button class="active">1</button>
+      <button id="next-page">&gt;</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-container"></div>
+<script src="/src/modules/Shared/components/components.js"></script>
+<script type="module" src="/src/modules/Opciones/Pages/Option.js"></script>

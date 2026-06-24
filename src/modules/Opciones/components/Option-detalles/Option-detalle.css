@@ -1,0 +1,91 @@
+#modalDetalleOpcion .modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 650px;
+  max-width: 95%;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+#close-detalle-opcion {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #888;
+  line-height: 1;
+}
+
+#close-detalle-opcion:hover {
+  color: #dc3545;
+}
+
+#modalDetalleOpcion h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#modalDetalleOpcion .view-info-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 14px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+#modalDetalleOpcion .view-info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+#modalDetalleOpcion .view-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+#modalDetalleOpcion .view-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+#modalDetalleOpcion .modal-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#btn-cerrar-detalle-opcion {
+  display: block;
+  margin: 0 auto;
+  background-color: #0BB2F4;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+#btn-cerrar-detalle-opcion:hover {
+  background-color: #0aadff;
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  #modalDetalleOpcion .view-info-group {
+    flex-wrap: wrap;
+  }
+}
