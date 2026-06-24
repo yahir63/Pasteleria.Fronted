@@ -1,8 +1,6 @@
 import { getToken } from "../../Login/components/Services/login.Service.js";
 const API_URL = "https://localhost:7249/api/sales";
 
-const token = getToken();
-
 window.VentaState = {
   recargar: null,
 };
@@ -59,6 +57,7 @@ const GetVentas = async (page = 1, Name = "") => {
     const params = new URLSearchParams({ PageNumber: page, PageSize: 8 });
     if (Name) params.append("CustomerName", Name);
 
+    const token = getToken();
     const response = await fetch(`${API_URL}?${params}`, {
       headers: {
         Authorization: `Bearer ${token}`,
