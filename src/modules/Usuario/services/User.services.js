@@ -8,7 +8,7 @@ export async function GetUsers(page = 1, name = "", state) {
   if (state !== null && state !== undefined) {
     urlParams.append("IsActive", state);
   }
-  
+
   const response = await fetch(`${API_BASE}/Users?${urlParams}`, {
     method: "GET",
     headers: {
@@ -23,6 +23,25 @@ export async function GetUsers(page = 1, name = "", state) {
   }
 
   return apiResponse.value ?? apiResponse;
+}
+
+export async function CreateUser(data) {
+  const token = getToken();
+  const response = await fetch(`${API_BASE}/Users`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token} `,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  if (!response.ok) {
+    const err = await response.json();
+    const msgs = Array.isArray(err.Errors)
+      ? err.Errors.join("\n")
+      : "Error al actualizar usuario";
+    throw new Error(msgs);
+  }
 }
 
 export async function Update(id, data) {

@@ -12,10 +12,30 @@ const addProduct = document.getElementById("btn-add-product");
 const totalAmount = document.getElementById("sale-total");
 const btnSave = document.getElementById("btn-saveSale");
 const btnCancelar = document.getElementById("btn-cancel");
+const btnNext = document.getElementById("next");
+const prev = document.getElementById("prev");
 
+let currentPage = 1;
+let totalPages = 0;
+let isLoading = false;
+let requestId = 0;
 const detalles = [];
 let productsCache = [];
 
+console.log("script cargado");
+btnNext.addEventListener("click", () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    loadCustomers(currentPage);
+  }
+});
+
+prev.addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    loadCustomers(currentPage);
+  }
+});
 const renderizarTabla = () => {
   tabla.innerHTML = "";
 
@@ -150,9 +170,13 @@ async function getPriceProduct(id) {
   }
 }
 
-async function loadCustomers() {
+async function loadCustomers(page = 1) {
+  const myRequest = ++requestId;
+  isLoading = true;
+  console.log("REQUEST PAGE:", page);
   try {
-    const response = await fetch(`${API_URL_LOAD}/customers`, {
+    const params = new URLSearchParams({ PageNumber: page, PageSize: 8 });
+    const response = await fetch(`${API_URL_LOAD}/customers?${params}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -162,6 +186,16 @@ async function loadCustomers() {
     }
     const data = await response.json();
     const customers = data.value?.items || [];
+    if (myRequest !== requestId) return;
+    console.log("ITEMS:", customers.length);
+    console.log("currentPage", currentPage);
+    totalPages = data.value?.totalPages ?? 1;
+
+    customer.innerHTML = '<option value="">Seleccione un cliente</option>';
+    console.log(
+      "CUSTOMERS TO RENDER:",
+      customers.map((c) => c.customerId),
+    );
     customers.forEach((element) => {
       const option = document.createElement("option");
       option.value = element.customerId;
@@ -169,9 +203,16 @@ async function loadCustomers() {
         element.name || element.customerName || `Cliente ${element.customerId}`;
       customer.appendChild(option);
     });
+    updatePaginationButtons();
   } catch (error) {
     console.error(error);
+  } finally {
+    isLoading = false;
   }
+}
+function updatePaginationButtons() {
+  prev.disabled = currentPage <= 1;
+  btnNext.disabled = currentPage >= totalPages;
 }
 
 async function loadProducts() {
