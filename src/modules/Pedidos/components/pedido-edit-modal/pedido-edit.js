@@ -273,13 +273,16 @@ export function init(state) {
     limpiar();
     await cargarInventoryYPrecios();
 
-    // Seteo inicial de datos del cliente traídos de la fila/tabla
+    // Parsear primero el pedido completo para tener acceso a customerId, orderDetails, etc.
+    const pedido = JSON.parse(data.pedido ?? "{}");
+
+    // Seteo del cliente: el texto viene del dataset de la fila,
+    // pero el ID real viene del JSON del pedido (data.customerId no existe en el dataset).
     if (data.cliente) {
       document.getElementById("editInputCliente").value = data.cliente;
-      // Si la fila provee el ID del cliente mapeado por tu datatable lo asignamos directo
-      if (data.customerId) {
-        document.getElementById("editSelectedClienteId").value = data.customerId;
-      }
+    }
+    if (pedido.customerId) {
+      document.getElementById("editSelectedClienteId").value = pedido.customerId;
     }
 
     // Fechas
@@ -289,7 +292,6 @@ export function init(state) {
     editFecha.value = data.fecha ? data.fecha.split("T")[0] : "";
 
     // Mapeo e inyección de la orden existente
-    const pedido = JSON.parse(data.pedido ?? "{}");
     if (pedido.orderDetails) {
       detalles = pedido.orderDetails.map(d => ({
         productId:   d.productId,

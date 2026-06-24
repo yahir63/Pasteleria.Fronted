@@ -1,11 +1,18 @@
 import { create } from "/src/modules/Producto/services/Producto.service.js";
+import { getToken } from "/src/modules/Login/components/Services/login.Service.js";
 
 const CAT_API = "https://localhost:7249/api/categories";
 const SUP_API = "https://localhost:7249/api/suppliers";
 
 async function cargarOpciones(select, url, idField, nameField) {
   try {
-    const res  = await fetch(`${url}?PageNumber=1&PageSize=100`);
+    const Token = getToken();
+    const res  = await fetch(`${url}?PageNumber=1&PageSize=100`, {
+      headers: {
+        "Authorization": `Bearer ${Token}`
+      }
+    });
+
     const json = await res.json();
     const items = json.value?.items ?? [];
     items.forEach(item => {

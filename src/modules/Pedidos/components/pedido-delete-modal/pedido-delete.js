@@ -6,10 +6,11 @@ export function init(state) {
   const btnCancelar = modal.querySelector(".btn.cancel");
   const selectEstado = document.getElementById("selectEstado");
 
-  // Corregido: recibe 'id' correctamente
-  function abrir(id) { 
-    console.log("abrir() recibido id:", id);  
-    state.pedidoEditandoId = id; 
+  const MAPA_ESTADOS = { 1: "Pendiente", 2: "Cancelado", 3: "Abortado" };
+
+  function abrir(id) {
+    console.log("abrir() recibido id:", id);
+    state.pedidoEditandoId = id;
     modal.classList.add("show");
     document.body.style.overflow = "hidden";
   }
@@ -23,26 +24,27 @@ export function init(state) {
   modal.addEventListener("click", (e) => { if (e.target === modal) cerrar(); });
 
   btnEliminar.addEventListener("click", async () => {
-    const idPedido = state.pedidoEditandoId; 
-    const estadoSeleccionado = selectEstado.value; 
-    
+    const idPedido = state.pedidoEditandoId;
+    const estadoSeleccionado = parseInt(selectEstado.value);
+
     if (idPedido === null) return;
-    const confirmacion = confirm(`¿Estás seguro de que deseas cambiar el estado a "${estadoSeleccionado}"?`);
-    
+    const confirmacion = confirm(`¿Estás seguro de que deseas cambiar el estado a "${MAPA_ESTADOS[estadoSeleccionado]}"?`);
+
     if (!confirmacion) return;
     const dto = {
         OrderId: parseInt(idPedido),
-        IsActive: estadoSeleccionado 
+        IsActive: estadoSeleccionado
     };
 
-    await toggleEstado(dto);
-    alert("¡Estado cambiado con éxito!");
-    cerrar(); 
-        
-    // 4. Recargar la tabla
-    state.pedidoEditandoId = null;
-    state.recargar();
-   
+    try {
+      await toggleEstado(dto);
+      alert("¡Estado cambiado con éxito!");
+      cerrar();
+      state.pedidoEditandoId = null;
+      state.recargar();
+    } catch (err) {
+      alert(err.message ?? "Error al cambiar el estado del pedido");
+    }
   });
 
   state.abrirModalDelete = abrir;

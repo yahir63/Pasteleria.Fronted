@@ -1,15 +1,21 @@
+import { getToken } from "/src/modules/Login/components/Services/login.Service.js";
+
 const API_BASE = "https://localhost:7249/api/Orders";
 
 export async function getAll(page = 1, name = "", estado = "") {
      try{
         const params = new URLSearchParams({PageNumber: page, PageSize: 8,t: Date.now()});
-           
+
         // Fechas por defecto para que el backend responda
         params.append("from", "2000-01-01");
         params.append("to", new Date().toISOString().split("T")[0]);
         if(name) params.append("CustomerName", name);
         if (estado != "") params.append("Status", estado);
-        const res= await fetch(`${API_BASE}?${params}`);
+
+        const token = getToken();
+        const res= await fetch(`${API_BASE}?${params}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         if (!res.ok) throw new Error ("Error al obtener Ordenes")
         const json = await res.json();
         return json.value;
@@ -22,9 +28,13 @@ export async function getAll(page = 1, name = "", estado = "") {
 }
 
 export async function create(data) {
+  const token = getToken();
   const res = await fetch(API_BASE, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify(data),
   });
   if (!res.ok) {
@@ -36,11 +46,12 @@ export async function create(data) {
 }
 
 export async function update(data) {
+  const token = getToken();
   const res = await fetch(API_BASE, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${localStorage.getItem("token")}`
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(data),
   });
@@ -53,16 +64,19 @@ export async function update(data) {
 }
 
 export async function toggleEstado(data) {
+  const token = getToken();
+  const res = await fetch(`${API_BASE}/updateStatus`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data), // Enviamos el objeto 'dto' completo
+  });
 
-    const res = await fetch(`${API_BASE}/updateStatus`, { 
-        method: "PUT", 
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data) // Enviamos el objeto 'dto' completo
-    });
- 
-    if (!res.ok) {
-        const errorText = await res.text();
-        console.error("Error del servidor:", errorText);
-        throw new Error("Error al cambiar estado del Pedido");
-    }
+  if (!res.ok) {
+    const errorText = await res.text();
+    console.error("Error del servidor:", errorText);
+    throw new Error("Error al cambiar estado del Pedido");
+  }
 }
