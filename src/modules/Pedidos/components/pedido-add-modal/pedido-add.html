@@ -1,0 +1,55 @@
+<div id="modalAddPedido" class="modal">
+  <div class="modal-content">
+    <span id="close-add-pedido">✕</span>
+    <h2>Nuevo Pedido</h2>
+
+    <select id="add-cliente">
+      <option value="">Seleccione un cliente</option>
+    </select>
+
+    <div class="add-producto-row">
+      <select id="add-producto">
+        <option value="">Seleccione un producto</option>
+      </select>
+      <input type="number" id="add-cantidad" placeholder="Cantidad" min="1" />
+      <input type="number" id="add-volumen"  placeholder="Volumen"  min="1" />
+      <button type="button" id="btn-add-detalle" class="btn save">+ Agregar</button>
+    </div>
+
+    <table class="tabla-detalles">
+      <thead>
+        <tr>
+          <th>Producto</th><th>Cantidad</th><th>Volumen</th><th>Precio</th><th>SubTotal</th>
+        </tr>
+      </thead>
+      <tbody id="add-details-body"></tbody>
+    </table>
+    <div class="fechas-container" style="margin-top: 10px; display: flex; gap: 10px;">
+      <div style="flex:1">
+        <label>Fecha Inicio:</label>
+        <input type="text" id="txtFechaInicio" class="form-control" readonly />
+      </div>
+      <div style="flex:1">
+        <label>Fecha Entrega:</label>
+        <input type="date" id="add-time-delivery" class="form-control" />
+      </div>
+    </div>
+    <div class="totales-container" style="margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+     
+      <div>
+        <label>Total (100%):</label>
+        <input type="text" id="add-total" class="form-control" readonly />
+      </div>
+      <div>
+        <label>Adelanto (50%):</label>
+        <input type="text" id="add-adelanto" class="form-control" readonly style="font-weight:bold; color:green;" />
+      </div>
+    </div>
+
+    
+    <div class="modal-actions">
+      <button type="button" class="btn cancel" id="btn-cancel-add">Cancelar</button>
+      <button type="button" class="btn save"   id="btn-save-pedido">Guardar Pedido</button>
+    </div>+
+  </div>
+</div>

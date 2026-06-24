@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Create pr
+      - name: Create pr 
         uses: peter-evans/create-pull-request@v6
         with:           
           token: ${{ secrets.GITHUB_TOKEN }}

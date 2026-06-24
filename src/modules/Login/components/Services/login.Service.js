@@ -4,10 +4,7 @@ export async function login(userName, password) {
   const res = await fetch(`${API_BASE}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      userName,
-      password,
-    }),
+    body: JSON.stringify({ userName, password }),
   });
 
   if (!res.ok) {
@@ -18,7 +15,11 @@ export async function login(userName, password) {
 
   const json = await res.json();
 
+  // Guardar el usuario completo
   localStorage.setItem("user", JSON.stringify(json));
+
+  // Guardar el token por separado (json.value.token según vimos en el Scalar)
+  localStorage.setItem("token", json.value.token);
 
   return json;
 }

@@ -7,7 +7,7 @@ export const routes = {
   "/clientes"     : "/src/modules/Customers/pages/Clientes.html",
   "/opciones"     : "/src/modules/Opciones/components/Opciones.html",
   "/usuarios"     : "/src/modules/Usuario/components/Usuario.html",
-  "/pedidos"      : "/src/modules/Pedidos/components/Pedidos.html",
+  "/pedidos"       : "/src/modules/Pedidos/Pages/Pedidos.html",
   "/compras"      : "/src/modules/Compras/components/Compras.html",
   "/ventas"       : "/src/modules/Ventas/components/Ventas.html",
   "/configuracion": "/src/modules/Configuracion/pages/Configuracion.html",
