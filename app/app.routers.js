@@ -2,7 +2,7 @@ export const routes = {
   "/login"        : "/src/modules/Login/components/pages/Login.html", 
   "/dashboard"    : "/src/modules/Dashboard/components/dashboard.html",
   "/productos"    : "/src/modules/Producto/Pages/Producto.html",
-  "/personalizado": "/src/modules/Personalizado/components/Personalizado.html",
+  "/personalizado": "/src/modules/Personalizado/pages/Personalizado.html",
   "/categorias"   : "/src/modules/Categories/pages/Categoria.html",
   "/clientes"     : "/src/modules/Customers/pages/Clientes.html",
   "/opciones"     : "/src/modules/Opciones/components/Opciones.html",

@@ -1,0 +1,67 @@
+<div class="modal" id="addPersonalizedModal">
+  <div class="modal-content large-modal">
+    <div class="modal-header">
+      <h2>Nuevo Producto Personalizado</h2>
+      <span class="close" id="closeAddPersonalized">&times;</span>
+    </div>
+    <form class="modal-form" id="formAddPersonalized">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Cliente</label>
+          <div class="search-box" id="searchBoxCliente">
+            <input type="text" id="inputCliente" placeholder="Buscar cliente..." autocomplete="off" />
+            <ul class="search-dropdown" id="dropdownCliente"></ul>
+          </div>
+          <input type="hidden" id="selectedClienteId" />
+        </div>
+        <div class="form-group">
+          <label>Producto base</label>
+          <div class="search-box" id="searchBoxProducto">
+            <input type="text" id="inputProducto" placeholder="Buscar producto..." autocomplete="off" />
+            <ul class="search-dropdown" id="dropdownProducto"></ul>
+          </div>
+          <input type="hidden" id="selectedProductoId" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group full-width">
+          <label>Descripción</label>
+          <input type="text" id="addDescripcion" placeholder="Ej: Sin fondant, color azul..." />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Agregar opción</label>
+          <div class="search-box" id="searchBoxOpcion">
+            <input type="text" id="inputOpcion" placeholder="Buscar opción..." autocomplete="off" />
+            <ul class="search-dropdown" id="dropdownOpcion"></ul>
+          </div>
+          <input type="hidden" id="selectedOpcionId" />
+        </div>
+        <div class="form-group">
+          <label>Cantidad</label>
+          <input type="number" id="addCantidadOpcion" min="1" value="1" />
+        </div>
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <button type="button" class="btn-add-option" id="btnAgregarOpcion">+ Agregar</button>
+        </div>
+      </div>
+
+      <div id="listaOpciones" class="opciones-lista"></div>
+
+      <div class="precio-total">
+        <span>Precio total estimado:</span>
+        <strong id="precioTotal">$0.00</strong>
+      </div>
+
+      <div class="modal-buttons">
+        <button type="button" class="btn-cancel" id="cancelAddPersonalized">Cancelar</button>
+        <button type="submit" class="btn-save">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="modal" id="detailPersonalizedModal">
+  <div class="modal-content large-modal">
+    <div class="modal-header">
+      <h2>Detalle del Producto Personalizado</h2>
+      <span class="close" id="closeDetailPersonalized">&times;</span>
+    </div>
+
+    <div class="detail-body">
+
+      <div class="detail-section">
+        <div class="detail-row">
+          <div class="detail-field">
+            <span class="detail-label">Cliente</span>
+            <span class="detail-value" id="detailCliente">—</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Fecha de creación</span>
+            <span class="detail-value" id="detailFecha">—</span>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-field">
+            <span class="detail-label">Producto base</span>
+            <span class="detail-value" id="detailProducto">—</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Descripción</span>
+            <span class="detail-value" id="detailDescripcion">—</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 class="detail-subtitle">Opciones agregadas</h3>
+        <div class="detail-table-wrapper">
+          <table class="detail-table">
+            <thead>
+              <tr>
+                <th>Opción</th>
+                <th>Cantidad</th>
+                <th>Precio unitario</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="detailOpcionesBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="detail-total">
+        <span>Precio total</span>
+        <strong id="detailPrecioTotal">$0.00</strong>
+      </div>
+
+    </div>
+  </div>
+</div>

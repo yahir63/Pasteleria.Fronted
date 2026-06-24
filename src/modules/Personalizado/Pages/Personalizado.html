@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/src/modules/Personalizado/Pages/Personalizado.css" />
+
+<header class="header">
+  <h1>Gestión de Productos Personalizados</h1>
+  <p>Administra los productos personalizados de tu pastelería.</p>
+</header>
+
+<div class="card">
+  <div class="top-bar">
+    <input type="text" id="BuscarPersonalizado" placeholder="Buscar por cliente..." />
+    <div class="actions">
+      <button class="btn-new" id="btn-new-personalized">+ Nuevo Producto Personalizado</button>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Descripción</th>
+          <th>Fecha</th>
+          <th>Precio total</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tbodyPersonalized"></tbody>
+    </table>
+  </div>
+
+  <div class="table-footer">
+    <span id="conteoPersonalized">Mostrando 0 resultados</span>
+    <div class="pagination" id="paginacionPersonalized"></div>
+  </div>
+</div>
+
+<div id="modal-container-personalized"></div>
+
+<script type="module" src="/src/modules/Personalizado/Pages/Personalizado.js"></script>

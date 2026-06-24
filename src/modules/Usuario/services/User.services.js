@@ -2,12 +2,13 @@ import { API_BASE } from "../../../../app/app.config.js";
 import { getToken } from "../../Login/components/Services/login.Service.js";
 
 export async function GetUsers(page = 1, name = "", state) {
+  const token = getToken();
   const urlParams = new URLSearchParams({ PageNumber: page, PageSize: 8 });
   if (name) urlParams.append("Name", name);
   if (state !== null && state !== undefined) {
     urlParams.append("IsActive", state);
   }
-  const token = getToken();
+  
   const response = await fetch(`${API_BASE}/Users?${urlParams}`, {
     method: "GET",
     headers: {
