@@ -58,12 +58,12 @@
 }
 
 .delete {
-    background: #dc3545;
+    background: #0BB2F4;
     color: white;
 }
 
 .delete:hover {
-    background: #c82333;
+    background: #0aadff;
     transform: scale(1.02);
 }
 
@@ -77,4 +77,45 @@
         flex-direction: column;
         gap: 10px;
     }
+}
+
+#modalDelete .delete {
+    background: #0BB2F4;
+    color: white;
+}
+
+#modalDelete .delete:hover {
+    background: #0aadff;
+    transform: scale(1.02);
+}
+
+#modalDelete .modal-content {
+    width: 380px;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+#modalDelete h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+#modalDelete .modal-content p {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+#modalDelete select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#modalDelete .modal-actions {
+    margin-top: 25px;
 }

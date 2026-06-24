@@ -1,51 +1,61 @@
 <div id="modalViewDetalle" class="modal">
-  <div class="modal-content">
-    <span id="close-view-Detalle" class="close">&times;</span>
-    <h2 class="view-title">Detalle del Pedido</h2>
+  <div class="modal-content large-modal">
+    <div class="modal-header">
+      <h2>Detalle del Pedido</h2>
+      <span id="close-view-Detalle" class="close">&times;</span>
+    </div>
 
-    <div class="view-info-group">
-      <div class="view-info-item">
-        <span class="view-label">Cliente</span>
-        <span id="view-cliente" class="view-value"></span>
+    <!-- Info general -->
+    <div class="detail-info-grid">
+      <div class="detail-info-card">
+        <span class="detail-info-label">Cliente</span>
+        <span id="view-cliente" class="detail-info-value"></span>
       </div>
-      <div class="view-info-item">
-        <span class="view-label">Fecha Inicio</span>
-        <span id="view-fecha" class="view-value"></span>
+      <div class="detail-info-card">
+        <span class="detail-info-label">Fecha Inicio</span>
+        <span id="view-fecha" class="detail-info-value"></span>
       </div>
-      <div class="view-info-item">
-        <span class="view-label">Fecha Entrega</span>
-        <span id="view-time-delivery" class="view-value"></span>
+      <div class="detail-info-card">
+        <span class="detail-info-label">Fecha Entrega</span>
+        <span id="view-time-delivery" class="detail-info-value"></span>
       </div>
-      <div class="view-info-item">
-        <span class="view-label">Estado</span>
-        <span id="view-estado" class="view-value"></span>
+      <div class="detail-info-card">
+        <span class="detail-info-label">Estado</span>
+        <span id="view-estado" class="detail-info-value"></span>
       </div>
     </div>
 
-    <table class="tabla-detalles">
-      <thead>
-        <tr>
-          <th>Producto</th>
-          <th>Cantidad</th>
-          <th>Volumen</th>
-          <th>Precio Unit.</th>
-          <th>Subtotal</th>
-        </tr>
-      </thead>
-      <tbody id="view-details-body"></tbody>
-    </table>
+    <!-- Tabla productos -->
+    <h3 class="form-section-title">Productos</h3>
+    <div class="detail-table-wrapper">
+      <table class="detail-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Volumen</th>
+            <th>Precio Unit.</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="view-details-body"></tbody>
+      </table>
+    </div>
 
-    <div class="view-totales">
-      <div class="view-total-item">
-        <span class="view-label">Total (100%)</span>
-        <span id="view-total" class="view-value"></span>
+    <!-- Totales -->
+    <div class="totales-row">
+      <div class="total-item">
+        <span class="total-label">Total (100%)</span>
+        <strong id="view-total" class="total-value"></strong>
       </div>
-      <div class="view-total-item adelanto">
-        <span class="view-label">Adelanto (50%)</span>
-        <span id="view-adelanto" class="view-value"></span>
+      <div class="total-item">
+        <span class="total-label">Adelanto (50%)</span>
+        <strong id="view-adelanto" class="total-value adelanto-value"></strong>
       </div>
     </div>
 
-    <button type="button" id="btn-close-view">Cerrar</button>
+    <div class="modal-buttons">
+      <button type="button" id="btn-close-view" class="btn-save">Cerrar</button>
+    </div>
   </div>
-</div>
+</div>  

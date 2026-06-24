@@ -11,12 +11,11 @@ export function init(state) {
   const btnX           = document.getElementById("close-view-Detalle");
   const btnClose       = document.getElementById("btn-close-view");
 
-  const MAPA_ESTADOS = {
+const MAPA_ESTADOS = {
     1: "Pendiente",
-    2: "En Proceso",
-    3: "Cancelado",
-    4: "Abortado"
-  };
+    2: "Cancelado",
+    3: "Abortado"
+};
 
   // ─── Lógica para cerrar el modal ───────────────────────────────────────────
   const cerrarModal = () => {

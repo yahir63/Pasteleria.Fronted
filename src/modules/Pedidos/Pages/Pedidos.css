@@ -342,62 +342,7 @@ button img {
     background: #bbb;
 }
 
-/* Sidebar y hamburger */
-.sidebar-toggle {
-    display: none;
-}
 
-.sidebar-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 9998;
-    cursor: pointer;
-}
-
-.hamburger-btn {
-    display: none;
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    z-index: 10000;
-    background: #032F44;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.hamburger-btn span {
-    display: block;
-    width: 20px;
-    height: 2px;
-    background: white;
-    position: relative;
-    transition: 0.3s;
-}
-
-.hamburger-btn span::before,
-.hamburger-btn span::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    background: white;
-    left: 0;
-    transition: 0.3s;
-}
-
-.hamburger-btn span::before { top: -6px; }
-.hamburger-btn span::after  { top: 6px; }
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -412,27 +357,7 @@ button img {
     body { overflow-x: hidden; }
     .container { flex-direction: column; }
     .main { width: 100%; padding: 10px; margin-left: 0; }
-    .hamburger-btn { display: flex; }
 
-    #sidebar-container, .sidebar {
-        position: fixed;
-        left: 0; top: 0;
-        width: 80%; max-width: 300px;
-        height: 100vh;
-        z-index: 9999;
-        transform: translateX(-100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background: #BBE6FC;
-        overflow-y: auto;
-    }
-
-    .sidebar.open, #sidebar-container.open { transform: translateX(0); }
-    .sidebar-toggle:checked ~ .sidebar-overlay { display: block; }
-    .sidebar-toggle:checked ~ .container #sidebar-container,
-    .sidebar-toggle:checked ~ .container .sidebar { transform: translateX(0); }
-    .sidebar-toggle:checked ~ .hamburger-btn span { background: transparent; }
-    .sidebar-toggle:checked ~ .hamburger-btn span::before { transform: rotate(45deg); top: 0; }
-    .sidebar-toggle:checked ~ .hamburger-btn span::after  { transform: rotate(-45deg); top: 0; }
 
     .header { margin-top: 60px; padding-left: 10px; }
     .header h1 { font-size: 20px; text-align: center; }
@@ -461,4 +386,28 @@ button img {
     .header h1 { font-size: 18px; }
     .card { padding: 10px; }
     th, td { padding: 8px 6px; font-size: 11px; }
+}
+
+/* Badges de estado para pedidos (Pendiente / Cancelado / Abortado) */
+.estado-badge {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.estado-badge.pendiente {
+    background: #cde4f7;
+    color: #07729C;
+}
+
+.estado-badge.cancelado {
+    background: #a8ddbd;
+    color: #21442f;
+}
+
+.estado-badge.abortado {
+    background: #f8d7da;
+    color: #dc3545;
 }

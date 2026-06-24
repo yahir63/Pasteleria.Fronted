@@ -6,12 +6,10 @@ export const state = {
   recargar: null,
 };
 
- // 1. Define el mapa fuera del forEach (o al inicio de la función)
 const MAPA_ESTADOS = {
     1: "Pendiente",
-    2: "En Proceso",
-    3: "Cancelado",
-    4: "Abortado"
+    2: "Cancelado",
+    3: "Abortado"
 };
 
 // ─── DOM ──────────────────────────────────────────────────────────────────────
@@ -76,7 +74,7 @@ function renderTabla(items) {
 items.forEach((p) => {
   console.log("Propiedades del pedido:", p);
     // 2. Determina el estado basándote en la propiedad correcta (según tu consola es isActive)
-    const estadoId = p.isActive ?? 1; // Usamos 1 por defecto si es null
+    const estadoId = p.isActive ?? 1; 
     const nombreEstado = MAPA_ESTADOS[estadoId] || "Desconocido";
     
     // 3. Crea una clase CSS segura (ej: "pendiente", "en-proceso")
@@ -214,8 +212,8 @@ function bindAcciones() {
 
 tbody.querySelectorAll(".btnDelete").forEach((btn) => {
     btn.addEventListener("click", () => {
-        const id = parseInt(btn.dataset.id); // Capturamos el ID del botón
-        state.abrirModalDelete?.(id); // PASAMOS EL ID AQUÍ
+        const id = parseInt(btn.dataset.id); 
+        state.abrirModalDelete?.(id); 
     });
 });
   

@@ -1,56 +1,126 @@
 <div id="modalEdit" class="modal">
-  <div class="modal-content">
-    <h2>Editar Pedido</h2>
-
-    <!-- Info de solo lectura -->
-    <div class="view-info-group">
-      <div class="view-info-item">
-        <span class="view-label">Fecha Inicio</span>
-        <span id="edit-fecha-inicio" class="view-value"></span>
-      </div>
-      <div class="view-info-item">
-        <span class="view-label">Total</span>
-        <span id="edit-total-readonly" class="view-value"></span>
-      </div>
-      <div class="view-info-item">
-        <span class="view-label">Adelanto</span>
-        <span id="edit-adelanto-readonly" class="view-value"></span>
-      </div>
+  <div class="modal-content large-modal">
+    <div class="modal-header">
+      <h2>Editar Pedido</h2>
+      <span id="close-edit-pedido" class="close">&times;</span>
     </div>
 
-    <!-- Campos editables -->
-    <label for="editCliente">Seleccione el Cliente</label>
-    <select id="editCliente">Seleccione el Cliente</select>
-    <label for="editFecha">Fecha de Entrega</label>
-    <input type="date" id="editFecha" />
+    <div class="modal-form">
+      
+      <div class="form-section">
+        <h3 class="form-section-title">Información del Pedido</h3>
+        
+        <div class="detail-info-grid">
+          <div class="detail-info-card">
+            <span class="detail-info-label">Fecha Inicio</span>
+            <span id="edit-fecha-inicio" class="detail-info-value">—</span>
+          </div>
+          <div class="detail-info-card">
+            <span class="detail-info-label">Total Actual</span>
+            <span id="edit-total-readonly" class="detail-info-value">C$ 0.00</span>
+          </div>
+          <div class="detail-info-card">
+            <span class="detail-info-label">Adelanto Req. (50%)</span>
+            <span id="edit-adelanto-readonly" class="detail-info-value adelanto-color">C$ 0.00</span>
+          </div>
+        </div>
 
-    <!-- Agregar productos -->
-    <div class="add-producto-row">
-      <select id="edit-producto">
-        <option value="">Seleccione un producto</option>
-      </select>
-      <input type="number" id="edit-cantidad" placeholder="Cantidad" min="1" />
-      <input type="number" id="edit-volumen" placeholder="Volumen" min="1" />
-      <button type="button" id="btn-add-edit-detalle" class="btn save">+ Agregar</button>
+        <div class="form-row">
+          <div class="form-group" style="min-width: 250px;">
+            <label>Cliente</label>
+            <div class="search-box">
+              <input type="text" id="editInputCliente" placeholder="Buscar cliente..." autocomplete="off" />
+              <ul class="search-dropdown" id="editDropdownCliente"></ul>
+            </div>
+            <input type="hidden" id="editSelectedClienteId" />
+          </div>
+          <div class="form-group">
+            <label for="editFecha">Fecha de Entrega</label>
+            <input type="date" id="editFecha" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="form-section-title">Agregar Producto al Detalle</h3>
+
+        <div class="tipo-tabs">
+          <button type="button" class="edit-tipo-tab active" data-tipo="normal">Producto Normal</button>
+          <button type="button" class="edit-tipo-tab" data-tipo="personalizado">Producto Personalizado</button>
+        </div>
+
+        <div id="edit-seccion-normal" class="tipo-seccion">
+          <div class="form-row">
+            <div class="form-group" style="min-width: 250px;">
+              <label>Producto</label>
+              <div class="search-box">
+                <input type="text" id="editInputProductoNormal" placeholder="Buscar producto..." autocomplete="off" />
+                <ul class="search-dropdown" id="editDropdownProductoNormal"></ul>
+              </div>
+              <input type="hidden" id="editSelectedProductoNormalId" />
+            </div>
+            <div class="form-group" style="max-width: 110px;">
+              <label for="edit-cantidad">Cantidad</label>
+              <input type="number" id="edit-cantidad" placeholder="0" min="1" />
+            </div>
+            <div class="form-group" style="max-width: 110px;">
+              <label for="edit-volumen">Volumen</label>
+              <input type="number" id="edit-volumen" placeholder="0" min="1" />
+            </div>
+            <div class="form-group" style="max-width: 120px; justify-content: flex-end;">
+              <button type="button" id="btn-add-edit-detalle" class="btn-add-option">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="edit-seccion-personalizado" class="tipo-seccion" style="display:none">
+          <div class="form-row">
+            <div class="form-group" style="min-width: 250px;">
+              <label>Producto Personalizado</label>
+              <div class="search-box">
+                <input type="text" id="editInputProductoPersonalizado" placeholder="Buscar por cliente..." autocomplete="off" />
+                <ul class="search-dropdown" id="editDropdownProductoPersonalizado"></ul>
+              </div>
+              <input type="hidden" id="editSelectedProductoPersonalizadoId" />
+            </div>
+            <div class="form-group" style="max-width: 110px;">
+              <label for="edit-cantidad-pers">Cantidad</label>
+              <input type="number" id="edit-cantidad-pers" placeholder="0" min="1" value="1" />
+            </div>
+            <div class="form-group" style="max-width: 110px;">
+              <label for="edit-volumen-pers">Volumen</label>
+              <input type="number" id="edit-volumen-pers" placeholder="0" min="1" value="1" />
+            </div>
+            <div class="form-group" style="max-width: 120px; justify-content: flex-end;">
+              <button type="button" id="btn-add-edit-detalle-pers" class="btn-add-option">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="detail-table-wrapper">
+        <table class="detail-table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Volumen</th>
+              <th>Precio Unit.</th>
+              <th>Subtotal</th>
+              <th style="width: 50px; text-align: center;">Acción</th>
+            </tr>
+          </thead>
+          <tbody id="edit-details-body">
+            </tbody>
+        </table>
+      </div>
+
     </div>
 
-    <!-- Tabla de detalles -->
-    <table class="tabla-detalles">
-      <thead>
-        <tr>
-          <th>Producto</th>
-          <th>Cantidad</th>
-          <th>Volumen</th>
-          <th>Subtotal</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="edit-details-body"></tbody>
-    </table>
-
-    <div class="modal-actions">
-      <button class="btn cancel" id="btn-cancel-edit">Cancelar</button>
-      <button class="btn save" id="btn-save-edit">Actualizar</button>
+    <div class="modal-buttons">
+      <button class="btn-cancel" id="btn-cancel-edit">Cancelar</button>
+      <button class="btn-save" id="btn-save-edit">Actualizar Pedido</button>
     </div>
   </div>
 </div>
