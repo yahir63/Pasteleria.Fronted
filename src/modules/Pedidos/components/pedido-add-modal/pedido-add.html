@@ -1,55 +1,139 @@
 <div id="modalAddPedido" class="modal">
-  <div class="modal-content">
-    <span id="close-add-pedido">✕</span>
-    <h2>Nuevo Pedido</h2>
-
-    <select id="add-cliente">
-      <option value="">Seleccione un cliente</option>
-    </select>
-
-    <div class="add-producto-row">
-      <select id="add-producto">
-        <option value="">Seleccione un producto</option>
-      </select>
-      <input type="number" id="add-cantidad" placeholder="Cantidad" min="1" />
-      <input type="number" id="add-volumen"  placeholder="Volumen"  min="1" />
-      <button type="button" id="btn-add-detalle" class="btn save">+ Agregar</button>
+  <div class="modal-content large-modal">
+    <div class="modal-header">
+      <h2>Nuevo Pedido</h2>
+      <span id="close-add-pedido" class="close">&times;</span>
     </div>
 
-    <table class="tabla-detalles">
-      <thead>
-        <tr>
-          <th>Producto</th><th>Cantidad</th><th>Volumen</th><th>Precio</th><th>SubTotal</th>
-        </tr>
-      </thead>
-      <tbody id="add-details-body"></tbody>
-    </table>
-    <div class="fechas-container" style="margin-top: 10px; display: flex; gap: 10px;">
-      <div style="flex:1">
-        <label>Fecha Inicio:</label>
-        <input type="text" id="txtFechaInicio" class="form-control" readonly />
+    <div class="modal-form">
+
+      <!-- Cliente -->
+      <div class="form-section">
+        <h3 class="form-section-title">Información General</h3>
+        <div class="form-row">
+          <div class="form-group" style="min-width:200px">
+         <label>Cliente</label>
+        <div class="search-box">
+       <input type="text" id="inputCliente" placeholder="Buscar cliente..." autocomplete="off" />
+        <ul class="search-dropdown" id="dropdownCliente"></ul>
+          </div>
+       <input type="hidden" id="selectedClienteId" />
+          </div>
+          <div class="form-group">
+            <label>Fecha Inicio</label>
+            <input type="text" id="txtFechaInicio" readonly />
+          </div>
+          <div class="form-group">
+            <label>Fecha Entrega</label>
+            <input type="date" id="add-time-delivery" />
+          </div>
+        </div>
       </div>
-      <div style="flex:1">
-        <label>Fecha Entrega:</label>
-        <input type="date" id="add-time-delivery" class="form-control" />
+
+      <!-- Agregar producto -->
+<div class="form-section">
+  <h3 class="form-section-title">Agregar Producto</h3>
+
+  <!-- Tabs -->
+  <div class="tipo-tabs">
+    <button type="button" class="tipo-tab active" data-tipo="normal">Producto Normal</button>
+    <button type="button" class="tipo-tab" data-tipo="personalizado">Producto Personalizado</button>
+  </div>
+
+  <!-- Búsqueda producto normal -->
+  <div id="seccion-normal" class="tipo-seccion">
+    <div class="form-row">
+      <div class="form-group" style="min-width:200px">
+        <label>Producto</label>
+        <div class="search-box">
+          <input type="text" id="inputProductoNormal" placeholder="Buscar producto..." autocomplete="off" />
+          <ul class="search-dropdown" id="dropdownProductoNormal"></ul>
+        </div>
+        <input type="hidden" id="selectedProductoNormalId" />
+      </div>
+      <div class="form-group" style="max-width:110px">
+        <label>Cantidad</label>
+        <input type="number" id="add-cantidad" placeholder="0" min="1" />
+      </div>
+      <div class="form-group" style="max-width:110px">
+        <label>Volumen</label>
+        <input type="number" id="add-volumen" placeholder="0" min="1" />
+      </div>
+      <div class="form-group" style="max-width:110px; justify-content:flex-end;">
+        <label>&nbsp;</label>
+        <button type="button" id="btn-add-detalle" class="btn-add-option">+ Agregar</button>
       </div>
     </div>
-    <div class="totales-container" style="margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
-     
-      <div>
-        <label>Total (100%):</label>
-        <input type="text" id="add-total" class="form-control" readonly />
+  </div>
+
+  <!-- Búsqueda producto personalizado -->
+  <div id="seccion-personalizado" class="tipo-seccion" style="display:none">
+    <div class="form-row">
+      <div class="form-group" style="min-width:200px">
+        <label>Producto Personalizado</label>
+        <div class="search-box">
+          <input type="text" id="inputProductoPersonalizado" placeholder="Buscar por cliente..." autocomplete="off" />
+          <ul class="search-dropdown" id="dropdownProductoPersonalizado"></ul>
+        </div>
+        <input type="hidden" id="selectedProductoPersonalizadoId" />
       </div>
-      <div>
-        <label>Adelanto (50%):</label>
-        <input type="text" id="add-adelanto" class="form-control" readonly style="font-weight:bold; color:green;" />
+      <div class="form-group" style="max-width:110px">
+        <label>Cantidad</label>
+        <input type="number" id="add-cantidad-pers" placeholder="0" min="1" value="1" />
       </div>
+      <div class="form-group" style="max-width:110px">
+        <label>Volumen</label>
+        <input type="number" id="add-volumen-pers" placeholder="0" min="1" value="1" />
+      </div>
+      <div class="form-group" style="max-width:110px; justify-content:flex-end;">
+        <label>&nbsp;</label>
+        <button type="button" id="btn-add-detalle-pers" class="btn-add-option">+ Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Tabla detalles -->
+      <div class="detail-table-wrapper">
+        <table class="detail-table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Volumen</th>
+              <th>Precio Unit.</th>
+              <th>Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="add-details-body">
+            <tr id="add-empty-row">
+              <td colspan="6" style="text-align:center;color:#888;padding:16px;">
+                Sin productos agregados
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Totales -->
+      <div class="totales-row">
+        <div class="total-item">
+          <span class="total-label">Total (100%)</span>
+          <input type="text" id="add-total" readonly />
+        </div>
+        <div class="total-item">
+          <span class="total-label">Adelanto (50%)</span>
+          <input type="text" id="add-adelanto" readonly class="adelanto-input" />
+        </div>
+      </div>
+
     </div>
 
-    
-    <div class="modal-actions">
-      <button type="button" class="btn cancel" id="btn-cancel-add">Cancelar</button>
-      <button type="button" class="btn save"   id="btn-save-pedido">Guardar Pedido</button>
-    </div>+
+    <div class="modal-buttons">
+      <button type="button" class="btn-cancel" id="btn-cancel-add">Cancelar</button>
+      <button type="button" class="btn-save"   id="btn-save-pedido">Guardar Pedido</button>
+    </div>
   </div>
 </div>
