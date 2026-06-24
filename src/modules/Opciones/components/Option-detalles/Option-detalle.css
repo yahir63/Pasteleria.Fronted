@@ -1,13 +1,15 @@
-#modalViewDetalle .modal-content {
+#modalDetalleOpcion .modal-content {
   background: white;
   padding: 30px;
   border-radius: 12px;
   width: 650px;
   max-width: 95%;
   position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
-#modalViewDetalle .close {
+#close-detalle-opcion {
   position: absolute;
   top: 15px;
   right: 20px;
@@ -17,17 +19,17 @@
   line-height: 1;
 }
 
-#modalViewDetalle .close:hover {
+#close-detalle-opcion:hover {
   color: #dc3545;
 }
 
-#modalViewDetalle .view-title {
+#modalDetalleOpcion h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #333;
 }
 
-#modalViewDetalle .view-info-group {
+#modalDetalleOpcion .view-info-group {
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -37,46 +39,33 @@
   border-radius: 8px;
 }
 
-#modalViewDetalle .view-info-item {
+#modalDetalleOpcion .view-info-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
 }
 
-#modalViewDetalle .view-label {
+#modalDetalleOpcion .view-label {
   font-size: 12px;
   font-weight: 600;
   color: #888;
   margin-bottom: 4px;
 }
 
-#modalViewDetalle .view-value {
+#modalDetalleOpcion .view-value {
   font-size: 14px;
   font-weight: 500;
   color: #333;
 }
 
-#modalViewDetalle .tabla-detalles {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-  font-size: 13px;
+#modalDetalleOpcion .modal-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-#modalViewDetalle .tabla-detalles th,
-#modalViewDetalle .tabla-detalles td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #eee;
-}
-
-#modalViewDetalle .tabla-detalles thead {
-  background: #f0f4f8;
-  color: #555;
-}
-
-#modalViewDetalle #btn-close-view {
+#btn-cerrar-detalle-opcion {
   display: block;
   margin: 0 auto;
   background-color: #0BB2F4;
@@ -90,52 +79,13 @@
   transition: 0.2s;
 }
 
-#modalViewDetalle #btn-close-view:hover {
+#btn-cerrar-detalle-opcion:hover {
   background-color: #0aadff;
   transform: scale(1.02);
 }
 
-#modalViewDetalle .view-totales {
-  display: flex;
-  justify-content: flex-end;
-  gap: 20px;
-  padding: 14px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-#modalViewDetalle .view-total-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 120px;
-}
-
-#modalViewDetalle .view-total-item .view-value {
-  font-size: 16px;
-  font-weight: 700;
-  color: #333;
-}
-
-#modalViewDetalle .view-total-item.adelanto .view-value {
-  color: #0BB2F4;
-}
-
-/* Por si el modal tiene mucho contenido en móvil */
-#modalViewDetalle .modal-content {
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
 @media (max-width: 768px) {
-  #modalViewDetalle .view-info-group {
+  #modalDetalleOpcion .view-info-group {
     flex-wrap: wrap;
-  }
-
-  #modalViewDetalle .view-totales {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
   }
 }
