@@ -1,6 +1,6 @@
-import { getAll } from "/src/modules/Opciones/Service/Opciones.Service.js";
+import { getAll } from "/src/modules/Opciones/Services/option.service.js";
 
-// ─── Estado compartido con modales ────────────────────────────────────────────
+// ─── Estado compartido ────────────────────────────────────────────────────────
 export const state = {
   recargar: null,
 };
@@ -14,19 +14,20 @@ const btnNuevo       = document.getElementById("btn-nueva-opcion");
 const modalContainer = document.getElementById("modal-container");
 
 // ─── Estado local ─────────────────────────────────────────────────────────────
-let paginaActual   = 1;
-let totalPaginas   = 1;
-let totalRegistros = 0;
-let busquedaTimer  = null;
-const PAGE_SIZE    = 8;
+let paginaActual     = 1;
+let totalPaginas     = 1;
+let totalRegistros   = 0;
+let busquedaTimer    = null;
+let opcionesCargadas = []; 
+const PAGE_SIZE      = 8;
 
 // ─── Cargar modales ───────────────────────────────────────────────────────────
 async function cargarModales() {
   const rutas = [
-    "/src/modules/Opciones/components/opcion-add-modal/opcion-add.html",
-    "/src/modules/Opciones/components/opcion-edit-modal/opcion-edit.html",
-    "/src/modules/Opciones/components/opcion-delete-modal/opcion-delete.html",
-    "/src/modules/Opciones/components/opcion-detalle-modal/opcion-detalle.html",
+    "/src/modules/Opciones/components/Option-Add/Option-add.html",
+    "/src/modules/Opciones/components/Option-Edit/Option-editar.html",
+    "/src/modules/Opciones/components/Option-Delete/Option-Delete.html",
+    "/src/modules/Opciones/components/Option-detalles/Option-detalle.html",
   ];
 
   const htmls = await Promise.all(rutas.map(r => fetch(r).then(res => res.text())));
@@ -43,10 +44,10 @@ async function cargarModales() {
     { init: initDelete },
     { init: initDetalle },
   ] = await Promise.all([
-    import("/src/modules/Opciones/components/opcion-add-modal/opcion-add.js"),
-    import("/src/modules/Opciones/components/opcion-edit-modal/opcion-edit.js"),
-    import("/src/modules/Opciones/components/opcion-delete-modal/opcion-delete.js"),
-    import("/src/modules/Opciones/components/opcion-detalle-modal/opcion-detalle.js"),
+    import("/src/modules/Opciones/components/Option-Add/Option-add.js"),
+    import("/src/modules/Opciones/components/Option-Edit/Option-editar.js"),
+    import("/src/modules/Opciones/components/Option-Delete/Option-Delete.js"),
+    import("/src/modules/Opciones/components/Option-detalles/Option-detalle.js"),
   ]);
 
   initAdd(state);
@@ -72,17 +73,9 @@ function renderTabla(items) {
       <td>${o.measurement ?? ""}</td>
       <td>C$ ${Number(o.price ?? 0).toFixed(2)}</td>
       <td class="table-actions">
-        <button type="button" class="view btnVer" data-opcion='${JSON.stringify(o)}'>
-          <img src="/src/modules/Shared/Assets/img/view.png" />
-          Ver detalle
-        </button>
-        <button type="button" class="edit btnEdit" data-opcion='${JSON.stringify(o)}'>
-          <img src="/src/modules/Shared/Assets/img/editar.png" />
-          Editar
-        </button>
-        <button type="button" class="delete btnDelete" data-opcion='${JSON.stringify(o)}'>
-          Eliminar
-        </button>
+        <button type="button" class="view btnVer" data-id='${o.optionId}'>Ver detalle</button>
+        <button type="button" class="edit btnEdit" data-id='${o.optionId}'>Editar</button>
+        <button type="button" class="delete btnDelete" data-id='${o.optionId}'>Eliminar</button>
       </td>`;
     tbody.appendChild(tr);
   });
@@ -90,10 +83,42 @@ function renderTabla(items) {
   bindAcciones();
 }
 
+// ─── Acciones de fila ─────────────────────────────────────────────────────────
+function bindAcciones() {
+  tbody.querySelectorAll(".btnVer").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const id = e.currentTarget.dataset.id;
+      const opcion = opcionesCargadas.find(o => o.optionId == id);
+      state.abrirModalDetalle?.(opcion);
+    });
+  });
+
+tbody.querySelectorAll(".btnEdit").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      // 1. Obtener el ID del atributo data-id
+      const id = e.currentTarget.dataset.id;
+      console.log("ID capturado del botón:", id); 
+
+      // 2. Buscar en el array
+      const opcion = opcionesCargadas.find(o => (o.optionId || o.OptionId) == id);
+      console.log("Objeto encontrado en la lista:", opcion); // 
+
+      state.abrirModalEdit?.(opcion);
+    });
+  });
+  
+  tbody.querySelectorAll(".btnDelete").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const id = e.currentTarget.dataset.id;
+      const opcion = opcionesCargadas.find(o => o.optionId == id);
+      state.abrirModalDelete?.(opcion);
+    });
+  });
+}
+
 // ─── Paginación ───────────────────────────────────────────────────────────────
 function renderPaginacion() {
   paginacionDiv.innerHTML = "";
-
   const prev = document.createElement("button");
   prev.textContent = "<";
   prev.disabled = paginaActual === 1;
@@ -126,48 +151,20 @@ async function cargarPagina(pagina = 1) {
   const busqueda = inputBuscar.value.trim();
   try {
     const data = await getAll(pagina, busqueda);
-
     if (!data || !data.items) {
       renderTabla([]);
-      paginacionDiv.innerHTML = "";
-      spanConteo.textContent = "0 opciones encontradas";
       return;
     }
-
-    paginaActual   = data.pageIndex;
-    totalPaginas   = data.totalPages;
-    totalRegistros = data.totalRegisters;
+    opcionesCargadas = data.items;
+    paginaActual     = data.pageIndex;
+    totalPaginas     = data.totalPages;
+    totalRegistros   = data.totalRegisters;
     renderTabla(data.items);
     renderPaginacion();
     actualizarConteo(data.items);
   } catch (err) {
     console.error("Error cargando opciones:", err);
-    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#e74c3c">Error al cargar opciones</td></tr>`;
   }
-}
-
-// ─── Acciones de fila ─────────────────────────────────────────────────────────
-function bindAcciones() {
-  tbody.querySelectorAll(".btnVer").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const opcion = JSON.parse(e.currentTarget.dataset.opcion);
-      state.abrirModalDetalle?.(opcion);
-    });
-  });
-
-  tbody.querySelectorAll(".btnEdit").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const opcion = JSON.parse(e.currentTarget.dataset.opcion);
-      state.abrirModalEdit?.(opcion);
-    });
-  });
-
-  tbody.querySelectorAll(".btnDelete").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const opcion = JSON.parse(e.currentTarget.dataset.opcion);
-      state.abrirModalDelete?.(opcion);
-    });
-  });
 }
 
 // ─── Eventos ──────────────────────────────────────────────────────────────────

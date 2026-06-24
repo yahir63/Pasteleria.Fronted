@@ -1,3 +1,4 @@
+import { getById } from "/src/modules/Opciones/Services/option.service.js";
 export function init(state) {
   const modal      = document.getElementById("modalDetalleOpcion");
   const spanNombre = document.getElementById("detalle-opcion-nombre");

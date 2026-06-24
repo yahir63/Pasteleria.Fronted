@@ -1,5 +1,5 @@
 import { getToken } from "/src/modules/Login/components/Services/login.Service.js";
-const API_BASE = "https://localhost:7249/api/options";
+const API_BASE = "https://localhost:7249/api/Options";
 
 export async function getAll(pagina = 1, nombre = "", estado = "") {
   const params = new URLSearchParams({ PageNumber: pagina, PageSize: 100 });
@@ -34,12 +34,15 @@ export async function create(data) {
     },
     body: JSON.stringify(data),
   });
+  
   if (!res.ok) {
-    const err = await res.json();
+    const err = await res.json().catch(() => ({}));
     const msgs = err.Errors?.join("\n") ?? "Error al crear la opción";
     throw new Error(msgs);
   }
-  return await res.json();
+    // Si no hay contenido en la respuesta no falla
+    const text = await res.text();
+    return text ? JSON.parse(text) : {};
 }
 
 export async function update(id, data) {

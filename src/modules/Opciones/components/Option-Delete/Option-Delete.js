@@ -1,55 +1,44 @@
-import { update } from "/src/modules/Opciones/Service/Opciones.Service.js";
+import { remove } from "/src/modules/Opciones/Services/option.service.js";
 
 export function init(state) {
-  const modal       = document.getElementById("modalEditOpcion");
-  const inputNombre = document.getElementById("edit-opcion-nombre");
-  const inputDesc   = document.getElementById("edit-opcion-descripcion");
-  const inputMedida = document.getElementById("edit-opcion-medida");
-  const inputPrecio = document.getElementById("edit-opcion-precio");
-  const btnGuardar  = document.getElementById("btn-save-edit-opcion");
-  const btnCancelar = document.getElementById("btn-cancel-edit-opcion");
-  const btnClose    = document.getElementById("close-edit-opcion");
+  const modal      = document.getElementById("modalDeleteOpcion");
+  const btnConfirm = document.getElementById("btn-confirm-delete-opcion");
+  const btnCancel  = document.getElementById("btn-cancel-delete-opcion");
+  const btnClose   = document.getElementById("close-delete-opcion");
+  const spanNombre = document.getElementById("delete-opcion-nombre");
 
-  let opcionId = null;
+  let idAEliminar = null;
 
   const cerrar = () => {
     modal.classList.remove("show");
     document.body.style.overflow = "auto";
   };
 
-  state.abrirModalEdit = (opcion) => {
-    opcionId          = opcion.optionId;
-    inputNombre.value = opcion.name        ?? "";
-    inputDesc.value   = opcion.description ?? "";
-    inputMedida.value = opcion.measurement ?? "";
-    inputPrecio.value = opcion.price       ?? "";
+  state.abrirModalDelete = (opcion) => {
+    if (!opcion) return;
+    
+    idAEliminar = opcion.optionId;
+    // Mostramos el nombre en el modal para que el usuario sepa qué borra
+    if (spanNombre) spanNombre.textContent = opcion.name;
+    
     modal.classList.add("show");
     document.body.style.overflow = "hidden";
   };
 
-  btnCancelar.addEventListener("click", () => {
-    if (confirm("¿Seguro que desea salir sin guardar?")) cerrar();
-  });
-  btnClose.addEventListener("click", cerrar);
-
-  btnGuardar.addEventListener("click", async () => {
-    if (!inputNombre.value.trim()) { alert("El nombre es obligatorio"); return; }
-    if (!inputPrecio.value)        { alert("El precio es obligatorio"); return; }
-
-    const body = {
-      name:        inputNombre.value.trim(),
-      description: inputDesc.value.trim(),
-      measurement: inputMedida.value.trim(),
-      price:       parseFloat(inputPrecio.value),
-    };
+  btnConfirm.addEventListener("click", async () => {
+    if (!idAEliminar) return;
 
     try {
-      await update(opcionId, body);
-      alert("Opción actualizada exitosamente");
+      await remove(idAEliminar);
+      alert("Elemento eliminado exitosamente");
       cerrar();
       state.recargar();
     } catch (err) {
-      alert(err.message ?? "Error al actualizar la opción");
+      console.error(err);
+      alert("Error al eliminar: " + (err.message || "Error desconocido"));
     }
   });
+
+  btnCancel.addEventListener("click", cerrar);
+  btnClose.addEventListener("click", cerrar);
 }

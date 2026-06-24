@@ -1,4 +1,4 @@
-import { update } from "/src/modules/Opciones/Service/Opciones.Service.js";
+import { update } from "/src/modules/Opciones/Services/option.service.js";
 
 export function init(state) {
   const modal       = document.getElementById("modalEditOpcion");
@@ -18,7 +18,10 @@ export function init(state) {
   };
 
   state.abrirModalEdit = (opcion) => {
-    opcionId          = opcion.optionId;
+    console.log("Datos recibidos en el modal:", opcion); 
+
+
+    opcionId = opcion.optionId ?? opcion.OptionId;
     inputNombre.value = opcion.name        ?? "";
     inputDesc.value   = opcion.description ?? "";
     inputMedida.value = opcion.measurement ?? "";

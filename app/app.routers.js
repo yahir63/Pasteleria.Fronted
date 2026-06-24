@@ -5,7 +5,7 @@ export const routes = {
   "/personalizado": "/src/modules/Personalizado/pages/Personalizado.html",
   "/categorias"   : "/src/modules/Categories/pages/Categoria.html",
   "/clientes"     : "/src/modules/Customers/pages/Clientes.html",
-  "/opciones"     : "/src/modules/Opciones/components/Opciones.html",
+  "/opciones"     : "/src/modules/Opciones/Pages/Option.html",
   "/usuarios"     : "/src/modules/Usuario/components/Usuario.html",
   "/pedidos"       : "/src/modules/Pedidos/Pages/Pedidos.html",
   "/compras"      : "/src/modules/Compras/components/Compras.html",

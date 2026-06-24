@@ -1,4 +1,4 @@
-import { create } from "/src/modules/Opciones/Service/Opciones.Service.js";
+import { create } from "/src/modules/Opciones/Services/option.service.js";
 
 export function init(state) {
   const modal       = document.getElementById("modalAddOpcion");
@@ -45,13 +45,15 @@ export function init(state) {
       price:       parseFloat(inputPrecio.value),
     };
 
-    try {
-      await create(body);
-      alert("Opción creada exitosamente");
-      cerrar();
-      state.recargar();
-    } catch (err) {
-      alert(err.message ?? "Error al guardar la opción");
-    }
+   try {
+  await create(body);
+  cerrar();
+  state.recargar();
+  alert("Opción creada exitosamente");
+} catch (err) {
+  // Igual recargamos porque puede haberse creado
+  cerrar();
+  state.recargar();
+}
   });
 }
