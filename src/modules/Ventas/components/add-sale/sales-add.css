@@ -13,6 +13,29 @@
   overflow-y: auto;
   z-index: 10000;
 }
+.customer-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.customer-wrapper select {
+  flex: 1;
+}
+
+.customer-pagination {
+  display: flex;
+  gap: 5px;
+}
+
+.customer-pagination button {
+  border-radius: 10px;
+  width: 20px;
+  border: none;
+  background-color: #0bb2f4;
+  align-items: center;
+  padding: 4px 4px;
+}
 
 .modalAdd button {
   transition: all 0.3s ease;
